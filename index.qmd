@@ -32,7 +32,7 @@ The Spatial Data & GIS Platform is developed by the Department of Urbanism at TU
 
 Master the fundamentals of Geographic Information Systems. Access tutorials, workshops, and hands-on exercises designed for architecture and urbanism students.
 
-[Explore learning resources →](#)
+[Explore learning resources →](/pages/learn_gis.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}

@@ -1,4 +1,12 @@
 ---
 title: "learn_GIS"
 format: html
+listing:
+  contents: /pages
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: [categories, extent, coverage, year, resolution, data_format]
+  fields: [title, url, extent, year, resolution, categories, data_format]
+editor: visual
 ---

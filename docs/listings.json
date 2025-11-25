@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/pages/learn_gis.html",
+    "items": []
+  },
+  {
     "listing": "/pages/find_data.html",
     "items": [
       "/pages/sources/3dbag.html",

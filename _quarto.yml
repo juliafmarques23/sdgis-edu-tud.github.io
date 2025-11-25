@@ -19,6 +19,8 @@ website:
         text: "Software and Tools"
       - text: "Learn QGIS"
         menu:
+          - text: "Learn GIS"
+            href: pages/learn_gis.qmd
           - text: "Installation and setup"
             href: pages/installation_setup/install_qgis.qmd
           - text: "Getting started with QGIS"
