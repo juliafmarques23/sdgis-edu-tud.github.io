@@ -25,6 +25,8 @@ website:
             href: pages/installation_setup/install_qgis.qmd
           - text: "Getting started with QGIS"
             href: pages/getting_started.qmd
+          - text: "Spatial data preparation and preprocessing"
+            href: pages/spatial_data_preparation.qmd
           - text: "Cartography and mapping"
             href: pages/cartography_and_mapping/cartographic_principles.qmd
           - text: "Density analysis"
