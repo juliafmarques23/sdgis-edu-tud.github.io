@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your Course / Lab Name">
+<meta name="dcterms.date" content="2026-02-04">
 
-<title>Master of Urbanism - Q2 - GIS Workshop – sdgistud</title>
+<title>QGIS Tutorial: Land Use Aggregation on a 2×2 km Grid – sdgistud</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,27 +60,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -280,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">sdgistud</span>
     </a>
   </div>
@@ -291,11 +293,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pages/software_and_tools.html"> 
+    <a class="nav-link" href="../../pages/software_and_tools.html"> 
 <span class="menu-text">Software and Tools</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -304,31 +306,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-learn-qgis">    
         <li>
-    <a class="dropdown-item" href="../pages/learn_gis.html">
+    <a class="dropdown-item" href="../../pages/learn_gis.html">
  <span class="dropdown-text">Learn GIS</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/installation_setup/install_qgis.html">
+    <a class="dropdown-item" href="../../pages/installation_setup/install_qgis.html">
  <span class="dropdown-text">Installation and setup</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/getting_started.html">
+    <a class="dropdown-item" href="../../pages/getting_started.html">
  <span class="dropdown-text">Getting started with QGIS</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/spatial_data_preparation.html">
+    <a class="dropdown-item" href="../../pages/spatial_data_preparation.html">
  <span class="dropdown-text">Spatial data preparation and preprocessing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/cartography_and_mapping/cartographic_principles.html">
+    <a class="dropdown-item" href="../../pages/cartography_and_mapping/cartographic_principles.html">
  <span class="dropdown-text">Cartography and mapping</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/density_analysis/land_cover_density_in_grid.qmd">
+    <a class="dropdown-item" href="../../pages/density_analysis/land_cover_density_in_grid.qmd">
  <span class="dropdown-text">Density analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../pages/landscape_analysis/terrain_data.html">
+    <a class="dropdown-item" href="../../pages/landscape_analysis/terrain_data.html">
  <span class="dropdown-text">Landscape analysis</span></a>
   </li>  
     </ul>
@@ -357,11 +359,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="dropdown-header">WV5 -</li>
         <li class="dropdown-header">MSc Urbanism Q1 - GIS workshop</li>
         <li>
-    <a class="dropdown-item" href="../courses/mscu_q2.html">
+    <a class="dropdown-item" href="../../courses/mscu_q2.html">
  <span class="dropdown-text">MSc Urbanism Q2 - GIS workshop</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../courses/mscu_q3.html">
+    <a class="dropdown-item" href="../../courses/mscu_q3.html">
  <span class="dropdown-text">MSc Urbanism Q3 - GIS workshop</span></a>
   </li>  
         <li class="dropdown-header">ARFW0501 - Applied Spatial Analytics for Sustainable Futures</li>
@@ -369,21 +371,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../pages/find_data.html"> 
+    <a class="nav-link" href="../../pages/find_data.html"> 
 <span class="menu-text">Find Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pages/about.html"> 
+    <a class="nav-link" href="../../pages/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contact.qmd"> 
+    <a class="nav-link" href="../../contact.qmd"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contribute.qmd"> 
+    <a class="nav-link" href="../../contribute.qmd"> 
 <span class="menu-text">Contribute</span></a>
   </li>  
 </ul>
@@ -427,16 +429,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructors" id="toc-instructors" class="nav-link active" data-scroll-target="#instructors">👩‍🏫👨‍🏫🎓Instructors</a></li>
-  <li><a href="#helpers" id="toc-helpers" class="nav-link" data-scroll-target="#helpers">👩‍🏫👨‍🏫🎓Helpers</a></li>
-  <li><a href="#dates-and-deadlines" id="toc-dates-and-deadlines" class="nav-link" data-scroll-target="#dates-and-deadlines">Dates and Deadlines</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a>
-  <ul class="collapse">
-  <li><a href="#data-download" id="toc-data-download" class="nav-link" data-scroll-target="#data-download">Data Download</a></li>
-  <li><a href="#data-sources-and-formats" id="toc-data-sources-and-formats" class="nav-link" data-scroll-target="#data-sources-and-formats">Data Sources and Formats</a></li>
-  <li><a href="#building-and-analyzing-sections" id="toc-building-and-analyzing-sections" class="nav-link" data-scroll-target="#building-and-analyzing-sections">Building and Analyzing sections</a></li>
-  <li><a href="#data-interoperability-and-visualization" id="toc-data-interoperability-and-visualization" class="nav-link" data-scroll-target="#data-interoperability-and-visualization">Data Interoperability and Visualization</a></li>
-  </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> 🎯 Learning objectives</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">2</span> 🧰 Prerequisites</a></li>
+  <li><a href="#data-setup" id="toc-data-setup" class="nav-link" data-scroll-target="#data-setup"><span class="header-section-number">3</span> 📁 Data &amp; setup</a></li>
   </ul>
 </nav>
     </div>
@@ -446,14 +441,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Master of Urbanism - Q2 - GIS Workshop</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">QGIS Tutorial: Land Use Aggregation on a 2×2 km Grid</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Applied Spatial Analysis – Week 2</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your Course / Lab Name </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 4, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -463,68 +471,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="instructors" class="level2">
-<h2 class="anchored" data-anchor-id="instructors">👩‍🏫👨‍🏫🎓Instructors</h2>
+<section id="learning-objectives" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> 🎯 Learning objectives</h2>
+<p>After completing this tutorial, you will be able to:</p>
 <ul>
-<li><p>Daniele Cannatella</p></li>
-<li><p>Rob van Houten</p></li>
-<li><p>Ines Zaid</p></li>
+<li>Load and inspect vector datasets in QGIS<br>
+</li>
+<li>Create a custom 2×2 km analysis grid<br>
+</li>
+<li>Aggregate land-use categories per grid cell<br>
+</li>
+<li>Export results for further analysis or mapping</li>
 </ul>
+<hr>
 </section>
-<section id="helpers" class="level2">
-<h2 class="anchored" data-anchor-id="helpers">👩‍🏫👨‍🏫🎓Helpers</h2>
+<section id="prerequisites" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">2</span> 🧰 Prerequisites</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Software &amp; skills
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Faried Nurmohamed</p></li>
-<li><p>Stepan Prikazcicov</p></li>
+<li><strong>QGIS 3.40 LTR</strong> installed<br>
+</li>
+<li>Basic familiarity with the QGIS interface (layers panel, attribute table)</li>
 </ul>
+</div>
+</div>
+<hr>
 </section>
-<section id="dates-and-deadlines" class="level2">
-<h2 class="anchored" data-anchor-id="dates-and-deadlines">Dates and Deadlines</h2>
+<section id="data-setup" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="data-setup"><span class="header-section-number">3</span> 📁 Data &amp; setup</h2>
+<p>Download the following datasets:</p>
 <ul>
-<li>GIS workshop: Wednesday 19 November 2025, 08:45</li>
+<li><strong>CORINE Land Cover (CLC 2018)</strong> – vector<br>
+</li>
+<li><strong>Administrative boundary</strong> of your study area</li>
 </ul>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<section id="data-download" class="level3">
-<h3 class="anchored" data-anchor-id="data-download">Data Download</h3>
-<p>Click <a href="https://surfdrive.surf.nl/s/ZifCpiHF3bXMSqF">here</a> to download the dataset.</p>
-</section>
-<section id="data-sources-and-formats" class="level3">
-<h3 class="anchored" data-anchor-id="data-sources-and-formats">Data Sources and Formats</h3>
-<section id="importing-data-from-portals" class="level4">
-<h4 class="anchored" data-anchor-id="importing-data-from-portals">Importing Data from Portals</h4>
-<ul>
-<li><strong>Exercise 1: <a href="../pages/misc/using_data_source_manager.html">Using the Data Source Manager with WFS and WMS</a></strong></li>
-</ul>
-</section>
-<section id="georeferencing-and-digitizing" class="level4">
-<h4 class="anchored" data-anchor-id="georeferencing-and-digitizing">Georeferencing and Digitizing</h4>
-<ul>
-<li><strong>Exercise 2: <a href="../pages/misc/georeferencing_and_digitizing.html">Georeferencing and Digitizing</a></strong></li>
-</ul>
-</section>
-</section>
-<section id="building-and-analyzing-sections" class="level3">
-<h3 class="anchored" data-anchor-id="building-and-analyzing-sections">Building and Analyzing sections</h3>
-<ul>
-<li>Video Tutorial: <a href="https://www.youtube.com/watch?v=jwbsdLuxyAY&amp;t=110s&amp;ab_channel=GeoDeltaLabs">Cross section detection using Profile Tool</a></li>
-<li>Video Tutorial: <a href="https://www.youtube.com/watch?time_continue=66&amp;v=jqDm1RpGpVE&amp;embeds_referring_euri=https%3A%2F%2Fwww.notion.so%2F&amp;source_ve_path=Mjg2NjY">Compare raster DTM’s, contour lines and a point cloud for different transects</a></li>
-<li>Video Tutorial: <a href="https://www.youtube.com/watch?v=8fsMyj1nxpE&amp;ab_channel=OpenSourceOptions">Elevation Profiles using .laz data</a></li>
-<li>Video Tutorial: <a href="https://www.youtube.com/watch?v=HCO7Ugfc_0w&amp;t=184s&amp;ab_channel=WebStoryMap">Multiple cross sectional profiles</a></li>
-<li>Video Tutorial: <a href="https://www.youtube.com/watch?v=rgFI5WiXOl8&amp;ab_channel=GeoDeltaLabs">Create 3D Terrain with QGIS and GIMP</a></li>
-</ul>
-</section>
-<section id="data-interoperability-and-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="data-interoperability-and-visualization">Data Interoperability and Visualization</h3>
-<ul>
-<li><strong>Exercise 4: <a href="../pages/misc/statistics_and_data_visualization.html">Calculating Basic Statistics</a></strong></li>
-</ul>
+<p>Place all files in a single project folder:</p>
+<p>```text project/ ├── data/ │ ├── clc_2018.gpkg │ └── boundary.gpkg └── qgis/ └── analysis.qgz</p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -992,55 +987,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Master of Urbanism - Q2 - GIS Workshop"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 👩‍🏫👨‍🏫🎓Instructors</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Daniele Cannatella</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Rob van Houten</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ines Zaid</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## 👩‍🏫👨‍🏫🎓Helpers</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Faried Nurmohamed</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Stepan Prikazcicov</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dates and Deadlines</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>GIS workshop: Wednesday 19 November 2025, 08:45</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "QGIS Tutorial: Land Use Aggregation on a 2×2 km Grid"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Applied Spatial Analysis – Week 2"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Your Course / Lab Name"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    callout-appearance: simple</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: auto</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Learning objectives</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>After completing this tutorial, you will be able to:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Load and inspect vector datasets in QGIS\</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Create a custom 2×2 km analysis grid\</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Aggregate land-use categories per grid cell\</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Export results for further analysis or mapping</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Download</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Click <span class="co">[</span><span class="ot">here</span><span class="co">](https://surfdrive.surf.nl/s/ZifCpiHF3bXMSqF)</span> to download the dataset.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧰 Prerequisites</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Sources and Formats</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Importing Data from Portals</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 1: [Using the Data Source Manager with WFS and WMS](/pages/misc/using_data_source_manager.qmd)**</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Georeferencing and Digitizing</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 2: [Georeferencing and Digitizing](/pages/misc/georeferencing_and_digitizing.qmd)**</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Building and Analyzing sections</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Video Tutorial: <span class="co">[</span><span class="ot">Cross section detection using Profile Tool</span><span class="co">](https://www.youtube.com/watch?v=jwbsdLuxyAY&amp;t=110s&amp;ab_channel=GeoDeltaLabs)</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Video Tutorial: <span class="co">[</span><span class="ot">Compare raster DTM's, contour lines and a point cloud for different transects</span><span class="co">](https://www.youtube.com/watch?time_continue=66&amp;v=jqDm1RpGpVE&amp;embeds_referring_euri=https%3A%2F%2Fwww.notion.so%2F&amp;source_ve_path=Mjg2NjY)</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Video Tutorial: <span class="co">[</span><span class="ot">Elevation Profiles using .laz data</span><span class="co">](https://www.youtube.com/watch?v=8fsMyj1nxpE&amp;ab_channel=OpenSourceOptions)</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Video Tutorial: <span class="co">[</span><span class="ot">Multiple cross sectional profiles</span><span class="co">](https://www.youtube.com/watch?v=HCO7Ugfc_0w&amp;t=184s&amp;ab_channel=WebStoryMap)</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Video Tutorial: <span class="co">[</span><span class="ot">Create 3D Terrain with QGIS and GIMP</span><span class="co">](https://www.youtube.com/watch?v=rgFI5WiXOl8&amp;ab_channel=GeoDeltaLabs)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Software &amp; skills</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**QGIS 3.40 LTR** installed\</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Basic familiarity with the QGIS interface (layers panel, attribute table)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📁 Data &amp; setup</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Download the following datasets:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**CORINE Land Cover (CLC 2018)** – vector\</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Administrative boundary** of your study area</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Place all files in a single project folder:</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Interoperability and Visualization</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 4: [Calculating Basic Statistics](/pages/misc/statistics_and_data_visualization.qmd)**</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span>text project/ ├── data/ │ ├── clc_2018.gpkg │ └── boundary.gpkg └── qgis/ └── analysis.qgz</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

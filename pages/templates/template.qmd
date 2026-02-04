@@ -1,0 +1,48 @@
+---
+title: "QGIS Tutorial: Land Use Aggregation on a 2×2 km Grid"
+subtitle: "Applied Spatial Analysis – Week 2"
+author: "Your Course / Lab Name"
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    callout-appearance: simple
+execute:
+  freeze: auto
+---
+
+## 🎯 Learning objectives
+
+After completing this tutorial, you will be able to:
+
+-   Load and inspect vector datasets in QGIS\
+-   Create a custom 2×2 km analysis grid\
+-   Aggregate land-use categories per grid cell\
+-   Export results for further analysis or mapping
+
+------------------------------------------------------------------------
+
+## 🧰 Prerequisites
+
+::: callout-note
+### Software & skills
+
+-   **QGIS 3.40 LTR** installed\
+-   Basic familiarity with the QGIS interface (layers panel, attribute table)
+:::
+
+------------------------------------------------------------------------
+
+## 📁 Data & setup
+
+Download the following datasets:
+
+-   **CORINE Land Cover (CLC 2018)** – vector\
+-   **Administrative boundary** of your study area
+
+Place all files in a single project folder:
+
+\`\`\`text project/ ├── data/ │ ├── clc_2018.gpkg │ └── boundary.gpkg └── qgis/ └── analysis.qgz

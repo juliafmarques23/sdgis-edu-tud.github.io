@@ -50,7 +50,7 @@ website:
           - text: "MSc Urbanism Q2 - GIS workshop"
             href: courses/mscu_q2.qmd
           - text: "MSc Urbanism Q3 - GIS workshop"
-            href: ""
+            href: courses/mscu_q3.qmd
           - text: "ARFW0501 - Applied Spatial Analytics for Sustainable Futures"
             href: ""
           - text: "DISSUF MSc Urbanism Graduation Cluster"

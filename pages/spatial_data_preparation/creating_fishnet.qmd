@@ -685,7 +685,7 @@ The RD New system uses meters, making distance/area calculations intuitive (2 km
 ### Grid Resolution Selection
 
 | Grid Size     | Cell Area | When to Use                                      |
-|-----------------------|-----------------------|---------------------------|
+|---------------|-----------|--------------------------------------------------|
 | 100m × 100m   | 0.01 km²  | Detailed urban analysis, building-level patterns |
 | 500m × 500m   | 0.25 km²  | Neighborhood characteristics, walking distances  |
 | 1km × 1km     | 1 km²     | District patterns, facility catchments           |
@@ -754,7 +754,7 @@ This helps maintain reproducibility and data quality.
 **Causes & Solutions:**
 
 | Cause | Solution |
-|------------------------------|------------------------------------------|
+|----|----|
 | No internet connection | Check network, try again |
 | Plugin not activated | Plugins → Manage Plugins → check PDOK is enabled |
 | PDOK service temporarily down | Try again later, check https://www.pdok.nl/status |
@@ -923,7 +923,7 @@ By completing this tutorial, you have:
 ### Key Concepts Reinforced
 
 | Concept | Application in Tutorial |
-|--------------------|----------------------------------------------------|
+|----|----|
 | **Coordinate Reference Systems** | EPSG:28992 (RD New) for Dutch data |
 | **Spatial Resolution** | 2km × 2km cells as statistical units |
 | **Geoprocessing Workflows** | Multi-step process: Create → Clip → Filter |
