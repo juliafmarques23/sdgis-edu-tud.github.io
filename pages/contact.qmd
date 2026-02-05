@@ -1,0 +1,18 @@
+---
+title: "Contact Us"
+format: html
+---
+
+## Get In Touch
+
+We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out using any of the methods below.
+
+### Contact Information
+
+**Email:** [sdgis-BK@tudelft.nl](mailto:sdgis-BK@tudelft.nl)
+
+
+---
+
+*We typically respond to messages within 24 business hours.*
+

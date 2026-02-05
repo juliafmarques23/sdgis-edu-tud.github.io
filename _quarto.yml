@@ -30,7 +30,7 @@ website:
           - text: "Cartography and mapping"
             href: pages/cartography_and_mapping/cartographic_principles.qmd
           - text: "Density analysis"
-            href: pages/density_analysis/land_cover_density_in_grid.qmd
+            href: pages/density_analysis/road_network_density.qmd
           - text: "Landscape analysis"
             href: pages/landscape_analysis/terrain_data.qmd
       - text: "Learn R"
@@ -41,9 +41,9 @@ website:
             href: https://carpentries-incubator.github.io/r-geospatial-urban/
       - text: "Courses and Workshops"
         menu:
-          - text: "IOP1 - "
+          - text: "IOP1 - GeoExpert Role "
             href: ""
-          - text: "WV5 - "
+          - text: "WV5 - GeoData"
             href: ""
           - text: "MSc Urbanism Q1 - GIS workshop"
             href: ""
@@ -51,6 +51,8 @@ website:
             href: courses/mscu_q2.qmd
           - text: "MSc Urbanism Q3 - GIS workshop"
             href: courses/mscu_q3.qmd
+          - text: "MSc Landscape Architecture Q3 - GIS workshop"
+            href: courses/la_q3.qmd
           - text: "ARFW0501 - Applied Spatial Analytics for Sustainable Futures"
             href: ""
           - text: "DISSUF MSc Urbanism Graduation Cluster"
@@ -136,9 +138,7 @@ website:
     left: "Copyright 2025, SDGIS-BK@tudelft.nl"
     right: 
       - icon: github
-        href: https://github.com/
-      - icon: twitter 
-        href: https://twitter.com/
+        href: https://github.com/sdgis-edu-tud/sdgis-edu-tud.github.io
   page-navigation: true
   search: true
 

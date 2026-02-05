@@ -1,5 +1,7 @@
-# Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial
-
+---
+title: "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial"
+author: "Daniele Cannatella"
+---
 **Classification:** Intermediate GIS Analysis \| Spatial Data Processing \| Environmental & Energy Assessment
 
 **Subcategory:** Raster-Vector Analysis, Cartographic Visualization, Exploratory Data Analysis

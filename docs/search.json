@@ -762,242 +762,87 @@
     "text": "Feedback & Support\nIf you encounter issues:\n\nReview the Troubleshooting Guide above\nCheck QGIS documentation at https://docs.qgis.org/\nConsult OpenStreetMap wiki for data questions\nContact your instructor or GIS support team"
   },
   {
-    "objectID": "pages/cartography_and_mapping/types_of_maps.html",
-    "href": "pages/cartography_and_mapping/types_of_maps.html",
-    "title": "Types of Maps",
-    "section": "",
-    "text": "Back to top",
-    "crumbs": [
-      "Cartography and mapping",
-      "Types of Maps"
-    ]
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/map_elements.html",
-    "href": "pages/cartography_and_mapping/map_elements.html",
-    "title": "Map elements",
-    "section": "",
-    "text": "Scale is the relationship between a distance on a map and the corresponding distance on the ground.\nIt affects the level of detail that can be shown and the map’s overall purpose.\nIt affects generalization: as scale decreases (i.e., becomes smaller), map makers must generalize features. This means they simplify, aggregate, or omit certain details to keep the map legible and useful.\nWhile scales in GIS are exactly defined and represented on the map as s scale bar or ratio, general discussions about map scale often use the relative terms: large scale, medium scale, and small scale.\n\n\nIn spatial design disciplines, we offer associate the terms “small” and “large” in relation to the portion of territory that maps frame. A small scale map indicates a “zoom-in” area,\nIn Cartographic terms, Large-scale maps show things as big and small-scsale maps show things as small.\n\n\n\n\n\n\n\nscales\n\n\n\n\nSmall scale: 1:250,000 and smaller\nMedium scale: 1:50,000 to 1:250,000\nLarge scale: 1:50,000 and larger\n\n\n\n\n\n\nSpatial data are produced with a scale. An example is the dataset from Natural Earth1\n\n\n\n\nit is hard to represent our spherical world on a flat piece of paper. That is why cartographers use projections: to morph the globe into 2D map.\nProjection is a method of transforming the three-dimensional surface of the Earth into a two-dimensional map.\nBecause a curved surface cannot be flattened without distortion, every projection results in some form of distortion. The type and extend of this distortion depend on the projection method used.\nThese pictures from 1921 compare how the drwaing of a man’s head changes in different projections, resulting in different distoritions.\n\n\n\n\n\n\n\nThe True Size of allows you to understand how distortion affects shapes proportions. You can drag and drop countries’ shapes around the map and explore the effect that distortion does.\nCountries more in the north, such as Russia or Canada, or to the sout, such argentina and australia, are depicted way bigger than they are in the Mercator Projection. Similarly, countries lying on the equator look smaller.\nQuesto significa che ogni mappa, seppur geometricamente e matematicamente inecceplibile, non puo’ non produrre distorsioni che affect la reppresentazione di geographical fitures sul nostro pianeta quando proiettate su una mappa piatta.\nQuesto tipo di rappresentazione affect anche il modo in cui noi percepiamo il mondo, attraverso la nostra mappa mentale. Per questo motivo la mappa di mercatore e’ stata molto criticata\nOn the Mercator projection, greenland appears to be roughly the same size as Africa. In reality, Greenland is 0.8 million sq. miles, and Africa is 11.6 million sq. miles, nearly 14 and a half times larger.\nGerardus Mercator revolutionized map making2. His Mercator projection map, invented in 1569, was the primary map that navigators used for years. It’s the form that many maps still come in today. And the name he chose for his massive collection of maps — “Atlas” — is widely used.\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\nHis new map was a revelation, because:\n\nthe projection kept the latitude and longitude lines at consistent 90 degree angles.\nmade it easier for sailors to plot their course without constantly adjusting for mapping mistakes.\nEasier to see the relationships between landmasses.\nThe downside was that it distorted the size of land masses, particularly near the poles\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\n\nThat achievement was followed by the publication of Mercator’s Atlas. Though it wasn’t the first book of maps, the name Mercator chose came to define the type of book.\nIn recent years, the Mercator projection has come under fire for distorting the real shape of the world’s continents — objects closer to the poles appear larger than they should. That results in North America looking larger than Africa, or China looking smaller than Greenland, when really the opposite is true.\n\n\n\n\nGeographic Misconceptions: The distortion inherent in the Mercator projection has led to widespread misconceptions. People have the wrong idea about the relative size of countries and continents. Africa, for example, is vastly larger than Greenland in reality, yet on a Mercator map, they comparable in size. This skewed perception has implications for how people understand global geography. It can reinforce Eurocentric views of the world. Europe appears larger and more centrally located than it is in reality.\nCultural and Political Impacts: The Mercator projection has been critiqued for reinforcing colonial and imperialist worldviews. The projection enlarges Europe and North America while minimizing the Global South. This effect perpetuates a sense of dominance and importance for the countries in the Northern Hemisphere. This bias can subtly influence political and cultural attitudes. It contributes to a worldview that overemphasizes the power and significance of the North at the expense of the South.\nEducational Consequences: The Mercator projection’s prevalence in educational settings, particularly in classrooms, has had lasting impacts. These impacts affect students’ understanding of world geography. The distorted sizes of continents and countries can lead to misconceptions that persist into adulthood. These misconceptions can influence everything from personal worldviews to policy decisions. An inaccurate understanding of geography can lead to flawed strategic and economic considerations.\n\n\n\n\n\nThe visual representation of geographic data on a map using various symbols to depict different types of features\nIt includes the choice of symbols, their sizes, colors, styles, and labels to represent different map elements like roads, rivers, cities, elevation, land use, and more\nGraphic symbols complement map scale and projections, by making visible the features, places, and other locational information represented on the map.\nMap symbols serve as a graphic code for storing and retrieving data\n\n\n\nBasic cartographical visual variables. Source: Krygier and Wood (2005)"
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/map_elements.html#map-elements",
-    "href": "pages/cartography_and_mapping/map_elements.html#map-elements",
-    "title": "Map elements",
-    "section": "",
-    "text": "Scale is the relationship between a distance on a map and the corresponding distance on the ground.\nIt affects the level of detail that can be shown and the map’s overall purpose.\nIt affects generalization: as scale decreases (i.e., becomes smaller), map makers must generalize features. This means they simplify, aggregate, or omit certain details to keep the map legible and useful.\nWhile scales in GIS are exactly defined and represented on the map as s scale bar or ratio, general discussions about map scale often use the relative terms: large scale, medium scale, and small scale.\n\n\nIn spatial design disciplines, we offer associate the terms “small” and “large” in relation to the portion of territory that maps frame. A small scale map indicates a “zoom-in” area,\nIn Cartographic terms, Large-scale maps show things as big and small-scsale maps show things as small.\n\n\n\n\n\n\n\nscales\n\n\n\n\nSmall scale: 1:250,000 and smaller\nMedium scale: 1:50,000 to 1:250,000\nLarge scale: 1:50,000 and larger\n\n\n\n\n\n\nSpatial data are produced with a scale. An example is the dataset from Natural Earth1\n\n\n\n\nit is hard to represent our spherical world on a flat piece of paper. That is why cartographers use projections: to morph the globe into 2D map.\nProjection is a method of transforming the three-dimensional surface of the Earth into a two-dimensional map.\nBecause a curved surface cannot be flattened without distortion, every projection results in some form of distortion. The type and extend of this distortion depend on the projection method used.\nThese pictures from 1921 compare how the drwaing of a man’s head changes in different projections, resulting in different distoritions.\n\n\n\n\n\n\n\nThe True Size of allows you to understand how distortion affects shapes proportions. You can drag and drop countries’ shapes around the map and explore the effect that distortion does.\nCountries more in the north, such as Russia or Canada, or to the sout, such argentina and australia, are depicted way bigger than they are in the Mercator Projection. Similarly, countries lying on the equator look smaller.\nQuesto significa che ogni mappa, seppur geometricamente e matematicamente inecceplibile, non puo’ non produrre distorsioni che affect la reppresentazione di geographical fitures sul nostro pianeta quando proiettate su una mappa piatta.\nQuesto tipo di rappresentazione affect anche il modo in cui noi percepiamo il mondo, attraverso la nostra mappa mentale. Per questo motivo la mappa di mercatore e’ stata molto criticata\nOn the Mercator projection, greenland appears to be roughly the same size as Africa. In reality, Greenland is 0.8 million sq. miles, and Africa is 11.6 million sq. miles, nearly 14 and a half times larger.\nGerardus Mercator revolutionized map making2. His Mercator projection map, invented in 1569, was the primary map that navigators used for years. It’s the form that many maps still come in today. And the name he chose for his massive collection of maps — “Atlas” — is widely used.\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\nHis new map was a revelation, because:\n\nthe projection kept the latitude and longitude lines at consistent 90 degree angles.\nmade it easier for sailors to plot their course without constantly adjusting for mapping mistakes.\nEasier to see the relationships between landmasses.\nThe downside was that it distorted the size of land masses, particularly near the poles\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\n\nThat achievement was followed by the publication of Mercator’s Atlas. Though it wasn’t the first book of maps, the name Mercator chose came to define the type of book.\nIn recent years, the Mercator projection has come under fire for distorting the real shape of the world’s continents — objects closer to the poles appear larger than they should. That results in North America looking larger than Africa, or China looking smaller than Greenland, when really the opposite is true.\n\n\n\n\nGeographic Misconceptions: The distortion inherent in the Mercator projection has led to widespread misconceptions. People have the wrong idea about the relative size of countries and continents. Africa, for example, is vastly larger than Greenland in reality, yet on a Mercator map, they comparable in size. This skewed perception has implications for how people understand global geography. It can reinforce Eurocentric views of the world. Europe appears larger and more centrally located than it is in reality.\nCultural and Political Impacts: The Mercator projection has been critiqued for reinforcing colonial and imperialist worldviews. The projection enlarges Europe and North America while minimizing the Global South. This effect perpetuates a sense of dominance and importance for the countries in the Northern Hemisphere. This bias can subtly influence political and cultural attitudes. It contributes to a worldview that overemphasizes the power and significance of the North at the expense of the South.\nEducational Consequences: The Mercator projection’s prevalence in educational settings, particularly in classrooms, has had lasting impacts. These impacts affect students’ understanding of world geography. The distorted sizes of continents and countries can lead to misconceptions that persist into adulthood. These misconceptions can influence everything from personal worldviews to policy decisions. An inaccurate understanding of geography can lead to flawed strategic and economic considerations.\n\n\n\n\n\nThe visual representation of geographic data on a map using various symbols to depict different types of features\nIt includes the choice of symbols, their sizes, colors, styles, and labels to represent different map elements like roads, rivers, cities, elevation, land use, and more\nGraphic symbols complement map scale and projections, by making visible the features, places, and other locational information represented on the map.\nMap symbols serve as a graphic code for storing and retrieving data\n\n\n\nBasic cartographical visual variables. Source: Krygier and Wood (2005)"
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/map_elements.html#footnotes",
-    "href": "pages/cartography_and_mapping/map_elements.html#footnotes",
-    "title": "Map elements",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nNatural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. Featuring tightly integrated vector and raster data, with Natural Earth you can make a variety of visually pleasing, well-crafted maps with cartography or GIS software.\nNatural Earth was built through a collaboration of many volunteers and is supported by NACIS (North American Cartographic Information Society), and is free for use in any type of project (see our Terms of Use page for more information).Get the Data↩︎\nhttps://kaiserscience.wordpress.com/earth-science/maps/mercator-maps-use-and-criticism/↩︎\nhttps://thecartographicinstitute.com/the-mercator-projection-history-implications-and-drawbacks/↩︎"
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/making_a_map.html#overview-of-the-task",
-    "href": "pages/cartography_and_mapping/making_a_map.html#overview-of-the-task",
-    "title": "Making a map",
-    "section": "Overview of the task",
-    "text": "Overview of the task",
-    "crumbs": [
-      "Cartography and mapping",
-      "Making a map"
-    ]
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/making_a_map.html#what-you-will-learn",
-    "href": "pages/cartography_and_mapping/making_a_map.html#what-you-will-learn",
-    "title": "Making a map",
-    "section": "What you will learn",
-    "text": "What you will learn",
-    "crumbs": [
-      "Cartography and mapping",
-      "Making a map"
-    ]
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/making_a_map.html#get-the-data",
-    "href": "pages/cartography_and_mapping/making_a_map.html#get-the-data",
-    "title": "Making a map",
-    "section": "Get the data",
-    "text": "Get the data",
-    "crumbs": [
-      "Cartography and mapping",
-      "Making a map"
-    ]
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/making_a_map.html#procedure",
-    "href": "pages/cartography_and_mapping/making_a_map.html#procedure",
-    "title": "Making a map",
-    "section": "Procedure",
-    "text": "Procedure",
-    "crumbs": [
-      "Cartography and mapping",
-      "Making a map"
-    ]
-  },
-  {
-    "objectID": "pages/basic_operations.html",
-    "href": "pages/basic_operations.html",
-    "title": "Basic operations",
+    "objectID": "pages/cartography_and_mapping.html",
+    "href": "pages/cartography_and_mapping.html",
+    "title": "Cartography and Mapping",
     "section": "",
     "text": "Back to top"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Spatial Data & GIS",
+    "objectID": "pages/cartography_and_mapping/map_layout.html",
+    "href": "pages/cartography_and_mapping/map_layout.html",
+    "title": "Map layout",
     "section": "",
-    "text": "Your comprehensive resource hub for Geographic Information Systems and spatial analysis in architecture and urbanism at TU Delft."
-  },
-  {
-    "objectID": "index.html#welcome-to-the-spatial-data-gis-platform",
-    "href": "index.html#welcome-to-the-spatial-data-gis-platform",
-    "title": "Spatial Data & GIS",
-    "section": "",
-    "text": "Your comprehensive resource hub for Geographic Information Systems and spatial analysis in architecture and urbanism at TU Delft."
-  },
-  {
-    "objectID": "index.html#about-the-platform",
-    "href": "index.html#about-the-platform",
-    "title": "Spatial Data & GIS",
-    "section": "About the Platform",
-    "text": "About the Platform\nThe Spatial Data & GIS Platform is developed by the Department of Urbanism at TU Delft to support students and educators in the Faculty of Architecture and the Built Environment. We provide curated teaching materials, datasets, and tools for both Bachelor’s and Master’s programs.\nWhat we offer:\n\nHigh-quality educational resources curated and developed by TU Delft faculty and external experts\nOpen access to spatial datasets relevant to urban design and planning\nGuides for GIS software and data visualization tools\nA collaborative space for educators to share and adapt teaching materials\n\n\n\n\n🗺️ Learn GIS\nMaster the fundamentals of Geographic Information Systems. Access tutorials, workshops, and hands-on exercises designed for architecture and urbanism students.\nExplore learning resources →\n\n\n📊 Find Data\nDiscover curated spatial datasets for the Netherlands and beyond. Learn where to find reliable data sources for your urban analysis projects.\nBrowse data sources →\n\n\n🛠️ Software & Tools\nExplore open-source GIS software and data visualization tools. Get started with QGIS, Python, R, and other essential platforms.\nView tool guides →\n\n\n🤝 Collaborate\nJoin our community of educators and researchers. Share teaching materials, contribute resources, and connect with peers.\nGet involved →"
-  },
-  {
-    "objectID": "index.html#data-informed-design-for-sustainable-urban-futures-graduation-cluster",
-    "href": "index.html#data-informed-design-for-sustainable-urban-futures-graduation-cluster",
-    "title": "Spatial Data & GIS",
-    "section": "Data-Informed Design for Sustainable Urban Futures Graduation Cluster",
-    "text": "Data-Informed Design for Sustainable Urban Futures Graduation Cluster\nThe Data-Informed Design for Sustainable Urban Futures graduation cluster explores how spatial data, GIS, and computational methods can shape more sustainable and resilient cities. Students work at the intersection of urban design, data science, and environmental analysis to address complex challenges like climate adaptation, social equity, and urban transformation. What makes this cluster unique:\nIntegration of quantitative analysis with design thinking Focus on evidence-based approaches to urban sustainability Collaboration with municipalities, research institutes, and community organizations Development of innovative methods for spatial analysis and visualization\nWhether you’re interested in climate-responsive design, participatory planning, or smart city innovations, this cluster provides the tools and mentorship to develop research-driven graduation projects that contribute to sustainable urban futures.\nLearn more about graduation opportunities →\n\n\n\n\n\n\n\nFor Educators\n\n\n\nLooking to contribute teaching materials or collaborate? We welcome contributions from faculty members and researchers. Learn more about contributing →\n\n\n\n\n\n\n\n\nGetting Started\n\n\n\nNew to GIS? Start with our beginner-friendly tutorials or explore our recommended learning path for urbanism students.\n\n\n\n\nQuestions or feedback?\nContact us at sdgis-BK@tudelft.nl"
-  },
-  {
-    "objectID": "courses/mscu_q2.html",
-    "href": "courses/mscu_q2.html",
-    "title": "Master of Urbanism - Q2 - GIS Workshop",
-    "section": "",
-    "text": "Daniele Cannatella\nRob van Houten\nInes Zaid"
-  },
-  {
-    "objectID": "courses/mscu_q2.html#instructors",
-    "href": "courses/mscu_q2.html#instructors",
-    "title": "Master of Urbanism - Q2 - GIS Workshop",
-    "section": "",
-    "text": "Daniele Cannatella\nRob van Houten\nInes Zaid"
-  },
-  {
-    "objectID": "courses/mscu_q2.html#helpers",
-    "href": "courses/mscu_q2.html#helpers",
-    "title": "Master of Urbanism - Q2 - GIS Workshop",
-    "section": "👩‍🏫👨‍🏫🎓Helpers",
-    "text": "👩‍🏫👨‍🏫🎓Helpers\n\nFaried Nurmohamed\nStepan Prikazcicov"
-  },
-  {
-    "objectID": "courses/mscu_q2.html#dates-and-deadlines",
-    "href": "courses/mscu_q2.html#dates-and-deadlines",
-    "title": "Master of Urbanism - Q2 - GIS Workshop",
-    "section": "Dates and Deadlines",
-    "text": "Dates and Deadlines\n\nGIS workshop: Wednesday 19 November 2025, 08:45"
-  },
-  {
-    "objectID": "courses/mscu_q2.html#resources",
-    "href": "courses/mscu_q2.html#resources",
-    "title": "Master of Urbanism - Q2 - GIS Workshop",
-    "section": "Resources",
-    "text": "Resources\n\nData Download\nClick here to download the dataset.\n\n\nData Sources and Formats\n\nImporting Data from Portals\n\nExercise 1: Using the Data Source Manager with WFS and WMS\n\n\n\nGeoreferencing and Digitizing\n\nExercise 2: Georeferencing and Digitizing\n\n\n\n\nBuilding and Analyzing sections\n\nVideo Tutorial: Cross section detection using Profile Tool\nVideo Tutorial: Compare raster DTM’s, contour lines and a point cloud for different transects\nVideo Tutorial: Elevation Profiles using .laz data\nVideo Tutorial: Multiple cross sectional profiles\nVideo Tutorial: Create 3D Terrain with QGIS and GIMP\n\n\n\nData Interoperability and Visualization\n\nExercise 4: Calculating Basic Statistics"
-  },
-  {
-    "objectID": "courses/mscu_q3.html",
-    "href": "courses/mscu_q3.html",
-    "title": "Master of Urbanism - Q3 - GIS Workshop",
-    "section": "",
-    "text": "Claudiu Forgaci\nBirgit Hausleitner\nDaniele Cannatella"
-  },
-  {
-    "objectID": "courses/mscu_q3.html#instructors",
-    "href": "courses/mscu_q3.html#instructors",
-    "title": "Master of Urbanism - Q3 - GIS Workshop",
-    "section": "",
-    "text": "Claudiu Forgaci\nBirgit Hausleitner\nDaniele Cannatella"
-  },
-  {
-    "objectID": "courses/mscu_q3.html#dates-and-deadlines",
-    "href": "courses/mscu_q3.html#dates-and-deadlines",
-    "title": "Master of Urbanism - Q3 - GIS Workshop",
-    "section": "Dates and Deadlines",
-    "text": "Dates and Deadlines\n\nTo be updated"
-  },
-  {
-    "objectID": "courses/mscu_q3.html#resources",
-    "href": "courses/mscu_q3.html#resources",
-    "title": "Master of Urbanism - Q3 - GIS Workshop",
-    "section": "Resources",
-    "text": "Resources\n\nData Download\nClick here to download the dataset.\n\n\nSoftware\n\nQGIS 3.40 LTR\nGeoDa\n\n\n\nAssignments and Instructions - to be updated\n\nWeek 1\nAssignment per group (4-5 students)\n\nFormulate 2-3 research questions of spatial analysis based on Energy infrastructure data (The OSM / OpenInfra data can be found in in the QGGIS Resources section above)\nApply at least one of the three different analysis methods for each research question (see videos below). The questions should be related to your design studio project.\n\nFor each study:\n\ndefine a scale (area), i.e. city, city-region, whole NL (n.b.: you can work through scales).\nselect different energy production types, or networks, fossil or renewable (solar, wind, gas etc) based on different attributes (output, capacity, etc)\nselect an analysis method (1 Heatmap/Clustering, 2 Density/Hexmap or 3 Network analysis\ndefine legend and symbology\n\nQuestions to be answered:\n\nWhich energy data and scale/area did you select. Why? Explain.\nThe outcome for each study is a map with a legend. What are the conclusions from the research? How did you visualize the results?\nFor each study reflect on the applied method, which setting did you experiment with, how did it influence the outcomes?\nWhat did you gain for your design project from this analysis?\n\nHow to deliver?\nA MIRO board will be prepared to deliver the questions and draft maps for the workshop and the final results.\n\nOn Monday February 24 by 8:45: Upload on Miro input in support of the feedback session on Monday February 24 morning, including formulated questions you will be investigating through the maps, list of data you expect to use, and if possible a first round of draft maps, plus any questions related to the production process.\nOn Thursday March 13 by 18:00: Upload on Miro the final material.\n\n\n\n\nTutorials and Resources\n\nCreating a 2x2km Fishnet Grid\nMapping Photovoltaic Potential Across Dutch Municipalities\nCLC to grid\nRoad Density Analysis"
-  },
-  {
-    "objectID": "pages/about.html",
-    "href": "pages/about.html",
-    "title": "About",
-    "section": "",
-    "text": "Finley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana."
-  },
-  {
-    "objectID": "pages/about.html#education",
-    "href": "pages/about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul, MN B.A in Economics | Sept 2007 - June 2011"
-  },
-  {
-    "objectID": "pages/about.html#experience",
-    "href": "pages/about.html#experience",
-    "title": "About",
-    "section": "Experience",
-    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Spet 2012 - April 2018"
-  },
-  {
-    "objectID": "pages/cartography_and_mapping/cartographic_principles.html",
-    "href": "pages/cartography_and_mapping/cartographic_principles.html",
-    "title": "Cartographic principles",
-    "section": "",
-    "text": "Introduction\n\nwhat is a map?\nwhat is cartography?\nwhy do we map?",
+    "text": "Map layout or map composition is the part of cartographic design that involves assembling various map elements on a page.\nCommon map elements include one or more data frames (each containing an ordered set of map layers), a scale bar, north arrow, map title, descriptive text, and a legend. \nFor geographic reference, you can add grids or graticules.\nWhen designin a map, several questions can be asked:\n\n\nWill the map stand alone, or will it be part of a series of maps that share a similar design?\nWhat size will the printed map be? How will the page be oriented?\nHow many data frames will your map have?\nWill the map have other elements such as a title, north arrow, and legend?\nWill the map contain graphs or reports to complement the geographic data?\nHow will scale be indicated on the map?\nHow will the map elements be organized on the page?\nWho are the end-users of our map?\nAre there any ‘unintended’ audiences (e.g., future employees, other colleagues, etc)?\n\n\n\n\n\n\n\n\nmap layout checklist\n\n\n\n\n\n\n\n\n\n\n\nPrimary Elements\nSecondary Elements\n\n\n\n\n\n\nTitle\nSubtitle\nLegend\nMap(s)\nScale bars\nNorth arrow\nDate\nAutorship\n\n\nInset maps\nGraticules\nTables\nPhotographs\nGraphics\nDescriptive Text\nNeat lines\nGraphs\nLogos\n\n\nDisclaimer\nData sources\nData citations\nMap numbers (if series)\nCopyright\nProjection\nNetwork path\nPage Borders\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMap title describes the theme or subject of a map.\nIt should instantly give the viewer a good idea of what the map is depicting.\nThe title is either the primary or secondary layout element (if secondary, it is only second to the map element)\nIt summarizes (in ten words or less) the primary findings of the analysis\nAvoid any obvious and redundant terms (e.g., ‘map of…’, ‘analysis of…’)\n\n\n\n\n\n\nThe subtitle is comprised of any spillover text that is slightly less important than the title but still somewhat necessary to fully understand the map\nIdeally, the subtitle provides further detail that the viewer needs to know prior to being able to understand the map\nIt is placed directly below or to the right of the title\n\nIt is displayed in the same font as the title but carries slightly less emphasis than the title\n\n\n\n\nIt is comprised of items (icons, points, lines, polygons) and their associated descriptions\nOnly exclude map layers from a legend—or the legend itself from the layout—purposefully\nBest practices: Items look best when placed to the left of their corresponding label.\n\nComplicated legends with many items necessitate grouping levels.\nMost common grouping levels are the categorical group (e.g., all land-use colors placed separately from all stream-level colors) and the shape-type  group (e.g., all polygon features placed separately from all line features)\n\n\n\n\nAn inset map in cartography is a smaller map featured within a larger map.\nZooming in on a specific area: It shows a detailed view of a particular region that may be too small to clearly represent on the main map. For example, an inset might zoom in on a city or area of interest within a larger regional or national map.\nProviding context: It shows the location of the main map’s area within a broader geographic context. For example, a small world map might be inset in a detailed country map to show where the country is located globally.\n\nHighlighting related information: Inset maps can show additional data or thematic content that complements the main map. For example, a weather map of a country may include an inset showing temperature trends in a specific region.\n\n\n\n\nIdentification of features\nLabels provide names for cities, rivers, roads, landmarks.\nBenefit: Helps users recognize and interpret map features.\nContext and Orientation\nLabels offer a spatial frame of reference.\nBenefit: Aids in understanding relationships between areas and features.\nClarifying Thematic Data\nLabels explain data on maps like population or climate zones.\nBenefit: Helps users grasp patterns or trends in the data.\nPrioritizing Information\nHighlights key features (e.g., capital cities, major roads).\nBenefit: Directs focus to the most relevant parts of the map.\n\nConveying Additional Information\nCan include extra data (e.g., population, distances).\nBenefit: Enriches the map with supplementary details.\n\n\n\n\nVisualizing Complex Data\nSimplifies large datasets for easy understanding.\nBenefit: Highlights patterns and trends.\nEnhancing Data Interpretation\nShows relationships between geographic locations and data.\nBenefit: Provides clear insight into spatial patterns.\nCombining Spatial and Quantitative Insights\nMerges location with numbers.\nBenefit: Analyzes how data varies by region.\nSupporting Thematic Analysis\nAdds context to thematic maps (e.g., demographics, economics).\nBenefit: Offers detailed insights on specific topics.\nFacilitating Comparisons Between Regions\nEasy comparison of regions using charts like bar or pie charts.\nBenefit: Shows socio-economic differences between areas.",
     "crumbs": [
       "Cartography and mapping",
-      "Cartographic principles"
+      "Map layout"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#principi-di-map-design",
-    "href": "pages/cartography_and_mapping/cartographic_principles.html#principi-di-map-design",
-    "title": "Cartographic principles",
-    "section": "Principi di map design",
-    "text": "Principi di map design\nQuando si progetta una mappa, l’obiettivo principale e’ quello di comunicare un messaggio.\n\nche domande bisogna porsi quando si disegna una mappa?\n\nCinque di questi principi principali sono legibility, visual contrast, figure-ground, hierarchical organization, and balance (https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/design-principles-for-cartography). Quando usati in maniera appropriata, questo sistema di principi favorisce e guida la lettura di una mappa sulla pagina in maniera chiara e in grado di comunicare il messaggio che il map maker vuole comunicare.\n\nVisual Contrast\nVisual contrast relates to how map featrues and page elements contrast with each other and their background. A well-designed map with a high visual contrast can result in a crisp, cleanm sharp-looking map. The higher the contrast between features, the more something will stand out. This is ususally the feature that is darker or brighter. Conversely, a map that has low visual contrast can be used to promote a more subtle impression. Features that have less contrast will appear to belong together.\n\n\nLegibility\nLegibility is “the ability to be seen and understood”. It depends on good decision-making for selecting symbols that are familiar to the rider, and choosing appropriate sizes so that the results are effortlessy seen and easily understood (example image). Geometric symbols are easier to read at smaller sizes; more complex symbols or incons require larger amounts of space to be legible (examples).\nIn linea di principio questi aspetti sono controllabili quando la mappa e’ stampata su un foglio di carta - un media ormai passato quasi obsoleto, dal momento che la gran parte della comunicazione visiva, mappe incluse, passa attraverso altri media come schermi digitali. Nel processo di mappatura, si effettuano diverse iterazioni - prove di stampa - per rifinire il contenuto e l’aspetto di una mappa, la grandezza dei simboli e delle labels, la dimensione e posizione della legenda, l’adeguatezza della scala di rappresentazione, eccetera. L’uso di strumenti e software digitale, come gis, cad, o graphica visiva (es. senza nominare illustrator o photoshop), nella costruzione della mappa, e l’uso di schermi per la sua comunicazione, spesso fanno tralasciare questi aspetti, risultando in immagini difficilmente legibili perche’ troppo piccole, o altro.\nIn questo senso, bisogna sempre considerare il supporto finale che ospitera’ la mappa. Finira’ in un libro? Che dimensioni avra’ questo libro? Quanto spazio posso usare nella pagina? Finira’ in un articolo scientifico? Sara’ proiettata su uno schermo di grandi dimensioni o di piccole dimensioni? eccetera.\nQuesti due principi sono propedetuici to other design principles: figure-ground, hierarchical organization, and balance.\nA map is a graphic representation, drawn to scale and traditionaly on a flat surface, of features of an area of the Earth. Such features can vary, they can be geographical - for instance, landforms, rivers, or geopolitical - administrative boundaries.\nDa un punto di vista tecnico, mappare significa riportare degli elementi\n\n\nFigure-ground\nFigure-ground organization is the spontaneous separation of the figure in the foreground from an “amorphous” background. Cartographers use this design principle to help their map readers find the area of the map or page to focus on.\nThere are many to promote figure-ground organization, such as adding detail to the map or using a white wash, a drop shadow, or feathering.\n\n\nHierarchical organization\nThe internal graphic structuring of the map - and the page layout more generally - is fundamental to helping people read your map. A hierarchy is the visual separation of your map into layers of information. Some types of features will be seen as more important that other kinds of features, and some features will seem more important than other features of the same type.\novviamente, questo dipende dal tipo di mappa sui cui dovete lavorare.\nHieararchical organization on reference maps (add link) works differently than on thematic maps (add link). For reference maps, many of the features should be no more important than one another and so, visually, they should lie on essentially the same visual plane. In reference maps, hierarchy is ususally more subtle and the map reader brings elements to the forefront by focusing attention on them.\nExample: a topographic map\nFor thematic maps, the theme is more important than the base that provides geographic context.\nExample: choroplet map\n\n\nBalance\nBalance involves the organization of the map and other elements on the page. A well-balanced map page results in an impression of equilibrium and harmony.\nWe can also use balance in different ways to promote “edginess” or “tension” or create an impression that is more “organic”. Balance results from two primary factors, visual weight and visual direction.\nIf you imagine that the center of your map page is balancing on a fulcrum, the factors that will “tip” the map in a particular direction include the relative location, shape, size, and subject matter of elements on the page.",
+    "objectID": "pages/cartography_and_mapping/map_layout.html#map-layout-elements",
+    "href": "pages/cartography_and_mapping/map_layout.html#map-layout-elements",
+    "title": "Map layout",
+    "section": "",
+    "text": "Map title describes the theme or subject of a map.\nIt should instantly give the viewer a good idea of what the map is depicting.\nThe title is either the primary or secondary layout element (if secondary, it is only second to the map element)\nIt summarizes (in ten words or less) the primary findings of the analysis\nAvoid any obvious and redundant terms (e.g., ‘map of…’, ‘analysis of…’)",
     "crumbs": [
       "Cartography and mapping",
-      "Cartographic principles"
+      "Map layout"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#time",
-    "href": "pages/cartography_and_mapping/cartographic_principles.html#time",
-    "title": "Cartographic principles",
-    "section": "Time",
-    "text": "Time\nan additional principle in map makin is time.\nAs illustrated in\nInvestire tempo in una mappa - o, per esteso, in un progetto cartografico piu’ complesso come la creazione di un atlante - significa avere expectations realistiche su una project timeline.\n\n\n\nhttps://youtu.be/x9wn633vl_c?si=wAzIYQ8RMxIrRgKe",
+    "objectID": "pages/cartography_and_mapping/map_layout.html#subtitle",
+    "href": "pages/cartography_and_mapping/map_layout.html#subtitle",
+    "title": "Map layout",
+    "section": "",
+    "text": "The subtitle is comprised of any spillover text that is slightly less important than the title but still somewhat necessary to fully understand the map\nIdeally, the subtitle provides further detail that the viewer needs to know prior to being able to understand the map\nIt is placed directly below or to the right of the title\n\nIt is displayed in the same font as the title but carries slightly less emphasis than the title",
     "crumbs": [
       "Cartography and mapping",
-      "Cartographic principles"
+      "Map layout"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#exercise-choose-and-assess-a-map",
-    "href": "pages/cartography_and_mapping/cartographic_principles.html#exercise-choose-and-assess-a-map",
-    "title": "Cartographic principles",
-    "section": "Exercise: choose and assess a map",
-    "text": "Exercise: choose and assess a map\nGo to the internet or books, and look for maps. Pick three maps that caught your attention - either in a good or a bad way. Assess the maps according to these principles described above.\nAsk yourselves:\n\ndoes the map has good visual contrast?\nIs it legible?\nFigure ground?\nHierarchical organization?\nBalance?",
+    "objectID": "pages/cartography_and_mapping/map_layout.html#legend",
+    "href": "pages/cartography_and_mapping/map_layout.html#legend",
+    "title": "Map layout",
+    "section": "",
+    "text": "It is comprised of items (icons, points, lines, polygons) and their associated descriptions\nOnly exclude map layers from a legend—or the legend itself from the layout—purposefully\nBest practices: Items look best when placed to the left of their corresponding label.\n\nComplicated legends with many items necessitate grouping levels.\nMost common grouping levels are the categorical group (e.g., all land-use colors placed separately from all stream-level colors) and the shape-type  group (e.g., all polygon features placed separately from all line features)",
     "crumbs": [
       "Cartography and mapping",
-      "Cartographic principles"
+      "Map layout"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_layout.html#inset-maps",
+    "href": "pages/cartography_and_mapping/map_layout.html#inset-maps",
+    "title": "Map layout",
+    "section": "",
+    "text": "An inset map in cartography is a smaller map featured within a larger map.\nZooming in on a specific area: It shows a detailed view of a particular region that may be too small to clearly represent on the main map. For example, an inset might zoom in on a city or area of interest within a larger regional or national map.\nProviding context: It shows the location of the main map’s area within a broader geographic context. For example, a small world map might be inset in a detailed country map to show where the country is located globally.\n\nHighlighting related information: Inset maps can show additional data or thematic content that complements the main map. For example, a weather map of a country may include an inset showing temperature trends in a specific region.",
+    "crumbs": [
+      "Cartography and mapping",
+      "Map layout"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_layout.html#labels",
+    "href": "pages/cartography_and_mapping/map_layout.html#labels",
+    "title": "Map layout",
+    "section": "",
+    "text": "Identification of features\nLabels provide names for cities, rivers, roads, landmarks.\nBenefit: Helps users recognize and interpret map features.\nContext and Orientation\nLabels offer a spatial frame of reference.\nBenefit: Aids in understanding relationships between areas and features.\nClarifying Thematic Data\nLabels explain data on maps like population or climate zones.\nBenefit: Helps users grasp patterns or trends in the data.\nPrioritizing Information\nHighlights key features (e.g., capital cities, major roads).\nBenefit: Directs focus to the most relevant parts of the map.\n\nConveying Additional Information\nCan include extra data (e.g., population, distances).\nBenefit: Enriches the map with supplementary details.",
+    "crumbs": [
+      "Cartography and mapping",
+      "Map layout"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_layout.html#charts-and-graphs",
+    "href": "pages/cartography_and_mapping/map_layout.html#charts-and-graphs",
+    "title": "Map layout",
+    "section": "",
+    "text": "Visualizing Complex Data\nSimplifies large datasets for easy understanding.\nBenefit: Highlights patterns and trends.\nEnhancing Data Interpretation\nShows relationships between geographic locations and data.\nBenefit: Provides clear insight into spatial patterns.\nCombining Spatial and Quantitative Insights\nMerges location with numbers.\nBenefit: Analyzes how data varies by region.\nSupporting Thematic Analysis\nAdds context to thematic maps (e.g., demographics, economics).\nBenefit: Offers detailed insights on specific topics.\nFacilitating Comparisons Between Regions\nEasy comparison of regions using charts like bar or pie charts.\nBenefit: Shows socio-economic differences between areas.",
+    "crumbs": [
+      "Cartography and mapping",
+      "Map layout"
     ]
   },
   {
@@ -1100,198 +945,367 @@
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html",
-    "href": "pages/cartography_and_mapping/map_layout.html",
-    "title": "Map layout",
+    "objectID": "pages/cartography_and_mapping/cartographic_principles.html",
+    "href": "pages/cartography_and_mapping/cartographic_principles.html",
+    "title": "Cartographic principles",
     "section": "",
-    "text": "Map layout or map composition is the part of cartographic design that involves assembling various map elements on a page.\nCommon map elements include one or more data frames (each containing an ordered set of map layers), a scale bar, north arrow, map title, descriptive text, and a legend. \nFor geographic reference, you can add grids or graticules.\nWhen designin a map, several questions can be asked:\n\n\nWill the map stand alone, or will it be part of a series of maps that share a similar design?\nWhat size will the printed map be? How will the page be oriented?\nHow many data frames will your map have?\nWill the map have other elements such as a title, north arrow, and legend?\nWill the map contain graphs or reports to complement the geographic data?\nHow will scale be indicated on the map?\nHow will the map elements be organized on the page?\nWho are the end-users of our map?\nAre there any ‘unintended’ audiences (e.g., future employees, other colleagues, etc)?\n\n\n\n\n\n\n\n\nmap layout checklist\n\n\n\n\n\n\n\n\n\n\n\nPrimary Elements\nSecondary Elements\n\n\n\n\n\n\nTitle\nSubtitle\nLegend\nMap(s)\nScale bars\nNorth arrow\nDate\nAutorship\n\n\nInset maps\nGraticules\nTables\nPhotographs\nGraphics\nDescriptive Text\nNeat lines\nGraphs\nLogos\n\n\nDisclaimer\nData sources\nData citations\nMap numbers (if series)\nCopyright\nProjection\nNetwork path\nPage Borders\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMap title describes the theme or subject of a map.\nIt should instantly give the viewer a good idea of what the map is depicting.\nThe title is either the primary or secondary layout element (if secondary, it is only second to the map element)\nIt summarizes (in ten words or less) the primary findings of the analysis\nAvoid any obvious and redundant terms (e.g., ‘map of…’, ‘analysis of…’)\n\n\n\n\n\n\nThe subtitle is comprised of any spillover text that is slightly less important than the title but still somewhat necessary to fully understand the map\nIdeally, the subtitle provides further detail that the viewer needs to know prior to being able to understand the map\nIt is placed directly below or to the right of the title\n\nIt is displayed in the same font as the title but carries slightly less emphasis than the title\n\n\n\n\nIt is comprised of items (icons, points, lines, polygons) and their associated descriptions\nOnly exclude map layers from a legend—or the legend itself from the layout—purposefully\nBest practices: Items look best when placed to the left of their corresponding label.\n\nComplicated legends with many items necessitate grouping levels.\nMost common grouping levels are the categorical group (e.g., all land-use colors placed separately from all stream-level colors) and the shape-type  group (e.g., all polygon features placed separately from all line features)\n\n\n\n\nAn inset map in cartography is a smaller map featured within a larger map.\nZooming in on a specific area: It shows a detailed view of a particular region that may be too small to clearly represent on the main map. For example, an inset might zoom in on a city or area of interest within a larger regional or national map.\nProviding context: It shows the location of the main map’s area within a broader geographic context. For example, a small world map might be inset in a detailed country map to show where the country is located globally.\n\nHighlighting related information: Inset maps can show additional data or thematic content that complements the main map. For example, a weather map of a country may include an inset showing temperature trends in a specific region.\n\n\n\n\nIdentification of features\nLabels provide names for cities, rivers, roads, landmarks.\nBenefit: Helps users recognize and interpret map features.\nContext and Orientation\nLabels offer a spatial frame of reference.\nBenefit: Aids in understanding relationships between areas and features.\nClarifying Thematic Data\nLabels explain data on maps like population or climate zones.\nBenefit: Helps users grasp patterns or trends in the data.\nPrioritizing Information\nHighlights key features (e.g., capital cities, major roads).\nBenefit: Directs focus to the most relevant parts of the map.\n\nConveying Additional Information\nCan include extra data (e.g., population, distances).\nBenefit: Enriches the map with supplementary details.\n\n\n\n\nVisualizing Complex Data\nSimplifies large datasets for easy understanding.\nBenefit: Highlights patterns and trends.\nEnhancing Data Interpretation\nShows relationships between geographic locations and data.\nBenefit: Provides clear insight into spatial patterns.\nCombining Spatial and Quantitative Insights\nMerges location with numbers.\nBenefit: Analyzes how data varies by region.\nSupporting Thematic Analysis\nAdds context to thematic maps (e.g., demographics, economics).\nBenefit: Offers detailed insights on specific topics.\nFacilitating Comparisons Between Regions\nEasy comparison of regions using charts like bar or pie charts.\nBenefit: Shows socio-economic differences between areas.",
+    "text": "Introduction\n\nwhat is a map?\nwhat is cartography?\nwhy do we map?",
     "crumbs": [
       "Cartography and mapping",
-      "Map layout"
+      "Cartographic principles"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#map-layout-elements",
-    "href": "pages/cartography_and_mapping/map_layout.html#map-layout-elements",
-    "title": "Map layout",
-    "section": "",
-    "text": "Map title describes the theme or subject of a map.\nIt should instantly give the viewer a good idea of what the map is depicting.\nThe title is either the primary or secondary layout element (if secondary, it is only second to the map element)\nIt summarizes (in ten words or less) the primary findings of the analysis\nAvoid any obvious and redundant terms (e.g., ‘map of…’, ‘analysis of…’)",
+    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#principi-di-map-design",
+    "href": "pages/cartography_and_mapping/cartographic_principles.html#principi-di-map-design",
+    "title": "Cartographic principles",
+    "section": "Principi di map design",
+    "text": "Principi di map design\nQuando si progetta una mappa, l’obiettivo principale e’ quello di comunicare un messaggio.\n\nche domande bisogna porsi quando si disegna una mappa?\n\nCinque di questi principi principali sono legibility, visual contrast, figure-ground, hierarchical organization, and balance (https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/design-principles-for-cartography). Quando usati in maniera appropriata, questo sistema di principi favorisce e guida la lettura di una mappa sulla pagina in maniera chiara e in grado di comunicare il messaggio che il map maker vuole comunicare.\n\nVisual Contrast\nVisual contrast relates to how map featrues and page elements contrast with each other and their background. A well-designed map with a high visual contrast can result in a crisp, cleanm sharp-looking map. The higher the contrast between features, the more something will stand out. This is ususally the feature that is darker or brighter. Conversely, a map that has low visual contrast can be used to promote a more subtle impression. Features that have less contrast will appear to belong together.\n\n\nLegibility\nLegibility is “the ability to be seen and understood”. It depends on good decision-making for selecting symbols that are familiar to the rider, and choosing appropriate sizes so that the results are effortlessy seen and easily understood (example image). Geometric symbols are easier to read at smaller sizes; more complex symbols or incons require larger amounts of space to be legible (examples).\nIn linea di principio questi aspetti sono controllabili quando la mappa e’ stampata su un foglio di carta - un media ormai passato quasi obsoleto, dal momento che la gran parte della comunicazione visiva, mappe incluse, passa attraverso altri media come schermi digitali. Nel processo di mappatura, si effettuano diverse iterazioni - prove di stampa - per rifinire il contenuto e l’aspetto di una mappa, la grandezza dei simboli e delle labels, la dimensione e posizione della legenda, l’adeguatezza della scala di rappresentazione, eccetera. L’uso di strumenti e software digitale, come gis, cad, o graphica visiva (es. senza nominare illustrator o photoshop), nella costruzione della mappa, e l’uso di schermi per la sua comunicazione, spesso fanno tralasciare questi aspetti, risultando in immagini difficilmente legibili perche’ troppo piccole, o altro.\nIn questo senso, bisogna sempre considerare il supporto finale che ospitera’ la mappa. Finira’ in un libro? Che dimensioni avra’ questo libro? Quanto spazio posso usare nella pagina? Finira’ in un articolo scientifico? Sara’ proiettata su uno schermo di grandi dimensioni o di piccole dimensioni? eccetera.\nQuesti due principi sono propedetuici to other design principles: figure-ground, hierarchical organization, and balance.\nA map is a graphic representation, drawn to scale and traditionaly on a flat surface, of features of an area of the Earth. Such features can vary, they can be geographical - for instance, landforms, rivers, or geopolitical - administrative boundaries.\nDa un punto di vista tecnico, mappare significa riportare degli elementi\n\n\nFigure-ground\nFigure-ground organization is the spontaneous separation of the figure in the foreground from an “amorphous” background. Cartographers use this design principle to help their map readers find the area of the map or page to focus on.\nThere are many to promote figure-ground organization, such as adding detail to the map or using a white wash, a drop shadow, or feathering.\n\n\nHierarchical organization\nThe internal graphic structuring of the map - and the page layout more generally - is fundamental to helping people read your map. A hierarchy is the visual separation of your map into layers of information. Some types of features will be seen as more important that other kinds of features, and some features will seem more important than other features of the same type.\novviamente, questo dipende dal tipo di mappa sui cui dovete lavorare.\nHieararchical organization on reference maps (add link) works differently than on thematic maps (add link). For reference maps, many of the features should be no more important than one another and so, visually, they should lie on essentially the same visual plane. In reference maps, hierarchy is ususally more subtle and the map reader brings elements to the forefront by focusing attention on them.\nExample: a topographic map\nFor thematic maps, the theme is more important than the base that provides geographic context.\nExample: choroplet map\n\n\nBalance\nBalance involves the organization of the map and other elements on the page. A well-balanced map page results in an impression of equilibrium and harmony.\nWe can also use balance in different ways to promote “edginess” or “tension” or create an impression that is more “organic”. Balance results from two primary factors, visual weight and visual direction.\nIf you imagine that the center of your map page is balancing on a fulcrum, the factors that will “tip” the map in a particular direction include the relative location, shape, size, and subject matter of elements on the page.",
     "crumbs": [
       "Cartography and mapping",
-      "Map layout"
+      "Cartographic principles"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#subtitle",
-    "href": "pages/cartography_and_mapping/map_layout.html#subtitle",
-    "title": "Map layout",
-    "section": "",
-    "text": "The subtitle is comprised of any spillover text that is slightly less important than the title but still somewhat necessary to fully understand the map\nIdeally, the subtitle provides further detail that the viewer needs to know prior to being able to understand the map\nIt is placed directly below or to the right of the title\n\nIt is displayed in the same font as the title but carries slightly less emphasis than the title",
+    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#time",
+    "href": "pages/cartography_and_mapping/cartographic_principles.html#time",
+    "title": "Cartographic principles",
+    "section": "Time",
+    "text": "Time\nan additional principle in map makin is time.\nAs illustrated in\nInvestire tempo in una mappa - o, per esteso, in un progetto cartografico piu’ complesso come la creazione di un atlante - significa avere expectations realistiche su una project timeline.\n\n\n\nhttps://youtu.be/x9wn633vl_c?si=wAzIYQ8RMxIrRgKe",
     "crumbs": [
       "Cartography and mapping",
-      "Map layout"
+      "Cartographic principles"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#legend",
-    "href": "pages/cartography_and_mapping/map_layout.html#legend",
-    "title": "Map layout",
-    "section": "",
-    "text": "It is comprised of items (icons, points, lines, polygons) and their associated descriptions\nOnly exclude map layers from a legend—or the legend itself from the layout—purposefully\nBest practices: Items look best when placed to the left of their corresponding label.\n\nComplicated legends with many items necessitate grouping levels.\nMost common grouping levels are the categorical group (e.g., all land-use colors placed separately from all stream-level colors) and the shape-type  group (e.g., all polygon features placed separately from all line features)",
+    "objectID": "pages/cartography_and_mapping/cartographic_principles.html#exercise-choose-and-assess-a-map",
+    "href": "pages/cartography_and_mapping/cartographic_principles.html#exercise-choose-and-assess-a-map",
+    "title": "Cartographic principles",
+    "section": "Exercise: choose and assess a map",
+    "text": "Exercise: choose and assess a map\nGo to the internet or books, and look for maps. Pick three maps that caught your attention - either in a good or a bad way. Assess the maps according to these principles described above.\nAsk yourselves:\n\ndoes the map has good visual contrast?\nIs it legible?\nFigure ground?\nHierarchical organization?\nBalance?",
     "crumbs": [
       "Cartography and mapping",
-      "Map layout"
+      "Cartographic principles"
     ]
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#inset-maps",
-    "href": "pages/cartography_and_mapping/map_layout.html#inset-maps",
-    "title": "Map layout",
+    "objectID": "pages/about.html",
+    "href": "pages/about.html",
+    "title": "About",
     "section": "",
-    "text": "An inset map in cartography is a smaller map featured within a larger map.\nZooming in on a specific area: It shows a detailed view of a particular region that may be too small to clearly represent on the main map. For example, an inset might zoom in on a city or area of interest within a larger regional or national map.\nProviding context: It shows the location of the main map’s area within a broader geographic context. For example, a small world map might be inset in a detailed country map to show where the country is located globally.\n\nHighlighting related information: Inset maps can show additional data or thematic content that complements the main map. For example, a weather map of a country may include an inset showing temperature trends in a specific region.",
-    "crumbs": [
-      "Cartography and mapping",
-      "Map layout"
-    ]
+    "text": "Finley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana."
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#labels",
-    "href": "pages/cartography_and_mapping/map_layout.html#labels",
-    "title": "Map layout",
-    "section": "",
-    "text": "Identification of features\nLabels provide names for cities, rivers, roads, landmarks.\nBenefit: Helps users recognize and interpret map features.\nContext and Orientation\nLabels offer a spatial frame of reference.\nBenefit: Aids in understanding relationships between areas and features.\nClarifying Thematic Data\nLabels explain data on maps like population or climate zones.\nBenefit: Helps users grasp patterns or trends in the data.\nPrioritizing Information\nHighlights key features (e.g., capital cities, major roads).\nBenefit: Directs focus to the most relevant parts of the map.\n\nConveying Additional Information\nCan include extra data (e.g., population, distances).\nBenefit: Enriches the map with supplementary details.",
-    "crumbs": [
-      "Cartography and mapping",
-      "Map layout"
-    ]
+    "objectID": "pages/about.html#education",
+    "href": "pages/about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul, MN B.A in Economics | Sept 2007 - June 2011"
   },
   {
-    "objectID": "pages/cartography_and_mapping/map_layout.html#charts-and-graphs",
-    "href": "pages/cartography_and_mapping/map_layout.html#charts-and-graphs",
-    "title": "Map layout",
-    "section": "",
-    "text": "Visualizing Complex Data\nSimplifies large datasets for easy understanding.\nBenefit: Highlights patterns and trends.\nEnhancing Data Interpretation\nShows relationships between geographic locations and data.\nBenefit: Provides clear insight into spatial patterns.\nCombining Spatial and Quantitative Insights\nMerges location with numbers.\nBenefit: Analyzes how data varies by region.\nSupporting Thematic Analysis\nAdds context to thematic maps (e.g., demographics, economics).\nBenefit: Offers detailed insights on specific topics.\nFacilitating Comparisons Between Regions\nEasy comparison of regions using charts like bar or pie charts.\nBenefit: Shows socio-economic differences between areas.",
-    "crumbs": [
-      "Cartography and mapping",
-      "Map layout"
-    ]
+    "objectID": "pages/about.html#experience",
+    "href": "pages/about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Spet 2012 - April 2018"
   },
   {
-    "objectID": "pages/cartography_and_mapping.html",
-    "href": "pages/cartography_and_mapping.html",
-    "title": "Cartography and Mapping",
+    "objectID": "courses/mscu_q3.html",
+    "href": "courses/mscu_q3.html",
+    "title": "Master of Urbanism - Q3 - GIS Workshop",
+    "section": "",
+    "text": "Claudiu Forgaci\nBirgit Hausleitner\nDaniele Cannatella"
+  },
+  {
+    "objectID": "courses/mscu_q3.html#instructors",
+    "href": "courses/mscu_q3.html#instructors",
+    "title": "Master of Urbanism - Q3 - GIS Workshop",
+    "section": "",
+    "text": "Claudiu Forgaci\nBirgit Hausleitner\nDaniele Cannatella"
+  },
+  {
+    "objectID": "courses/mscu_q3.html#dates-and-deadlines",
+    "href": "courses/mscu_q3.html#dates-and-deadlines",
+    "title": "Master of Urbanism - Q3 - GIS Workshop",
+    "section": "Dates and Deadlines",
+    "text": "Dates and Deadlines\n\nTo be updated"
+  },
+  {
+    "objectID": "courses/mscu_q3.html#resources",
+    "href": "courses/mscu_q3.html#resources",
+    "title": "Master of Urbanism - Q3 - GIS Workshop",
+    "section": "Resources",
+    "text": "Resources\n\nData Download\nClick here to download the dataset.\n\n\nSoftware\n\nQGIS 3.40 LTR\nGeoDa\n\n\n\nAssignments and Instructions - to be updated\n\nWeek 1\nAssignment per group (4-5 students)\n\nFormulate 2-3 research questions of spatial analysis based on Energy infrastructure data (The OSM / OpenInfra data can be found in in the QGGIS Resources section above)\nApply at least one of the three different analysis methods for each research question (see videos below). The questions should be related to your design studio project.\n\nFor each study:\n\ndefine a scale (area), i.e. city, city-region, whole NL (n.b.: you can work through scales).\nselect different energy production types, or networks, fossil or renewable (solar, wind, gas etc) based on different attributes (output, capacity, etc)\nselect an analysis method (1 Heatmap/Clustering, 2 Density/Hexmap or 3 Network analysis\ndefine legend and symbology\n\nQuestions to be answered:\n\nWhich energy data and scale/area did you select. Why? Explain.\nThe outcome for each study is a map with a legend. What are the conclusions from the research? How did you visualize the results?\nFor each study reflect on the applied method, which setting did you experiment with, how did it influence the outcomes?\nWhat did you gain for your design project from this analysis?\n\nHow to deliver?\nA MIRO board will be prepared to deliver the questions and draft maps for the workshop and the final results.\n\nOn Monday February 24 by 8:45: Upload on Miro input in support of the feedback session on Monday February 24 morning, including formulated questions you will be investigating through the maps, list of data you expect to use, and if possible a first round of draft maps, plus any questions related to the production process.\nOn Thursday March 13 by 18:00: Upload on Miro the final material.\n\n\n\n\nTutorials and Resources\n\nCreating a 2x2km Fishnet Grid\nMapping Photovoltaic Potential Across Dutch Municipalities\nCLC to grid\nRoad Density Analysis"
+  },
+  {
+    "objectID": "courses/mscu_q2.html",
+    "href": "courses/mscu_q2.html",
+    "title": "Master of Urbanism - Q2 - GIS Workshop",
+    "section": "",
+    "text": "Daniele Cannatella\nRob van Houten\nInes Zaid"
+  },
+  {
+    "objectID": "courses/mscu_q2.html#instructors",
+    "href": "courses/mscu_q2.html#instructors",
+    "title": "Master of Urbanism - Q2 - GIS Workshop",
+    "section": "",
+    "text": "Daniele Cannatella\nRob van Houten\nInes Zaid"
+  },
+  {
+    "objectID": "courses/mscu_q2.html#helpers",
+    "href": "courses/mscu_q2.html#helpers",
+    "title": "Master of Urbanism - Q2 - GIS Workshop",
+    "section": "👩‍🏫👨‍🏫🎓Helpers",
+    "text": "👩‍🏫👨‍🏫🎓Helpers\n\nFaried Nurmohamed\nStepan Prikazcicov"
+  },
+  {
+    "objectID": "courses/mscu_q2.html#dates-and-deadlines",
+    "href": "courses/mscu_q2.html#dates-and-deadlines",
+    "title": "Master of Urbanism - Q2 - GIS Workshop",
+    "section": "Dates and Deadlines",
+    "text": "Dates and Deadlines\n\nGIS workshop: Wednesday 19 November 2025, 08:45"
+  },
+  {
+    "objectID": "courses/mscu_q2.html#resources",
+    "href": "courses/mscu_q2.html#resources",
+    "title": "Master of Urbanism - Q2 - GIS Workshop",
+    "section": "Resources",
+    "text": "Resources\n\nData Download\nClick here to download the dataset.\n\n\nData Sources and Formats\n\nImporting Data from Portals\n\nExercise 1: Using the Data Source Manager with WFS and WMS\n\n\n\nGeoreferencing and Digitizing\n\nExercise 2: Georeferencing and Digitizing\n\n\n\n\nBuilding and Analyzing sections\n\nVideo Tutorial: Cross section detection using Profile Tool\nVideo Tutorial: Compare raster DTM’s, contour lines and a point cloud for different transects\nVideo Tutorial: Elevation Profiles using .laz data\nVideo Tutorial: Multiple cross sectional profiles\nVideo Tutorial: Create 3D Terrain with QGIS and GIMP\n\n\n\nData Interoperability and Visualization\n\nExercise 4: Calculating Basic Statistics"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Spatial Data & GIS",
+    "section": "",
+    "text": "Your comprehensive resource hub for Geographic Information Systems and spatial analysis in architecture and urbanism at TU Delft."
+  },
+  {
+    "objectID": "index.html#welcome-to-the-spatial-data-gis-platform",
+    "href": "index.html#welcome-to-the-spatial-data-gis-platform",
+    "title": "Spatial Data & GIS",
+    "section": "",
+    "text": "Your comprehensive resource hub for Geographic Information Systems and spatial analysis in architecture and urbanism at TU Delft."
+  },
+  {
+    "objectID": "index.html#about-the-platform",
+    "href": "index.html#about-the-platform",
+    "title": "Spatial Data & GIS",
+    "section": "About the Platform",
+    "text": "About the Platform\nThe Spatial Data & GIS Platform is developed by the Department of Urbanism at TU Delft to support students and educators in the Faculty of Architecture and the Built Environment. We provide curated teaching materials, datasets, and tools for both Bachelor’s and Master’s programs.\nWhat we offer:\n\nHigh-quality educational resources curated and developed by TU Delft faculty and external experts\nOpen access to spatial datasets relevant to urban design and planning\nGuides for GIS software and data visualization tools\nA collaborative space for educators to share and adapt teaching materials\n\n\n\n\n🗺️ Learn GIS\nMaster the fundamentals of Geographic Information Systems. Access tutorials, workshops, and hands-on exercises designed for architecture and urbanism students.\nExplore learning resources →\n\n\n📊 Find Data\nDiscover curated spatial datasets for the Netherlands and beyond. Learn where to find reliable data sources for your urban analysis projects.\nBrowse data sources →\n\n\n🛠️ Software & Tools\nExplore open-source GIS software and data visualization tools. Get started with QGIS, Python, R, and other essential platforms.\nView tool guides →\n\n\n🤝 Collaborate\nJoin our community of educators and researchers. Share teaching materials, contribute resources, and connect with peers.\nGet involved →"
+  },
+  {
+    "objectID": "index.html#data-informed-design-for-sustainable-urban-futures-graduation-cluster",
+    "href": "index.html#data-informed-design-for-sustainable-urban-futures-graduation-cluster",
+    "title": "Spatial Data & GIS",
+    "section": "Data-Informed Design for Sustainable Urban Futures Graduation Cluster",
+    "text": "Data-Informed Design for Sustainable Urban Futures Graduation Cluster\nThe Data-Informed Design for Sustainable Urban Futures graduation cluster explores how spatial data, GIS, and computational methods can shape more sustainable and resilient cities. Students work at the intersection of urban design, data science, and environmental analysis to address complex challenges like climate adaptation, social equity, and urban transformation. What makes this cluster unique:\nIntegration of quantitative analysis with design thinking Focus on evidence-based approaches to urban sustainability Collaboration with municipalities, research institutes, and community organizations Development of innovative methods for spatial analysis and visualization\nWhether you’re interested in climate-responsive design, participatory planning, or smart city innovations, this cluster provides the tools and mentorship to develop research-driven graduation projects that contribute to sustainable urban futures.\nLearn more about graduation opportunities →\n\n\n\n\n\n\n\nFor Educators\n\n\n\nLooking to contribute teaching materials or collaborate? We welcome contributions from faculty members and researchers. Learn more about contributing →\n\n\n\n\n\n\n\n\nGetting Started\n\n\n\nNew to GIS? Start with our beginner-friendly tutorials or explore our recommended learning path for urbanism students.\n\n\n\n\nQuestions or feedback?\nContact us at sdgis-BK@tudelft.nl"
+  },
+  {
+    "objectID": "pages/basic_operations.html",
+    "href": "pages/basic_operations.html",
+    "title": "Basic operations",
     "section": "",
     "text": "Back to top"
   },
   {
+    "objectID": "pages/cartography_and_mapping/making_a_map.html#overview-of-the-task",
+    "href": "pages/cartography_and_mapping/making_a_map.html#overview-of-the-task",
+    "title": "Making a map",
+    "section": "Overview of the task",
+    "text": "Overview of the task",
+    "crumbs": [
+      "Cartography and mapping",
+      "Making a map"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/making_a_map.html#what-you-will-learn",
+    "href": "pages/cartography_and_mapping/making_a_map.html#what-you-will-learn",
+    "title": "Making a map",
+    "section": "What you will learn",
+    "text": "What you will learn",
+    "crumbs": [
+      "Cartography and mapping",
+      "Making a map"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/making_a_map.html#get-the-data",
+    "href": "pages/cartography_and_mapping/making_a_map.html#get-the-data",
+    "title": "Making a map",
+    "section": "Get the data",
+    "text": "Get the data",
+    "crumbs": [
+      "Cartography and mapping",
+      "Making a map"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/making_a_map.html#procedure",
+    "href": "pages/cartography_and_mapping/making_a_map.html#procedure",
+    "title": "Making a map",
+    "section": "Procedure",
+    "text": "Procedure",
+    "crumbs": [
+      "Cartography and mapping",
+      "Making a map"
+    ]
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_elements.html",
+    "href": "pages/cartography_and_mapping/map_elements.html",
+    "title": "Map elements",
+    "section": "",
+    "text": "Scale is the relationship between a distance on a map and the corresponding distance on the ground.\nIt affects the level of detail that can be shown and the map’s overall purpose.\nIt affects generalization: as scale decreases (i.e., becomes smaller), map makers must generalize features. This means they simplify, aggregate, or omit certain details to keep the map legible and useful.\nWhile scales in GIS are exactly defined and represented on the map as s scale bar or ratio, general discussions about map scale often use the relative terms: large scale, medium scale, and small scale.\n\n\nIn spatial design disciplines, we offer associate the terms “small” and “large” in relation to the portion of territory that maps frame. A small scale map indicates a “zoom-in” area,\nIn Cartographic terms, Large-scale maps show things as big and small-scsale maps show things as small.\n\n\n\n\n\n\n\nscales\n\n\n\n\nSmall scale: 1:250,000 and smaller\nMedium scale: 1:50,000 to 1:250,000\nLarge scale: 1:50,000 and larger\n\n\n\n\n\n\nSpatial data are produced with a scale. An example is the dataset from Natural Earth1\n\n\n\n\nit is hard to represent our spherical world on a flat piece of paper. That is why cartographers use projections: to morph the globe into 2D map.\nProjection is a method of transforming the three-dimensional surface of the Earth into a two-dimensional map.\nBecause a curved surface cannot be flattened without distortion, every projection results in some form of distortion. The type and extend of this distortion depend on the projection method used.\nThese pictures from 1921 compare how the drwaing of a man’s head changes in different projections, resulting in different distoritions.\n\n\n\n\n\n\n\nThe True Size of allows you to understand how distortion affects shapes proportions. You can drag and drop countries’ shapes around the map and explore the effect that distortion does.\nCountries more in the north, such as Russia or Canada, or to the sout, such argentina and australia, are depicted way bigger than they are in the Mercator Projection. Similarly, countries lying on the equator look smaller.\nQuesto significa che ogni mappa, seppur geometricamente e matematicamente inecceplibile, non puo’ non produrre distorsioni che affect la reppresentazione di geographical fitures sul nostro pianeta quando proiettate su una mappa piatta.\nQuesto tipo di rappresentazione affect anche il modo in cui noi percepiamo il mondo, attraverso la nostra mappa mentale. Per questo motivo la mappa di mercatore e’ stata molto criticata\nOn the Mercator projection, greenland appears to be roughly the same size as Africa. In reality, Greenland is 0.8 million sq. miles, and Africa is 11.6 million sq. miles, nearly 14 and a half times larger.\nGerardus Mercator revolutionized map making2. His Mercator projection map, invented in 1569, was the primary map that navigators used for years. It’s the form that many maps still come in today. And the name he chose for his massive collection of maps — “Atlas” — is widely used.\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\nHis new map was a revelation, because:\n\nthe projection kept the latitude and longitude lines at consistent 90 degree angles.\nmade it easier for sailors to plot their course without constantly adjusting for mapping mistakes.\nEasier to see the relationships between landmasses.\nThe downside was that it distorted the size of land masses, particularly near the poles\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\n\nThat achievement was followed by the publication of Mercator’s Atlas. Though it wasn’t the first book of maps, the name Mercator chose came to define the type of book.\nIn recent years, the Mercator projection has come under fire for distorting the real shape of the world’s continents — objects closer to the poles appear larger than they should. That results in North America looking larger than Africa, or China looking smaller than Greenland, when really the opposite is true.\n\n\n\n\nGeographic Misconceptions: The distortion inherent in the Mercator projection has led to widespread misconceptions. People have the wrong idea about the relative size of countries and continents. Africa, for example, is vastly larger than Greenland in reality, yet on a Mercator map, they comparable in size. This skewed perception has implications for how people understand global geography. It can reinforce Eurocentric views of the world. Europe appears larger and more centrally located than it is in reality.\nCultural and Political Impacts: The Mercator projection has been critiqued for reinforcing colonial and imperialist worldviews. The projection enlarges Europe and North America while minimizing the Global South. This effect perpetuates a sense of dominance and importance for the countries in the Northern Hemisphere. This bias can subtly influence political and cultural attitudes. It contributes to a worldview that overemphasizes the power and significance of the North at the expense of the South.\nEducational Consequences: The Mercator projection’s prevalence in educational settings, particularly in classrooms, has had lasting impacts. These impacts affect students’ understanding of world geography. The distorted sizes of continents and countries can lead to misconceptions that persist into adulthood. These misconceptions can influence everything from personal worldviews to policy decisions. An inaccurate understanding of geography can lead to flawed strategic and economic considerations.\n\n\n\n\n\nThe visual representation of geographic data on a map using various symbols to depict different types of features\nIt includes the choice of symbols, their sizes, colors, styles, and labels to represent different map elements like roads, rivers, cities, elevation, land use, and more\nGraphic symbols complement map scale and projections, by making visible the features, places, and other locational information represented on the map.\nMap symbols serve as a graphic code for storing and retrieving data\n\n\n\nBasic cartographical visual variables. Source: Krygier and Wood (2005)"
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_elements.html#map-elements",
+    "href": "pages/cartography_and_mapping/map_elements.html#map-elements",
+    "title": "Map elements",
+    "section": "",
+    "text": "Scale is the relationship between a distance on a map and the corresponding distance on the ground.\nIt affects the level of detail that can be shown and the map’s overall purpose.\nIt affects generalization: as scale decreases (i.e., becomes smaller), map makers must generalize features. This means they simplify, aggregate, or omit certain details to keep the map legible and useful.\nWhile scales in GIS are exactly defined and represented on the map as s scale bar or ratio, general discussions about map scale often use the relative terms: large scale, medium scale, and small scale.\n\n\nIn spatial design disciplines, we offer associate the terms “small” and “large” in relation to the portion of territory that maps frame. A small scale map indicates a “zoom-in” area,\nIn Cartographic terms, Large-scale maps show things as big and small-scsale maps show things as small.\n\n\n\n\n\n\n\nscales\n\n\n\n\nSmall scale: 1:250,000 and smaller\nMedium scale: 1:50,000 to 1:250,000\nLarge scale: 1:50,000 and larger\n\n\n\n\n\n\nSpatial data are produced with a scale. An example is the dataset from Natural Earth1\n\n\n\n\nit is hard to represent our spherical world on a flat piece of paper. That is why cartographers use projections: to morph the globe into 2D map.\nProjection is a method of transforming the three-dimensional surface of the Earth into a two-dimensional map.\nBecause a curved surface cannot be flattened without distortion, every projection results in some form of distortion. The type and extend of this distortion depend on the projection method used.\nThese pictures from 1921 compare how the drwaing of a man’s head changes in different projections, resulting in different distoritions.\n\n\n\n\n\n\n\nThe True Size of allows you to understand how distortion affects shapes proportions. You can drag and drop countries’ shapes around the map and explore the effect that distortion does.\nCountries more in the north, such as Russia or Canada, or to the sout, such argentina and australia, are depicted way bigger than they are in the Mercator Projection. Similarly, countries lying on the equator look smaller.\nQuesto significa che ogni mappa, seppur geometricamente e matematicamente inecceplibile, non puo’ non produrre distorsioni che affect la reppresentazione di geographical fitures sul nostro pianeta quando proiettate su una mappa piatta.\nQuesto tipo di rappresentazione affect anche il modo in cui noi percepiamo il mondo, attraverso la nostra mappa mentale. Per questo motivo la mappa di mercatore e’ stata molto criticata\nOn the Mercator projection, greenland appears to be roughly the same size as Africa. In reality, Greenland is 0.8 million sq. miles, and Africa is 11.6 million sq. miles, nearly 14 and a half times larger.\nGerardus Mercator revolutionized map making2. His Mercator projection map, invented in 1569, was the primary map that navigators used for years. It’s the form that many maps still come in today. And the name he chose for his massive collection of maps — “Atlas” — is widely used.\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\nHis new map was a revelation, because:\n\nthe projection kept the latitude and longitude lines at consistent 90 degree angles.\nmade it easier for sailors to plot their course without constantly adjusting for mapping mistakes.\nEasier to see the relationships between landmasses.\nThe downside was that it distorted the size of land masses, particularly near the poles\nThis map was designed only for navigation, but when used incorrectly, can cause people to misudnderstand the sizes of continents and nations.\n\nThat achievement was followed by the publication of Mercator’s Atlas. Though it wasn’t the first book of maps, the name Mercator chose came to define the type of book.\nIn recent years, the Mercator projection has come under fire for distorting the real shape of the world’s continents — objects closer to the poles appear larger than they should. That results in North America looking larger than Africa, or China looking smaller than Greenland, when really the opposite is true.\n\n\n\n\nGeographic Misconceptions: The distortion inherent in the Mercator projection has led to widespread misconceptions. People have the wrong idea about the relative size of countries and continents. Africa, for example, is vastly larger than Greenland in reality, yet on a Mercator map, they comparable in size. This skewed perception has implications for how people understand global geography. It can reinforce Eurocentric views of the world. Europe appears larger and more centrally located than it is in reality.\nCultural and Political Impacts: The Mercator projection has been critiqued for reinforcing colonial and imperialist worldviews. The projection enlarges Europe and North America while minimizing the Global South. This effect perpetuates a sense of dominance and importance for the countries in the Northern Hemisphere. This bias can subtly influence political and cultural attitudes. It contributes to a worldview that overemphasizes the power and significance of the North at the expense of the South.\nEducational Consequences: The Mercator projection’s prevalence in educational settings, particularly in classrooms, has had lasting impacts. These impacts affect students’ understanding of world geography. The distorted sizes of continents and countries can lead to misconceptions that persist into adulthood. These misconceptions can influence everything from personal worldviews to policy decisions. An inaccurate understanding of geography can lead to flawed strategic and economic considerations.\n\n\n\n\n\nThe visual representation of geographic data on a map using various symbols to depict different types of features\nIt includes the choice of symbols, their sizes, colors, styles, and labels to represent different map elements like roads, rivers, cities, elevation, land use, and more\nGraphic symbols complement map scale and projections, by making visible the features, places, and other locational information represented on the map.\nMap symbols serve as a graphic code for storing and retrieving data\n\n\n\nBasic cartographical visual variables. Source: Krygier and Wood (2005)"
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/map_elements.html#footnotes",
+    "href": "pages/cartography_and_mapping/map_elements.html#footnotes",
+    "title": "Map elements",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNatural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. Featuring tightly integrated vector and raster data, with Natural Earth you can make a variety of visually pleasing, well-crafted maps with cartography or GIS software.\nNatural Earth was built through a collaboration of many volunteers and is supported by NACIS (North American Cartographic Information Society), and is free for use in any type of project (see our Terms of Use page for more information).Get the Data↩︎\nhttps://kaiserscience.wordpress.com/earth-science/maps/mercator-maps-use-and-criticism/↩︎\nhttps://thecartographicinstitute.com/the-mercator-projection-history-implications-and-drawbacks/↩︎"
+  },
+  {
+    "objectID": "pages/cartography_and_mapping/types_of_maps.html",
+    "href": "pages/cartography_and_mapping/types_of_maps.html",
+    "title": "Types of Maps",
+    "section": "",
+    "text": "Back to top",
+    "crumbs": [
+      "Cartography and mapping",
+      "Types of Maps"
+    ]
+  },
+  {
+    "objectID": "pages/contact.html",
+    "href": "pages/contact.html",
+    "title": "Contact Us",
+    "section": "",
+    "text": "We’d love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out using any of the methods below.\n\n\nEmail: sdgis-BK@tudelft.nl\n\nWe typically respond to messages within 24 business hours."
+  },
+  {
+    "objectID": "pages/contact.html#get-in-touch",
+    "href": "pages/contact.html#get-in-touch",
+    "title": "Contact Us",
+    "section": "",
+    "text": "We’d love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out using any of the methods below.\n\n\nEmail: sdgis-BK@tudelft.nl\n\nWe typically respond to messages within 24 business hours."
+  },
+  {
     "objectID": "pages/environmental_assessment/pv_potential.html",
     "href": "pages/environmental_assessment/pv_potential.html",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "",
-    "text": "Code"
+    "text": "Classification: Intermediate GIS Analysis | Spatial Data Processing | Environmental & Energy Assessment\nSubcategory: Raster-Vector Analysis, Cartographic Visualization, Exploratory Data Analysis\nLearning Level: Advanced Beginner to Intermediate\nTime Estimate: 2–3 hours\nSoftware Required: QGIS 3.28+ with Data Plotly plugin"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#overview",
     "href": "pages/environmental_assessment/pv_potential.html#overview",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Overview",
     "text": "Overview\nThis tutorial guides you through creating a national-level map of photovoltaic (PV) potential for Dutch municipalities. You will combine municipal boundary vector data with a PV potential raster layer, perform zonal statistics to extract summary metrics, and visualize results through classification maps and exploratory visualizations.\nLearning Outcomes:\nBy completing this tutorial, you will be able to:\n✅ Clean and prepare municipal boundary vector data in QGIS\n✅ Perform zonal statistics to extract raster values summarized by vector polygons\n✅ Create a classified choropleth map using quantile classification\n✅ Generate a ranked attribute table displaying top-performing municipalities\n✅ Produce an exploratory scatterplot to examine relationships between variables\n✅ Compile a professional map layout combining cartography, tables, and charts for presentation"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#system-requirements-setup",
     "href": "pages/environmental_assessment/pv_potential.html#system-requirements-setup",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "System Requirements & Setup",
     "text": "System Requirements & Setup\n\nSoftware Installation\nQGIS: - Download the latest stable version (3.28+) from https://qgis.org/download/ - Installation instructions vary by operating system (Windows/Mac/Linux)\nRequired QGIS Plugins:\n\nData Plotly – For interactive charting and scatterplots\n\nGo to Plugins → Manage and Install Plugins\nSearch for “Data Plotly”\nClick Install\nRestart QGIS to activate if needed.\n\n\n\n\nData Requirements\nDownload the following datasets from this Surfdrive link:\nFor this exercise, you will work with the following datasets: - Municipal Boundaries: CBS_Gemeenten - gemeenten (vector polygon layer) - PV Potential Raster: PVOUT (continuous raster layer representing solar irradiance or PV output) - Project File: AR2U086_assigment_1.qgz (pre-configured QGIS project)"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#workflow-overview",
     "href": "pages/environmental_assessment/pv_potential.html#workflow-overview",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Workflow Overview",
     "text": "Workflow Overview\nThe analysis follows a systematic GIS workflow:\n\n\n\n\n\n\n\nPhase\nTasks\n\n\n\n\nPreparation\nOpen QGIS project; organize and examine layers\n\n\nData Cleaning\nRemove extraneous fields from municipal boundaries; standardize attribute names\n\n\nRaster Styling\nApply colour ramps and stretch techniques to visualize PV potential raster\n\n\nZonal Analysis\nExtract summary statistics (mean, min, max, count) from raster by municipality\n\n\nCartographic Design\nCreate classified choropleth map; design colour scheme and symbology\n\n\nVisualization\nProduce attribute table, scatterplot, and supporting map elements\n\n\nFinal Output\nCompile print layout and export as PDF or high-resolution image"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-1-open-and-organize-the-project",
     "href": "pages/environmental_assessment/pv_potential.html#step-1-open-and-organize-the-project",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 1: Open and Organize the Project",
     "text": "Step 1: Open and Organize the Project\n\nLaunch QGIS from your applications menu or desktop shortcut.\nOpen the Project:\n\nGo to File → Open Project\nNavigate to AR2U086_assigment_1.qgz\nClick Open\n\nExamine Layers in the Layers Panel:\n\nOn the left side, locate the Layers Panel (if not visible, go to View → Panels → Layers)\nYou should see:\n\nCBS_Gemeenten - gemeenten (municipalities vector layer)\nPVOUT (PV potential raster layer)\nPossibly one or more basemap layers (e.g., OpenStreetMap, satellite imagery)\n\n\nRemove Unnecessary Layers:\n\nFor a cleaner workspace, remove any basemap or reference layers not needed for analysis\nRight-click a layer and select Remove Layer\nKeep only:\n\nCBS_Gemeenten - gemeenten\nPVOUT"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-2-save-a-new-project",
     "href": "pages/environmental_assessment/pv_potential.html#step-2-save-a-new-project",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 2: Save a New Project",
     "text": "Step 2: Save a New Project\nBefore making any modifications, save the project under a new name to preserve the original:\n\nGo to Project → Save As\nIn the dialog, enter a descriptive filename:\n\nExample: PV_Potential_Analysis_[YourName]_[Date].qgz\n\nChoose a save location (e.g., your Documents folder or course directory)\nClick Save\n\nThis ensures you have a backup and can compare changes to the original if needed."
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-3-data-cleaning-preparation",
     "href": "pages/environmental_assessment/pv_potential.html#step-3-data-cleaning-preparation",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 3: Data Cleaning & Preparation",
     "text": "Step 3: Data Cleaning & Preparation\n\n3.1 Clean the Municipalities Dataset\nRemoving extraneous fields reduces file size, simplifies the attribute table, and focuses attention on relevant data.\nOpen the Attribute Table:\n\nIn the Layers Panel, locate CBS_Gemeenten - gemeenten\nRight-click and select Open Attribute Table\n\nA new window will open showing all records and fields\n\n\nEnter Editing Mode:\n\nIn the Attribute Table toolbar (top of the table window), locate the Pencil icon\nClick it to enter Toggle Editing Mode\n\nThe pencil icon will turn yellow/highlighted, indicating edit mode is active\nA yellow pencil will also appear next to the layer name in the Layers Panel\n\n\nRemove Unnecessary Fields:\n\nIn the Attribute Table toolbar, click the Delete Fields button (usually a trash/bin icon)\nA dialog listing all fields in the dataset will appear\nKeep only these fields by unchecking (deselecting) all others:\n\ngemeentecode – Municipality Code (unique identifier)\ngemeentenaam – Municipality Name (for labels and reference)\nwater – Water Surface Area (optional, for geographic context)\naantalinwoners – Population (required for the scatterplot analysis)\n\nAfter unchecking unwanted fields, click OK or Apply\n\nAll unselected fields will be deleted from the dataset\n\n\nVerify Changes:\n\nReview the Attribute Table to confirm that only four columns remain\nScroll through a few rows to ensure data integrity\n\nSave and Exit Edit Mode:\n\nClick the Pencil icon again to exit edit mode\nWhen prompted: “Save changes to layer ‘CBS_Gemeenten - gemeenten’?”\nClick Save Changes to confirm\n\n\n\n\n3.2 Style the PV Potential Raster\nProper raster visualization enhances pattern recognition and communicates data effectively.\nOpen the Layer Styling Panel:\n\nSelect the PVOUT layer in the Layers Panel (click once to highlight it)\nOpen the styling interface:\n\nOption A: Go to View → Panels → Layer Styling (or press F7)\nOption B: Double-click the layer name directly\n\nThe Layer Styling panel will open on the right side of QGIS\n\nChange the Render Type to Singleband Pseudocolor:\n\nIn the Layer Styling panel, ensure the Symbology tab is active\nLocate the Render Type dropdown (currently may be “Singleband Gray” or similar)\nClick the dropdown and select Singleband Pseudocolor\n\nThis allows continuous raster values to be represented as a colour gradient\n\n\nApply a Color Ramp from cpt-city:\n\nIn the Symbology tab, click on the Color Ramp dropdown\nClick on Create New Color Ramp…\nSelect Catalog: cpt-city to access the catalog\nChoose a colour scheme appropriate for PV potential (typically sequential or solar-themed):\n\nGMT_hot – Progresses from black → red → orange → yellow → white; emphasizes high values\nViridis – Purple → green → yellow; perceptually uniform and colorblind-friendly\nturbo – Blue → cyan → yellow → red; high contrast, modern appearance\nYlOrRd – Yellow → orange → red; classic scientific choice\n\nPreview: The map will update as you select different ramps\n\nAdjust Min-Max Values for Optimal Contrast:\n\nLocate Min / Max Values Settings (often appears as a button or dropdown)\nClick to open stretch options\nSelect Cumulative Count Stretch (2-98%)\n\nThis stretches the colour ramp to the 2nd and 98th percentiles\nExcludes extreme outliers that might compress the visible range\nResults in better contrast and clearer patterns\n\nAlternative: Manually set min/max values if you know the data range\n\nExample: Min = 500 kWh/m²/year, Max = 2000 kWh/m²/year\n\n\nApply Transparency (Optional but Recommended):\n\nIn the Layer Styling panel, click the Transparency tab\nSet No Data Value (if missing/null pixels exist):\n\nThis makes background or missing areas transparent rather than colored\n\nAdjust Opacity slider (0–100%) if the raster will overlay a basemap:\n\nSet to 85–95% to slightly show features beneath the raster\n\n\nApply and Review Styling:\n\nClick Apply to visualize the updated symbology on the map\nReturn to the main QGIS canvas and examine the raster:\n\nSpatial patterns should now be clearly visible\nColour gradient should smoothly represent variation in PV potential\n\nIf patterns are unclear or colours don’t match your preference:\n\nReturn to the Styling panel and adjust the colour ramp or stretch settings\nClick Apply again to update"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-4-perform-zonal-statistics",
     "href": "pages/environmental_assessment/pv_potential.html#step-4-perform-zonal-statistics",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 4: Perform Zonal Statistics",
     "text": "Step 4: Perform Zonal Statistics\nZonal statistics summarize raster values (PV potential) within vector polygon boundaries (municipalities). This produces new columns in the municipalities attribute table containing aggregate metrics.\nOpen the Zonal Statistics Tool:\n\nGo to Processing → Toolbox (or press Ctrl+Alt+T)\nIf the Processing Toolbox panel doesn’t appear:\n\nGo to View → Panels → Processing Toolbox\n\nIn the search bar at the top of the Processing Toolbox, type: Zonal Statistics\nDouble-click Zonal Statistics to open the tool dialog\n\nConfigure Input Parameters:\nThe Zonal Statistics dialog will open with several fields to fill:\n\nInput vector layer:\n\nClick the dropdown and select CBS_Gemeenten - gemeenten\nThis is the polygon layer whose boundaries define the zones\n\nRaster layer:\n\nClick the dropdown and select PVOUT\nThis is the raster data to be summarized\n\nRaster band:\n\nIf PVOUT is a single-band raster, select Band 1\n(Most common for single-band scientific rasters)\n\n\nSelect Statistics to Calculate:\nBelow the input parameters, you’ll see checkboxes for various statistics. Enable:\n\n☑ Mean – Average PV potential per municipality (primary metric)\n☑ Count – Number of raster pixels within each municipality\n☑ Min – Minimum PV potential value found in the municipality\n☑ Max – Maximum PV potential value found in the municipality\n\nLeave other statistics unchecked (Median, StDev, etc.) unless your analysis requires them.\nSet Output Parameters:\n\nOutput column prefix:\n\nEnter: PV_\nOutput column names will then be: PV_mean, PV_count, PV_min, PV_max\nThis naming convention makes fields easily identifiable\n\nStatistics output:\n\nClick the dropdown (currently may show “Create temporary layer”)\nSelect Save to File\n\nChoose output location and filename:\n\nClick the folder/file browser button next to the output field\nNavigate to your project directory\nEnter filename: municipalities_with_PV_stats.gpkg\n(GeoPackage format is recommended for compatibility and portability)\n\nClick Save to confirm the output location\n\nRun the Tool:\n\nClick the Run button (bottom right of the dialog)\nQGIS will process the operation:\n\nFor each municipality polygon, the tool extracts all raster pixels within its boundary\nCalculates the selected statistics (mean, count, min, max)\nCreates a new vector layer with these statistics added as columns\n\nWhen complete, a notification will appear: “Finished” or “Process completed successfully”\n\nVerify Results:\n\nThe new layer (municipalities_with_PV_stats or similar) will appear in the Layers Panel\nMake it the active layer (click once to select it)\nRight-click and select Open Attribute Table\nScroll to the right side of the table\nConfirm the new columns exist:\n\nPV_mean – Average PV potential (typically 800–2000 range for the Netherlands)\nPV_count – Number of pixels (varies by municipality size)\nPV_min – Minimum value\nPV_max – Maximum value\n\nReview a few values to ensure they are reasonable and complete (no null values)"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-5-create-cartographic-visualizations",
     "href": "pages/environmental_assessment/pv_potential.html#step-5-create-cartographic-visualizations",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 5: Create Cartographic Visualizations",
     "text": "Step 5: Create Cartographic Visualizations\n\n5.1 Create a Classified Choropleth Map\nA choropleth map uses colour gradients to display the spatial distribution of a continuous variable. Classifying continuous PV data into discrete categories (e.g., 5 classes) makes the map easier to interpret and print.\nSelect the Data Layer:\n\nIn the Layers Panel, click on the layer containing zonal statistics results (municipalities_with_PV_stats)\nThis layer should be visible on the map canvas\n\nOpen the Layer Styling Panel:\n\nGo to View → Panels → Layer Styling (or press F7)\nThe Layer Styling panel opens on the right side\n\nChange Classification Type to Graduated:\n\nIn the Symbology tab, locate the classification dropdown (top of the panel)\nClick it and select Graduated\n\nThe panel will reconfigure to show classification options\n\n\nConfigure Classification Parameters:\n\nValue (Column):\n\nClick the dropdown below “Graduated”\nSelect PV_mean (mean PV potential from zonal statistics)\n\nClassification Mode:\n\nClick the dropdown labeled “Classification Mode” or “Method”\nSelect Quantiles (Equal Count)\nThis divides the data into classes such that each class contains approximately the same number of municipalities\nMakes spatial patterns easier to see than equal-interval classification\n\nNumber of Classes:\n\nSet to 5 (a standard choice balancing detail with simplicity)\nYou can experiment with 4–7 depending on your data and preferences\n\n\nChoose a Colour Ramp:\n\nClick the Color Ramp dropdown\nSelect cpt-city to access advanced colour schemes\nChoose a sequential or diverging ramp suitable for PV potential:\n\nGMT_hot or YlOrRd – Yellow/orange/red progression (emphasizes high values, common for energy/solar)\nturbo – Modern, high-contrast ramp\nBlues, Greens, Purples – Single-hue sequential schemes\n\nReverse (optional): If you want low values in warm colours and high values in cool colours, click the Reverse checkbox\n\nGenerate Classification Classes:\n\nClick the Classify button\n\nThe tool automatically calculates class breaks based on your selected method\nClass ranges will appear in a table below\n\nReview the generated classes:\n\nEach row shows a class range (e.g., “800.5 – 1200.3”) and its colour\nCheck that classes are logical and well-distributed\n\n(Optional) Manually Edit Class Breaks:\n\nDouble-click any value in the “Value” or “Label” columns to edit it\nUseful for rounding numbers or creating custom labels (e.g., “Low,” “Medium,” “High”)\n\n\nAdjust Styling Details:\n\nStroke (Outline):\n\nFind “Stroke width” or similar option\nSet to 0.5 pt (thin, subtle boundaries between municipalities)\nThis maintains visual distinction without overwhelming the map\n\nStroke color:\n\nChoose a dark grey or black for contrast against the fill colours\n\nOpacity:\n\nSet to 90% to ensure clear visibility while subtly revealing underlying features\n\n\nApply and Review:\n\nClick Apply to update the map canvas\nReturn to the main QGIS canvas and inspect the choropleth:\n\nSouthern municipalities should appear warmer (higher PV potential)\nNorthern municipalities should appear cooler (lower potential)\nPatterns should reflect geographic and climatic variation\n\nIf the classification doesn’t match your expectations:\n\nReturn to the Styling panel and adjust the colour ramp, number of classes, or classification mode\nClick Apply again\n\n\n\n\n\n5.2 Add a Ranked Table to the Print Layout\nA table listing the top 20 municipalities by PV potential provides quantitative context and allows readers to look up specific values.\nCreate a New Print Layout:\n\nGo to Project → New Print Layout\nA dialog appears asking for a layout name\nEnter: PV_Potential_National_Map\nClick OK\n\nThe Print Layout editor opens in a new window\n\n\nInsert the Choropleth Map:\n\nIn the Items panel (right side), click Add Map\nOn the layout canvas, click and drag to draw a rectangle:\n\nThis rectangle defines the area where the map will appear\n\nRelease the mouse to place the map\nResize and reposition as needed by clicking and dragging corners/edges\n\nThe map should occupy about 60–70% of the layout\n\n\nAdd an Attribute Table to the Layout:\n\nIn the Items panel (right side), click Add Attribute Table\nOn the layout canvas, click and drag to draw a rectangle below or beside the map\nRelease to place the table\n\nConfigure the Table Display:\n\nClick the Item Properties panel (right side, select the “Item Properties” tab if not already visible)\nEnsure the table is selected (highlighted in the layout)\nIn Item Properties, set:\n\nLayer: Select your municipalities layer with zonal statistics (e.g., municipalities_with_PV_stats)\n\n\nConfigure Sorting to Show Top 20 Municipalities:\nIn the Item Properties panel, locate the Table section:\n\nCheck Show Only Visible Features (optional; filters by map extent if the map is zoomed in)\nCheck Sort by Column\nIn the sort dropdown:\n\nSelect PV_mean (the column to sort by)\n\nSet sort order to Descending (highest values first)\n\nThis puts the highest PV potential municipalities at the top of the table\n\nSet Number of Rows to 20\n\nOnly the top 20 municipalities will display\n\n\nCustomize Table Appearance:\nIn the Appearance section:\n\nVisible Attributes (Columns):\n\nClick to expand and select only:\n\ngemeentenaam (Municipality Name)\nPV_mean (Mean PV Potential)\n\nDeselect other columns to reduce clutter\n\nHeader Font Size: Increase to 12–14pt (larger than body text)\nRow Height: Increase to 8–10mm for better readability\nColumn Alignment:\n\nAlign text center or left for consistent appearance\n\nFonts:\n\nChoose a clear, professional font (e.g., Arial, Liberation Sans)\n\n\nApply and Position:\n\nClick Apply to update the table\nIn the layout, resize and reposition the table:\n\nEnsure it doesn’t overlap the map or other elements\nLeave margins for a professional appearance\n\n\n\n\n\n5.3 Create an Exploratory Scatterplot\nA scatterplot examines the relationship between two variables—in this case, municipal population and PV potential—to identify correlations or patterns.\nInstall and Activate Data Plotly Plugin:\nIf not already done:\n\nGo to Plugins → Manage and Install Plugins\nSearch for Data Plotly\nClick Install\nClose the dialog (QGIS may restart)\n\nOpen the Data Plotly Panel:\n\nGo to View → Panels\nSelect Data Plotly from the list\nThe Data Plotly panel will open (usually on the right side)\n\nConfigure Scatterplot Parameters:\nIn the Data Plotly panel, set:\n\nPlot Type: Click the dropdown and select Scatter Plot\nLayer: Select your municipalities layer with zonal statistics\nX Axis Field: Click the dropdown and select aantalinwoners (Population)\nY Axis Field: Click the dropdown and select PV_mean (Mean PV Potential)\n\nCustomize Visual Appearance:\n\nPoint Size: Increase to 8–12 for better visibility\nColor: Select a colour or gradient scheme:\n\nChoose Viridis or Turbo to match your map’s symbology (or any gradient you prefer)\n\nOpacity: Set to 0.7–0.8 to make overlapping points visible\nShow Trendline (optional):\n\nEnable to display a linear regression line and R² value\nThis helps visualize correlation strength\n\n\nAdd Titles and Axis Labels:\n\nPlot Title: “Relationship Between Population and Mean PV Potential”\nX-Axis Title: “Population (Aantal Inwoners)”\nY-Axis Title: “Mean PV Potential (kWh/m²/year)”\nLegend: Enable and position appropriately\n\nGenerate and Export the Chart:\n\nClick Plot (or similar button) to generate the interactive scatterplot\nReview the visualization:\n\nDoes the plot show a clear trend?\nAre there interesting outliers?\n\nClick the Export button (camera/download icon) to save as PNG or SVG\nChoose a location and filename (e.g., scatterplot_population_vs_PV.png)\n\nEmbed in Print Layout (Optional):\n\nIf you exported the chart, you can add it to your print layout:\n\nIn the layout, click Add Image\nSelect the exported PNG/SVG file\nPosition it on the layout"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#step-6-finalize-and-export-the-print-layout",
     "href": "pages/environmental_assessment/pv_potential.html#step-6-finalize-and-export-the-print-layout",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Step 6: Finalize and Export the Print Layout",
     "text": "Step 6: Finalize and Export the Print Layout\nAdd Map Elements:\n\nTitle:\n\nClick Add Text in the Items panel\nDraw a text box at the top of the layout\nType: “Photovoltaic Potential Across Dutch Municipalities”\nIncrease font size to 24–28pt\n\nLegend:\n\nClick Add Legend in the Items panel\nDraw a legend box (usually on the right side)\nConfigure in Item Properties:\n\nSelect the municipalities layer to display classes\nCustomize title and font sizes\n\n\nScale Bar:\n\nClick Add Scale Bar in the Items panel\nDraw it in a corner (usually bottom-left)\nChoose an appropriate scale format (e.g., “1:2,000,000”)\n\nNorth Arrow (optional):\n\nClick Add North Arrow in the Items panel\nPosition in a corner\nEnhances geographic orientation\n\nSource/Attribution:\n\nClick Add Text\nEnter: “Data source: CBS (Centraal Bureau voor de Statistiek), PVOUT dataset”\nUse 8–10pt font\n\n\nReview and Refine:\n\nCheck that all elements are:\n\nProperly positioned and not overlapping\nLegible at the intended output size (check zoom level)\nAligned consistently with proper margins (10–15mm from edges)\n\nVerify colour clarity:\n\nPrint a preview or check on-screen at 100% zoom\n\nAdjust fonts, sizes, and colours as needed\n\nExport the Final Layout:\n\nExport as PDF (recommended for printing/sharing):\n\nGo to Layout → Export as PDF\nChoose save location and filename (e.g., PV_Potential_National_Map.pdf)\nSet Resolution to 300 DPI (print quality)\nClick Save\n\nExport as High-Resolution Image (for presentations):\n\nGo to Layout → Export as Image\nSelect PNG format\nSet DPI to 300\nClick Save\n\nExport as SVG (for further editing in design software):\n\nGo to Layout → Export as SVG\nUseful if you want to refine the layout in Adobe Illustrator or Inkscape"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#troubleshooting-guide",
     "href": "pages/environmental_assessment/pv_potential.html#troubleshooting-guide",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Troubleshooting Guide",
     "text": "Troubleshooting Guide\n\n\n\n\n\n\n\n\nProblem\nLikely Cause\nSolution\n\n\n\n\nZonal Statistics produces no output\nMisaligned CRS; empty selection\nVerify both layers use the same coordinate reference system (EPSG:28992 for Netherlands). Check that both layers are valid.\n\n\nRaster appears entirely black or white\nExtreme outliers in data; poor stretch settings\nUse “Cumulative Count Stretch (2-98%)” instead of standard Min-Max. Manually set min/max values to reasonable ranges.\n\n\nNew columns don’t appear in attribute table\nEditing mode not exited; output layer not loaded\nEnsure you exited editing mode and saved changes. Check the Layers panel to confirm the output layer was added.\n\n\nTable shows all municipalities instead of top 20\nSorting not enabled; wrong sort column selected\nIn Item Properties, enable “Sort by Column”, select PV_mean, set to Descending, and limit rows to 20.\n\n\nScatterplot doesn’t render\nData Plotly not installed or not restarted\nInstall Data Plotly via Plugins menu. Restart QGIS after installation. Check that layers/fields are correctly selected.\n\n\nPrint layout elements misaligned\nWorking in map canvas instead of layout\nAll layout adjustments should be made in the layout editor, not the main canvas. Use zoom and pan tools within the layout.\n\n\nExported PDF is low quality\nResolution set too low\nEnsure you set DPI to 300 (or higher) when exporting. 72 DPI will appear pixelated when printed.\n\n\nMissing data or null values in new columns\nRaster pixels outside polygon boundaries; NoData regions\nThis is expected if some municipality areas lack raster data. Check the Count column—zero values indicate no valid data."
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#interpretation-guidelines",
     "href": "pages/environmental_assessment/pv_potential.html#interpretation-guidelines",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Interpretation Guidelines",
     "text": "Interpretation Guidelines\nUnderstanding the Choropleth Map:\n\nDarker/warmer colours represent municipalities with higher mean PV potential (better for solar installations)\nLighter/cooler colours represent lower PV potential\nSpatial patterns typically reflect:\n\nLatitude: Southern municipalities have higher solar irradiance\nElevation: Higher elevations may receive more direct sunlight\nCloud cover and climate: Oceanic vs. continental influence\n\nSouthern provinces (e.g., Limburg, North Brabant) typically show highest potential\nNorthern provinces (e.g., Friesland, Groningen) typically show lower potential\n\nReading the Ranked Table:\n\nThe top 20 municipalities represent the best-suited locations for utility-scale or large distributed PV projects (from a solar resource perspective)\nImportant caveat: High PV potential alone does not guarantee feasibility; also consider:\n\nLand availability (rooftops, industrial areas, agricultural land)\nGrid capacity and connection points\nLand ownership and zoning restrictions\nProximity to demand centers\n\n\nInterpreting the Scatterplot:\n\nHorizontal trendline: PV potential is independent of population; resources distributed evenly across rural and urban areas\nUpward trendline: PV potential increases with population density (possibly correlating with urban land or southerly location)\nDownward trendline: PV potential decreases with population density (less common; might indicate northern, densely populated regions)\nScattered points with weak trendline: Weak correlation; other factors beyond population drive PV variation\nOutliers: Specific municipalities with unusually high/low PV for their population; may represent opportunities or challenges"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#extensions-and-advanced-topics",
     "href": "pages/environmental_assessment/pv_potential.html#extensions-and-advanced-topics",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Extensions and Advanced Topics",
     "text": "Extensions and Advanced Topics\nOnce you complete this tutorial, consider exploring:\n\nSeasonal PV Variation: Create separate maps for summer vs. winter months to highlight seasonal opportunity windows\nRoof Area Integration: Intersect rooftop area data with PV potential to calculate total rooftop-mounted capacity potential\nFeasibility Assessment: Layer PV potential with land use, ownership, protected areas, and zoning data to identify realistically developable zones\nMulti-Criteria Analysis: Use weighted overlay to combine PV potential with land costs, accessibility, environmental impact, and social acceptance\nTime Series Analysis: If historical data exists, track changes in PV potential over multiple years (e.g., due to land use changes)\nGrid Capacity Analysis: Combine PV maps with electrical grid data to identify bottlenecks and optimal connection points"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#references-resources",
     "href": "pages/environmental_assessment/pv_potential.html#references-resources",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "References & Resources",
     "text": "References & Resources\nQGIS Documentation: - Official QGIS User Manual: https://docs.qgis.org/ - Zonal Statistics: https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html#zonal-statistics\nData Sources: - CBS (Statistics Netherlands): https://www.cbs.nl/ (municipal boundaries, population data) - PVOUT Dataset: [Specify source—e.g., Copernicus, NASA, IRENA]\nLearning Resources: - QGIS Training Manual: https://docs.qgis.org/latest/en/docs/training_manual/ - Data Plotly Documentation: Check plugin repository or GitHub"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#feedback-continuous-improvement",
     "href": "pages/environmental_assessment/pv_potential.html#feedback-continuous-improvement",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Feedback & Continuous Improvement",
     "text": "Feedback & Continuous Improvement\nIf you encounter issues, have questions, or wish to provide feedback:\n\nCheck this troubleshooting guide first – Most common issues are covered\nConsult QGIS documentation at https://docs.qgis.org/\nReview plugin READMEs (in the plugin download page or repository)\nContact instructors or teaching assistants in your course\nSubmit feedback to course coordinators to improve future versions of this tutorial"
   },
   {
     "objectID": "pages/environmental_assessment/pv_potential.html#appendix-quick-reference",
     "href": "pages/environmental_assessment/pv_potential.html#appendix-quick-reference",
-    "title": "",
+    "title": "Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial",
     "section": "Appendix: Quick Reference",
     "text": "Appendix: Quick Reference\nKey Keyboard Shortcuts: - F7 – Toggle Layer Styling Panel - Ctrl+Alt+T – Open Processing Toolbox - Ctrl+S – Save Project - Ctrl+H – Toggle Full Screen Mode\nCommon Data Formats: - GeoPackage (.gpkg) – Recommended for vector data (SQL-based, portable) - Shapefile (.shp + .dbf + .shx) – Legacy but widely used - GeoJSON (.geojson) – Web-friendly, human-readable - GeoTIFF (.tif) – Recommended for raster data\n\nDocument Version: 1.1 (Updated February 2026)\nQGIS Version: 3.28+\nDifficulty Level: Intermediate (Advanced Beginner+)\nExpected Time: 2–3 hours"
   },
