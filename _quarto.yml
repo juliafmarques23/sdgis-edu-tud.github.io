@@ -88,8 +88,9 @@ website:
         - section: "Landscape Analysis"
           contents:
             - pages/learn-qgis/landscape-analysis/index.qmd
-            - pages/learn-qgis/landscape-analysis/terrain-data.qmd
-            - pages/learn-qgis/landscape-analysis/hydrological.qmd
+            - pages/learn-qgis/landscape-analysis/working-with-terrain-data.qmd
+            - pages/learn-qgis/landscape-analysis/dem-derivatives.qmd
+            - pages/learn-qgis/landscape-analysis/hydrological-analysis.qmd
             - pages/learn-qgis/landscape-analysis/visibility.qmd
             - pages/learn-qgis/landscape-analysis/cross-profiles.qmd
 
