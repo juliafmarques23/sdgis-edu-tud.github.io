@@ -1,22 +1,7 @@
 [
   {
-    "listing": "/pages/find-data/index.html",
+    "listing": "/pages/learn_gis.html",
     "items": []
-  },
-  {
-    "listing": "/pages/courses/index.html",
-    "items": [
-      "/pages/courses/mscu_q2.html",
-      "/pages/courses/mscu_q3.html"
-    ]
-  },
-  {
-    "listing": "/pages/find_data.html",
-    "items": [
-      "/pages/sources/3dbag.html",
-      "/pages/sources/ahn.html",
-      "/pages/sources/omgevingsloket.html"
-    ]
   },
   {
     "listing": "/pages/learn-qgis/index.html",
@@ -51,7 +36,14 @@
     ]
   },
   {
-    "listing": "/pages/learn_gis.html",
+    "listing": "/pages/find-data/index.html",
     "items": []
+  },
+  {
+    "listing": "/pages/courses/index.html",
+    "items": [
+      "/pages/courses/mscu_q2.html",
+      "/pages/courses/mscu_q3.html"
+    ]
   }
 ]

@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../pages/learn-qgis/landscape-analysis/working-with-terrain-data.html" rel="next">
+<link href="../../../pages/learn-qgis/density-analysis/road-network-density.html" rel="next">
 <link href="../../../pages/learn-qgis/getting-started/installing-plugins.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -108,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" data-goatcounter="https://dcannatella.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -323,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../pages/contact.qmd"> 
+    <a class="nav-link" href="../../../pages/contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
   <li class="nav-item">
@@ -363,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/install-qgis.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/new-project.html">Creating a new project in QGIS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Getting Started</li><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/new-project.html">Creating a new project in QGIS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -400,11 +401,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../pages/learn-qgis/getting-started/install-qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Install QGIS</span></a>
-  </div>
-</li>
+ <span class="menu-text">pages/learn-qgis/getting-started/installation.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../pages/learn-qgis/getting-started/switch-language.html" class="sidebar-item-text sidebar-link">
@@ -421,12 +419,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../pages/learn-qgis/getting-started/connecting-folders.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connecting Folders to Browser Panel’s Favorites</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../pages/learn-qgis/getting-started/folder-structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Folder structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -509,8 +501,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">pages/learn-qgis/density-analysis/tree-cover-grid.qmd</span>
   </li>
           <li class="sidebar-item">
- <span class="menu-text">pages/learn-qgis/density-analysis/road-density-grid.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../pages/learn-qgis/density-analysis/road-network-density.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Road Network Density Analysis in the Netherlands</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">pages/learn-qgis/density-analysis/hex-maps.qmd</span>
   </li>
@@ -529,23 +524,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">pages/learn-qgis/landscape-analysis/index.qmd</span>
   </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../pages/learn-qgis/landscape-analysis/working-with-terrain-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Working with Terrain Data in QGIS</span></a>
-  </div>
-</li>
+ <span class="menu-text">pages/learn-qgis/landscape-analysis/terrain-data.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../pages/learn-qgis/landscape-analysis/dem-derivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DEM Derivatives: Slope, Aspect, and Hillshade</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../pages/learn-qgis/landscape-analysis/hydrological-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hydrological Analysis: Flow Paths and Watersheds</span></a>
-  </div>
-</li>
+ <span class="menu-text">pages/learn-qgis/landscape-analysis/hydrological.qmd</span>
+  </li>
           <li class="sidebar-item">
  <span class="menu-text">pages/learn-qgis/landscape-analysis/visibility.qmd</span>
   </li>
@@ -575,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/install-qgis.html">Getting Started</a></li><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/new-project.html">Creating a new project in QGIS</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Getting Started</li><li class="breadcrumb-item"><a href="../../../pages/learn-qgis/getting-started/new-project.html">Creating a new project in QGIS</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Creating a new project in QGIS</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
@@ -1155,8 +1138,8 @@ Warning
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../pages/learn-qgis/landscape-analysis/working-with-terrain-data.html" class="pagination-link" aria-label="Working with Terrain Data in QGIS">
-        <span class="nav-page-text">Working with Terrain Data in QGIS</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../pages/learn-qgis/density-analysis/road-network-density.html" class="pagination-link" aria-label="Road Network Density Analysis in the Netherlands">
+        <span class="nav-page-text">Road Network Density Analysis in the Netherlands</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
