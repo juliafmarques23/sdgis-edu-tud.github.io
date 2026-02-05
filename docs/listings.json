@@ -1,0 +1,57 @@
+[
+  {
+    "listing": "/pages/find-data/index.html",
+    "items": []
+  },
+  {
+    "listing": "/pages/courses/index.html",
+    "items": [
+      "/pages/courses/mscu_q2.html",
+      "/pages/courses/mscu_q3.html"
+    ]
+  },
+  {
+    "listing": "/pages/find_data.html",
+    "items": [
+      "/pages/sources/3dbag.html",
+      "/pages/sources/ahn.html",
+      "/pages/sources/omgevingsloket.html"
+    ]
+  },
+  {
+    "listing": "/pages/learn-qgis/index.html",
+    "items": [
+      "/pages/learn-qgis/getting-started/activating-panels.html",
+      "/pages/learn-qgis/misc/land_use_grid_aggregation.html",
+      "/pages/learn-qgis/misc/statistics_and_data_visualization.html",
+      "/pages/learn-qgis/cartography/cartographic_principles.html",
+      "/pages/learn-qgis/getting-started/switch-language.html",
+      "/pages/learn-qgis/getting-started/connecting-folders.html",
+      "/pages/learn-qgis/spatial-data-preparation/creating_fishnet.html",
+      "/pages/learn-qgis/getting-started/new-project.html",
+      "/pages/learn-qgis/landscape-analysis/cross_profiles.html",
+      "/pages/learn-qgis/landscape-analysis/dem-derivatives.html",
+      "/pages/learn-qgis/getting-started/folder-structure.html",
+      "/pages/learn-qgis/misc/georeferencing_and_digitizing.html",
+      "/pages/learn-qgis/landscape-analysis/hydrological-analysis.html",
+      "/pages/learn-qgis/getting-started/install-qgis.html",
+      "/pages/learn-qgis/getting-started/installing-plugins.html",
+      "/pages/learn-qgis/introduction.html",
+      "/pages/learn-qgis/cartography/making_a_map.html",
+      "/pages/learn-qgis/cartography/map_elements.html",
+      "/pages/learn-qgis/cartography/map_layout.html",
+      "/pages/learn-qgis/environmental-assessment/pv_potential.html",
+      "/pages/learn-qgis/density-analysis/road_network_density.html",
+      "/pages/learn-qgis/landscape-analysis/terrain_data.html",
+      "/pages/learn-qgis/cartography/types_of_maps.html",
+      "/pages/learn-qgis/misc/using_data_source_manager.html",
+      "/pages/learn-qgis/landscape-analysis/visibility_analysis.html",
+      "/pages/learn-qgis/cartography/map_aesthetics.html",
+      "/pages/learn-qgis/landscape-analysis/working-with-terrain-data.html"
+    ]
+  },
+  {
+    "listing": "/pages/learn_gis.html",
+    "items": []
+  }
+]

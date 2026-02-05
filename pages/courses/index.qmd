@@ -1,6 +1,6 @@
 ---
 title: "Courses & Workshops"
-subtitle: "Organized tutorial collections for teaching and learning"
+subtitle: "Curated collections of tutorials for teaching and learning"
 listing:
   contents: 
     - "*.qmd"
@@ -13,24 +13,51 @@ listing:
 page-layout: full
 ---
 
-## Pre-Packaged Learning Materials
+## Overview
 
-These courses and workshops contain curated collections of tutorials designed for specific programs and teaching contexts at TU Delft.
+This section brings together **pre-packaged courses and workshops** built from curated tutorial collections.  
+Each course is designed for a specific teaching context at **TU Delft**, supporting both structured education and self-guided learning.
 
-### Available Courses
-
-Browse our workshop materials below, or use the search above to find specific courses. Each workshop page contains:
-
+Each course page typically includes:
 - Learning objectives
 - Required software and data
 - Step-by-step tutorials
-- Assignments and exercises
+- Assignments or exercises (when applicable)
 - Additional resources
 
 ---
 
-### For Instructors
+## Courses by Programme
 
-Want to create your own workshop collection? Check out our [Contribute](../contribute.qmd) page to learn how to package tutorials for your students.
+### Bachelor of Architecture
 
+- **IOP1** — GeoExpert Role  
+- **WV5** — Geodata Domain  
 
+### Master of Urbanism
+
+- **Q1 Studio** — GIS Workshop  
+- **Q2 Studio** — GIS Workshop  
+- **Q3 Studio** — GIS Workshop  
+- **Applied Spatial Analytics**  
+- **DISSUF** — Graduation Cluster  
+
+### Master of Landscape Architecture
+
+- **Q3 Studio** — GIS Workshop  
+
+---
+
+## Available Courses & Workshops
+
+Browse the available materials below, or use the search and filters above to quickly find a specific course or workshop.
+
+Each item links to a dedicated course page with full documentation and tutorials.
+
+---
+
+## For Instructors
+
+Interested in creating your own course or workshop collection?
+
+Visit the [Contribute](../contribute.qmd) page to learn how to package tutorials, define course metadata, and publish materials for your students.

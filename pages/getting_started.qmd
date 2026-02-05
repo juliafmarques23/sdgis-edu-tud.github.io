@@ -1,4 +1,0 @@
----
-title: "Getting started with QGIS"
-format: html
----
