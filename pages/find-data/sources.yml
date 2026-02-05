@@ -1,0 +1,167 @@
+- name: "[Natural Earth](https://naturalearthdata.com)"
+  description: "Free vector and raster map data at multiple scales"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Shapefile, GeoTIFF"
+  categories: [administrative, physical, cultural]
+
+- name: "[OpenStreetMap](https://www.openstreetmap.org)"
+  description: "Collaborative open-source geographic database"
+  type: "Vector"
+  region: "Global"
+  format: "OSM, Shapefile, GeoPackage"
+  categories: [roads, buildings, poi, infrastructure]
+
+- name: "[USGS Earth Explorer](https://earthexplorer.usgs.gov)"
+  description: "Satellite imagery and elevation data from US Geological Survey"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF, HDF"
+  categories: [imagery, elevation, landsat]
+
+- name: "[Copernicus Open Access Hub](https://scihub.copernicus.eu)"
+  description: "Sentinel satellite imagery from European Space Agency"
+  type: "Raster"
+  region: "Global"
+  format: "SAFE, GeoTIFF"
+  categories: [imagery, multispectral, sentinel]
+
+- name: "[PDOK](https://www.pdok.nl)"
+  description: "Public services on the map - Dutch national geoportal"
+  type: "Vector, Raster"
+  region: "Netherlands"
+  format: "WMS, WFS, GeoTIFF"
+  categories: [administrative, topography, elevation, cadastre]
+
+- name: "[CBS StatLine](https://opendata.cbs.nl)"
+  description: "Statistics Netherlands - demographic and socioeconomic data"
+  type: "Tabular, Vector"
+  region: "Netherlands"
+  format: "CSV, Excel, WFS"
+  categories: [demographics, statistics, socioeconomic]
+
+- name: "[Kadaster](https://www.kadaster.nl)"
+  description: "Land registry and cadastral data for the Netherlands"
+  type: "Vector"
+  region: "Netherlands"
+  format: "GML, Shapefile, WFS"
+  categories: [parcels, buildings, addresses, cadastre]
+
+- name: "[AHN (Actueel Hoogtebestand Nederland)](https://www.ahn.nl)"
+  description: "High-resolution elevation data for the Netherlands"
+  type: "Raster, Point Cloud"
+  region: "Netherlands"
+  format: "GeoTIFF, LAZ"
+  categories: [elevation, lidar, terrain]
+
+- name: "[BAG (Basisregistratie Adressen en Gebouwen)](https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bag)"
+  description: "Official building and address registry for the Netherlands"
+  type: "Vector"
+  region: "Netherlands"
+  format: "XML, GML, WFS"
+  categories: [buildings, addresses, cadastre]
+
+- name: "[GBIF](https://www.gbif.org)"
+  description: "Global Biodiversity Information Facility - species occurrence data"
+  type: "Point"
+  region: "Global"
+  format: "CSV, DwC, Shapefile"
+  categories: [biodiversity, ecology, species]
+
+- name: "[WorldClim](https://www.worldclim.org)"
+  description: "Global climate and weather data at high resolution"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [climate, temperature, precipitation, bioclim]
+
+- name: "[Global Forest Watch](https://www.globalforestwatch.org)"
+  description: "Forest monitoring and tree cover data"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [landcover, deforestation, forest, environment]
+
+- name: "[European Environment Agency](https://www.eea.europa.eu)"
+  description: "European environmental data and assessments"
+  type: "Vector, Raster"
+  region: "Europe"
+  format: "Shapefile, GeoTIFF, WMS"
+  categories: [environment, landcover, pollution, corine]
+
+- name: "[NASA Earthdata](https://earthdata.nasa.gov)"
+  description: "Earth science data from NASA missions"
+  type: "Raster"
+  region: "Global"
+  format: "HDF, NetCDF, GeoTIFF"
+  categories: [imagery, climate, atmosphere, modis]
+
+- name: "[Eurostat GISCO](https://ec.europa.eu/eurostat/web/gisco)"
+  description: "Geographic information and maps for Europe"
+  type: "Vector"
+  region: "Europe"
+  format: "Shapefile, GeoJSON, TopoJSON"
+  categories: [administrative, boundaries, statistical]
+
+- name: "[SRTM (Shuttle Radar Topography Mission)](https://www2.jpl.nasa.gov/srtm/)"
+  description: "Global digital elevation model"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF, HGT"
+  categories: [elevation, terrain, dem]
+
+- name: "[OpenTopography](https://opentopography.org)"
+  description: "High-resolution topography data and tools"
+  type: "Raster, Point Cloud"
+  region: "Global (selected areas)"
+  format: "GeoTIFF, LAZ, LAS"
+  categories: [elevation, lidar, terrain]
+
+- name: "[Overture Maps](https://overturemaps.org)"
+  description: "Open map data for buildings, transportation, places, and boundaries"
+  type: "Vector"
+  region: "Global"
+  format: "Parquet, GeoParquet"
+  categories: [buildings, roads, poi, administrative]
+
+- name: "[ESA Climate Change Initiative](https://climate.esa.int)"
+  description: "Essential climate variables from satellite observations"
+  type: "Raster"
+  region: "Global"
+  format: "NetCDF, GeoTIFF"
+  categories: [climate, environment, landcover]
+
+- name: "[Dutch Noise Map (RIVM)](https://www.rivm.nl/geluid/kaarten)"
+  description: "Noise pollution maps for the Netherlands"
+  type: "Raster, Vector"
+  region: "Netherlands"
+  format: "WMS, Shapefile"
+  categories: [noise, pollution, environment]
+
+- name: "[OpenAerialMap](https://openaerialmap.org)"
+  description: "Open collection of aerial imagery"
+  type: "Raster"
+  region: "Global (selected areas)"
+  format: "GeoTIFF, COG"
+  categories: [imagery, aerial, humanitarian]
+
+- name: "[Humanitarian Data Exchange](https://data.humdata.org)"
+  description: "Open humanitarian datasets and crisis data"
+  type: "Vector, Raster, Tabular"
+  region: "Global"
+  format: "Shapefile, GeoJSON, CSV"
+  categories: [humanitarian, crisis, administrative, infrastructure]
+
+- name: "[Global Human Settlement Layer](https://ghsl.jrc.ec.europa.eu)"
+  description: "Urban settlements and population distribution data"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [urban, population, settlements, built-up]
+
+- name: "[Urban Atlas (Copernicus)](https://land.copernicus.eu/local/urban-atlas)"
+  description: "High-resolution land use/land cover data for European cities"
+  type: "Vector"
+  region: "Europe (cities)"
+  format: "Shapefile, GeoPackage"
+  categories: [urban, landuse, landcover]

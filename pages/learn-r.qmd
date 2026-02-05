@@ -1,0 +1,74 @@
+---
+title: "Learn R for Spatial Analysis"
+subtitle: "External resources and tutorials"
+---
+
+## R for Geospatial Analysis
+
+While our primary focus is QGIS, R is another powerful tool for spatial data analysis and visualization. Below are curated external resources to help you learn R for geospatial work.
+
+### Recommended Courses
+
+::: {.callout-tip icon="false"}
+## Rbanism Geospatial Data Carpentry
+A comprehensive introduction to working with geospatial data in R, focused on urban applications.
+
+**Topics covered:**
+- Introduction to R and RStudio
+- Working with vector data (sf package)
+- Working with raster data (terra package)
+- Spatial operations and analysis
+- Creating maps with ggplot2
+
+[Visit Course →](https://carpentries-incubator.github.io/r-geospatial-urban/)
+:::
+
+### Community Challenges
+
+::: {.callout-note icon="false"}
+## #30DayMapChallenge
+Join the annual mapping challenge! Create 30 maps in 30 days using R and share with the community.
+
+**What you'll learn:**
+- Daily mapping practice
+- Data visualization techniques
+- Creative problem-solving
+- Community engagement
+
+[Learn More →](https://30daymapchallenge.com/)
+
+[Rbanism Challenge Resources →](https://github.com/Rbanism/30DayMapChallenge)
+:::
+
+### Additional Resources
+
+#### Books & Documentation
+- [Geocomputation with R](https://r.geocompx.org/) - Comprehensive guide to spatial analysis
+- [Spatial Data Science](https://r-spatial.org/book/) - Advanced spatial data methods
+- [R for Data Science](https://r4ds.hadley.nz/) - General R programming foundation
+
+#### Key R Packages
+- **sf**: Simple features for vector data
+- **terra**: Spatial data analysis for raster data
+- **tmap**: Thematic map creation
+- **leaflet**: Interactive web maps
+- **ggplot2**: Data visualization
+
+### Why Learn Both QGIS and R?
+
+QGIS and R complement each other well:
+
+| QGIS | R |
+|------|---|
+| Visual, interactive interface | Code-based, reproducible |
+| Quick exploration | Automated workflows |
+| Print-ready maps | Statistical analysis |
+| Beginner-friendly | Powerful scripting |
+
+**Pro tip:** Use QGIS for exploration and map design, then use R for reproducible analysis and batch processing.
+
+---
+
+### Questions?
+
+Need help getting started with R? Check our [Contact](contact.qmd) page or join our community discussions.

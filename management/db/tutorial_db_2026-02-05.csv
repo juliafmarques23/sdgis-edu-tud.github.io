@@ -1,0 +1,26 @@
+file_path,title,description,categories,level,format,date,word_count,has_callouts,has_images,creation_time,last_modified
+pages/learn-qgis/cartography/cartographic_principles.qmd,Cartographic principles,NA,NA,NA,html,NA,1273,FALSE,TRUE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/cartography/making_a_map.qmd,Making a map,NA,NA,NA,html,NA,13,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/cartography/map_aesthetics.qmd,Visual Variables and Map Aesthetics,NA,NA,NA,html,NA,244,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/cartography/map_elements.qmd,Map elements,NA,NA,NA,html,NA,1216,FALSE,TRUE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/cartography/map_layout.qmd,Map layout,NA,NA,NA,html,NA,898,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/cartography/types_of_maps.qmd,Types of Maps,NA,NA,NA,html,NA,1,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/density-analysis/road_network_density.qmd,Road Network Density Analysis in the Netherlands,NA,NA,NA,NA,NA,2504,FALSE,FALSE,2026-02-04T20:56:33Z,2026-02-04T21:22:33Z
+pages/learn-qgis/environmental-assessment/pv_potential.qmd,Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal Statistics Tutorial,NA,NA,NA,NA,NA,4038,FALSE,FALSE,2026-02-02T17:23:06Z,2026-02-05T09:11:07Z
+pages/learn-qgis/getting-started/activating-panels.qmd,Activating Panels,NA,NA,NA,html,NA,427,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/getting-started/connecting-folders.qmd,Connecting Folders to Browser Panel's Favorites,NA,NA,NA,html,NA,722,FALSE,TRUE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/getting-started/folder-structure.qmd,Folder structure,NA,NA,NA,html,NA,1,FALSE,FALSE,2025-11-10T11:20:39Z,2026-02-05T10:59:37Z
+pages/learn-qgis/getting-started/install-qgis.qmd,Install QGIS,NA,NA,NA,html,NA,484,FALSE,TRUE,2025-11-10T11:20:39Z,2026-02-05T10:58:31Z
+pages/learn-qgis/getting-started/installing-plugins.qmd,Installing Plugins (QMS & PDOK),NA,NA,NA,html,NA,391,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/getting-started/new-project.qmd,Creating a new project in QGIS,"Step-by-step guide to create and configure a new QGIS project, including CRS and autosave.","QGIS basics, Project setup",Beginner,html,NA,259,TRUE,FALSE,2026-02-05T11:01:27Z,2026-02-05T11:26:22Z
+pages/learn-qgis/getting-started/switch-language.qmd,Change Language to English,NA,NA,NA,html,NA,358,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/introduction.qmd,Introduction,NA,NA,NA,html,NA,0,FALSE,FALSE,2026-02-05T10:50:21Z,2026-02-05T10:50:52Z
+pages/learn-qgis/landscape-analysis/cross_profiles.qmd,Cross Profiles,NA,NA,NA,html,NA,454,FALSE,TRUE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/landscape-analysis/hydrological_analysis.qmd,hydrological_analysis,NA,NA,NA,html,NA,0,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/landscape-analysis/terrain_data.qmd,terrain_data,NA,NA,NA,html,NA,0,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/landscape-analysis/visibility_analysis.qmd,visibility_analysis,NA,NA,NA,html,NA,0,FALSE,FALSE,2025-11-10T11:20:39Z,2025-11-10T13:07:07Z
+pages/learn-qgis/misc/georeferencing_and_digitizing.qmd,Georeferencing and Digitizing,NA,NA,NA,html,NA,2434,FALSE,TRUE,2025-11-10T13:21:31Z,2025-11-18T20:30:33Z
+pages/learn-qgis/misc/land_use_grid_aggregation.qmd,Aggregating Land Use Classes to a Regional Grid in Europe,NA,NA,NA,NA,NA,4007,FALSE,FALSE,2026-02-04T16:38:27Z,2026-02-04T20:52:55Z
+pages/learn-qgis/misc/statistics_and_data_visualization.qmd,Analyzing Building Functions by Neighborhood,NA,NA,NA,html,NA,2245,FALSE,TRUE,2025-11-11T15:33:57Z,2025-11-18T22:11:37Z
+pages/learn-qgis/misc/using_data_source_manager.qmd,Using the Data Source Manager with WFS and WMS,NA,NA,NA,html,NA,2584,FALSE,TRUE,2025-11-10T11:20:39Z,2025-11-18T22:11:38Z
+pages/learn-qgis/spatial-data-preparation/creating_fishnet.qmd,Creating a 2x2 km Fishnet Grid Using CBS Data,NA,NA,NA,html,NA,4538,FALSE,TRUE,2026-01-30T16:56:27Z,2026-02-03T07:51:51Z

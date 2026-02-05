@@ -3,67 +3,34 @@ project:
   output-dir: docs
 
 website:
-  title: "sdgistud"
+  title: "SDGIS"
   bread-crumbs: true
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Alert** - this website is still under construction. Some content could not be still available, or out of date."
+    content: "**Alert** - This website is under construction. Some content may not yet be available or may be out of date."
     type: primary
     position: below-navbar
+    
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: pages/software_and_tools.qmd
-        text: "Software and Tools"
+      - href: pages/software-tools.qmd
+        text: "Software & Tools"
       - text: "Learn QGIS"
-        menu:
-          - text: "Learn GIS"
-            href: pages/learn_gis.qmd
-          - text: "Installation and setup"
-            href: pages/installation_setup/install_qgis.qmd
-          - text: "Getting started with QGIS"
-            href: pages/getting_started.qmd
-          - text: "Spatial data preparation and preprocessing"
-            href: pages/spatial_data_preparation.qmd
-          - text: "Cartography and mapping"
-            href: pages/cartography_and_mapping/cartographic_principles.qmd
-          - text: "Density analysis"
-            href: pages/density_analysis/road_network_density.qmd
-          - text: "Landscape analysis"
-            href: pages/landscape_analysis/terrain_data.qmd
+        href: pages/learn-qgis/index.qmd
       - text: "Learn R"
-        menu:
-          - text: "Rbanism Geospatial Data Carpentry"
-            href: https://carpentries-incubator.github.io/r-geospatial-urban/
-          - text: "Join the Rbanism #30daysmapchallenge"
-            href: https://carpentries-incubator.github.io/r-geospatial-urban/
-      - text: "Courses and Workshops"
-        menu:
-          - text: "IOP1 - GeoExpert Role "
-            href: ""
-          - text: "WV5 - GeoData"
-            href: ""
-          - text: "MSc Urbanism Q1 - GIS workshop"
-            href: ""
-          - text: "MSc Urbanism Q2 - GIS workshop"
-            href: courses/mscu_q2.qmd
-          - text: "MSc Urbanism Q3 - GIS workshop"
-            href: courses/mscu_q3.qmd
-          - text: "MSc Landscape Architecture Q3 - GIS workshop"
-            href: courses/la_q3.qmd
-          - text: "ARFW0501 - Applied Spatial Analytics for Sustainable Futures"
-            href: ""
-          - text: "DISSUF MSc Urbanism Graduation Cluster"
-            href: ""
-      - href: pages/find_data.qmd
+        href: pages/learn-r.qmd
+      - text: "Courses & Workshops"
+        href: pages/courses/index.qmd
+      - href: pages/find-data/index.qmd
         text: "Find Data"
       - href: pages/about.qmd
         text: "About"
     right:
       - href: pages/contact.qmd
-        text: "Contact us"
+        text: "Contact"
       - href: pages/contribute.qmd
         text: "Contribute"  
     tools:
@@ -78,59 +45,53 @@ website:
 
   sidebar:
     - id: qgis_tutorials
-      title: "Learn GIS"
+      title: "Learn QGIS"
       style: "floating"
-      navigation: true
-      search: true
       collapse-level: 1
       contents:
-        - pages/learn_gis_introduction.qmd
-        - section: "Installation and setup"
+        - pages/learn-qgis/index.qmd
+        - pages/learn-qgis/introduction.qmd
+        
+        - section: "Getting Started"
           contents:
-            - pages/installation_setup/install_qgis.qmd
-            - pages/installation_setup/switch_language.qmd
-            - pages/installation_setup/activating_panels.qmd
-            - pages/installation_setup/connecting_folders.qmd
-            - pages/installation_setup/installing_plugins.qmd
-        - section: "Gettin started with QGIS"
+            - pages/learn-qgis/getting-started/install-qgis.qmd
+            - pages/learn-qgis/getting-started/switch-language.qmd
+            - pages/learn-qgis/getting-started/activating-panels.qmd
+            - pages/learn-qgis/getting-started/connecting-folders.qmd
+            - pages/learn-qgis/getting-started/folder-structure.qmd
+            - pages/learn-qgis/getting-started/installing-plugins.qmd
+            - pages/learn-qgis/getting-started/new-project.qmd
+            - pages/learn-qgis/getting-started/importing-vectors.qmd
+            - pages/learn-qgis/getting-started/styling-vectors.qmd
+            - pages/learn-qgis/getting-started/importing-rasters.qmd
+            - pages/learn-qgis/getting-started/importing-tables.qmd
+            
+        - section: "Cartography & Mapping"
           contents:
-            - pages/getting_started.qmd
-            - pages/starting_a_new_project.qmd
-            - pages/importing_vector_layers.qmd
-            - pages/styling_vector_layers.qmd
-            - pages/importing_raster_layers.qmd
-            - pages/importing_tables.qmd
-        - section: "Cartography and mapping"
+            - pages/learn-qgis/cartography/index.qmd
+            - pages/learn-qgis/cartography/making-a-map.qmd
+            - pages/learn-qgis/cartography/principles.qmd
+            - pages/learn-qgis/cartography/elements.qmd
+            - pages/learn-qgis/cartography/layout.qmd
+            - pages/learn-qgis/cartography/aesthetics.qmd
+            - pages/learn-qgis/cartography/types.qmd
+            - pages/learn-qgis/cartography/creating-in-qgis.qmd
+            
+        - section: "Density Analysis"
           contents:
-            - pages/cartography_and_mapping/making_a_map.qmd
-            - pages/cartography_and_mapping/cartographic_principles.qmd
-            - pages/cartography_and_mapping/elements.qmd
-            - pages/cartography_and_mapping/map_layout.qmd
-            - pages/cartography_and_mapping/map_aesthetics.qmd
-            - pages/cartography_and_mapping/types_of_maps.qmd
-            - pages/cartography_and_mapping/creating_a_map_in_qgis.qmd
-        - section: "Density analysis"
+            - pages/learn-qgis/density-analysis/index.qmd
+            - pages/learn-qgis/density-analysis/land-cover-grid.qmd
+            - pages/learn-qgis/density-analysis/tree-cover-grid.qmd
+            - pages/learn-qgis/density-analysis/road-density-grid.qmd
+            - pages/learn-qgis/density-analysis/hex-maps.qmd
+            
+        - section: "Landscape Analysis"
           contents:
-            - pages/density_analysis/land_cover_density_in_grid.qmd
-            - pages/density_analysis/tree_cover_density_in_grid.qmd
-            - pages/density_analysis/road_density_in_grid.qmd
-            - pages/density_analysis/calculating_density_using_hex_maps.qmd
-        - section: "Landscape analysis"
-          contents:
-            - pages/landscape_analysis/terrain_data.qmd
-            - pages/landscape_analysis/hydrological_analysis.qmd
-            - pages/landscape_analysis/visibility_analysis.qmd
-            - pages/landscape_analysis/cross_profiles.qmd
-
-    - id: r_tutorials
-      title: "Learn R"
-      style: "floating"
-      navigation: true
-      contents:
-        - pages/tutorials/index2.qmd
-        - pages/tutorials/qgis_basics2.qmd
-        - pages/tutorials/raster_analysis2.qmd
-        - pages/tutorials/vector_analysis2.qmd
+            - pages/learn-qgis/landscape-analysis/index.qmd
+            - pages/learn-qgis/landscape-analysis/terrain-data.qmd
+            - pages/learn-qgis/landscape-analysis/hydrological.qmd
+            - pages/learn-qgis/landscape-analysis/visibility.qmd
+            - pages/learn-qgis/landscape-analysis/cross-profiles.qmd
 
   back-to-top-navigation: true
   reader-mode: true
@@ -140,7 +101,9 @@ website:
       - icon: github
         href: https://github.com/sdgis-edu-tud/sdgis-edu-tud.github.io
   page-navigation: true
-  search: true
+  search: 
+    location: navbar
+    type: overlay
 
 format:
   html:
@@ -151,5 +114,6 @@ format:
     toc: true
     code-tools: true
     code-copy: true
+    code-fold: show
 
 editor: visual

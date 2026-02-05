@@ -1,0 +1,36 @@
+---
+title: "Courses & Workshops"
+subtitle: "Organized tutorial collections for teaching and learning"
+listing:
+  contents: 
+    - "*.qmd"
+    - "!index.qmd"
+  type: grid
+  sort: "title"
+  filter-ui: true
+  fields: [title, description, date]
+  grid-columns: 2
+page-layout: full
+---
+
+## Pre-Packaged Learning Materials
+
+These courses and workshops contain curated collections of tutorials designed for specific programs and teaching contexts at TU Delft.
+
+### Available Courses
+
+Browse our workshop materials below, or use the search above to find specific courses. Each workshop page contains:
+
+- Learning objectives
+- Required software and data
+- Step-by-step tutorials
+- Assignments and exercises
+- Additional resources
+
+---
+
+### For Instructors
+
+Want to create your own workshop collection? Check out our [Contribute](../contribute.qmd) page to learn how to package tutorials for your students.
+
+

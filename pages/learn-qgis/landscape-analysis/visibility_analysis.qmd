@@ -1,0 +1,12 @@
+---
+title: Visibility Analysis
+description: Viewshed and line-of-sight analysis
+categories:
+- Landscape Analysis; Visibility
+level: Intermediate
+level_code: 2.0
+level_color: '#1F78B4'
+date: .na.character
+
+---
+

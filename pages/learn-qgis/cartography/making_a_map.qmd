@@ -1,0 +1,21 @@
+---
+title: Making a map
+description: Step-by-step guide to creating maps in QGIS
+categories:
+- Cartography
+level: Beginner
+level_code: 1.0
+level_color: '#A6CEE3'
+date: .na.character
+
+---
+
+## Introduction
+
+## Overview of the task
+
+## What you will learn
+
+## Get the data
+
+## Procedure

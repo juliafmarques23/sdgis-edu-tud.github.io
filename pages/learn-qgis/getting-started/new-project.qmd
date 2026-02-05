@@ -1,0 +1,54 @@
+---
+title: Creating a new project in QGIS
+description: Step-by-step guide to create and configure a new QGIS project, including
+  CRS and autosave
+categories:
+- Getting Started; Project Setup
+level: Beginner
+level_code: 1.0
+level_color: '#A6CEE3'
+date: .na.character
+
+---
+
+
+## Create a new project
+
+1.  Open **QGIS 3.40 (LTR)**.
+2.  Go to **Project → New**.
+3.  Immediately save the project via **Project → Save As…** and choose a clear folder structure (for example: `data/`, `outputs/`, `qgis/`).
+
+::: {.callout-tip icon="lightbulb"}
+**Save early, save often** Saving the project before adding layers ensures that **relative paths** are used by default and helps prevent broken data links when moving or sharing the project.
+:::
+
+## Project settings to verify
+
+After saving the project, check the following core settings:
+
+-   **Project CRS** Verify or set it in the bottom-right corner of the QGIS window, or via **Project → Properties → CRS**.
+
+-   **Relative paths** Enabled by default. Confirm under **Project → Properties → General**.
+
+-   **Units and precision** Review these under **Project → Properties** if you plan to perform measurements or spatial analysis.
+
+::: {.callout-note icon="info"}
+Project-level settings apply to **all layers and analyses** in the project. Setting them correctly at the start avoids inconsistencies later.
+:::
+
+## Reference documentation
+
+For a concise but authoritative explanation of how QGIS project files work (including storage, paths, and recovery options), see the official documentation:
+
+-   **QGIS User Manual — Project files** <https://docs.qgis.org/3.40/en/docs/user_manual/introduction/project_files.html>
+
+## Tip: enable automatic project saving
+
+To reduce the risk of losing work:
+
+-   Install an **auto-save plugin** (for example *AutoSaver*) via **Plugins → Manage and Install Plugins**.
+-   Configure the save interval (e.g. every 5–10 minutes) according to your workflow.
+
+::: {.callout-warning icon="exclamation-triangle"}
+Auto-save plugins complement—but do not replace—manual saving. Always save the project before major edits or analyses.
+:::

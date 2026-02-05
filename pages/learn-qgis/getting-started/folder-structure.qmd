@@ -1,0 +1,13 @@
+---
+title: Folder structure
+description: Recommended file organization for projects
+categories:
+- Getting Started; QGIS Basics
+level: Beginner
+level_code: 1.0
+level_color: '#A6CEE3'
+date: .na.character
+
+---
+NA
+---
