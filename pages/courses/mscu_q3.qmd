@@ -67,7 +67,7 @@ A MIRO board will be prepared to deliver the questions and draft maps for the wo
 
 ### Tutorials and Resources
 
-- [**Creating a 2x2km Fishnet Grid**](/pages/spatial_data_preparation/creating_fishnet.qmd)
-- [**Mapping Photovoltaic Potential Across Dutch Municipalities**](/pages/environmental_assessment/pv_potential.qmd)
-- [**CLC to grid**](/pages/misc/land_use_grid_aggregation.qmd)
-- [**Road Density Analysis**](/pages/density_analysis/road_network_density.qmd)
+-   [**Creating a 2x2km Fishnet Grid**](/pages/learn-qgis/spatial-data-preparation/creating-fishnet.qmd)
+-   [**Mapping Photovoltaic Potential Across Dutch Municipalities**](/pages/learn-qgis/environmental-assessment/pv-potential.qmd)
+-   [**CLC to grid**](/pages/learn-qgis/misc/land_use_grid_aggregation.qmd)
+-   [**Road Density Analysis**](/pages/learn-qgis/density-analysis/road-network-density.qmd)

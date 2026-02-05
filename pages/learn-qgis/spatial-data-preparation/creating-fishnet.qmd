@@ -7,7 +7,6 @@ level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
 date: .na.character
-
 ---
 
 Duration: 60-75 minutes
@@ -71,7 +70,7 @@ The PDOK Services Plugin provides easy access to Dutch national geographic datas
 
 7.  Wait for installation to complete, then click **Close**
 
-![Figure 1 - Installing the PDOK Services Plugin](images/pdok_install.png)
+![Figure 1 - Installing the PDOK Services Plugin](images/creating-fishnet/01.png)
 
 ::: callout-note
 ## What is PDOK?
@@ -102,7 +101,7 @@ Now we'll use the PDOK plugin to load the Netherlands land area boundary.
 
 7.  **Verify the CRS:** Check the bottom right corner of QGIS. It should show **EPSG:28992**
 
-![Figure 2 - PDOK panel with Landgebied layer selected](images/pdok_landgebied.png)
+![Figure 2 - PDOK panel with Landgebied layer selected](images/creating-fishnet/02.png)
 
 ::: callout-important
 ## Understanding EPSG:28992 (RD New)
@@ -144,7 +143,7 @@ Now we'll create the 2x2 km fishnet grid using QGIS's built-in grid creation too
 
 6.  Once finished, click **Close**
 
-![Figure 3 - Create Grid dialog configuration](images/create_grid_dialog.png)
+![Figure 3 - Create Grid dialog configuration](images/creating-fishnet/03.png)
 
 Your fishnet grid should now appear on the map as a layer of 2x2 km squares covering the rectangular extent of the Netherlands.
 
@@ -185,8 +184,6 @@ Before proceeding to clip the grid, let's examine what we've created. This exerc
 
 **Question:** Are the extents identical? Why or why not?
 
-![Figure 4 - Layer information showing extent](images/layer_extent.png)
-
 ::: callout-note
 ## Expected Extent Values
 
@@ -206,15 +203,7 @@ These represent the rectangular bounding box of the Netherlands in RD New coordi
 
 **Question:** Based on the extent (approximately 267 km × 313 km), can you calculate the expected number of 2×2 km cells?
 
-**Calculation:**
-
-```         
-Width in cells = (xMax - xMin) / 2000 = (~280,000 - 13,000) / 2000 ≈ 134 cells
-Height in cells = (yMax - yMin) / 2000 = (~619,000 - 306,000) / 2000 ≈ 157 cells
-Expected total = 134 × 157 ≈ 21,000 cells
-```
-
-![Figure 5 - Attribute table showing total features](images/attribute_table_count.png)
+![Figure 4 - Attribute table showing total features](images/creating-fishnet/04.png)
 
 ### Task 1.3: Visual Inspection
 
@@ -266,7 +255,7 @@ The fishnet grid currently extends beyond the national boundary in a rectangular
 
 4.  After processing completes, click **Close**
 
-![Figure 6 - Clip dialog configuration](images/clip_dialog.png)
+![Figure 5 - Clip dialog configuration](images/creating-fishnet/05.png)
 
 You now have a fishnet grid that matches the Netherlands boundary. However, notice that many cells along the coastline and borders are only partially within the country.
 
@@ -296,7 +285,7 @@ Result: Cells completely inside remain square; edge cells become irregular polyg
     -   Others are partial (cut by coastline)
     -   Some are very small slivers
 
-![Figure 7 - Clipped grid showing partial cells along coast](images/clipped_grid_coast.png)
+![Figure 6 - Clipped grid showing partial cells along coast](images/creating-fishnet/06.png)
 
 ------------------------------------------------------------------------
 
@@ -332,7 +321,7 @@ This calculates the area in square meters (since your CRS is EPSG:28992 in meter
 
 7.  **Save edits** (click the save icon) and **toggle off editing mode**
 
-![Figure 8 - Field Calculator creating area field](images/field_calculator_area.png)
+![Figure 7 - Field Calculator creating area field](images/creating-fishnet/07.png)
 
 ::: callout-tip
 ## Alternative Area Expressions
@@ -353,15 +342,13 @@ This calculates the area in square meters (since your CRS is EPSG:28992 in meter
 **Calculation:**
 
 ```         
-Expected area = 2000m × 2000m = 4,000,000 m²
+Expected area = 2000m × 2000m = 4,000,000 m² = 4 km²
 ```
 
 3.  **Scroll through the table** and observe:
-    -   Many cells have exactly 4,000,000 m² (or very close)
+    -   Many cells have exactly 4 km² (or very close)
     -   Coastal/border cells have smaller values
-    -   Some cells are very small (\< 500,000 m²)
-
-![Figure 9 - Sorted attribute table showing area distribution](images/area_sorted.png)
+    -   Some cells are very small (\< 0,5 km²)
 
 ### Task 2.3: Calculate Statistics on Area Distribution
 
@@ -382,9 +369,11 @@ Expected area = 2000m × 2000m = 4,000,000 m²
     -   **Mean:** Average cell area
     -   **Median:** Middle value
 
-**Question:** What percentage of cells are complete squares? - If mean ≈ 4,000,000, most cells are complete - If mean \< 3,500,000, many partial cells exist
+**Question:** What percentage of cells are complete squares?
 
-![Figure 10 - Basic statistics results](images/basic_statistics.png)
+\- If mean ≈ 4, most cells are complete
+
+\- If mean \< 3,5, many partial cells exist
 
 ### Task 2.4: Filter Out Small Partial Cells
 
@@ -395,14 +384,14 @@ Now we'll remove cells with less than 50% of the maximum area (i.e., less than 2
 2.  In the Query Builder dialog, enter the following expression:
 
 ``` sql
-"area_km2" >= 2000000
+"area_km2" >= 2
 ```
 
 3.  Click **Test** to verify the filter works
     -   You should see a message like "Filter returned X features"
 4.  Click **OK** to apply the filter
 
-![Figure 11 - Query Builder filter dialog](images/query_builder_filter.png)
+![Figure 8 - Query Builder filter dialog](images/creating-fishnet/08.png)
 
 5.  **Check your attribute table again:**
     -   Note the new feature count (filtered)
@@ -438,14 +427,12 @@ To create a new layer with only the filtered cells:
     -   Keep the new `fishnet_2km_filtered` layer
     -   Optionally remove the original unclipped grid
 
-![Figure 12 - Export layer dialog](images/export_filtered_layer.png)
-
 ### Task 2.6: Compare Before and After
 
 1.  **Record final statistics:**
 
 | Stage                       | Number of Cells      | Notes                  |
-|-----------------------------|----------------------|------------------------|
+|----------------------------|---------------------|-----------------------|
 | Initial grid (before clip)  | \_\_\_\_\_\_\_\_\_\_ | Rectangular extent     |
 | After clipping              | \_\_\_\_\_\_\_\_\_\_ | Matches NL shape       |
 | After filtering (≥50%)      | \_\_\_\_\_\_\_\_\_\_ | Only substantial cells |
@@ -575,8 +562,6 @@ Let's see the difference filtering makes:
     -   Zoom to coastal areas
     -   Observe which cells were removed
 
-![Figure 13 - Before and after filtering comparison](images/filter_comparison.png)
-
 **What should you see:** - Small slivers along coast: Removed ✓ - Narrow peninsulas: Partial cells removed ✓ - Interior regions: All cells retained ✓ - Island cells: Depends on size (Wadden Islands may lose some)
 
 ------------------------------------------------------------------------
@@ -609,8 +594,6 @@ $id
 This assigns each feature its unique feature ID.
 
 6.  Click **OK**
-
-![Figure 14 - Creating grid_id field](images/grid_id_field.png)
 
 ### Step 4.2: Add Centroid Coordinates (optional)
 
@@ -691,7 +674,7 @@ The RD New system uses meters, making distance/area calculations intuitive (2 km
 ### Grid Resolution Selection
 
 | Grid Size     | Cell Area | When to Use                                      |
-|---------------|-----------|--------------------------------------------------|
+|------------------|------------------|-------------------------------------|
 | 100m × 100m   | 0.01 km²  | Detailed urban analysis, building-level patterns |
 | 500m × 500m   | 0.25 km²  | Neighborhood characteristics, walking distances  |
 | 1km × 1km     | 1 km²     | District patterns, facility catchments           |
@@ -760,7 +743,7 @@ This helps maintain reproducibility and data quality.
 **Causes & Solutions:**
 
 | Cause | Solution |
-|----|----|
+|------------------------------------|------------------------------------|
 | No internet connection | Check network, try again |
 | Plugin not activated | Plugins → Manage Plugins → check PDOK is enabled |
 | PDOK service temporarily down | Try again later, check https://www.pdok.nl/status |
@@ -929,7 +912,7 @@ By completing this tutorial, you have:
 ### Key Concepts Reinforced
 
 | Concept | Application in Tutorial |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Coordinate Reference Systems** | EPSG:28992 (RD New) for Dutch data |
 | **Spatial Resolution** | 2km × 2km cells as statistical units |
 | **Geoprocessing Workflows** | Multi-step process: Create → Clip → Filter |

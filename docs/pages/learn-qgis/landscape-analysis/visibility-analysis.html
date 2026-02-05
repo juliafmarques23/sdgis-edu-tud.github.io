@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Viewshed and line-of-sight analysis">
 
-<title>Master of Urbanism - Q3 - GIS Workshop – SDGIS</title>
+<title>Visibility Analysis – SDGIS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,27 +59,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script async="" data-goatcounter="https://dcannatella.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -280,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">SDGIS</span>
     </a>
   </div>
@@ -291,41 +292,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/software-tools.html"> 
+    <a class="nav-link" href="../../../pages/software-tools.html"> 
 <span class="menu-text">Software &amp; Tools</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/learn-qgis/index.html"> 
+    <a class="nav-link" href="../../../pages/learn-qgis/index.html"> 
 <span class="menu-text">Learn QGIS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/learn-r.html"> 
+    <a class="nav-link" href="../../../pages/learn-r.html"> 
 <span class="menu-text">Learn R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/courses/index.html"> 
+    <a class="nav-link" href="../../../pages/courses/index.html"> 
 <span class="menu-text">Courses &amp; Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/find-data/index.html"> 
+    <a class="nav-link" href="../../../pages/find-data/index.html"> 
 <span class="menu-text">Find Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/about.html"> 
+    <a class="nav-link" href="../../../pages/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/contact.qmd"> 
+    <a class="nav-link" href="../../../pages/contact.qmd"> 
 <span class="menu-text">Contact</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pages/contribute.html"> 
+    <a class="nav-link" href="../../../pages/contribute.html"> 
 <span class="menu-text">Contribute</span></a>
   </li>  
 </ul>
@@ -369,15 +370,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructors" id="toc-instructors" class="nav-link active" data-scroll-target="#instructors">👩‍🏫👨‍🏫🎓Instructors</a></li>
-  <li><a href="#dates-and-deadlines" id="toc-dates-and-deadlines" class="nav-link" data-scroll-target="#dates-and-deadlines">Dates and Deadlines</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">2. Setup</a></li>
+  <li><a href="#step-by-step-tutorial" id="toc-step-by-step-tutorial" class="nav-link" data-scroll-target="#step-by-step-tutorial">3. Step-by-step Tutorial</a>
   <ul class="collapse">
-  <li><a href="#data-download" id="toc-data-download" class="nav-link" data-scroll-target="#data-download">Data Download</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  <li><a href="#assignments-and-instructions---to-be-updated" id="toc-assignments-and-instructions---to-be-updated" class="nav-link" data-scroll-target="#assignments-and-instructions---to-be-updated">Assignments and Instructions - to be updated</a></li>
-  <li><a href="#tutorials-and-resources" id="toc-tutorials-and-resources" class="nav-link" data-scroll-target="#tutorials-and-resources">Tutorials and Resources</a></li>
+  <li><a href="#create-viewpoints" id="toc-create-viewpoints" class="nav-link" data-scroll-target="#create-viewpoints">3.1 Create viewpoints</a></li>
+  <li><a href="#viewshed" id="toc-viewshed" class="nav-link" data-scroll-target="#viewshed">3.2 Viewshed</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">4. References</a></li>
   </ul>
 </nav>
     </div>
@@ -387,14 +387,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Master of Urbanism - Q3 - GIS Workshop</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-</div>
+<div class="quarto-title-block"><div><h1 class="title">Visibility Analysis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Landscape Analysis; Visibility</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Viewshed and line-of-sight analysis
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
   
     
   </div>
@@ -404,77 +418,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="instructors" class="level2">
-<h2 class="anchored" data-anchor-id="instructors">👩‍🏫👨‍🏫🎓Instructors</h2>
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
 <ul>
-<li><p>Claudiu Forgaci</p></li>
-<li><p>Birgit Hausleitner</p></li>
-<li><p>Daniele Cannatella</p></li>
+<li><p>Visibility analysis is important from the planning point of view. Visual analysis tools allow you to generate visibility studies over an area, creating an output raster that displays what entities can be seen over a certain landscape from the point of view of one or more observatories. They are used mainly for planning purposes, from implementing new infrastructure to developing new tourist activities/routes.</p></li>
+<li><p>In QGIS, you can perform a visibility analysis via the <strong>Visibility Analysis</strong> plugin.</p></li>
+<li><p>After you install it you can access this tool by going to <strong>Processing Toolbox &gt; Visibility Analysis</strong>.</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ab98396d-3bf8-4eae-9e37-975006a95510/6.1.jpg" class="img-fluid"></p></li>
+<li><p>In this example, you will analyse the visibility of three new wind turbines that will be installed.</p></li>
+<li><p>You would like to see from where they will be visible. Keep in mind that the height of the wind turbine is 15 m and the average height of humans is 1.6 m.</p></li>
+</ul>
+<hr>
+</section>
+<section id="setup" class="level1">
+<h1>2. Setup</h1>
+<p>Add text here</p>
+<hr>
+</section>
+<section id="step-by-step-tutorial" class="level1">
+<h1>3. Step-by-step Tutorial</h1>
+<p>Add text here</p>
+<section id="create-viewpoints" class="level2">
+<h2 class="anchored" data-anchor-id="create-viewpoints">3.1 Create viewpoints</h2>
+<ul>
+<li>In your QGIS project, import <strong>DEM_study-area.tif</strong> and <strong>turbines</strong>.<strong>shp</strong> that you find in the <strong>exercise_06/data</strong> folder.</li>
+<li>Change the DEM symbology to <strong>singleband pseudocolor</strong>, select the BrBG color ramp and click <strong>Invert Color Ramp</strong> to assign the blue colours to the lowest points and the brown colours to the highest ones.</li>
+<li>Click <strong>Ok.</strong></li>
+</ul>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/fb29c035-83fa-40b0-b1cd-deee703f822d/6.2.jpg" class="img-fluid"></p>
+<ul>
+<li>Have a look at the turbines layer attribute table. You will find a field containing the height information of each turbine, which corresponds to 15 m</li>
+<li>In the Processing toolbox, click on Create viewpoints. This window will appear:</li>
+</ul>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ff5174cd-4656-4463-bdc2-62c8529f9a6a/6.3.jpg" class="img-fluid"></p>
+<ul>
+<li>Set the following parameters: » <strong>Observer location(s): turbines</strong> » <strong>Digital elevation model: DEM_study_area</strong> » <strong>Observer ids: descry</strong> » <strong>Radius of analysis, meters: 10000</strong> » <strong>Observer height, meters: 1.6</strong> » Don’t change the other parameters.</li>
+<li>Save the <strong>Output layer</strong> and click on <strong>Run</strong>.</li>
+<li>A new layer will be created, containing the information on the height of the observer (<strong>observ_hgt</strong>) and the radius of the analysis (<strong>radius</strong>). You will use this layer to perform the next step.</li>
 </ul>
 </section>
-<section id="dates-and-deadlines" class="level2">
-<h2 class="anchored" data-anchor-id="dates-and-deadlines">Dates and Deadlines</h2>
+<section id="viewshed" class="level2">
+<h2 class="anchored" data-anchor-id="viewshed">3.2 Viewshed</h2>
 <ul>
-<li>To be updated</li>
+<li>In the <strong>Processing toolbox,</strong> click on <strong>Viewshed.</strong></li>
+<li>Select <strong>Binary viewshed</strong> as <strong>Analysis type.</strong></li>
+<li>Select the <strong>Viewpoints</strong> layer as <strong>Observer location(s</strong>) and the <strong>DEM_</strong> <strong>study_area</strong> as <strong>Digital Elevation Model.</strong></li>
+<li>Don’t change other parameters</li>
+<li>Save the output file and click on <strong>Run</strong>. You will see this raster as result:</li>
 </ul>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<section id="data-download" class="level3">
-<h3 class="anchored" data-anchor-id="data-download">Data Download</h3>
-<p>Click <a href="https://surfdrive.surf.nl/s/GmbX2FRKjixAaLa">here</a> to download the dataset.</p>
-</section>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/451438cf-d14f-4e89-89b9-821de3d2c03d/6.3.jpg" class="img-fluid"></p>
+<p>The output raster will contain values from <strong>0 to 3.</strong></p>
+<p>Cells with 0 values represent the points from which the turbines are not visible. 1 values represent the areas from which at least 1 turbine is visible, and so on. Areas with 3 values are those from which all the three turbines are visible.</p>
 <ul>
-<li><p>QGIS 3.40 LTR</p></li>
-<li><p><a href="https://geodacenter.github.io/download">GeoDa</a></p></li>
+<li>Change the raster symbology, assigning 0 opacity to 0 values, and a colour ramp for the other values, and set the layer opacity and blending to visualize it on top of the DEM.</li>
 </ul>
-</section>
-<section id="assignments-and-instructions---to-be-updated" class="level3">
-<h3 class="anchored" data-anchor-id="assignments-and-instructions---to-be-updated">Assignments and Instructions - to be updated</h3>
-<section id="week-1" class="level4">
-<h4 class="anchored" data-anchor-id="week-1">Week 1</h4>
-<p><strong>Assignment per group (4-5 students)</strong></p>
-<ul>
-<li><p><strong>Formulate 2-3 <em>research questions</em> of <em>spatial analysis</em> based on Energy infrastructure data</strong> (The OSM / OpenInfra data can be found in in the QGGIS Resources section above)</p></li>
-<li><p><strong>Apply at least one of the three <em>different analysis methods for each research question (see videos below)</em></strong>. The questions should be related to your design studio project.</p></li>
-</ul>
-<p><strong>For each study:</strong></p>
-<ul>
-<li><p>define a scale (area), i.e.&nbsp;city, city-region, whole NL (n.b.: you can work through scales).</p></li>
-<li><p>select different energy production types, or networks, fossil or renewable (solar, wind, gas etc) based on different attributes (output, capacity, etc)</p></li>
-<li><p>select an analysis method (1 Heatmap/Clustering, 2 Density/Hexmap or 3 Network analysis</p></li>
-<li><p>define legend and symbology</p></li>
-</ul>
-<p><strong>Questions to be answered:</strong></p>
-<ul>
-<li><p><em>Which energy</em> <em>data and scale/area did you select. Why? Explain.</em></p></li>
-<li><p><em>The outcome for each study is a map with a legend. What are the conclusions from the research? How did you visualize the results?</em></p></li>
-<li><p><em>For each study reflect on the applied method, which setting did you experiment with, how did it influence the outcomes?</em></p></li>
-<li><p><em>What did you gain for your design project from this analysis?</em></p></li>
-</ul>
-<p><strong>How to deliver?</strong></p>
-<p>A MIRO board will be prepared to deliver the questions and draft maps for the workshop and the final results.</p>
-<ul>
-<li><p>On <strong>Monday February 24</strong> by 8:45: Upload on Miro input in support of the feedback session on Monday February 24 morning, including formulated questions you will be investigating through the maps, list of data you expect to use, and if possible a first round of draft maps, plus any questions related to the production process.</p></li>
-<li><p>On <strong>Thursday March 13</strong> by 18:00: Upload on Miro the final material.</p></li>
-</ul>
+<hr>
 </section>
 </section>
-<section id="tutorials-and-resources" class="level3">
-<h3 class="anchored" data-anchor-id="tutorials-and-resources">Tutorials and Resources</h3>
-<ul>
-<li><a href="../../pages/learn-qgis/spatial-data-preparation/creating-fishnet.html"><strong>Creating a 2x2km Fishnet Grid</strong></a></li>
-<li><a href="../../pages/learn-qgis/environmental-assessment/pv-potential.html"><strong>Mapping Photovoltaic Potential Across Dutch Municipalities</strong></a></li>
-<li><a href="../../pages/learn-qgis/misc/land_use_grid_aggregation.html"><strong>CLC to grid</strong></a></li>
-<li><a href="../../pages/learn-qgis/density-analysis/road-network-density.html"><strong>Road Density Analysis</strong></a></li>
-</ul>
+<section id="references" class="level1">
+<h1>4. References</h1>
+<p>Add text here</p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -942,78 +949,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Master of Urbanism - Q3 - GIS Workshop"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 👩‍🏫👨‍🏫🎓Instructors</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Claudiu Forgaci</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Birgit Hausleitner</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Visibility Analysis</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Viewshed and line-of-sight analysis</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">- Landscape Analysis; Visibility</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">level:</span><span class="co"> Intermediate</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">level_code:</span><span class="co"> 2.0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">level_color:</span><span class="co"> '#1F78B4'</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> .na.character</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Daniele Cannatella</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. Introduction</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dates and Deadlines</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Visibility analysis is important from the planning point of view. Visual analysis tools allow you to generate visibility studies over an area, creating an output raster that displays what entities can be seen over a certain landscape from the point of view of one or more observatories. They are used mainly for planning purposes, from implementing new infrastructure to developing new tourist activities/routes.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>To be updated</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In QGIS, you can perform a visibility analysis via the **Visibility Analysis** plugin.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After you install it you can access this tool by going to **Processing Toolbox \&gt; Visibility Analysis**.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Download</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="al">![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ab98396d-3bf8-4eae-9e37-975006a95510/6.1.jpg)</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Click <span class="co">[</span><span class="ot">here</span><span class="co">](https://surfdrive.surf.nl/s/GmbX2FRKjixAaLa)</span> to download the dataset.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In this example, you will analyse the visibility of three new wind turbines that will be installed.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Software</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>You would like to see from where they will be visible. Keep in mind that the height of the wind turbine is 15 m and the average height of humans is 1.6 m.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>QGIS 3.40 LTR</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">GeoDa</span><span class="co">](https://geodacenter.github.io/download)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. Setup</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Assignments and Instructions - to be updated</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Add text here</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Week 1</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**Assignment per group (4-5 students)**</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Step-by-step Tutorial</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Formulate 2-3 *research questions* of *spatial analysis* based on Energy infrastructure data** (The OSM / OpenInfra data can be found in in the QGGIS Resources section above)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Add text here</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Apply at least one of the three *different analysis methods for each research question (see videos below)***. The questions should be related to your design studio project.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1 Create viewpoints</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**For each study:**</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>define a scale (area), i.e. city, city-region, whole NL (n.b.: you can work through scales).</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In your QGIS project, import **DEM_study-area.tif** and **turbines**.**shp** that you find in the **exercise_06/data** folder.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Change the DEM symbology to **singleband pseudocolor**, select the BrBG color ramp and click **Invert Color Ramp** to assign the blue colours to the lowest points and the brown colours to the highest ones.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Click **Ok.**</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>select different energy production types, or networks, fossil or renewable (solar, wind, gas etc) based on different attributes (output, capacity, etc)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/fb29c035-83fa-40b0-b1cd-deee703f822d/6.2.jpg)</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>select an analysis method (1 Heatmap/Clustering, 2 Density/Hexmap or 3 Network analysis</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>define legend and symbology</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**Questions to be answered:**</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Which energy* *data and scale/area did you select. Why? Explain.*</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*The outcome for each study is a map with a legend. What are the conclusions from the research? How did you visualize the results?*</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*For each study reflect on the applied method, which setting did you experiment with, how did it influence the outcomes?*</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*What did you gain for your design project from this analysis?*</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**How to deliver?**</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>A MIRO board will be prepared to deliver the questions and draft maps for the workshop and the final results.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>On **Monday February 24** by 8<span class="sc">:45:</span> Upload on Miro input in support of the feedback session on Monday February 24 morning, including formulated questions you will be investigating through the maps, list of data you expect to use, and if possible a first round of draft maps, plus any questions related to the production process.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>On **Thursday March 13** by 18<span class="sc">:00:</span> Upload on Miro the final material.</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tutorials and Resources</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Creating a 2x2km Fishnet Grid**</span><span class="co">](/pages/learn-qgis/spatial-data-preparation/creating-fishnet.qmd)</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Mapping Photovoltaic Potential Across Dutch Municipalities**</span><span class="co">](/pages/learn-qgis/environmental-assessment/pv-potential.qmd)</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**CLC to grid**</span><span class="co">](/pages/learn-qgis/misc/land_use_grid_aggregation.qmd)</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Road Density Analysis**</span><span class="co">](/pages/learn-qgis/density-analysis/road-network-density.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Have a look at the turbines layer attribute table. You will find a field containing the height information of each turbine, which corresponds to 15 m</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In the Processing toolbox, click on Create viewpoints. This window will appear:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ff5174cd-4656-4463-bdc2-62c8529f9a6a/6.3.jpg)</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Set the following parameters: » **Observer location(s): turbines** » **Digital elevation model: DEM_study_area** » **Observer ids: descry** » **Radius of analysis, meters: 10000** » **Observer height, meters: 1.6** » Don’t change the other parameters.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Save the **Output layer** and click on **Run**.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer will be created, containing the information on the height of the observer (**observ_hgt**) and the radius of the analysis (**radius**). You will use this layer to perform the next step.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2 Viewshed</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>In the **Processing toolbox,** click on **Viewshed.**</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Select **Binary viewshed** as **Analysis type.**</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Select the **Viewpoints** layer as **Observer location(s**) and the **DEM\_** **study_area** as **Digital Elevation Model.**</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Don’t change other parameters</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Save the output file and click on **Run**. You will see this raster as result:</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/451438cf-d14f-4e89-89b9-821de3d2c03d/6.3.jpg)</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>The output raster will contain values from **0 to 3.**</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Cells with 0 values represent the points from which the turbines are not visible. 1 values represent the areas from which at least 1 turbine is visible, and so on. Areas with 3 values are those from which all the three turbines are visible.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Change the raster symbology, assigning 0 opacity to 0 values, and a colour ramp for the other values, and set the layer opacity and blending to visualize it on top of the DEM.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. References</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>Add text here</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

@@ -4,8 +4,6 @@ project:
 
 website:
   title: "SDGIS"
-  head-includes:
-    - '<script async data-goatcounter="https://dcannatella.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>' #analytics
   bread-crumbs: true
   announcement: 
     icon: info-circle
@@ -56,11 +54,10 @@ website:
         
         - section: "Getting Started"
           contents:
-            - pages/learn-qgis/getting-started/install-qgis.qmd
+            - pages/learn-qgis/getting-started/installation.qmd
             - pages/learn-qgis/getting-started/switch-language.qmd
             - pages/learn-qgis/getting-started/activating-panels.qmd
             - pages/learn-qgis/getting-started/connecting-folders.qmd
-            - pages/learn-qgis/getting-started/folder-structure.qmd
             - pages/learn-qgis/getting-started/installing-plugins.qmd
             - pages/learn-qgis/getting-started/new-project.qmd
             - pages/learn-qgis/getting-started/importing-vectors.qmd
@@ -84,15 +81,14 @@ website:
             - pages/learn-qgis/density-analysis/index.qmd
             - pages/learn-qgis/density-analysis/land-cover-grid.qmd
             - pages/learn-qgis/density-analysis/tree-cover-grid.qmd
-            - pages/learn-qgis/density-analysis/road-density-grid.qmd
+            - pages/learn-qgis/density-analysis/road-network-density.qmd
             - pages/learn-qgis/density-analysis/hex-maps.qmd
             
         - section: "Landscape Analysis"
           contents:
             - pages/learn-qgis/landscape-analysis/index.qmd
-            - pages/learn-qgis/landscape-analysis/working-with-terrain-data.qmd
-            - pages/learn-qgis/landscape-analysis/dem-derivatives.qmd
-            - pages/learn-qgis/landscape-analysis/hydrological-analysis.qmd
+            - pages/learn-qgis/landscape-analysis/terrain-data.qmd
+            - pages/learn-qgis/landscape-analysis/hydrological.qmd
             - pages/learn-qgis/landscape-analysis/visibility.qmd
             - pages/learn-qgis/landscape-analysis/cross-profiles.qmd
 
@@ -118,5 +114,8 @@ format:
     code-tools: true
     code-copy: true
     code-fold: show
+    include-in-header:
+      text: |
+        <script async data-goatcounter="https://dcannatella.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 
 editor: visual
