@@ -1,0 +1,44 @@
+---
+title: "Contribute"
+format: html
+---
+
+## Help Us Grow
+
+We believe in community-driven education. If you have ideas, resources, or materials that could benefit learners in spatial analysis and GIS, we'd love to hear from you!
+
+### Ways to Contribute
+
+**Tutorial or Case Study**
+
+Have a workflow, technique, or analysis you'd like to share? Submit a tutorial or case study to help others learn from your experience. We accept materials in various formats and will work with you to integrate them into our platform.
+
+**Dataset or Resource**
+
+Know of a valuable dataset, tool, or reference material relevant to our community? Point us to it! We'll review and feature it on our resources page to benefit everyone.
+
+**Feedback or Improvements**
+
+Found an error in existing materials? Have a suggestion for improvement? Your feedback helps us maintain high-quality content. Let us know what could be better.
+
+**Translation or Localization**
+
+Interested in translating our materials to make them accessible to a wider audience? We'd be grateful for your help in breaking down language barriers.
+
+### How to Get Started
+
+To submit a contribution, please reach out to us at [sdgis-BK@tudelft.nl](mailto:sdgis-BK@tudelft.nl) with:
+
+- A brief description of what you'd like to contribute
+- Your contact information
+- Any relevant links or attachments
+
+We'll review your submission and get back to you within 2-3 business days to discuss next steps.
+
+### Questions?
+
+Have questions about the contribution process? Feel free to contact us—we're happy to help!
+
+---
+
+*All contributions are greatly appreciated and will be credited appropriately.*
