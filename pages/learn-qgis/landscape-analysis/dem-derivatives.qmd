@@ -1,5 +1,5 @@
 ---
-title: "DEM Derivatives: Slope, Aspect, and Hillshade"
+title: "Slope, Aspect, and Hillshade"
 subtitle: "Derive terrain analysis products from Digital Elevation Models in QGIS"
 description: "A comprehensive guide to extracting and visualizing slope, aspect, curvature, and hillshade from DEM data for professional terrain analysis and mapping"
 date: 2025-02-05

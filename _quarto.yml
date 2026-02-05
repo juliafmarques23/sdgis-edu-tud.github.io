@@ -4,6 +4,8 @@ project:
 
 website:
   title: "SDGIS"
+  head-includes:
+    - '<script async data-goatcounter="https://dcannatella.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>' #analytics
   bread-crumbs: true
   announcement: 
     icon: info-circle

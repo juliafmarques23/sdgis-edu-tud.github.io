@@ -34,3 +34,11 @@
     display: none;
   }
 }
+
+.tool-logo {
+  max-height: 120px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
