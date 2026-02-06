@@ -63,7 +63,7 @@ You will need the following datasets:
     -   Available from: https://land.copernicus.eu/en/products/corine-land-cover
     -   Should contain a `Code_18` field with Level-3 classification codes
 -   **Netherlands 2×2 km Reference Grid** – Regular grid covering the Netherlands
-    -   You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on [how to create a fishnet](pages/spatial_data_preparation/creating_fishnet.qmd)
+    -   You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on [how to create a fishnet](pages/spatial_data_preparation/creating-fishnet.qmd)
     -   Should contain a `CellCode` field for unique cell identification
 
 **Coordinate Reference System:**

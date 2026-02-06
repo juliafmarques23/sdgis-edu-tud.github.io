@@ -70,7 +70,7 @@ website:
             
         - section: "Statistics & Data Visualization"
           contents:
-            # - pages/misc/statistics_and_data_visualization.qmd
+            - pages/learn-qgis/misc/statistics-and-data-visualization.qmd
         
         - section: "Cartography & Mapping"
           contents:
