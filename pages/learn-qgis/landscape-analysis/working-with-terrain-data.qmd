@@ -1,39 +1,38 @@
 ---
-title: "Working with Terrain Data in QGIS"
-subtitle: "Download, process, visualize, and analyze elevation data using QGIS"
-description: "A comprehensive guide to downloading terrain data from USGS, extracting contour lines, creating cross-sections, and 3D visualizations in QGIS"
-date: 2025-02-05
-author: "GIS Tutorial Team"
+title: Working with Terrain Data in QGIS
+subtitle: Download, process, visualize, and analyze elevation data using QGIS
+description: A comprehensive guide to downloading terrain data from USGS, extracting
+  contour lines, creating cross-sections, and 3D visualizations in QGIS
+date: '2025-02-05'
+author: Daniele Cannatella
 format:
   html:
-    toc: true
+    toc: TRUE
     toc-depth: 3
-    code-fold: true
-    code-tools: true
+    code-fold: TRUE
+    code-tools: TRUE
     theme: default
     highlight-style: github
     include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-# Metadati tutorial
+    - text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 tutorial:
-  categories: 
-    - "GIS"
-    - "Geospatial Analysis"
-    - "QGIS"
-  level: 
-    name: "Intermediate"
+  categories:
+  - GIS
+  - Geospatial Analysis
+  - QGIS
+  level:
+    name: Intermediate
     code: 2
-    color: "#fff3cd"
-  format: "html"
+    color: '#fff3cd'
+  format: html
   statistics:
     word_count: 4850
-    has_callouts: true
-    has_images: true
+    has_callouts: yes
+    has_images: yes
   timestamps:
-    created: "2025-02-05T10:30:00Z"
-    modified: "2025-02-05T14:45:00Z"
+    created: '2025-02-05T10:30:00Z'
+    modified: '2025-02-05T14:45:00Z'
 ---
 
 ```{=html}
@@ -277,10 +276,7 @@ This tutorial follows these key steps:
 | **Study Area Shapefile** | Provided in tutorial materials | Define your area of interest |
 | **QGIS Plugins** | Built-in Plugin Manager | Profile Tool, Qgis2threejs |
 
-**Optional supporting resources:**
-- USGS Documentation: <https://lpdaac.usgs.gov>
-- SRTM Dataset Info: <https://earthexplorer.usgs.gov>
-- QGIS Manual: <https://docs.qgis.org>
+**Optional supporting resources:** - USGS Documentation: <https://lpdaac.usgs.gov> - SRTM Dataset Info: <https://earthexplorer.usgs.gov> - QGIS Manual: <https://docs.qgis.org>
 
 **⚠️ Registration required:** Create a free USGS account at <https://earthexplorer.usgs.gov>
 :::
@@ -299,7 +295,7 @@ Create a free USGS account and log in to the EarthExplorer platform. This is a c
 
 [Navigation Steps]{.code-label}
 
-1.  Visit <https://earthexplorer.usgs.gov/
+1.  Visit \<https://earthexplorer.usgs.gov/
 2.  Click **"Register"** (if you don't have an account)
 3.  Fill in your details and verify your email
 4.  Log in with your credentials
@@ -703,7 +699,7 @@ Output: contour_25m.shp
 3.  Apply a color ramp to visualize slope categories
 4.  Identify areas of steep terrain (\>30°)
 
-**Resources:** - QGIS Raster Analysis: <https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
+**Resources:** - QGIS Raster Analysis: \<https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
 
 **Hint:** Slope values \>30° indicate steep terrain unsuitable for building but good for hydropower studies.
 

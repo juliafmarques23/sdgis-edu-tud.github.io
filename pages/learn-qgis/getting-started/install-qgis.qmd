@@ -2,7 +2,8 @@
 title: Install QGIS
 description: How to install QGIS on different OS
 categories:
-- Getting Started; QGIS Basics
+ - Getting Started
+ - QGIS Basics
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'

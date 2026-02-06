@@ -1,21 +1,23 @@
 ---
-title: "Learn QGIS"
-subtitle: "Browse tutorials, guides, and resources for spatial data analysis"
-
+title: Learn QGIS
+subtitle: Browse tutorials, guides, and resources for spatial data analysis
 listing:
   contents:
-    - "**/*.qmd"
-    - "!index.qmd"
+  - '**/*.qmd'
+  - '!index.qmd'
   type: grid
-  categories: true
+  categories: TRUE
   sort: title
-  filter-ui: true
-  sort-ui: true
-  fields: [title, description, categories]
+  filter-ui: TRUE
+  sort-ui: TRUE
+  fields:
+  - title
+  - description
+  - categories
   grid-columns: 3
   image-height: 200px
-
 page-layout: full
+
 ---
 
 

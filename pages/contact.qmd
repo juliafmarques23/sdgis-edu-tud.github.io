@@ -36,11 +36,6 @@ We'd love to hear from you! Whether you have questions, feedback, or just want t
   <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Send Message</button>
 </form>
 
-### Follow Us
-
-- [Twitter](https://twitter.com)
-- [LinkedIn](https://linkedin.com)
-- [Facebook](https://facebook.com)
 
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Types of Maps
 description: Overview of thematic, topographic and reference maps
-categories:
-- Cartography
+categories: Cartography
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'

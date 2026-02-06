@@ -2,12 +2,12 @@
 title: Connecting Folders to Browser Panel's Favorites
 description: Organizing your data in QGIS
 categories:
-- Getting Started; QGIS Basics
+  - Getting Started
+  - QGIS Basics
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
-
 ---
 
 Connecting folders to QGIS Browser Panel's Favorites offers several benefits in terms of workflow efficiency, project management, and ease of access. Here are some reasons why connecting folders to the QGIS Browser Panel's Favorites is important:

@@ -2,12 +2,13 @@
 title: Using the Data Source Manager with WFS and WMS
 description: Managing external data sources in QGIS
 categories:
-- Data Management; WFS/WMS
+- Data Management
+- WFS/WMS
+- GIS
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
-
 ---
 
 **Duration:** \~20 minutes
@@ -59,7 +60,7 @@ This workflow demonstrates a common GIS task: defining a study area, retrieving 
 ## Key Differences Between WFS and WMS
 
 | Feature | WFS | WMS |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Data type | Vector (features) | Raster (images) |
 | File size | Can be large | Smaller |
 | Queryable | Yes | No |

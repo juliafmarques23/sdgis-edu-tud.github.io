@@ -31,11 +31,11 @@ Click [here](https://surfdrive.surf.nl/s/ZifCpiHF3bXMSqF) to download the datase
 
 #### Importing Data from Portals
 
--   **Exercise 1: [Using the Data Source Manager with WFS and WMS](/pages/misc/using_data_source_manager.qmd)**
+-   **Exercise 1: [Using the Data Source Manager with WFS and WMS](/pages/learn-qgis/getting-started/using-data-source-manager.qmd)**
 
 #### Georeferencing and Digitizing
 
--   **Exercise 2: [Georeferencing and Digitizing](/pages/misc/georeferencing_and_digitizing.qmd)**
+-   **Exercise 2: [Georeferencing and Digitizing](/pages/learn-qgis/spatial-data-preparation/georeferencing-and-digitizing.qmd)**
 
 ### Building and Analyzing sections
 
@@ -47,4 +47,4 @@ Click [here](https://surfdrive.surf.nl/s/ZifCpiHF3bXMSqF) to download the datase
 
 ### Data Interoperability and Visualization
 
--   **Exercise 4: [Calculating Basic Statistics](/pages/misc/statistics_and_data_visualization.qmd)**
+-   **Exercise 4: [Calculating Basic Statistics](/pages/learn-qgis/misc/statistics-and-data-visualization.qmd)**

@@ -40,7 +40,7 @@ Master the fundamentals of Geographic Information Systems. Access tutorials, wor
 
 Discover curated spatial datasets for the Netherlands and beyond. Learn where to find reliable data sources for your urban analysis projects.
 
-[Browse data sources →](/pages/find_data.qmd)
+[Browse data sources →](/pages/find-data/index.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -48,7 +48,7 @@ Discover curated spatial datasets for the Netherlands and beyond. Learn where to
 
 Explore open-source GIS software and data visualization tools. Get started with QGIS, Python, R, and other essential platforms.
 
-[View tool guides →](/pages/software_and_tools.qmd)
+[View tool guides →](/pages/software-tools.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}

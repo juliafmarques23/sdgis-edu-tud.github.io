@@ -1,8 +1,7 @@
 ---
 title: Making a map
 description: Step-by-step guide to creating maps in QGIS
-categories:
-- Cartography
+categories: Cartography
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'

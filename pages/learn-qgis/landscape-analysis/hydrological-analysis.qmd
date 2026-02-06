@@ -1,40 +1,42 @@
 ---
-title: "Hydrological Analysis: Flow Paths and Watersheds"
-subtitle: "Delineate watersheds and model hydrological flow using Digital Elevation Models in QGIS"
-description: "A comprehensive guide to hydrological analysis including flow direction, flow accumulation, watershed delineation, stream networks, and drainage basin analysis using QGIS and terrain data"
-date: 2025-02-05
-author: "GIS Tutorial Team"
+title: 'Hydrological Analysis: Flow Paths and Watersheds'
+subtitle: Delineate watersheds and model hydrological flow using Digital Elevation
+  Models in QGIS
+description: A comprehensive guide to hydrological analysis including flow direction,
+  flow accumulation, watershed delineation, stream networks, and drainage basin analysis
+  using QGIS and terrain data
+date: '2025-02-05'
+author: GIS Tutorial Team
 format:
   html:
-    toc: true
+    toc: TRUE
     toc-depth: 3
-    code-fold: true
-    code-tools: true
+    code-fold: TRUE
+    code-tools: TRUE
     theme: default
     highlight-style: github
     include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-# Metadati tutorial
+    - text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 tutorial:
-  categories: 
-    - "GIS"
-    - "Hydrology"
-    - "Watershed Analysis"
-    - "QGIS"
-  level: 
-    name: "Advanced"
+  categories:
+  - GIS
+  - Hydrology
+  - Watershed Analysis
+  - QGIS
+  level:
+    name: Advanced
     code: 3
-    color: "#f8d7da"
-  format: "html"
+    color: '#f8d7da'
+  format: html
   statistics:
     word_count: 6180
-    has_callouts: true
-    has_images: true
+    has_callouts: yes
+    has_images: yes
   timestamps:
-    created: "2025-02-05T18:00:00Z"
-    modified: "2025-02-05T20:30:00Z"
+    created: '2025-02-05T18:00:00Z'
+    modified: '2025-02-05T20:30:00Z'
+
 ---
 
 ```{=html}

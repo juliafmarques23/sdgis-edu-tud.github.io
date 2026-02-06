@@ -3,13 +3,14 @@ title: 'Mapping Photovoltaic Potential Across Dutch Municipalities: A QGIS Zonal
   Tutorial'
 description: Step-by-step tutorial using zonal statistics for PV potential
 categories:
-- Environmental Assessment; Spatial Analysis
+  - Environmental Assessment
+  - Spatial Analysis
 level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
 date: .na.character
-
 ---
+
 **Classification:** Intermediate GIS Analysis \| Spatial Data Processing \| Environmental & Energy Assessment
 
 **Subcategory:** Raster-Vector Analysis, Cartographic Visualization, Exploratory Data Analysis

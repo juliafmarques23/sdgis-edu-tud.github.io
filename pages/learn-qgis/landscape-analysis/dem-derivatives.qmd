@@ -1,40 +1,40 @@
 ---
-title: "Slope, Aspect, and Hillshade"
-subtitle: "Derive terrain analysis products from Digital Elevation Models in QGIS"
-description: "A comprehensive guide to extracting and visualizing slope, aspect, curvature, and hillshade from DEM data for professional terrain analysis and mapping"
-date: 2025-02-05
-author: "GIS Tutorial Team"
+title: Slope, Aspect, and Hillshade
+subtitle: Derive terrain analysis products from Digital Elevation Models in QGIS
+description: A comprehensive guide to extracting and visualizing slope, aspect, curvature,
+  and hillshade from DEM data for professional terrain analysis and mapping
+date: '2025-02-05'
+author: GIS Tutorial Team
 format:
   html:
-    toc: true
+    toc: TRUE
     toc-depth: 3
-    code-fold: true
-    code-tools: true
+    code-fold: TRUE
+    code-tools: TRUE
     theme: default
     highlight-style: github
     include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-# Metadati tutorial
+    - text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 tutorial:
-  categories: 
-    - "GIS"
-    - "Geospatial Analysis"
-    - "QGIS"
-    - "Raster Analysis"
-  level: 
-    name: "Intermediate"
+  categories:
+  - GIS
+  - Geospatial Analysis
+  - QGIS
+  - Raster Analysis
+  - DEM
+  level:
+    name: Intermediate
     code: 2
-    color: "#fff3cd"
-  format: "html"
+    color: '#fff3cd'
+  format: html
   statistics:
     word_count: 5320
-    has_callouts: true
-    has_images: true
+    has_callouts: yes
+    has_images: yes
   timestamps:
-    created: "2025-02-05T15:00:00Z"
-    modified: "2025-02-05T17:30:00Z"
+    created: '2025-02-05T15:00:00Z'
+    modified: '2025-02-05T17:30:00Z'
 ---
 
 ```{=html}
@@ -193,73 +193,56 @@ tutorial:
 </style>
 ```
 
-:::{.tutorial-header}
+::: tutorial-header
 # <i class="fas fa-mountain"></i> Tutorial: DEM Derivatives - Slope, Aspect & Hillshade
 
 Master terrain analysis by deriving professional-grade slope, aspect, curvature, and hillshade products from Digital Elevation Models.
 :::
 
-:::{.tutorial-metadata}
+::: tutorial-metadata
+[ ]{.metadata-item}[<i class="fas fa-clock"></i>]{.metadata-icon} [75 minutes]{.time-estimate}
 
-<span class="metadata-item">
-  <span class="metadata-icon"><i class="fas fa-clock"></i></span>
-  <span class="time-estimate">75 minutes</span>
-</span>
+[ ]{.metadata-item}[<i class="fas fa-layer-group"></i>]{.metadata-icon} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
 
-<span class="metadata-item">
-  <span class="metadata-icon"><i class="fas fa-layer-group"></i></span>
-  <span>
-    <span class="badge badge-difficulty badge-intermediate">Intermediate</span>
-  </span>
-</span>
-
-<span class="metadata-item">
-  <span class="metadata-icon"><i class="fas fa-tag"></i></span>
-  <span>
-    <span class="badge badge-category badge-gis">GIS</span>
-    <span class="badge badge-category badge-raster">Raster Analysis</span>
-    <span class="badge badge-category badge-qgis">QGIS</span>
-  </span>
-</span>
-
+[ ]{.metadata-item}[<i class="fas fa-tag"></i>]{.metadata-icon} [GIS]{.badge .badge-category .badge-gis} [Raster Analysis]{.badge .badge-category .badge-raster} [QGIS]{.badge .badge-category .badge-qgis}
 :::
 
----
+------------------------------------------------------------------------
 
-## <i class="fas fa-bullseye"></i> Learning Objectives
+## <i class="fas fa-bullseye"></i> Learning Objectives {#learning-objectives}
 
-:::{.callout-note appearance="minimal" icon="true"}
+::: {.callout-note appearance="minimal" icon="true"}
 By the end of this tutorial, you will be able to:
 
-- **Objective 1** {#obj-1}: Calculate slope and aspect from a DEM → [Go to Step 1](#step-1)
-- **Objective 2** {#obj-2}: Create hillshade visualizations for professional mapping → [Go to Step 2](#step-2)
-- **Objective 3** {#obj-3}: Derive curvature and plan/profile curvature → [Go to Step 3](#step-3)
-- **Objective 4** {#obj-4}: Combine derivatives for multivariate terrain analysis → [Go to Step 4](#step-4)
-- **Objective 5** {#obj-5}: Style and symbolize DEM derivatives for publication → [Go to Step 5](#step-5)
+-   **Objective 1** {#obj-1}: Calculate slope and aspect from a DEM → [Go to Step 1](#step-1)
+-   **Objective 2** {#obj-2}: Create hillshade visualizations for professional mapping → [Go to Step 2](#step-2)
+-   **Objective 3** {#obj-3}: Derive curvature and plan/profile curvature → [Go to Step 3](#step-3)
+-   **Objective 4** {#obj-4}: Combine derivatives for multivariate terrain analysis → [Go to Step 4](#step-4)
+-   **Objective 5** {#obj-5}: Style and symbolize DEM derivatives for publication → [Go to Step 5](#step-5)
 
 These skills are *essential* for geomorphological analysis, landslide hazard assessment, hydrological modeling, and terrain-based land use planning.
 :::
 
----
+------------------------------------------------------------------------
 
 ## 📍 Learning Path: Objectives → Steps
 
 | Objective | Related Step | Time | Key Outcome |
-|-----------|-------------|------|------------|
+|-----------------|--------------------|----------------|-------------------|
 | 🎯 [Calculate slope & aspect](#obj-1) | [Step 1: Slope & Aspect](#step-1) | 15 min | Slope and aspect rasters |
 | 🎯 [Create hillshade](#obj-2) | [Step 2: Hillshade](#step-2) | 15 min | Shaded relief visualization |
 | 🎯 [Derive curvature](#obj-3) | [Step 3: Curvature](#step-3) | 15 min | Curvature and morphology |
 | 🎯 [Combine derivatives](#obj-4) | [Step 4: Multivariate Analysis](#step-4) | 15 min | Integrated analysis |
 | 🎯 [Style for publication](#obj-5) | [Step 5: Styling & Symbolization](#step-5) | 15 min | Professional cartography |
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-route"></i> Workflow Summary
 
 This tutorial follows these key steps:
 
-<div class="workflow-diagram">
-```
+::: workflow-diagram
+```         
 ┌─────────────────────────────────────────────────────┐
 │ STEP 1: Slope & Aspect Calculation                  │
 │ What: Derive basic terrain parameters               │
@@ -294,58 +277,47 @@ This tutorial follows these key steps:
 │ RESULT: Complete DEM analysis package               │
 └─────────────────────────────────────────────────────┘
 ```
-</div>
+:::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-clipboard-check"></i> Prerequisites & Requirements
 
-:::{.callout-warning appearance="minimal" icon="true"}
-
+::: {.callout-warning appearance="minimal" icon="true"}
 **Before you start, make sure you have:**
 
-- **QGIS 3.x or higher** installed with GDAL/OGR tools
-- **Processed DEM** from the "Working with Terrain Data" tutorial (or any clipped DEM)
-- **Study area shapefile** for reference (optional but recommended)
-- **Basic understanding** of raster data concepts
-- **~200 MB free disk space** for processing and outputs
+-   **QGIS 3.x or higher** installed with GDAL/OGR tools
+-   **Processed DEM** from the "Working with Terrain Data" tutorial (or any clipped DEM)
+-   **Study area shapefile** for reference (optional but recommended)
+-   **Basic understanding** of raster data concepts
+-   **\~200 MB free disk space** for processing and outputs
 
-**Knowledge assumed:** 
-- Familiarity with QGIS interface and raster layers
-- Understanding of coordinate reference systems
-- Basic map projection concepts
+**Knowledge assumed:** - Familiarity with QGIS interface and raster layers - Understanding of coordinate reference systems - Basic map projection concepts
 
 **⚠️ Important:** DEM derivatives are highly sensitive to **data quality**. Use high-quality DEMs (LiDAR preferred, SRTM acceptable) for accurate results.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-database"></i> Data & Resources
 
-:::{.callout-info appearance="minimal" icon="true"}
-
+::: {.callout-info appearance="minimal" icon="true"}
 **What you need:**
 
-| Resource | Type | Purpose |
-|----------|------|---------|
-| **Clipped DEM** | GeoTIFF raster | Input for all derivatives |
+| Resource                 | Type            | Purpose                         |
+|----------------------------|------------------|--------------------------|
+| **Clipped DEM**          | GeoTIFF raster  | Input for all derivatives       |
 | **Study Area Shapefile** | Vector boundary | For clipping outputs (optional) |
-| **QGIS GDAL Tools** | Built-in | Processing algorithms |
+| **QGIS GDAL Tools**      | Built-in        | Processing algorithms           |
 
-**Optional reference materials:**
-- QGIS Raster Analysis Documentation: https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
-- Terrain Analysis Basics: https://en.wikipedia.org/wiki/Digital_elevation_model
-- Slope/Aspect Standards: https://pubs.usgs.gov/pp/p1395/report.pdf
-
+**Optional reference materials:** - QGIS Raster Analysis Documentation: https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html - Terrain Analysis Basics: https://en.wikipedia.org/wiki/Digital_elevation_model - Slope/Aspect Standards: https://pubs.usgs.gov/pp/p1395/report.pdf
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-list-check"></i> Step-by-Step Instructions
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Step 1: Slope & Aspect {#step-1}
 
 **Achieves:** ✅ [Learning Objective 1: Calculate slope and aspect](#obj-1)
@@ -356,15 +328,13 @@ This tutorial follows these key steps:
 
 **Slope** measures terrain steepness (in degrees or percent). **Aspect** measures terrain orientation (0-360°, where 0° = North).
 
-These are calculated using the elevation gradients in the raster:
-- **Slope** = rate of maximum elevation change
-- **Aspect** = direction of maximum elevation change
+These are calculated using the elevation gradients in the raster: - **Slope** = rate of maximum elevation change - **Aspect** = direction of maximum elevation change
 
 #### 1.2 — Calculate Slope
 
-<span class="code-label">QGIS Raster Menu</span>
+[QGIS Raster Menu]{.code-label}
 
-```
+```         
 Raster 
   → Analysis 
   → Slope
@@ -372,11 +342,11 @@ Raster
 
 **Configuration:**
 
-| Parameter | Setting | Notes |
-|-----------|---------|-------|
-| **Input layer** | dem_clipped.tif | Your DEM raster |
-| **Z factor** | 1.0 | Default; increase for exaggeration |
-| **Output layer** | slope_degrees.tif | Output filename |
+| Parameter        | Setting           | Notes                              |
+|------------------|-------------------|------------------------------------|
+| **Input layer**  | dem_clipped.tif   | Your DEM raster                    |
+| **Z factor**     | 1.0               | Default; increase for exaggeration |
+| **Output layer** | slope_degrees.tif | Output filename                    |
 
 **Important:** Choose **degrees** for accessibility (0-90°) rather than percent for professional analysis.
 
@@ -384,9 +354,9 @@ Click **Run**. QGIS calculates slope for every cell based on neighboring elevati
 
 #### 1.3 — Calculate Aspect
 
-<span class="code-label">QGIS Raster Menu</span>
+[QGIS Raster Menu]{.code-label}
 
-```
+```         
 Raster 
   → Analysis 
   → Aspect
@@ -394,16 +364,12 @@ Raster
 
 **Configuration:**
 
-| Parameter | Setting |
-|-----------|---------|
-| **Input layer** | dem_clipped.tif |
-| **Output layer** | aspect.tif |
+| Parameter        | Setting         |
+|------------------|-----------------|
+| **Input layer**  | dem_clipped.tif |
+| **Output layer** | aspect.tif      |
 
-**Aspect interpretation:**
-- 0° / 360° = North
-- 90° = East
-- 180° = South
-- 270° = West
+**Aspect interpretation:** - 0° / 360° = North - 90° = East - 180° = South - 270° = West
 
 ![](../images/slope-aspect-result.png){width="80%" fig-alt="Two QGIS maps side-by-side showing slope in grayscale and aspect in color" fig-cap="**Figure 1.1:** Slope (left) and Aspect (right) derivatives. Darker slopes indicate steeper terrain; aspect colors show direction."}
 
@@ -411,19 +377,19 @@ Raster
 
 **Slope classification for terrain analysis:**
 
-| Slope Range | Terrain Type | Characteristics |
-|-------------|-------------|-----------------|
-| 0-2° | Flat/plains | Prone to flooding, poor drainage |
-| 2-5° | Gentle slopes | Suitable for agriculture |
-| 5-15° | Moderate slopes | Good for development with care |
-| 15-30° | Steep slopes | Erosion risk, landslide hazard |
-| 30°+ | Very steep | Mountainous, unstable |
+| Slope Range | Terrain Type    | Characteristics                  |
+|-------------|-----------------|----------------------------------|
+| 0-2°        | Flat/plains     | Prone to flooding, poor drainage |
+| 2-5°        | Gentle slopes   | Suitable for agriculture         |
+| 5-15°       | Moderate slopes | Good for development with care   |
+| 15-30°      | Steep slopes    | Erosion risk, landslide hazard   |
+| 30°+        | Very steep      | Mountainous, unstable            |
 
-**Pro Tip:** Slope values >30° are typically unsuitable for building and prone to landslides, but excellent for identifying geological hazards.
+**Pro Tip:** Slope values \>30° are typically unsuitable for building and prone to landslides, but excellent for identifying geological hazards.
 
 [← Back to Learning Objectives](#learning-objectives)
 
----
+------------------------------------------------------------------------
 
 ### Step 2: Hillshade {#step-2}
 
@@ -437,9 +403,9 @@ Hillshade simulates lighting effects on terrain, making subtle variations visibl
 
 #### 2.2 — Generate Hillshade
 
-<span class="code-label">QGIS Raster Menu</span>
+[QGIS Raster Menu]{.code-label}
 
-```
+```         
 Raster 
   → Analysis 
   → Hillshade
@@ -447,17 +413,15 @@ Raster
 
 **Configuration:**
 
-| Parameter | Setting | Explanation |
-|-----------|---------|------------|
-| **Input layer** | dem_clipped.tif | Your DEM |
-| **Z factor** | 1.5 | Exaggeration (1-3 typical) |
-| **Azimuth of light** | 315 | Direction from top-left (0-360°) |
-| **Vertical angle** | 45 | Height angle of light source (0-90°) |
-| **Output layer** | hillshade.tif | Output filename |
+| Parameter            | Setting         | Explanation                          |
+|----------------------|-----------------|--------------------------------------|
+| **Input layer**      | dem_clipped.tif | Your DEM                             |
+| **Z factor**         | 1.5             | Exaggeration (1-3 typical)           |
+| **Azimuth of light** | 315             | Direction from top-left (0-360°)     |
+| **Vertical angle**   | 45              | Height angle of light source (0-90°) |
+| **Output layer**     | hillshade.tif   | Output filename                      |
 
-**Light source explained:**
-- **Azimuth 315°** = light from northwest (standard for Northern Hemisphere)
-- **Vertical angle 45°** = light from above at 45° (default, good visibility)
+**Light source explained:** - **Azimuth 315°** = light from northwest (standard for Northern Hemisphere) - **Vertical angle 45°** = light from above at 45° (default, good visibility)
 
 Click **Run**. QGIS creates grayscale hillshade (0-255 values).
 
@@ -465,10 +429,10 @@ Click **Run**. QGIS creates grayscale hillshade (0-255 values).
 
 For **better visual impact**, combine hillshade with original DEM or slope data:
 
-1. **Load hillshade** layer
-2. **Set Blend Mode** to "Multiply" or "Overlay"
-3. **Adjust Opacity** to 60-80%
-4. **Stack with slope or DEM** underneath
+1.  **Load hillshade** layer
+2.  **Set Blend Mode** to "Multiply" or "Overlay"
+3.  **Adjust Opacity** to 60-80%
+4.  **Stack with slope or DEM** underneath
 
 This creates dramatic terrain visualization!
 
@@ -476,14 +440,14 @@ This creates dramatic terrain visualization!
 
 #### 2.4 — Professional Hillshade Tips
 
-- **Exaggerate Z-factor** (2-3) for small areas with subtle terrain
-- **Use Z=1** for large areas to avoid visual distortion
-- **Flip azimuth to 135°** for Southern Hemisphere (opposite lighting)
-- **Stack multiple hillshades** with different azimuths for better detail
+-   **Exaggerate Z-factor** (2-3) for small areas with subtle terrain
+-   **Use Z=1** for large areas to avoid visual distortion
+-   **Flip azimuth to 135°** for Southern Hemisphere (opposite lighting)
+-   **Stack multiple hillshades** with different azimuths for better detail
 
 [← Back to Learning Objectives](#learning-objectives)
 
----
+------------------------------------------------------------------------
 
 ### Step 3: Curvature {#step-3}
 
@@ -495,30 +459,27 @@ This creates dramatic terrain visualization!
 
 **Curvature** measures how much terrain bends (concave/convex):
 
-- **Positive values** = convex slopes (ridges)
-- **Negative values** = concave slopes (valleys)
-- **Zero values** = straight slopes
+-   **Positive values** = convex slopes (ridges)
+-   **Negative values** = concave slopes (valleys)
+-   **Zero values** = straight slopes
 
-**Plan Curvature** = horizontal curvature (side-to-side)  
+**Plan Curvature** = horizontal curvature (side-to-side)\
 **Profile Curvature** = vertical curvature (up-down)
 
 #### 3.2 — Calculate Plan Curvature
 
-<span class="code-label">QGIS Processing Toolbox</span>
+[QGIS Processing Toolbox]{.code-label}
 
 Search for **"Plan Curvature"** in the Processing Toolbox.
 
 **Configuration:**
 
-| Parameter | Setting |
-|-----------|---------|
-| **Input DEM** | dem_clipped.tif |
+| Parameter        | Setting            |
+|------------------|--------------------|
+| **Input DEM**    | dem_clipped.tif    |
 | **Output layer** | plan_curvature.tif |
 
-**Plan Curvature interpretation:**
-- Ridge areas show **positive** values (bright colors)
-- Valley areas show **negative** values (dark colors)
-- Used for identifying water accumulation patterns
+**Plan Curvature interpretation:** - Ridge areas show **positive** values (bright colors) - Valley areas show **negative** values (dark colors) - Used for identifying water accumulation patterns
 
 #### 3.3 — Calculate Profile Curvature
 
@@ -526,21 +487,18 @@ Search for **"Profile Curvature"** in the Processing Toolbox.
 
 **Configuration:**
 
-| Parameter | Setting |
-|-----------|---------|
-| **Input DEM** | dem_clipped.tif |
+| Parameter        | Setting               |
+|------------------|-----------------------|
+| **Input DEM**    | dem_clipped.tif       |
 | **Output layer** | profile_curvature.tif |
 
-**Profile Curvature interpretation:**
-- **Positive** = slope becomes steeper downhill
-- **Negative** = slope becomes gentler downhill
-- Used for erosion and water flow modeling
+**Profile Curvature interpretation:** - **Positive** = slope becomes steeper downhill - **Negative** = slope becomes gentler downhill - Used for erosion and water flow modeling
 
 #### 3.4 — Terrain Classification Using Curvature
 
 Combine curvature products to classify **landforms**:
 
-```
+```         
 Ridge areas:        Plan > 0, Profile > 0
 Valley areas:       Plan < 0, Profile < 0
 Slopes:             Plan ≈ 0, Profile varies
@@ -551,7 +509,7 @@ Saddle points:      Plan > 0, Profile < 0
 
 [← Back to Learning Objectives](#learning-objectives)
 
----
+------------------------------------------------------------------------
 
 ### Step 4: Multivariate Analysis {#step-4}
 
@@ -563,51 +521,42 @@ Saddle points:      Plan > 0, Profile < 0
 
 TPI classifies terrain based on elevation relative to surrounding areas:
 
-<span class="code-label">QGIS Processing Toolbox</span>
+[QGIS Processing Toolbox]{.code-label}
 
 Search for **"Terrain Position Index"** or use Raster Calculator:
 
-```
+```         
 TPI = DEM - FOCUS_OPERATION(DEM, "mean", radius=100)
 ```
 
-**TPI interpretation:**
-- **TPI > 0** = ridges and peaks
-- **TPI ≈ 0** = slopes and flats
-- **TPI < 0** = valleys and depressions
+**TPI interpretation:** - **TPI \> 0** = ridges and peaks - **TPI ≈ 0** = slopes and flats - **TPI \< 0** = valleys and depressions
 
 #### 4.2 — Topographic Ruggedness Index (TRI)
 
 TRI measures roughness of terrain (standard deviation of slope):
 
-<span class="code-label">QGIS Raster Calculator</span>
+[QGIS Raster Calculator]{.code-label}
 
-```
+```         
 TRI = SQRT(slope_x² + slope_y²)
 ```
 
-**TRI applications:**
-- Identify rough/mountainous terrain
-- Assess terrain accessibility
-- Hazard zone identification
+**TRI applications:** - Identify rough/mountainous terrain - Assess terrain accessibility - Hazard zone identification
 
 #### 4.3 — Combined Terrain Classification
 
 Create a **multivariate classification** using multiple derivatives:
 
-<span class="code-label">QGIS Raster Calculator</span>
+[QGIS Raster Calculator]{.code-label}
 
-```
+```         
 Terrain_Class = IF(slope < 5, 1,           # Flat
                 IF(slope < 15, 2,          # Gentle
                 IF(slope < 30, 3,          # Steep
                 4)))                        # Very Steep
 ```
 
-Then **refine by aspect** for exposure:
-- North-facing = cooler, shadier
-- South-facing = warmer, sunnier
-- E/W = transitional
+Then **refine by aspect** for exposure: - North-facing = cooler, shadier - South-facing = warmer, sunnier - E/W = transitional
 
 ![](../images/multivariate-terrain-classification.png){width="80%" fig-alt="QGIS map showing terrain classified by slope and aspect combined into 12 categories" fig-cap="**Figure 4.1:** Multivariate terrain classification. Colors represent slope-aspect combinations."}
 
@@ -615,7 +564,7 @@ Then **refine by aspect** for exposure:
 
 Combine derivatives for hazard mapping:
 
-```
+```         
 Hazard = HIGH if (slope > 30° AND 
                   plan_curvature < 0 AND 
                   profile_curvature > 0)
@@ -625,7 +574,7 @@ This identifies **valleys with steepening slopes** = high hazard zones.
 
 [← Back to Learning Objectives](#learning-objectives)
 
----
+------------------------------------------------------------------------
 
 ### Step 5: Styling & Symbolization {#step-5}
 
@@ -637,9 +586,9 @@ This identifies **valleys with steepening slopes** = high hazard zones.
 
 **Best practices for slope visualization:**
 
-<span class="code-label">QGIS Layer Properties</span>
+[QGIS Layer Properties]{.code-label}
 
-```
+```         
 Symbology 
   → Raster 
   → Render type: Singleband pseudocolor
@@ -647,12 +596,12 @@ Symbology
 
 **Recommended color schemes:**
 
-| Slope Range | Color | Meaning |
-|-------------|-------|---------|
-| 0-5° | Green | Safe, buildable |
-| 5-15° | Yellow | Caution |
-| 15-30° | Orange | Risk |
-| 30°+ | Red | Hazard |
+| Slope Range | Color  | Meaning         |
+|-------------|--------|-----------------|
+| 0-5°        | Green  | Safe, buildable |
+| 5-15°       | Yellow | Caution         |
+| 15-30°      | Orange | Risk            |
+| 30°+        | Red    | Hazard          |
 
 QGIS provides presets: "Viridis", "Plasma", "RdYlGn_r" (good for slope)
 
@@ -660,25 +609,21 @@ QGIS provides presets: "Viridis", "Plasma", "RdYlGn_r" (good for slope)
 
 Aspect is **circular data** (0-360° = same as 360-0°), so use circular color ramps:
 
-<span class="code-label">QGIS Aspect Styling</span>
+[QGIS Aspect Styling]{.code-label}
 
-```
+```         
 Symbology 
   → Raster 
   → Color ramp: "Spectral" (circular)
 ```
 
-**Standard aspect colors:**
-- North (0°) = Purple
-- East (90°) = Green
-- South (180°) = Yellow
-- West (270°) = Red
+**Standard aspect colors:** - North (0°) = Purple - East (90°) = Green - South (180°) = Yellow - West (270°) = Red
 
 #### 5.3 — Hillshade as Background Layer
 
 Layer stack for professional maps:
 
-```
+```         
 Top:    Vector overlays (shapefiles, contours)
         ↓
 Mid:    Slope or curvature (with transparency)
@@ -686,16 +631,13 @@ Mid:    Slope or curvature (with transparency)
 Bottom: Hillshade (grayscale background)
 ```
 
-**Configuration:**
-1. Set **hillshade Blend Mode** to "Multiply"
-2. Set **derivative Opacity** to 60-75%
-3. Enable **vector borders** for clarity
+**Configuration:** 1. Set **hillshade Blend Mode** to "Multiply" 2. Set **derivative Opacity** to 60-75% 3. Enable **vector borders** for clarity
 
 #### 5.4 — Add Legend and Metadata
 
-<span class="code-label">QGIS Composer/Print Layout</span>
+[QGIS Composer/Print Layout]{.code-label}
 
-```
+```         
 Add Legend 
   → Include all derivative layers
   → Add title, scale, north arrow
@@ -706,21 +648,17 @@ Add Legend
      - Derived date
 ```
 
-**Professional cartography requirements:**
-- ✅ Clear legend with units (degrees, percent)
-- ✅ Scale bar visible
-- ✅ North arrow oriented correctly
-- ✅ Data source and processing date noted
-- ✅ CRS/Projection clearly labeled
+**Professional cartography requirements:** - ✅ Clear legend with units (degrees, percent) - ✅ Scale bar visible - ✅ North arrow oriented correctly - ✅ Data source and processing date noted - ✅ CRS/Projection clearly labeled
 
 ![](../images/publication-ready-map.png){width="85%" fig-alt="Professional QGIS map layout with hillshade, slope colors, contours, legend, and scale bar" fig-cap="**Figure 5.1:** Publication-ready DEM analysis map. Combines hillshade, slope colors, contours, and proper cartographic elements."}
 
 #### 5.5 — Export for Publication
 
-<span class="code-label">QGIS Export Options</span>
+[QGIS Export Options]{.code-label}
 
 **For printed maps:**
-```
+
+```         
 File 
   → Export as Image 
   → PNG at 300 DPI 
@@ -728,39 +666,35 @@ File
 ```
 
 **For web/presentations:**
-```
+
+```         
 File 
   → Export as Image 
   → PNG at 150 DPI 
   → Or export QML style for web GIS
 ```
 
-**Pro Tips:**
-- Export as **GeoTIFF** to maintain georeference
-- Use **PDF** for reports (vector text, smaller files)
-- Test on **color-blind palette** (use "Cividis" colormap)
+**Pro Tips:** - Export as **GeoTIFF** to maintain georeference - Use **PDF** for reports (vector text, smaller files) - Test on **color-blind palette** (use "Cividis" colormap)
 
 [← Back to Learning Objectives](#learning-objectives)
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-check-circle"></i> Result & Expected Outcome
 
-:::{.callout-success appearance="minimal" icon="true"}
-
+::: {.callout-success appearance="minimal" icon="true"}
 **What you should have now:**
 
-✅ **Slope raster** (degrees, 0-90°)  
-✅ **Aspect raster** (direction, 0-360°)  
-✅ **Hillshade layer** (grayscale relief)  
-✅ **Curvature products** (plan & profile)  
-✅ **Publication-ready maps** with proper styling  
+✅ **Slope raster** (degrees, 0-90°)\
+✅ **Aspect raster** (direction, 0-360°)\
+✅ **Hillshade layer** (grayscale relief)\
+✅ **Curvature products** (plan & profile)\
+✅ **Publication-ready maps** with proper styling
 
 **Your complete DEM derivatives package:**
 
-```
+```         
 dem_derivatives/
 ├── slope/
 │   ├── slope_degrees.tif
@@ -786,43 +720,35 @@ dem_derivatives/
     └── terrain_analysis_summary.pdf
 ```
 
-**Applications of your derivatives:**
-- 🏗️ Site suitability for construction
-- 💧 Hydrological flow modeling
-- 🌳 Vegetation and landcover analysis
-- ⚠️ Hazard assessment (landslides, avalanches)
-- 🗺️ Terrain-based mapping and planning
-- 🔬 Geomorphological research
-
+**Applications of your derivatives:** - 🏗️ Site suitability for construction - 💧 Hydrological flow modeling - 🌳 Vegetation and landcover analysis - ⚠️ Hazard assessment (landslides, avalanches) - 🗺️ Terrain-based mapping and planning - 🔬 Geomorphological research
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-dumbbell"></i> Exercises & Challenges
 
 ### Challenge 1: Intermediate — Classify Slope for Land Use Planning
 
-:::{.challenge-header .intermediate}
-<span style="font-size: 1.5rem;">🟡</span> <span class="challenge-title">Create Land Use Suitability Map</span> <span class="badge badge-difficulty badge-intermediate">Intermediate</span>
+::: {.challenge-header .intermediate}
+[🟡]{style="font-size: 1.5rem;"} [Create Land Use Suitability Map]{.challenge-title} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
 :::
 
 **Objective:** Create a slope-based land use classification suitable for urban planning.
 
 **Your task:**
 
-1. Calculate slope from your DEM
-2. Create **5 classes**: Flat (<5°), Buildable (5-15°), Limited (15-30°), Restricted (30-45°), Prohibited (>45°)
-3. Assign colors: Green (best) → Red (worst)
-4. Overlay with existing land use shapefile
-5. Identify conflicts and suitable areas for development
+1.  Calculate slope from your DEM
+2.  Create **5 classes**: Flat (\<5°), Buildable (5-15°), Limited (15-30°), Restricted (30-45°), Prohibited (\>45°)
+3.  Assign colors: Green (best) → Red (worst)
+4.  Overlay with existing land use shapefile
+5.  Identify conflicts and suitable areas for development
 
 **Hint:** Use Raster Calculator with nested IF statements for classification.
 
 **Solution (click to reveal):**
 
-:::{.callout-tip collapse="true"}
-
-```python
+::: {.callout-tip collapse="true"}
+``` python
 # In QGIS Raster Calculator:
 IF(slope < 5, 1,
    IF(slope < 15, 2,
@@ -833,85 +759,78 @@ IF(slope < 5, 1,
 Then apply color ramp: Green (1) → Yellow (2) → Orange (3) → Red (4-5)
 
 **Interpretation:** Green areas are safest for building. Red areas require special engineering or are unbuildable.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ### Challenge 2: Intermediate — Identify Ridges and Valleys
 
-:::{.challenge-header .intermediate}
-<span style="font-size: 1.5rem;">🟡</span> <span class="challenge-title">Geomorphological Feature Mapping</span> <span class="badge badge-difficulty badge-intermediate">Intermediate</span>
+::: {.challenge-header .intermediate}
+[🟡]{style="font-size: 1.5rem;"} [Geomorphological Feature Mapping]{.challenge-title} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
 :::
 
 **Objective:** Extract and map ridge lines, valley lines, and saddle points.
 
 **Your task:**
 
-1. Calculate plan curvature from your DEM
-2. **Ridges:** Identify areas where plan_curvature > 0.5 AND slope > 10°
-3. **Valleys:** Identify areas where plan_curvature < -0.5
-4. **Saddle points:** Identify areas where aspect changes abruptly
-5. Vectorize and map these features
-6. Verify against hillshade for visual accuracy
+1.  Calculate plan curvature from your DEM
+2.  **Ridges:** Identify areas where plan_curvature \> 0.5 AND slope \> 10°
+3.  **Valleys:** Identify areas where plan_curvature \< -0.5
+4.  **Saddle points:** Identify areas where aspect changes abruptly
+5.  Vectorize and map these features
+6.  Verify against hillshade for visual accuracy
 
-**Resources:**
-- QGIS Raster to Vector conversion: https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
-- Terrain morphometry guide: https://en.wikipedia.org/wiki/Terrain_morphology
+**Resources:** - QGIS Raster to Vector conversion: https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html - Terrain morphometry guide: https://en.wikipedia.org/wiki/Terrain_morphology
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-lightbulb"></i> Tips, Tricks & Warnings
 
 ### 💡 Pro Tips
 
-:::{.callout-tip appearance="minimal" icon="true"}
+::: {.callout-tip appearance="minimal" icon="true"}
+-   **Tip 1: Z-factor is crucial** — Adjust Z-factor (slope multiplier) to match your terrain type. Use higher values (2-3) for subtle terrain, lower values (0.5-1) for dramatic terrain.
 
-- **Tip 1: Z-factor is crucial** — Adjust Z-factor (slope multiplier) to match your terrain type. Use higher values (2-3) for subtle terrain, lower values (0.5-1) for dramatic terrain.
+-   **Tip 2: Check for data artifacts** — SRTM has artifacts over water bodies. Use -9999 as Nodata to exclude these from calculations.
 
-- **Tip 2: Check for data artifacts** — SRTM has artifacts over water bodies. Use -9999 as Nodata to exclude these from calculations.
+-   **Tip 3: Combine derivatives strategically** — Slope + Aspect alone misses terrain complexity. Always include curvature for better landform classification.
 
-- **Tip 3: Combine derivatives strategically** — Slope + Aspect alone misses terrain complexity. Always include curvature for better landform classification.
+-   **Tip 4: Color choice matters** — Use **perceptually uniform colormaps** (Viridis, Cividis) for scientific visualization. Avoid "rainbow" ramps—they distort perception of data.
 
-- **Tip 4: Color choice matters** — Use **perceptually uniform colormaps** (Viridis, Cividis) for scientific visualization. Avoid "rainbow" ramps—they distort perception of data.
+-   **Tip 5: Test your hillshade azimuth** — Northern Hemisphere uses 315° (NW light). Southern Hemisphere uses 135° (SE light). Test both for visual preference.
 
-- **Tip 5: Test your hillshade azimuth** — Northern Hemisphere uses 315° (NW light). Southern Hemisphere uses 135° (SE light). Test both for visual preference.
-
-- **Tip 6: Stack layers intelligently** — Hillshade + slope (60% opacity) + contours = excellent terrain visualization for analysis and presentation.
-
+-   **Tip 6: Stack layers intelligently** — Hillshade + slope (60% opacity) + contours = excellent terrain visualization for analysis and presentation.
 :::
 
 ### ⚠️ Common Pitfalls
 
-:::{.callout-warning appearance="minimal" icon="true"}
-
+::: {.callout-warning appearance="minimal" icon="true"}
 **Watch out for these mistakes:**
 
-1. **Using wrong Z-factor:** Z-factor too high (>5) creates unrealistic exaggeration. Z-factor too low (<0.5) makes subtle terrain invisible.
-   ```
-   ❌ Z=10 for a 30m DEM = 10x exaggeration = unrealistic
-   ✅ Z=1.5 for a 30m DEM = subtle, realistic
-   ```
+1.  **Using wrong Z-factor:** Z-factor too high (\>5) creates unrealistic exaggeration. Z-factor too low (\<0.5) makes subtle terrain invisible.
 
-2. **Ignoring DEM quality issues:** Artifacts in input DEM = artifacts in all derivatives. Always inspect DEM for holes, spikes, or water artifacts first.
+    ```         
+    ❌ Z=10 for a 30m DEM = 10x exaggeration = unrealistic
+    ✅ Z=1.5 for a 30m DEM = subtle, realistic
+    ```
 
-3. **Not checking nodata values:** Nodata (-9999 or 0) propagates through calculations and corrupts derivatives. **Always** set nodata properly.
+2.  **Ignoring DEM quality issues:** Artifacts in input DEM = artifacts in all derivatives. Always inspect DEM for holes, spikes, or water artifacts first.
 
-4. **Misinterpreting aspect:** Aspect values are **0-360°** (circular). Standard statistics (mean, median) don't work! Use circular statistics instead.
+3.  **Not checking nodata values:** Nodata (-9999 or 0) propagates through calculations and corrupts derivatives. **Always** set nodata properly.
 
-5. **Forgetting CRS for slope calculation:** Slope accuracy depends on CRS. Use **projected coordinates** (UTM, not geographic lat/lon) for accurate degree measurements.
+4.  **Misinterpreting aspect:** Aspect values are **0-360°** (circular). Standard statistics (mean, median) don't work! Use circular statistics instead.
 
+5.  **Forgetting CRS for slope calculation:** Slope accuracy depends on CRS. Use **projected coordinates** (UTM, not geographic lat/lon) for accurate degree measurements.
 :::
 
 ### 🔴 Critical Warnings
 
-:::{.callout-danger appearance="minimal" icon="true"}
-
+::: {.callout-danger appearance="minimal" icon="true"}
 **These mistakes can invalidate your analysis:**
 
 ⚠️ **Never use geographic coordinates (lat/lon) for slope/aspect!** Results will be completely wrong:
 
-```
+```         
 ❌ WRONG: EPSG:4326 (WGS 84 lat/lon)
 ✅ CORRECT: EPSG:32632 (WGS 84 / UTM zone 32N)
 ```
@@ -920,7 +839,7 @@ Always reproject to **projected CRS** before calculating derivatives.
 
 ⚠️ **Check DEM vertical units match horizontal!** Mismatched units cause wrong slope values:
 
-```
+```         
 Example: 30m resolution DEM but elevation in feet
 Result: Slope values 3x too large!
 ```
@@ -928,121 +847,109 @@ Result: Slope values 3x too large!
 Verify: DEM resolution and units should be consistent (e.g., both in meters).
 
 ⚠️ **Document your Z-factor choice!** Always note the Z-factor used in metadata. Different Z-factors make results non-comparable between studies.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-arrow-right"></i> Related Tutorials & Next Steps
 
-:::{.callout-info appearance="minimal" icon="true"}
-
+::: {.callout-info appearance="minimal" icon="true"}
 **After completing this tutorial, you might be interested in:**
 
 ### Level Up Your Skills
 
-1. **Advanced Terrain Analysis: Hydrological Modeling** — Calculate flow accumulation and watersheds
-   - Estimated time: 60 minutes
-   - Difficulty: Advanced
-   
-2. **Landslide Hazard Assessment Using Terrain** — Combine DEM derivatives with geological data
-   - Estimated time: 90 minutes
-   - Difficulty: Advanced
-
-3. **Vegetation Analysis from Terrain** — Link terrain properties to landcover classification
-   - Estimated time: 75 minutes
-   - Difficulty: Intermediate
+1.  **Advanced Terrain Analysis: Hydrological Modeling** — Calculate flow accumulation and watersheds
+    -   Estimated time: 60 minutes
+    -   Difficulty: Advanced
+2.  **Landslide Hazard Assessment Using Terrain** — Combine DEM derivatives with geological data
+    -   Estimated time: 90 minutes
+    -   Difficulty: Advanced
+3.  **Vegetation Analysis from Terrain** — Link terrain properties to landcover classification
+    -   Estimated time: 75 minutes
+    -   Difficulty: Intermediate
 
 ### Related Topics
 
-- **Solar Radiation Modeling** — Calculate sunlight exposure using slope and aspect
-- **Geomorphological Mapping** — Use terrain derivatives for landform classification
-- **Terrain-Based Landcover Prediction** — Predict vegetation from terrain derivatives
-- **Alpine Hazard Assessment** — Identify avalanche and rockfall zones using slope
+-   **Solar Radiation Modeling** — Calculate sunlight exposure using slope and aspect
+-   **Geomorphological Mapping** — Use terrain derivatives for landform classification
+-   **Terrain-Based Landcover Prediction** — Predict vegetation from terrain derivatives
+-   **Alpine Hazard Assessment** — Identify avalanche and rockfall zones using slope
 
 ### Practice Projects
 
-- **Project 1:** Create a land use suitability map for your region
-- **Project 2:** Perform geomorphological analysis of a mountain range
-- **Project 3:** Develop a terrain-based natural hazard assessment
-
+-   **Project 1:** Create a land use suitability map for your region
+-   **Project 2:** Perform geomorphological analysis of a mountain range
+-   **Project 3:** Develop a terrain-based natural hazard assessment
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-book"></i> References & Further Reading
 
-:::{.callout-note appearance="minimal" icon="true"}
-
+::: {.callout-note appearance="minimal" icon="true"}
 ### Official Documentation
 
-- **QGIS Raster Analysis Manual:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
-  - Comprehensive guides for Slope, Aspect, Hillshade, Curvature
-
-- **GDAL Raster Functions:** https://gdal.org/python/osgeo_gdal_gdalconst.html
-  - Technical documentation for underlying algorithms
+-   **QGIS Raster Analysis Manual:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
+    -   Comprehensive guides for Slope, Aspect, Hillshade, Curvature
+-   **GDAL Raster Functions:** https://gdal.org/python/osgeo_gdal_gdalconst.html
+    -   Technical documentation for underlying algorithms
 
 ### Academic References
 
-1. **"Terrain Analysis: Principles and Applications"** — John C. Gallant & John P. Wilson (2000)
-   - Standard reference for terrain derivatives
-   - Explains mathematical foundations
-
-2. **"Digital Elevation Model Technologies and Applications"** — David F. Maune (2007)
-   - Practical applications of DEM derivatives
-   - Quality assessment and error analysis
-
-3. **"Geomorphometry: Concepts, Software, Applications"** — Hengl & Reuter (2009)
-   - Comprehensive guide to terrain analysis
-   - Includes QGIS workflows
+1.  **"Terrain Analysis: Principles and Applications"** — John C. Gallant & John P. Wilson (2000)
+    -   Standard reference for terrain derivatives
+    -   Explains mathematical foundations
+2.  **"Digital Elevation Model Technologies and Applications"** — David F. Maune (2007)
+    -   Practical applications of DEM derivatives
+    -   Quality assessment and error analysis
+3.  **"Geomorphometry: Concepts, Software, Applications"** — Hengl & Reuter (2009)
+    -   Comprehensive guide to terrain analysis
+    -   Includes QGIS workflows
 
 ### Online Resources
 
-- **OpenTopography Project:** https://www.opentopodata.org/
-  - Free global elevation data and analysis tools
-  
-- **USGS DEM Standards:** https://pubs.usgs.gov/pp/p1395/report.pdf
-  - Technical specifications and quality standards
-
-- **R Package 'raster':** https://CRAN.R-project.org/package=raster
-  - Alternative to QGIS for batch processing DEM derivatives
+-   **OpenTopography Project:** https://www.opentopodata.org/
+    -   Free global elevation data and analysis tools
+-   **USGS DEM Standards:** https://pubs.usgs.gov/pp/p1395/report.pdf
+    -   Technical specifications and quality standards
+-   **R Package 'raster':** https://CRAN.R-project.org/package=raster
+    -   Alternative to QGIS for batch processing DEM derivatives
 
 ### Tools & Software
 
-- **QGIS** — Free, open-source GIS (what we use here)
-- **SAGA GIS** — Specialized for terrain analysis, free
-- **WhiteboxTools** — Modern terrain analysis library, free
-- **ArcGIS Spatial Analyst** — Commercial but powerful
-
+-   **QGIS** — Free, open-source GIS (what we use here)
+-   **SAGA GIS** — Specialized for terrain analysis, free
+-   **WhiteboxTools** — Modern terrain analysis library, free
+-   **ArcGIS Spatial Analyst** — Commercial but powerful
 :::
 
----
+------------------------------------------------------------------------
 
 ## <i class="fas fa-comments"></i> Questions or Issues?
 
 If you encounter problems:
 
-1. **Verify your DEM:** Check for nodata values, data spikes, or negative elevations
-2. **Check CRS:** Confirm you're using projected coordinates, not lat/lon
-3. **Test on subset:** Verify workflow on small area before processing entire DEM
-4. **Review QGIS documentation:** https://docs.qgis.org/
-5. **Ask GIS Stack Exchange:** https://gis.stackexchange.com/ with [qgis] tag
+1.  **Verify your DEM:** Check for nodata values, data spikes, or negative elevations
+2.  **Check CRS:** Confirm you're using projected coordinates, not lat/lon
+3.  **Test on subset:** Verify workflow on small area before processing entire DEM
+4.  **Review QGIS documentation:** https://docs.qgis.org/
+5.  **Ask GIS Stack Exchange:** https://gis.stackexchange.com/ with \[qgis\] tag
 
 **Common issues:**
 
 | Issue | Solution |
-|-------|----------|
-| Slope values unrealistic (>90°) | Check that DEM CRS is projected (UTM, not lat/lon) |
+|------------------------------|------------------------------------------|
+| Slope values unrealistic (\>90°) | Check that DEM CRS is projected (UTM, not lat/lon) |
 | Hillshade shows artifacts | Smooth DEM with Gaussian filter before calculating |
 | Aspect values wrap at 0°/360° | Use circular statistics, not standard mean |
 | Curvature shows noise | Increase search radius or smooth DEM first |
 
----
+------------------------------------------------------------------------
 
-**Tutorial Version:** 1.0  
-**Last Updated:** February 5, 2025  
-**Difficulty:** Intermediate  
-**Estimated Duration:** 75 minutes  
+**Tutorial Version:** 1.0\
+**Last Updated:** February 5, 2025\
+**Difficulty:** Intermediate\
+**Estimated Duration:** 75 minutes\
 **Status:** ✅ Complete and tested in QGIS 3.28.0
 
 **Prerequisites:** Completion of "Working with Terrain Data" tutorial recommended but not required (any processed DEM works).

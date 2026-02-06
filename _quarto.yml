@@ -54,48 +54,61 @@ website:
         
         - section: "Getting Started"
           contents:
-            - pages/learn-qgis/getting-started/installation.qmd
+            - pages/learn-qgis/getting-started/install-qgis.qmd
             - pages/learn-qgis/getting-started/switch-language.qmd
             - pages/learn-qgis/getting-started/activating-panels.qmd
             - pages/learn-qgis/getting-started/connecting-folders.qmd
             - pages/learn-qgis/getting-started/installing-plugins.qmd
             - pages/learn-qgis/getting-started/new-project.qmd
-            - pages/learn-qgis/getting-started/importing-vectors.qmd
-            - pages/learn-qgis/getting-started/styling-vectors.qmd
-            - pages/learn-qgis/getting-started/importing-rasters.qmd
-            - pages/learn-qgis/getting-started/importing-tables.qmd
+            - pages/learn-qgis/getting-started/using-data-source-manager.qmd
+            - pages/learn-qgis/spatial-data-preparation/georeferencing-and-digitizing.qmd
+            - pages/learn-qgis/spatial-data-preparation/creating-fishnet.qmd
+            # - pages/learn-qgis/getting-started/importing-vectors.qmd
+            # - pages/learn-qgis/getting-started/styling-vectors.qmd
+            # - pages/learn-qgis/spatial-data-preparation/importing-rasters.qmd
+            # - pages/learn-qgis/spatial-data-preparation/importing-tables.qmd
             
+        - section: "Statistics & Data Visualization"
+          contents:
+            # - pages/misc/statistics_and_data_visualization.qmd
+        
         - section: "Cartography & Mapping"
           contents:
-            - pages/learn-qgis/cartography/index.qmd
-            - pages/learn-qgis/cartography/making-a-map.qmd
-            - pages/learn-qgis/cartography/principles.qmd
-            - pages/learn-qgis/cartography/elements.qmd
-            - pages/learn-qgis/cartography/layout.qmd
-            - pages/learn-qgis/cartography/aesthetics.qmd
-            - pages/learn-qgis/cartography/types.qmd
-            - pages/learn-qgis/cartography/creating-in-qgis.qmd
+            # - pages/learn-qgis/cartography/index.qmd
+            # - pages/learn-qgis/cartography/making-a-map.qmd
+            # - pages/learn-qgis/cartography/principles.qmd
+            # - pages/learn-qgis/cartography/elements.qmd
+            # - pages/learn-qgis/cartography/layout.qmd
+            # - pages/learn-qgis/cartography/aesthetics.qmd
+            # - pages/learn-qgis/cartography/types.qmd
+            # - pages/learn-qgis/cartography/creating-in-qgis.qmd
             
         - section: "Density Analysis"
           contents:
-            - pages/learn-qgis/density-analysis/index.qmd
-            - pages/learn-qgis/density-analysis/land-cover-grid.qmd
-            - pages/learn-qgis/density-analysis/tree-cover-grid.qmd
+            # - pages/learn-qgis/density-analysis/index.qmd
+            # - pages/learn-qgis/density-analysis/land-cover-grid.qmd
+            # - pages/learn-qgis/density-analysis/tree-cover-grid.qmd
+            - pages/learn-qgis/misc/land-use-grid-aggregation.qmd
             - pages/learn-qgis/density-analysis/road-network-density.qmd
-            - pages/learn-qgis/density-analysis/hex-maps.qmd
+            # - pages/learn-qgis/density-analysis/hex-maps.qmd
             
         - section: "Landscape Analysis"
           contents:
-            - pages/learn-qgis/landscape-analysis/index.qmd
-            - pages/learn-qgis/landscape-analysis/terrain-data.qmd
-            - pages/learn-qgis/landscape-analysis/hydrological.qmd
-            - pages/learn-qgis/landscape-analysis/visibility.qmd
+            # - pages/learn-qgis/landscape-analysis/index.qmd
+            - pages/learn-qgis/landscape-analysis/working-with-terrain-data.qmd
+            - pages/learn-qgis/landscape-analysis/dem-derivatives.qmd
+            - pages/learn-qgis/landscape-analysis/hydrological-analysis.qmd
+            - pages/learn-qgis/landscape-analysis/visibility-analysis.qmd
             - pages/learn-qgis/landscape-analysis/cross-profiles.qmd
 
   back-to-top-navigation: true
   reader-mode: true
   page-footer: 
-    left: "Copyright 2025, SDGIS-BK@tudelft.nl"
+    left: "Copyright 2025, <a href=\"mailto:SDGIS-BK@tudelft.nl\">SDGIS-BK@tudelft.nl</a>"
+    center: |
+      <div class="footer-logos">
+        <img src="/images/logos/international-logo_rgb@16x.png" alt="TU Delft" class="footer-logo">
+      </div>
     right: 
       - icon: github
         href: https://github.com/sdgis-edu-tud/sdgis-edu-tud.github.io

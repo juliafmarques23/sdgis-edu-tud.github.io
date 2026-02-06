@@ -37,8 +37,19 @@
 
 .tool-logo {
   max-height: 120px;
-  max-width: 100%;
+  max-width: 50%;
   object-fit: contain;
   display: block;
   margin: auto;
+}
+.footer-logos {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  height: 120px;
+  width: auto;
 }

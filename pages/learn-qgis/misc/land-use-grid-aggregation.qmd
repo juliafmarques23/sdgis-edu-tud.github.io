@@ -1,13 +1,14 @@
 ---
-title: Aggregating Land Use Classes to a Regional Grid in Europe
+title: Aggregating Land Use Classes to a Dutch Grid
 description: Processing land use data into grids for analysis
 categories:
-- Data Preparation; Spatial Analysis
+ - Data Preparation
+ - Spatial Analysis
+ - Grid
 level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
 date: .na.character
-
 ---
 
 **Classification:** Intermediate GIS Analysis \| Spatial Data Processing \| Environmental Assessment \| Land Use Analysis
@@ -67,19 +68,20 @@ You will need the following datasets:
 
 **Coordinate Reference System:**
 
--   Both datasets must be reprojected to **[EPSG:28992 (Amersfoord / RD New)](https://epsg.io/28992)** before analysis
+-   Both datasets must be reprojected to [**EPSG:28992 (Amersfoord / RD New)**](https://epsg.io/28992) before analysis
 -   This ensures accurate area calculations and spatial operations
 
 ### Spatial Extent
 
 The example in this tutorial covers:
 
-**Bounding Box (GDAL format, in EPSG:3035 coordinates):**
-CHECK
+**Bounding Box (GDAL format, in EPSG:3035 coordinates):** CHECK
+
 ```         
 3,500,000.0 (West), 2,680,000.0 (South)
 4,490,000.0 (East), 3,670,000.0 (North)
 ```
+
 ------------------------------------------------------------------------
 
 ## Workflow Overview
@@ -123,7 +125,7 @@ Example: Code 112 (Discontinuous urban fabric) → Level-1 class = 1 (Artificial
     -   Navigate to your CLC2018 shapefile or GeoPackage
     -   Click **Open**
 
-3.  Import the  Dutch 2×2 km grid:
+3.  Import the Dutch 2×2 km grid:
 
     -   Go to **Layer → Add Layer → Add Vector Layer**
     -   Navigate to the grid layer
@@ -732,7 +734,7 @@ Once you complete this tutorial, consider:
 ## Quick Reference: Key Tools
 
 | Task | Tool Path | Purpose |
-|------------------|------------------------------|-------------------------|
+|------------------|-----------------------------|-------------------------|
 | Add layer | **Layer → Add Layer** | Import CLC and grid data |
 | Edit attributes | **Right-click layer → Open Attribute Table** | Create Level-1 field |
 | Field calculator | **Attribute Table → Field Calculator** | Extract Level-1 code; calculate area |
@@ -753,7 +755,7 @@ Once you complete this tutorial, consider:
 **Level-1 Classes (First Digit):**
 
 | Code | Class Name | Characteristics |
-|-----------------|-----------------------|---------------------------------|
+|------------------|----------------------|--------------------------------|
 | 1 | Artificial surfaces | Urban, industrial, mining, construction |
 | 2 | Agricultural areas | Arable land, permanent crops, pastures |
 | 3 | Forest and herbaceous | Forests, herbaceous vegetation, sparse vegetation |

@@ -2,12 +2,12 @@
 title: Georeferencing and Digitizing
 description: Aligning raster maps and digitizing features
 categories:
-- Data Preparation; Georeferencing
+  - Data Preparation
+  - Georeferencing
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
-
 ---
 
 **Duration:** 30-40 minutes

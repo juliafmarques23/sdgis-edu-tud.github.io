@@ -2,12 +2,12 @@
 title: Installing Plugins (QMS & PDOK)
 description: Adding and managing QGIS plugins
 categories:
-- Getting Started; QGIS Basics
+  - Getting Started
+  - QGIS Basics
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
-
 ---
 
 ## 🧩 Installing Plugins in QGIS

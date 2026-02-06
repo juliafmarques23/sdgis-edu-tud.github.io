@@ -3,14 +3,13 @@ title: Creating a new project in QGIS
 description: Step-by-step guide to create and configure a new QGIS project, including
   CRS and autosave
 categories:
-- Getting Started; Project Setup
+  - Getting Started
+  - Project Setup
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
-
 ---
-
 
 ## Create a new project
 

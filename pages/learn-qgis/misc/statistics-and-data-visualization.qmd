@@ -2,12 +2,12 @@
 title: Analyzing Building Functions by Neighborhood
 description: Using statistics and charts to summarize spatial data
 categories:
-- Statistics; Data Visualization
+  - Statistics
+  - Data Visualization
 level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
 date: .na.character
-
 ---
 
 Duration: 45-60 minutes
@@ -28,10 +28,7 @@ By the end of this tutorial, you will be able to:
 
 **Software:** - QGIS (version 3.x or higher) - Web browser with internet access - RAWGraphs 2.0: https://app.rawgraphs.io/
 
-**Data files:**
-- `buildings.gpkg` - Rotterdam building footprints with function data
-- `buurten.gpkg` - Rotterdam neighborhoods (buurten)
-------------------------------------------------------------------------
+**Data files:** - `buildings.gpkg` - Rotterdam building footprints with function data - `buurten.gpkg` - Rotterdam neighborhoods (buurten) ------------------------------------------------------------------------
 
 ## Part 1: Preparing Building Function Data
 
@@ -41,7 +38,7 @@ By the end of this tutorial, you will be able to:
 2.  **Set the CRS** to EPSG:28992 (Amersfoort / RD New - Dutch national grid)
 3.  **Load the layers:**
     -   Add `buildings.gpkg` stored in the `part3_data/vector` folder
-    -   Add `buurten.gpkg` (You have created this file in the first exercise - [using data source manager](using_data_source_manager.qmd)))
+    -   Add `buurten.gpkg` (You have created this file in the first exercise - [using data source ](using_data_source_manager.qmd)[manager](/pages/learn-qgis/getting-started/using-data_source-manager.qmd)))
 
 ![Figure 1 - Loaded building and neighborhood layers](statistics_and_data_visualization/fig%201.png)
 

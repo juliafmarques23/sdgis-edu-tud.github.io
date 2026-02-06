@@ -2,7 +2,8 @@
 title: Creating a 2x2 km Fishnet Grid Using CBS Data
 description: Generating grids for zonal or statistical analysis
 categories:
-- Spatial Data Preparation; Grid Analysis
+  - Spatial Data Preparation
+  - Grid
 level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
@@ -674,7 +675,7 @@ The RD New system uses meters, making distance/area calculations intuitive (2 km
 ### Grid Resolution Selection
 
 | Grid Size     | Cell Area | When to Use                                      |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|------------------------------------|
 | 100m × 100m   | 0.01 km²  | Detailed urban analysis, building-level patterns |
 | 500m × 500m   | 0.25 km²  | Neighborhood characteristics, walking distances  |
 | 1km × 1km     | 1 km²     | District patterns, facility catchments           |

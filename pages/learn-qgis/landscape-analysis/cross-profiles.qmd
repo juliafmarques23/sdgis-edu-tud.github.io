@@ -2,12 +2,12 @@
 title: Cross Profiles
 description: Extracting cross-section profiles from terrain
 categories:
-- Landscape Analysis; Terrain
+ - Landscape Analysis
+ - Terrain
 level: Intermediate
 level_code: 2.0
 level_color: '#1F78B4'
 date: .na.character
-
 ---
 
 Cross profiles - also known as elevation profiles or terrain transects - are vertical slices of the terrain that show changes in elevation along a line across a landscape. They are fundamental tools in environmental analysis, geomorphology, hydrology, landscape design, and urban planning.

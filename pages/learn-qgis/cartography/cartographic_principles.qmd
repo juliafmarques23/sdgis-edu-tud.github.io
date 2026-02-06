@@ -1,12 +1,12 @@
 ---
 title: Cartographic principles
 description: Core concepts of map design, symbology and representation
-categories:
-- Cartography
+categories: Cartography
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: .na.character
+
 ---
 
 -   Introduction
