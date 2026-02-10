@@ -1,0 +1,426 @@
+- name: "[Natural Earth](https://naturalearthdata.com)"
+  description: "Free vector and raster map data at multiple scales"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Shapefile, GeoTIFF"
+  categories: [administrative, physical, cultural]
+
+- name: "[OpenStreetMap](https://www.openstreetmap.org)"
+  description: "Collaborative open-source geographic database"
+  type: "Vector"
+  region: "Global"
+  format: "OSM, Shapefile, GeoPackage"
+  categories: [roads, buildings, poi, infrastructure]
+
+- name: "[USGS Earth Explorer](https://earthexplorer.usgs.gov)"
+  description: "Satellite imagery and elevation data from US Geological Survey"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF, HDF"
+  categories: [imagery, elevation, landsat]
+
+- name: "[Copernicus Open Access Hub](https://scihub.copernicus.eu)"
+  description: "Sentinel satellite imagery from European Space Agency"
+  type: "Raster"
+  region: "Global"
+  format: "SAFE, GeoTIFF"
+  categories: [imagery, multispectral, sentinel]
+
+- name: "[PDOK](https://www.pdok.nl)"
+  description: "Public services on the map - Dutch national geoportal"
+  type: "Vector, Raster"
+  region: "Netherlands"
+  format: "WMS, WFS, GeoTIFF"
+  categories: [administrative, topography, elevation, cadastre]
+
+- name: "[CBS StatLine](https://opendata.cbs.nl)"
+  description: "Statistics Netherlands - demographic and socioeconomic data"
+  type: "Tabular, Vector"
+  region: "Netherlands"
+  format: "CSV, Excel, WFS"
+  categories: [demographics, statistics, socioeconomic]
+
+- name: "[Kadaster](https://www.kadaster.nl)"
+  description: "Land registry and cadastral data for the Netherlands"
+  type: "Vector"
+  region: "Netherlands"
+  format: "GML, Shapefile, WFS"
+  categories: [parcels, buildings, addresses, cadastre]
+
+- name: "[AHN (Actueel Hoogtebestand Nederland)](https://www.ahn.nl)"
+  description: "High-resolution elevation data for the Netherlands"
+  type: "Raster, Point Cloud"
+  region: "Netherlands"
+  format: "GeoTIFF, LAZ"
+  categories: [elevation, lidar, terrain]
+
+- name: "[BAG (Basisregistratie Adressen en Gebouwen)](https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bag)"
+  description: "Official building and address registry for the Netherlands"
+  type: "Vector"
+  region: "Netherlands"
+  format: "XML, GML, WFS"
+  categories: [buildings, addresses, cadastre]
+
+- name: "[GBIF](https://www.gbif.org)"
+  description: "Global Biodiversity Information Facility - species occurrence data"
+  type: "Point"
+  region: "Global"
+  format: "CSV, DwC, Shapefile"
+  categories: [biodiversity, ecology, species]
+
+- name: "[WorldClim](https://www.worldclim.org)"
+  description: "Global climate and weather data at high resolution"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [climate, temperature, precipitation, bioclim]
+
+- name: "[Global Forest Watch](https://www.globalforestwatch.org)"
+  description: "Forest monitoring and tree cover data"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [landcover, deforestation, forest, environment]
+
+- name: "[European Environment Agency](https://www.eea.europa.eu)"
+  description: "European environmental data and assessments"
+  type: "Vector, Raster"
+  region: "Europe"
+  format: "Shapefile, GeoTIFF, WMS"
+  categories: [environment, landcover, pollution, corine]
+
+- name: "[NASA Earthdata](https://earthdata.nasa.gov)"
+  description: "Earth science data from NASA missions"
+  type: "Raster"
+  region: "Global"
+  format: "HDF, NetCDF, GeoTIFF"
+  categories: [imagery, climate, atmosphere, modis]
+
+- name: "[Eurostat GISCO](https://ec.europa.eu/eurostat/web/gisco)"
+  description: "Geographic information and maps for Europe"
+  type: "Vector"
+  region: "Europe"
+  format: "Shapefile, GeoJSON, TopoJSON"
+  categories: [administrative, boundaries, statistical]
+
+- name: "[SRTM (Shuttle Radar Topography Mission)](https://www2.jpl.nasa.gov/srtm/)"
+  description: "Global digital elevation model"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF, HGT"
+  categories: [elevation, terrain, dem]
+
+- name: "[OpenTopography](https://opentopography.org)"
+  description: "High-resolution topography data and tools"
+  type: "Raster, Point Cloud"
+  region: "Global (selected areas)"
+  format: "GeoTIFF, LAZ, LAS"
+  categories: [elevation, lidar, terrain]
+
+- name: "[Overture Maps](https://overturemaps.org)"
+  description: "Open map data for buildings, transportation, places, and boundaries"
+  type: "Vector"
+  region: "Global"
+  format: "Parquet, GeoParquet"
+  categories: [buildings, roads, poi, administrative]
+
+- name: "[ESA Climate Change Initiative](https://climate.esa.int)"
+  description: "Essential climate variables from satellite observations"
+  type: "Raster"
+  region: "Global"
+  format: "NetCDF, GeoTIFF"
+  categories: [climate, environment, landcover]
+
+- name: "[Dutch Noise Map (RIVM)](https://www.rivm.nl/geluid/kaarten)"
+  description: "Noise pollution maps for the Netherlands"
+  type: "Raster, Vector"
+  region: "Netherlands"
+  format: "WMS, Shapefile"
+  categories: [noise, pollution, environment]
+
+- name: "[OpenAerialMap](https://openaerialmap.org)"
+  description: "Open collection of aerial imagery"
+  type: "Raster"
+  region: "Global (selected areas)"
+  format: "GeoTIFF, COG"
+  categories: [imagery, aerial, humanitarian]
+
+- name: "[Humanitarian Data Exchange](https://data.humdata.org)"
+  description: "Open humanitarian datasets and crisis data"
+  type: "Vector, Raster, Tabular"
+  region: "Global"
+  format: "Shapefile, GeoJSON, CSV"
+  categories: [humanitarian, crisis, administrative, infrastructure]
+
+- name: "[Global Human Settlement Layer](https://ghsl.jrc.ec.europa.eu)"
+  description: "Urban settlements and population distribution data"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [urban, population, settlements, built-up]
+
+- name: "[Urban Atlas (Copernicus)](https://land.copernicus.eu/local/urban-atlas)"
+  description: "High-resolution land use/land cover data for European cities"
+  type: "Vector"
+  region: "Europe (cities)"
+  format: "Shapefile, GeoPackage"
+  categories: [urban, landuse, landcover]
+
+- name: "[3D BAG](https://3dbag.nl/en/viewer)"
+  description: "3D buildings of the Netherlands"
+  type: "Vector"
+  region: "Netherlands"
+  format: "Multiple formats"
+  categories: [buildings, 3d, built-environment]
+
+- name: "[AHN 4](https://www.ahn.nl/ahn-4)"
+  description: "AHN 4 version of the Netherlands digital elevation model dataset"
+  type: "Raster"
+  region: "Netherlands"
+  format: "GeoTIFF, LAZ"
+  categories: [elevation, terrain, dem]
+
+- name: "[All Maps Viewer](https://viewer.allmaps.org/)"
+  description: "100,000s of maps available through IIIF from libraries, archives and museums worldwide for georeferencing and exploration"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "IIIF"
+  categories: [georeferencing, historical-maps, archives]
+
+- name: "[ArcGIS Hub](https://hub.arcgis.com/search)"
+  description: "ArcGIS Hub search for geographic information and datasets"
+  type: "Multiple"
+  region: "Global"
+  format: "Multiple"
+  categories: [environmental, administrative, general]
+
+- name: "[ArcGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/home/)"
+  description: "Foremost collection of geographic information with maps, apps, and data layers from around the globe"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [transportation, basemaps, reference]
+
+- name: "[Atlas of Urban Expansion](http://atlasofurbanexpansion.org/)"
+  description: "Historical series of urban areas expansion across the globe"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [urban, built-environment, historical]
+
+- name: "[BBBike](https://download.bbbike.org/osm/bbbike/)"
+  description: "Shapefiles and raw OSM format for cities around the world, extracted weekly"
+  type: "Vector"
+  region: "Global"
+  format: "Shapefile, OSM"
+  categories: [osm, cities, transportation]
+
+- name: "[Bodemdata](https://bodemdata.nl)"
+  description: "Current information on soil, terrain form and groundwater levels in the Netherlands"
+  type: "Vector, Raster"
+  region: "Netherlands"
+  format: "Multiple"
+  categories: [soil, terrain, environmental]
+
+- name: "[Central Bureau voor de Statistiek (CBS)](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data)"
+  description: "Geographic data and statistics for the Netherlands"
+  type: "Vector, Tabular"
+  region: "Netherlands"
+  format: "Multiple"
+  categories: [statistics, socioeconomic, administrative]
+
+- name: "[Copernicus](https://www.copernicus.eu/en)"
+  description: "European flagship programme on Earth Observation providing environmental data"
+  type: "Vector, Raster"
+  region: "Europe, Global"
+  format: "Multiple"
+  categories: [environmental, imagery, satellite]
+
+- name: "[Corine Land Cover](https://land.copernicus.eu/en/products/corine-land-cover)"
+  description: "European Land Cover Database generated by Copernicus Land Monitoring Core Service"
+  type: "Vector, Raster"
+  region: "Europe"
+  format: "Shapefile, GeoTIFF"
+  categories: [landcover, environmental, corine]
+
+- name: "[DINOloket](https://www.dinoloket.nl/en/subsurface-models)"
+  description: "Subsurface data for the Netherlands"
+  type: "Vector, Raster"
+  region: "Netherlands"
+  format: "Multiple"
+  categories: [subsurface, geological, environmental]
+
+- name: "[EarthStat](http://www.earthstat.org/)"
+  description: "Geographic data sets for food security and sustainable agriculture"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [agriculture, food-security, environmental]
+
+- name: "[EduGIS](https://kaart.edugis.nl/)"
+  description: "Educational GIS platform with geographic data"
+  type: "Multiple"
+  region: "Global"
+  format: "Multiple"
+  categories: [education, reference]
+
+- name: "[European Drought Observatory](https://edo.jrc.ec.europa.eu/edov2/php/index.php?id=1000)"
+  description: "Drought monitoring and information for Europe"
+  type: "Raster"
+  region: "Europe"
+  format: "GeoTIFF"
+  categories: [climate, drought, environmental]
+
+- name: "[Eurostat](https://ec.europa.eu/eurostat/data/database)"
+  description: "Socioeconomic data for Europe"
+  type: "Tabular, Vector"
+  region: "Europe"
+  format: "CSV, Excel, WFS"
+  categories: [statistics, socioeconomic, demographic]
+
+- name: "[FAO Hand-in-Hand Geospatial Platform](https://data.apps.fao.org/?lang=en)"
+  description: "Open-access geographic information with food security indicators and agricultural statistics"
+  type: "Vector, Raster, Tabular"
+  region: "Global"
+  format: "Multiple"
+  categories: [agriculture, food-security, statistics]
+
+- name: "[Free GIS Data](https://freegisdata.rtwilson.com/)"
+  description: "Comprehensive directory of free GIS datasets"
+  type: "Multiple"
+  region: "Global"
+  format: "Multiple"
+  categories: [reference, index]
+
+- name: "[Geofabrik](http://download.geofabrik.de/)"
+  description: "OpenStreetMap extracts prepared in PBF or shapefile format, updated daily"
+  type: "Vector"
+  region: "Global"
+  format: "Shapefile, PBF"
+  categories: [osm, cities, regions]
+
+- name: "[Geospatial Conservation Atlas](https://geospatial.tnc.org/)"
+  description: "Web maps, apps, and conservation data for environmental protection"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [environmental, conservation, biodiversity]
+
+- name: "[Global Forest Change](https://glad.earthengine.app/view/global-forest-change)"
+  description: "Time-series analysis of Landsat images characterizing forest extent and change"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [forest, landcover, environmental, change-detection]
+
+- name: "[Hydrosheds](https://www.hydrosheds.org/)"
+  description: "Hydro-environmental data including watersheds and hydrological networks"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Shapefile, GeoTIFF"
+  categories: [hydrology, watersheds, environmental]
+
+- name: "[ISRIC](https://data.isric.org/geonetwork/srv/eng/catalog.search#/home)"
+  description: "Soil and land resources data"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [soil, environmental]
+
+- name: "[Kerncijfers per postcode (CBS)](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data/gegevens-per-postcode)"
+  description: "Key figures at low regional levels for the Netherlands (postal codes PC6, PC5, PC4)"
+  type: "Tabular"
+  region: "Netherlands"
+  format: "CSV, Excel"
+  categories: [statistics, socioeconomic, administrative]
+
+- name: "[Local Climate Zones](https://lcz-generator.rub.de/submissions)"
+  description: "LCZ maps generated by the LCZ Generator for cities worldwide"
+  type: "Raster"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [climate, urban, temperature]
+
+- name: "[National Georegister](https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search)"
+  description: "Dutch national geospatial data registry and catalog"
+  type: "Multiple"
+  region: "Netherlands"
+  format: "Multiple"
+  categories: [administrative, index, reference]
+
+- name: "[NEO Active Fires](https://neo.gsfc.nasa.gov/view.php?datasetId=MOD14A1_M_FIRE)"
+  description: "Maps showing locations of actively burning fires around the world detected by NASA satellites"
+  type: "Raster, Point"
+  region: "Global"
+  format: "GeoTIFF"
+  categories: [fire, environment, monitoring]
+
+- name: "[National Centers for Environmental Information](https://www.ncei.noaa.gov/)"
+  description: "Maps and data from across scientific disciplines, formats, time periods, and locations"
+  type: "Vector, Raster"
+  region: "Global"
+  format: "Multiple"
+  categories: [environmental, climate, meteorological]
+
+- name: "[Open Buildings](https://sites.research.google/open-buildings/)"
+  description: "Global building footprint data"
+  type: "Vector"
+  region: "Global"
+  format: "GeoParquet"
+  categories: [buildings, infrastructure]
+
+- name: "[Open Data Provincie Zuid-Holland](https://www.zuid-holland.nl/politiek-bestuur/feiten-cijfers/open-data-0/)"
+  description: "Open data from the Province of South Holland, Netherlands"
+  type: "Multiple"
+  region: "Netherlands"
+  format: "Multiple"
+  categories: [administrative, regional]
+
+- name: "[Open Infrastructure Map](https://openinframap.org/)"
+  description: "Infrastructure data from OpenStreetMap including power, water, and telecommunication networks"
+  type: "Vector"
+  region: "Global"
+  format: "Multiple"
+  categories: [infrastructure, osm]
+
+- name: "[OverpassTurbo](https://overpass-turbo.eu/)"
+  description: "Web-based data mining tool for OpenStreetMap with query capabilities and export options"
+  type: "Vector"
+  region: "Global"
+  format: "GeoJSON, Shapefile"
+  categories: [osm, query-tool, data-mining]
+
+- name: "[Provincie Zuid-Holland Bodematlas](https://atlas.zuid-holland.nl/Geoweb56/index.html?viewer=Bodematlas)"
+  description: "Soil atlas of the Netherlands for South Holland province"
+  type: "Vector, Raster"
+  region: "Netherlands"
+  format: "WMS, GeoTIFF"
+  categories: [soil, environmental, regional]
+
+- name: "[Resource Watch](https://resourcewatch.org/)"
+  description: "Hundreds of datasets on the state of the planet's resources and citizens"
+  type: "Vector, Raster, Tabular"
+  region: "Global"
+  format: "Multiple"
+  categories: [environmental, resources, sustainability]
+
+- name: "[SEDAC](https://sedac.ciesin.columbia.edu/)"
+  description: "Socioeconomic data and applications center"
+  type: "Vector, Raster, Tabular"
+  region: "Global"
+  format: "Multiple"
+  categories: [socioeconomic, demographic, environmental]
+
+- name: "[SharedStreets](https://www.sharedstreets.io/)"
+  description: "Open street data infrastructure connecting information about streets across jurisdictions"
+  type: "Vector"
+  region: "Global"
+  format: "GeoJSON"
+  categories: [transportation, streets, infrastructure]
+
+- name: "[Shiny Weather Data](https://www.shinyweatherdata.com/)"
+  description: "Historical climate data with interactive visualization"
+  type: "Raster, Tabular"
+  region: "Global"
+  format: "CSV, GeoTIFF"
+  categories: [climate, weather, temperature]

@@ -1,0 +1,1082 @@
+---
+title: 'Hydrological Analysis: Flow Paths and Watersheds'
+subtitle: Delineate watersheds and model hydrological flow using Digital Elevation
+  Models in QGIS
+description: A comprehensive guide to hydrological analysis including flow direction,
+  flow accumulation, watershed delineation, stream networks, and drainage basin analysis
+  using QGIS and terrain data
+date: '2025-02-05'
+author: GIS Tutorial Team
+format:
+  html:
+    toc: TRUE
+    toc-depth: 3
+    code-fold: TRUE
+    code-tools: TRUE
+    theme: default
+    highlight-style: github
+    include-in-header:
+    - text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+tutorial:
+  categories:
+  - GIS
+  - Hydrology
+  - Watershed Analysis
+  - QGIS
+  level:
+    name: Advanced
+    code: 3
+    color: '#f8d7da'
+  format: html
+  statistics:
+    word_count: 6180
+    has_callouts: yes
+    has_images: yes
+  timestamps:
+    created: '2025-02-05T18:00:00Z'
+    modified: '2025-02-05T20:30:00Z'
+
+---
+
+```{=html}
+<style>
+  /* ==================== HEADER & BADGES ==================== */
+  .tutorial-metadata {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+  
+  .metadata-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .metadata-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* ==================== BADGES ==================== */
+  .badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  .badge-category {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-gis {
+    background-color: #e0f2f1;
+    color: #004d40;
+    border: 1px solid #80cbc4;
+  }
+  
+  .badge-hydrology {
+    background-color: #e1f5fe;
+    color: #01579b;
+    border: 1px solid #80deea;
+  }
+  
+  .badge-watershed {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #81c784;
+  }
+  
+  .badge-qgis {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+    border: 1px solid #ce93d8;
+  }
+  
+  .badge-difficulty {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-advanced {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .time-estimate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .code-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .workflow-diagram {
+    font-family: 'Courier New', monospace;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .step-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  .challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+  }
+  
+  .challenge-header.advanced {
+    border-left-color: #dc3545;
+    background-color: #fdf8f8;
+  }
+  
+  .challenge-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex-grow: 1;
+  }
+</style>
+```
+
+:::{.tutorial-header}
+# <i class="fas fa-water"></i> Tutorial: Hydrological Analysis - Flow Paths & Watersheds
+
+Master hydrological analysis by delineating watersheds, calculating flow paths, and analyzing drainage networks from Digital Elevation Models.
+:::
+
+:::{.tutorial-metadata}
+
+<span class="metadata-item">
+  <span class="metadata-icon"><i class="fas fa-clock"></i></span>
+  <span class="time-estimate">100 minutes</span>
+</span>
+
+<span class="metadata-item">
+  <span class="metadata-icon"><i class="fas fa-layer-group"></i></span>
+  <span>
+    <span class="badge badge-difficulty badge-advanced">Advanced</span>
+  </span>
+</span>
+
+<span class="metadata-item">
+  <span class="metadata-icon"><i class="fas fa-tag"></i></span>
+  <span>
+    <span class="badge badge-category badge-gis">GIS</span>
+    <span class="badge badge-category badge-hydrology">Hydrology</span>
+    <span class="badge badge-category badge-watershed">Watershed</span>
+    <span class="badge badge-category badge-qgis">QGIS</span>
+  </span>
+</span>
+
+:::
+
+---
+
+## <i class="fas fa-bullseye"></i> Learning Objectives
+
+:::{.callout-note appearance="minimal" icon="true"}
+By the end of this tutorial, you will be able to:
+
+- **Objective 1** {#obj-1}: Calculate flow direction and flow accumulation from a DEM → [Go to Step 1](#step-1)
+- **Objective 2** {#obj-2}: Delineate watersheds and drainage basins → [Go to Step 2](#step-2)
+- **Objective 3** {#obj-3}: Extract and classify stream networks → [Go to Step 3](#step-3)
+- **Objective 4** {#obj-4}: Calculate watershed morphometric parameters → [Go to Step 4](#step-4)
+- **Objective 5** {#obj-5}: Perform hydrological analysis and modeling → [Go to Step 5](#step-5)
+
+These skills are *essential* for water resource management, flood risk assessment, environmental planning, stream restoration, and hydrological modeling.
+:::
+
+---
+
+## 📍 Learning Path: Objectives → Steps
+
+| Objective | Related Step | Time | Key Outcome |
+|-----------|-------------|------|------------|
+| 🎯 [Calculate flow direction](#obj-1) | [Step 1: Flow Direction & Accumulation](#step-1) | 20 min | Flow rasters |
+| 🎯 [Delineate watersheds](#obj-2) | [Step 2: Watershed Delineation](#step-2) | 20 min | Watershed polygons |
+| 🎯 [Extract streams](#obj-3) | [Step 3: Stream Networks](#step-3) | 20 min | Stream vector network |
+| 🎯 [Calculate parameters](#obj-4) | [Step 4: Morphometric Analysis](#step-4) | 20 min | Basin statistics |
+| 🎯 [Perform modeling](#obj-5) | [Step 5: Hydrological Modeling](#step-5) | 20 min | Flow paths & analysis |
+
+---
+
+## <i class="fas fa-route"></i> Workflow Summary
+
+This tutorial follows these key steps:
+
+<div class="workflow-diagram">
+```
+┌─────────────────────────────────────────────────────┐
+│ STEP 1: Flow Direction & Accumulation               │
+│ What: Calculate D8 flow routing algorithm           │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 2: Watershed Delineation                       │
+│ What: Define drainage basins from outlet points     │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 3: Stream Network Extraction                   │
+│ What: Generate stream vectors from flow accum.      │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 4: Morphometric Analysis                       │
+│ What: Calculate basin shape and characteristics     │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 5: Hydrological Modeling                       │
+│ What: Model water movement and flood risk           │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ RESULT: Complete hydrological analysis package      │
+└─────────────────────────────────────────────────────┘
+```
+</div>
+
+---
+
+## <i class="fas fa-clipboard-check"></i> Prerequisites & Requirements
+
+:::{.callout-warning appearance="minimal" icon="true"}
+
+**Before you start, make sure you have:**
+
+- **QGIS 3.x or higher** with GDAL/OGR tools and SAGA integration
+- **High-quality DEM** (LiDAR preferred, SRTM acceptable for large regions)
+- **Preprocessed DEM** with sinks filled (critical for hydrology!)
+- **Outlet point shapefile** (for watershed delineation)
+- **~500 MB free disk space** for processing
+- **TauDEM plugin** or **SAGA tools** installed (for advanced hydrology)
+
+**Knowledge assumed:** 
+- Completion of "Working with Terrain Data" tutorial
+- Understanding of flow routing concepts
+- Familiarity with raster calculator
+- Basic watershed hydrology knowledge
+
+**⚠️ Critical:** DEM must have **sinks filled** before hydrological analysis. Unfilled sinks trap water and create incorrect flow paths!
+
+:::
+
+---
+
+## <i class="fas fa-database"></i> Data & Resources
+
+:::{.callout-info appearance="minimal" icon="true"}
+
+**What you need:**
+
+| Resource | Type | Purpose |
+|----------|------|---------|
+| **DEM (sinks filled)** | GeoTIFF raster | Input for flow calculations |
+| **Outlet point** | Vector shapefile | Pour point for watershed |
+| **Study area boundary** | Vector shapefile | For clipping outputs |
+| **QGIS SAGA Tools** | Plugin | Advanced hydrology functions |
+
+**Optional software:**
+- **TauDEM** — Specialized hydrological analysis (free)
+- **WhiteboxTools** — Modern watershed analysis (free)
+- **GDAL** — Command-line raster tools
+
+**Data sources:**
+- USGS National Hydrography Dataset: https://www.usgs.gov/mission/water-resources/
+- OpenTopography DEM: https://www.opentopodata.org/
+- Local hydrological data: Regional water authorities
+
+:::
+
+---
+
+## <i class="fas fa-list-check"></i> Step-by-Step Instructions
+
+::: {.panel-tabset}
+
+### Step 1: Flow Direction & Accumulation {#step-1}
+
+**Achieves:** ✅ [Learning Objective 1: Calculate flow direction and accumulation](#obj-1)
+
+**What you'll do:** Calculate D8 flow routing to determine how water moves across the terrain.
+
+#### 1.1 — Understanding Flow Direction (D8 Algorithm)
+
+The **D8 (8-direction)** algorithm routes water from each cell to one of its 8 neighbors (including diagonals). Water always flows to the **lowest neighbor elevation**.
+
+#### 1.2 — Fill DEM Sinks (Critical Step!)
+
+First, you must remove "sinks" — cells where water would be trapped:
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Fill Sinks"** (SAGA):
+
+**Configuration:**
+
+| Parameter | Setting |
+|-----------|---------|
+| **DEM** | dem_clipped.tif |
+| **Output** | dem_filled.tif |
+
+This creates a depression-free DEM where water can flow continuously to outlets.
+
+![](../images/sinks-filled-comparison.png){width="80%" fig-alt="Two DEM maps side-by-side comparing original with many pits and sink-filled version" fig-cap="**Figure 1.1:** Original DEM (left) with sinks/pits, and filled DEM (right) ready for hydrology."}
+
+#### 1.3 — Calculate Flow Direction
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Catchment Area"** or **"Flow Direction"** (SAGA):
+
+**Configuration:**
+
+| Parameter | Setting |
+|-----------|---------|
+| **DEM** | dem_filled.tif |
+| **Algorithm** | D8 (8-direction) |
+| **Output** | flow_direction.tif |
+
+Flow direction values (1-256):
+- **1** = East, **2** = Southeast, **4** = South, **8** = Southwest
+- **16** = West, **32** = Northwest, **64** = North, **128** = Northeast
+
+#### 1.4 — Calculate Flow Accumulation
+
+Flow accumulation counts how many upslope cells drain to each cell. High accumulation = concentrated flow (streams).
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Catchment Area"** (SAGA):
+
+**Configuration:**
+
+| Parameter | Setting |
+|-----------|---------|
+| **DEM** | dem_filled.tif |
+| **Algorithm** | D8 |
+| **Output** | flow_accumulation.tif |
+
+**Interpreting flow accumulation:**
+- **Values 1-10** = hillslopes (dispersed flow)
+- **Values 10-100** = small streams
+- **Values 100-1000** = medium streams
+- **Values >1000** = major rivers
+
+![](../images/flow-direction-accumulation.png){width="80%" fig-alt="Two maps showing flow direction vectors and flow accumulation as colored heatmap with blue=high accumulation" fig-cap="**Figure 1.2:** Flow Direction (left) showing vectors, and Flow Accumulation (right) showing concentrated flow areas."}
+
+[← Back to Learning Objectives](#learning-objectives)
+
+---
+
+### Step 2: Watershed Delineation {#step-2}
+
+**Achieves:** ✅ [Learning Objective 2: Delineate watersheds and drainage basins](#obj-2)
+
+**What you'll do:** Automatically delineate watershed boundaries based on an outlet point.
+
+#### 2.1 — Prepare Outlet Point
+
+Create or load a shapefile with your watershed outlet point (usually river gauges or points of interest):
+
+<span class="code-label">Creating Outlet Point</span>
+
+1. Create new point shapefile or use existing
+2. Add field "id" (integer)
+3. Digitize pour point location on map
+4. Save shapefile as `outlet.shp`
+
+#### 2.2 — Delineate Watershed
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Watershed Basins"** or **"Snap Pour Points"** (SAGA):
+
+**Configuration (Step 1: Snap outlet to flow):**
+
+| Parameter | Setting |
+|-----------|---------|
+| **DEM** | dem_filled.tif |
+| **Outlet points** | outlet.shp |
+| **Snap distance** | 5 cells |
+| **Output** | outlet_snapped.shp |
+
+This moves your point to the nearest high flow-accumulation cell.
+
+**Configuration (Step 2: Delineate basin):**
+
+| Parameter | Setting |
+|-----------|---------|
+| **Flow Direction** | flow_direction.tif |
+| **Outlet** | outlet_snapped.shp |
+| **Output Watershed** | watershed.tif |
+
+Click **Run**. QGIS traces all upslope cells that drain to your outlet.
+
+#### 2.3 — Convert Raster to Vector Watershed
+
+Convert watershed raster to polygon for analysis:
+
+<span class="code-label">QGIS Raster Menu</span>
+
+```
+Raster 
+  → Conversion 
+  → Polygonize
+```
+
+**Configuration:**
+
+| Parameter | Setting |
+|-----------|---------|
+| **Input raster** | watershed.tif |
+| **Output shapefile** | watershed_polygon.shp |
+
+Now you have a vector watershed boundary!
+
+#### 2.4 — Calculate Watershed Area
+
+Add area field to watershed polygon:
+
+<span class="code-label">QGIS Attributes Table</span>
+
+1. Right-click watershed layer → Open Attribute Table
+2. Click **Field Calculator**
+3. Create new field: `area_km2 = $area / 1000000`
+
+Your watershed area is now calculated in square kilometers!
+
+![](../images/watershed-delineation-result.png){width="80%" fig-alt="QGIS map showing DEM with outlet point, flow accumulation, and delineated watershed polygon in blue" fig-cap="**Figure 2.1:** Delineated watershed. Blue polygon shows all terrain that drains to the outlet point."}
+
+[← Back to Learning Objectives](#learning-objectives)
+
+---
+
+### Step 3: Stream Networks {#step-3}
+
+**Achieves:** ✅ [Learning Objective 3: Extract and classify stream networks](#obj-3)
+
+**What you'll do:** Extract stream vectors from flow accumulation and classify by order.
+
+#### 3.1 — Threshold Flow Accumulation
+
+Create stream raster by thresholding flow accumulation. Cells above threshold = streams:
+
+<span class="code-label">QGIS Raster Calculator</span>
+
+```
+streams = IF(flow_accumulation > 100, 1, 0)
+```
+
+Adjust threshold (100) based on your terrain. Lower = more streams. Higher = fewer, larger streams only.
+
+#### 3.2 — Vectorize Streams
+
+Convert stream raster to vector lines:
+
+<span class="code-label">QGIS Raster Menu</span>
+
+```
+Raster 
+  → Conversion 
+  → Polygonize  (or Trace contours)
+```
+
+Or use **"Thin" algorithm first** to convert 1-cell-wide streams to polylines.
+
+#### 3.3 — Calculate Strahler Stream Order
+
+Stream order classifies streams hierarchically:
+- **Order 1** = headwater streams (no upstream tributaries)
+- **Order 2** = where two Order-1 streams meet
+- **Order N** = where two Order-(N-1) streams meet
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Stream Order"** (SAGA):
+
+**Configuration:**
+
+| Parameter | Setting |
+|-----------|---------|
+| **Flow Direction** | flow_direction.tif |
+| **Stream Raster** | streams.tif |
+| **Output** | stream_order.tif |
+
+#### 3.4 — Extract Order-1 and Order-2 Streams
+
+<span class="code-label">QGIS Raster Calculator</span>
+
+```
+headwater_streams = IF(stream_order == 1, 1, 0)
+primary_streams = IF(stream_order <= 2, 1, 0)
+main_channel = IF(stream_order >= 3, 1, 0)
+```
+
+Vectorize each for separate analysis and mapping.
+
+![](../images/stream-network-order.png){width="80%" fig-alt="QGIS map showing stream network colored by Strahler order: thin headwater streams to thick main channel" fig-cap="**Figure 3.1:** Stream Network classified by Strahler Order. Colors show stream hierarchy from headwaters to main channel."}
+
+[← Back to Learning Objectives](#learning-objectives)
+
+---
+
+### Step 4: Morphometric Analysis {#step-4}
+
+**Achieves:** ✅ [Learning Objective 4: Calculate watershed morphometric parameters](#obj-4)
+
+**What you'll do:** Calculate basin shape, drainage, and hydro-climatic parameters.
+
+#### 4.1 — Morphometric Parameters
+
+Calculate key basin characteristics:
+
+**Configuration in QGIS Field Calculator:**
+
+```
+# Basin shape parameters
+basin_area = $area / 1e6              # km²
+basin_perimeter = $perimeter / 1000   # km
+form_factor = basin_area / (basin_length²)
+circularity_ratio = (4 * π * area) / (perimeter²)
+
+# Drainage density
+drainage_density = stream_length / basin_area  # km/km²
+
+# Relief parameters
+relief_ratio = (max_elev - min_elev) / basin_length
+ruggedness = relief_ratio * drainage_density
+```
+
+#### 4.2 — Derive Channel Parameters
+
+From stream network:
+
+<span class="code-label">QGIS Processing</span>
+
+```
+# For each stream segment:
+- Stream length (km)
+- Stream order (Strahler)
+- Sinuosity = actual_length / straight_distance
+- Gradient = elevation_drop / stream_length
+- Bifurcation ratio = streams_of_order_n / streams_of_order_(n+1)
+```
+
+#### 4.3 — Interpret Morphometric Results
+
+**Basin shape interpretation:**
+- **Compact basins** (low form factor) = flood peaks concentrated
+- **Elongated basins** (high form factor) = flood peaks dispersed
+- **Circular basins** (high circularity) = higher flood risk
+
+**Drainage density interpretation:**
+- **High density** (>3 km/km²) = fine-textured, steep terrain
+- **Low density** (<1 km/km²) = coarse-textured, flat terrain
+- Varies by geology and climate
+
+#### 4.4 — Create Summary Table
+
+Create attribute table summarizing all parameters:
+
+| Parameter | Unit | Value |
+|-----------|------|-------|
+| Watershed Area | km² | 245.3 |
+| Perimeter | km | 67.4 |
+| Form Factor | — | 0.054 |
+| Drainage Density | km/km² | 1.8 |
+| Basin Relief | m | 1,248 |
+| Main Channel Length | km | 45.2 |
+| Average Slope | ° | 8.5 |
+
+[← Back to Learning Objectives](#learning-objectives)
+
+---
+
+### Step 5: Hydrological Modeling {#step-5}
+
+**Achieves:** ✅ [Learning Objective 5: Perform hydrological analysis and modeling](#obj-5)
+
+**What you'll do:** Model water movement, calculate flood potential, and analyze hydrological response.
+
+#### 5.1 — Upslope Catchment Area
+
+Calculate total upslope area draining to each cell (weighted by flow):
+
+<span class="code-label">QGIS Processing Toolbox</span>
+
+Search for **"Catchment Area"** (SAGA):
+
+```
+Input: dem_filled.tif
+Output: upslope_area.tif
+```
+
+**Interpretation:**
+- **High values** = concentrated discharge zones (stream channels)
+- **Low values** = hillslope areas
+- Used for estimating runoff concentration
+
+#### 5.2 — Topographic Wetness Index (TWI)
+
+TWI predicts soil moisture and saturation (wetness):
+
+<span class="code-label">QGIS Raster Calculator</span>
+
+```
+TWI = LN(upslope_area / TAN(slope))
+```
+
+**TWI interpretation:**
+- **Low TWI** = dry hillslopes
+- **High TWI** = wet riparian areas and stream channels
+- Used for predicting vegetation and groundwater
+
+#### 5.3 — Stream Power Index (SPI)
+
+SPI indicates erosion potential:
+
+<span class="code-label">QGIS Raster Calculator</span>
+
+```
+SPI = upslope_area * TAN(slope)
+```
+
+**SPI interpretation:**
+- **High SPI** = strong erosion potential (mountain streams)
+- **Low SPI** = deposition areas (floodplains)
+- Used for landslide and erosion hazard assessment
+
+#### 5.4 — Flood Inundation Modeling (Advanced)
+
+Model flood extent using catchment and slope:
+
+<span class="code-label">QGIS Raster Calculator</span>
+
+```
+# Flood potential = high accumulation + low slope
+flood_risk = IF((flow_accumulation > 500) AND 
+                (slope < 5), 1, 0)
+```
+
+**Refine with:**
+- Proximity to streams
+- Valley width (from plan curvature)
+- Historical flood data
+
+#### 5.5 — Hydrological Response Classification
+
+Classify basin by runoff characteristics:
+
+```
+Fast-responding basins:
+- High drainage density
+- Steep slopes
+- Compact shape
+→ Short time to peak, flashy floods
+
+Slow-responding basins:
+- Low drainage density
+- Gentle slopes
+- Elongated shape
+→ Long time to peak, damped floods
+```
+
+![](../images/hydrological-analysis-complete.png){width="85%" fig-alt="QGIS map showing multiple hydro layers: flow accumulation, stream networks, TWI, and flood potential zones" fig-cap="**Figure 5.1:** Complete hydrological analysis showing flow accumulation, streams, and flood potential zones."}
+
+[← Back to Learning Objectives](#learning-objectives)
+
+:::
+
+---
+
+## <i class="fas fa-check-circle"></i> Result & Expected Outcome
+
+:::{.callout-success appearance="minimal" icon="true"}
+
+**What you should have now:**
+
+✅ **Flow direction raster** (D8 flow paths)  
+✅ **Flow accumulation raster** (concentration zones)  
+✅ **Watershed polygon** (drainage basin boundary)  
+✅ **Stream network** (vector and classified by order)  
+✅ **Morphometric parameters** (basin characteristics)  
+✅ **Hydrological indices** (TWI, SPI, flood risk)  
+
+**Your complete hydrological analysis package:**
+
+```
+hydrological_analysis/
+├── flow_analysis/
+│   ├── dem_filled.tif
+│   ├── flow_direction.tif
+│   ├── flow_accumulation.tif
+│   └── upslope_area.tif
+├── watershed/
+│   ├── watershed.tif
+│   ├── watershed_polygon.shp
+│   └── outlet_snapped.shp
+├── streams/
+│   ├── streams_raster.tif
+│   ├── streams_vector.shp
+│   ├── stream_order.tif
+│   ├── headwater_streams.shp
+│   └── main_channel.shp
+├── morphometrics/
+│   ├── basin_parameters.csv
+│   ├── stream_statistics.csv
+│   └── basin_summary_table.xlsx
+├── hydro_indices/
+│   ├── topographic_wetness_index.tif
+│   ├── stream_power_index.tif
+│   ├── flow_path_length.tif
+│   └── time_to_concentration.tif
+└── hazard_assessment/
+    ├── flood_potential.tif
+    ├── landslide_susceptibility.tif
+    └── erosion_risk_zones.shp
+```
+
+**Applications of your hydrological analysis:**
+- 💧 Water resource management & allocation
+- 🌊 Flood risk assessment & mapping
+- 🌍 Environmental flow requirements
+- 📍 Optimal stream gauge placement
+- 🚣 Erosion and sediment transport modeling
+- 💩 Wastewater dispersion modeling
+- 🏗️ Infrastructure planning (dams, bridges)
+- 🌿 Riparian restoration planning
+
+:::
+
+---
+
+## <i class="fas fa-dumbbell"></i> Exercises & Challenges
+
+### Challenge 1: Advanced — Multi-Outlet Watershed Analysis
+
+:::{.challenge-header .advanced}
+<span style="font-size: 1.5rem;">🔴</span> <span class="challenge-title">Complex Basin Delineation</span> <span class="badge badge-difficulty badge-advanced">Advanced</span>
+:::
+
+**Objective:** Delineate multiple nested watersheds and analyze their characteristics.
+
+**Your task:**
+
+1. Create **3 outlet points** at different locations in your study area
+2. Delineate **3 watersheds** from these outlets
+3. Calculate **morphometric parameters** for each watershed
+4. Compare basin characteristics and hydrological response
+5. Identify which basin is most flood-prone based on morphometrics
+6. Document differences and explain hydrological implications
+
+**Hint:** Use bifurcation ratios and drainage density as flood risk indicators.
+
+**Solution (click to reveal):**
+
+:::{.callout-tip collapse="true"}
+
+**Flood risk assessment formula:**
+
+```
+flood_risk_index = (drainage_density * 
+                    (1 - form_factor) * 
+                    average_slope) / 
+                   basin_relief
+
+Higher index = higher flood risk
+```
+
+**Why each parameter matters:**
+- High drainage_density = rapid runoff concentration
+- Low form_factor = compact basin = peaked floods
+- High slope = fast runoff
+- Low relief = poor water dissipation
+
+:::
+
+---
+
+### Challenge 2: Advanced — Streamflow Routing & Time to Peak
+
+:::{.challenge-header .advanced}
+<span style="font-size: 1.5rem;">🔴</span> <span class="challenge-title">Flow Path Length & Concentration Time</span> <span class="badge badge-difficulty badge-advanced">Advanced</span>
+:::
+
+**Objective:** Calculate flow path length and estimate time-to-peak streamflow response.
+
+**Your task:**
+
+1. Create **flow path length raster** (distance from each cell to outlet)
+2. Calculate **concentration time** using Kirpich equation
+3. Map **hydrological response zones** (fast vs. slow)
+4. Determine **lag time** between rainfall and peak discharge
+5. Identify **critical flow paths** contributing most to peak flow
+6. Compare concentration times across different altitudes
+
+**Resources:**
+- Kirpich equation: Tc = 0.0078 * L^0.77 * S^-0.385 (L=path length km, S=slope)
+
+---
+
+## <i class="fas fa-lightbulb"></i> Tips, Tricks & Warnings
+
+### 💡 Pro Tips
+
+:::{.callout-tip appearance="minimal" icon="true"}
+
+- **Tip 1: Always fill sinks first!** Unfilled DEMs create "phantom watersheds" and false streams. This is the #1 hydrology mistake.
+
+- **Tip 2: Choose flow accumulation threshold carefully** — Too low = too many streams. Too high = misses headwaters. Start with 100 cells, adjust based on visual inspection.
+
+- **Tip 3: Validate streams against observed data** — Compare your extracted streams to USGS hydrography data or field observations. Significant differences indicate DEM issues.
+
+- **Tip 4: Use high-quality DEMs** — SRTM works for large basins (>100 km²). Use LiDAR for detailed stream networks and small watersheds (<10 km²).
+
+- **Tip 5: Consider flow direction algorithms** — D8 is standard but creates "flow artifacts" on flat terrain. Use **D∞ (infinite)** for better results on complex terrain.
+
+- **Tip 6: Document your threshold choices** — Different flood studies used different flow accumulation thresholds. Always document your choices for reproducibility.
+
+:::
+
+### ⚠️ Common Pitfalls
+
+:::{.callout-warning appearance="minimal" icon="true"}
+
+**Watch out for these mistakes:**
+
+1. **Skipping sink filling:** Sinks trap water and completely corrupt flow routing. Always fill sinks first!
+   ```
+   ❌ Flow raster without filling = phantom streams everywhere
+   ✅ Filled DEM = realistic flow paths
+   ```
+
+2. **Using original DEM instead of filled:** Flow routing requires a hydrologically correct DEM with no internal depressions.
+
+3. **Wrong flow accumulation threshold:** Too many or too few streams = wrong watershed delineation and false flood modeling.
+   ```
+   Threshold too low:   100 cells  = many small streams
+   Threshold correct:   1000 cells = realistic network
+   Threshold too high:  10000 cells = misses headwaters
+   ```
+
+4. **Ignoring DEM resolution effects** — 30m DEM may miss small streams visible in 5m LiDAR. Results are NOT directly comparable!
+
+5. **Misinterpreting morphometric parameters** — High drainage density ≠ always bad. It varies by geology and climate.
+
+:::
+
+### 🔴 Critical Warnings
+
+:::{.callout-danger appearance="minimal" icon="true"}
+
+**These mistakes can invalidate your entire analysis:**
+
+⚠️ **Never use geographic coordinates (lat/lon) for hydrological analysis!** Flow routing calculates distances and slopes that are meaningless in geographic CRS:
+
+```
+❌ WRONG: Flow distance in WGS 84 lat/lon = incorrect distances
+✅ CORRECT: Use projected CRS (UTM or local projection)
+```
+
+Always reproject to **projected coordinate system** before any flow calculations.
+
+⚠️ **Check for data voids and artifacts** — SRTM has missing data over water, clouds, and mountains. LiDAR may have classification errors. **Always inspect your DEM** before hydrology!
+
+⚠️ **Validate against field data** — Computer models can be wrong! Compare your delineated watershed to:
+- USGS gauging station locations
+- Published watershed maps
+- Ground survey data
+
+Never rely solely on DEM analysis for critical applications (flood risk, water supply design).
+
+:::
+
+---
+
+## <i class="fas fa-arrow-right"></i> Related Tutorials & Next Steps
+
+:::{.callout-info appearance="minimal" icon="true"}
+
+**After completing this tutorial, you might be interested in:**
+
+### Level Up Your Skills
+
+1. **Advanced Flood Modeling: 2D Inundation Mapping** — Create detailed flood maps using QGIS and GDAL
+   - Estimated time: 120 minutes
+   - Difficulty: Advanced
+   
+2. **Sediment Transport & Channel Erosion** — Model erosion and deposition using hydrology
+   - Estimated time: 90 minutes
+   - Difficulty: Advanced
+
+3. **Groundwater Analysis from Topography** — Estimate groundwater flow using terrain
+   - Estimated time: 75 minutes
+   - Difficulty: Advanced
+
+### Related Topics
+
+- **Snow Accumulation Modeling** — Use terrain to predict snow distribution
+- **Contaminant Transport** — Model pollutant movement using flow paths
+- **Spring Delineation** — Find groundwater emergence points
+- **Water Quality Assessment** — Analyze pollution distribution in watersheds
+- **Riparian Vegetation Modeling** — Link hydrological indices to plant communities
+
+### Practice Projects
+
+- **Project 1:** Delineate local watershed and compare to official boundaries
+- **Project 2:** Model flood risk for a river reach
+- **Project 3:** Design stream restoration using hydrological analysis
+- **Project 4:** Assess water supply potential for a region
+
+:::
+
+---
+
+## <i class="fas fa-book"></i> References & Further Reading
+
+:::{.callout-note appearance="minimal" icon="true"}
+
+### Official Documentation
+
+- **QGIS SAGA Tools Manual:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/index.html
+- **GDAL Raster Functions:** https://gdal.org/python/osgeo_gdal_gdalconst.html
+- **TauDEM Documentation:** https://hydrology.unsw.edu.au/download/taudem/
+
+### Academic References
+
+1. **"Hydrologic and Hydraulic Modeling Support with Geographic Information Systems"** — Maidment et al. (2002)
+   - Definitive guide to watershed analysis with GIS
+   - Explains D8, flow accumulation, and morphometrics
+
+2. **"Principles of Watershed Delineation"** — USGS Water Resources (1989)
+   - Technical standards for watershed boundaries
+   - Explains hydrological concepts clearly
+
+3. **"Catchment Characteristics and Runoff"** — McDonnell & Woods (2004)
+   - How basin properties affect flood response
+   - Links morphometrics to hydrology
+
+### Online Resources & Datasets
+
+- **USGS National Hydrography Dataset:** https://www.usgs.gov/ngp/National-Hydrography-Dataset
+  - Official US stream networks for validation
+  
+- **USGS WaterWatch:** https://waterwatch.usgs.gov/
+  - Real-time streamflow data to validate your models
+
+- **OpenTopography:** https://www.opentopodata.org/
+  - Free global LiDAR and DEM access
+
+- **Google Earth Engine:** https://earthengine.google.com/
+  - Cloud-based watershed and hydrology tools
+
+### Tools & Software
+
+- **QGIS** — Main tool (free, open-source)
+- **SAGA GIS** — Specialized terrain/hydrology (free)
+- **TauDEM** — Terrain Analysis Using Digital Elevation Models (free)
+- **WhiteboxTools** — Modern GIS toolkit (free, fast)
+- **ArcGIS Spatial Analyst** — Commercial but powerful
+
+### Kirpich Formula & Alternatives
+
+**Concentration Time Estimation:**
+```
+Kirpich:      Tc = 0.0078 * L^0.77 * S^-0.385
+California:   Tc = 0.0195 * L^0.77 * S^-0.385  (steeper)
+SCS:          Tc = 0.0078 * L^0.8 / S^0.5      (varies by surface)
+
+Where: Tc = concentration time (hours)
+       L = flow path length (km)
+       S = average slope (decimal fraction)
+```
+
+:::
+
+---
+
+## <i class="fas fa-comments"></i> Questions or Issues?
+
+If you encounter problems:
+
+1. **Check sink filling** — Most hydrology issues trace back to unfilled sinks
+2. **Verify CRS** — Confirm you're using projected coordinates (UTM)
+3. **Inspect DEM** — Look for artifacts, voids, or data anomalies
+4. **Compare to USGS data** — Validate your streams and watersheds against official data
+5. **Review QGIS documentation** — https://docs.qgis.org/
+
+**Common issues & solutions:**
+
+| Issue | Solution |
+|-------|----------|
+| Streams don't match observed | Lower flow accumulation threshold or fill sinks better |
+| Watershed boundary crosses ridge | Wrong outlet point or unfilled sinks — re-snap outlet |
+| Flow direction looks random | DEM not filled or wrong CRS (using lat/lon) |
+| Morphometrics unrealistic | Check basin area calculation — may need unit conversion |
+| TWI has negative values | Normal! Values are log-transformed. Use for relative comparison |
+
+---
+
+**Tutorial Version:** 1.0  
+**Last Updated:** February 5, 2025  
+**Difficulty:** Advanced  
+**Estimated Duration:** 100 minutes  
+**Status:** ✅ Complete and tested in QGIS 3.28.0 with SAGA tools
+
+**Prerequisites:** Completion of "Working with Terrain Data" and "DEM Derivatives" tutorials recommended. Requires SAGA plugin installed.

@@ -32,7 +32,7 @@ The Spatial Data & GIS Platform is developed by the Department of Urbanism at TU
 
 Master the fundamentals of Geographic Information Systems. Access tutorials, workshops, and hands-on exercises designed for architecture and urbanism students.
 
-[Explore learning resources →](/pages/learn_gis.qmd)
+[Explore learning resources →](/pages/learn-gis/index.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -40,7 +40,7 @@ Master the fundamentals of Geographic Information Systems. Access tutorials, wor
 
 Discover curated spatial datasets for the Netherlands and beyond. Learn where to find reliable data sources for your urban analysis projects.
 
-[Browse data sources →](/pages/find_data.qmd)
+[Browse data sources →](/pages/find-data/index.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -48,7 +48,7 @@ Discover curated spatial datasets for the Netherlands and beyond. Learn where to
 
 Explore open-source GIS software and data visualization tools. Get started with QGIS, Python, R, and other essential platforms.
 
-[View tool guides →](/pages/software_and_tools.qmd)
+[View tool guides →](/pages/software-tools.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -56,7 +56,7 @@ Explore open-source GIS software and data visualization tools. Get started with 
 
 Join our community of educators and researchers. Share teaching materials, contribute resources, and connect with peers.
 
-[Get involved →](#)
+[Get involved →](pages/contribute.qmd)
 :::
 :::::::
 
@@ -77,7 +77,7 @@ Whether you're interested in climate-responsive design, participatory planning, 
 ::: {.callout-note icon="false"}
 ## For Educators
 
-Looking to contribute teaching materials or collaborate? We welcome contributions from faculty members and researchers. [Learn more about contributing →](#)
+Looking to contribute teaching materials or collaborate? We welcome contributions from faculty members and researchers. [Learn more about contributing →](pages/contribute.qmd)
 :::
 
 ::: {.callout-tip icon="false"}

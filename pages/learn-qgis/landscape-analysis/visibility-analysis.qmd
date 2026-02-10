@@ -1,0 +1,76 @@
+---
+title: Visibility Analysis
+description: Viewshed and line-of-sight analysis
+categories:
+ - Landscape Analysis
+ - Visibility
+level: Intermediate
+level_code: 2.0
+level_color: '#1F78B4'
+date: .na.character
+---
+
+# 1. Introduction
+
+-   Visibility analysis is important from the planning point of view. Visual analysis tools allow you to generate visibility studies over an area, creating an output raster that displays what entities can be seen over a certain landscape from the point of view of one or more observatories. They are used mainly for planning purposes, from implementing new infrastructure to developing new tourist activities/routes.
+
+-   In QGIS, you can perform a visibility analysis via the **Visibility Analysis** plugin.
+
+-   After you install it you can access this tool by going to **Processing Toolbox \> Visibility Analysis**.
+
+    ![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ab98396d-3bf8-4eae-9e37-975006a95510/6.1.jpg)
+
+-   In this example, you will analyse the visibility of three new wind turbines that will be installed.
+
+-   You would like to see from where they will be visible. Keep in mind that the height of the wind turbine is 15 m and the average height of humans is 1.6 m.
+
+------------------------------------------------------------------------
+
+# 2. Setup
+
+Add text here
+
+------------------------------------------------------------------------
+
+# 3. Step-by-step Tutorial
+
+Add text here
+
+## 3.1 Create viewpoints
+
+-   In your QGIS project, import **DEM_study-area.tif** and **turbines**.**shp** that you find in the **exercise_06/data** folder.
+-   Change the DEM symbology to **singleband pseudocolor**, select the BrBG color ramp and click **Invert Color Ramp** to assign the blue colours to the lowest points and the brown colours to the highest ones.
+-   Click **Ok.**
+
+![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/fb29c035-83fa-40b0-b1cd-deee703f822d/6.2.jpg)
+
+-   Have a look at the turbines layer attribute table. You will find a field containing the height information of each turbine, which corresponds to 15 m
+-   In the Processing toolbox, click on Create viewpoints. This window will appear:
+
+![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/ff5174cd-4656-4463-bdc2-62c8529f9a6a/6.3.jpg)
+
+-   Set the following parameters: » **Observer location(s): turbines** » **Digital elevation model: DEM_study_area** » **Observer ids: descry** » **Radius of analysis, meters: 10000** » **Observer height, meters: 1.6** » Don’t change the other parameters.
+-   Save the **Output layer** and click on **Run**.
+-   A new layer will be created, containing the information on the height of the observer (**observ_hgt**) and the radius of the analysis (**radius**). You will use this layer to perform the next step.
+
+## 3.2 Viewshed
+
+-   In the **Processing toolbox,** click on **Viewshed.**
+-   Select **Binary viewshed** as **Analysis type.**
+-   Select the **Viewpoints** layer as **Observer location(s**) and the **DEM\_** **study_area** as **Digital Elevation Model.**
+-   Don’t change other parameters
+-   Save the output file and click on **Run**. You will see this raster as result:
+
+![](https://prod-files-secure.s3.us-west-2.amazonaws.com/950f19f1-3d00-44f1-a45f-87721a8201b0/451438cf-d14f-4e89-89b9-821de3d2c03d/6.3.jpg)
+
+The output raster will contain values from **0 to 3.**
+
+Cells with 0 values represent the points from which the turbines are not visible. 1 values represent the areas from which at least 1 turbine is visible, and so on. Areas with 3 values are those from which all the three turbines are visible.
+
+-   Change the raster symbology, assigning 0 opacity to 0 values, and a colour ramp for the other values, and set the layer opacity and blending to visualize it on top of the DEM.
+
+------------------------------------------------------------------------
+
+# 4. References
+
+Add text here

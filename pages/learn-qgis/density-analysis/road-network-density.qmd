@@ -1,0 +1,477 @@
+---
+title: Road Network Density Analysis in the Netherlands
+description: Calculating network density and spatial statistics
+categories:
+ - Spatial Analysis
+ - Network Analysis
+ - Density Analysis
+ - Grid
+level: Intermediate
+level_code: 2.0
+level_color: '#1F78B4'
+date: .na.character
+---
+
+**Classification:** Intermediate GIS Analysis \| Spatial Network Analysis \| Infrastructure Assessment
+
+**Learning Level:** Intermediate
+
+**Time Estimate:** 1–2 hours
+
+**Software Required:** QGIS 3.24+
+
+**Author:** Updated from original by Claudiu Forgaci (2024)
+
+------------------------------------------------------------------------
+
+## Overview
+
+This tutorial guides you through analyzing the spatial distribution of road network density across the Netherlands. You will use OpenStreetMap (OSM) highway data and a 2×2 km reference grid to calculate total road length per grid cell, then visualize patterns of road infrastructure density at the regional scale.
+
+**Learning Outcomes:**
+
+By completing this tutorial, you will be able to:
+
+✅ Import and filter OpenStreetMap highway data by road classification\
+✅ Prepare road network data for density analysis\
+✅ Calculate total road length within grid cells using line length analysis\
+✅ Visualize spatial distribution of road density using classified maps\
+✅ Interpret regional patterns in transportation infrastructure\
+✅ Apply the workflow to different geographic regions and road types
+
+------------------------------------------------------------------------
+
+## System Requirements & Setup
+
+### Software Installation
+
+**QGIS:** - Download version 3.24 or later from https://qgis.org/download/ - Installation instructions vary by operating system
+
+### Data Requirements
+
+You will need the following datasets:
+
+**OpenStreetMap (OSM) Highway Data** - Vector line layer containing road network - Available from: [geofabriek.de](http://download.geofabrik.de/europe/netherlands/zuid-holland-latest-free.shp.zip) or QuickOSM plugin - Must contain a `highway` field with road classification values - Relevant road types for this analysis: - `motorway`, `motorway_link` – High-speed limited access - `primary`, `primary_link` – Major through routes - `secondary`, `secondary_link` – Important secondary routes - `tertiary`, `tertiary_link` – Local roads
+
+**2x2 km Reference Grid** - Regular grid covering the Netherlands - Must contain a `fid` field for unique cell identification - Grid cells are 2×2 km (4 km²)
+
+**Coordinate Reference System (CRS):**
+
+-   Both datasets must be in **EPSG:28992 (Amersfoort / RD New)**
+-   This projected CRS ensures accurate distance/length calculations
+-   All data should be pre-reprojected before analysis
+
+### Spatial Extent
+
+This tutorial covers the Netherlands using a 2x2 grid extent.
+
+## Workflow Overview
+
+The analysis follows a simple, direct workflow:
+
+| Phase | Tasks | Output |
+|-----------------------|-----------------------|--------------------------|
+| **Data Preparation** | Import OSM and grid data; verify CRS | Verified layers in EPSG:28992 |
+| **Data Filtering** | Select relevant road types (motorway, primary, secondary, tertiary) | Filtered OSM road layer |
+| **Density Calculation** | Calculate total road length per grid cell | Grid with road length field |
+| **Classification** | Apply natural breaks classification to visualize density | Classified density map |
+| **Interpretation** | Analyze spatial patterns of road infrastructure | Regional insights |
+
+------------------------------------------------------------------------
+
+## Background: Understanding Road Networks and Density
+
+**Road Network Classification:**
+
+Roads are typically classified by their functional importance and connectivity:
+
+-   **Motorway** (`motorway`) – Limited-access, high-speed infrastructure
+-   **Primary** (`primary`) – Major through routes connecting urban centers
+-   **Secondary** (`secondary`) – Important regional connections
+-   **Tertiary** (`tertiary`) – Local roads with mixed traffic
+-   **Links** (e.g., `motorway_link`) – Connector roads between road classes
+
+**Road Density Concept:**
+
+Road density = Total length of roads (kilometers) per unit area (km²)
+
+**Units:** - For a 2×2 km grid cell (4 km² area): Density = Total road length (km) / 4 - High density indicates well-developed transportation infrastructure - Low density indicates rural or sparse settlement areas
+
+**Spatial Patterns:**
+
+Road density typically shows: - **High density** in urban cores, metropolitan regions, and developed areas - **Medium density** in towns and agricultural regions - **Low density** in rural, mountainous, or sparsely settled areas
+
+------------------------------------------------------------------------
+
+## Step 1: Import and Prepare Data
+
+### 1.1 Import Layers into QGIS
+
+1.  Launch **QGIS 3.24+**
+
+2.  **Import the OSM highway data:**
+
+    -   Go to **Layer → Add Layer → Add Vector Layer**
+    -   Navigate to your OSM roads shapefile or GeoPackage
+    -   Click **Open**
+    -   The layer appears in the **Layers Panel**
+
+3.  **Import the 2×2 km grid:**
+
+    -   Go to **Layer → Add Layer → Add Vector Layer**
+    -   Navigate to the grid layer
+    -   Click **Open**
+    -   The layer appears in the **Layers Panel**
+
+4.  **Verify visibility:**
+
+    -   Both layers should be visible in the main canvas
+    -   The grid will appear as a regular pattern of square cells
+
+### 1.2 Verify Coordinate Reference System
+
+Both layers must be in **EPSG:28992** for accurate length calculations.
+
+**Check CRS for each layer:**
+
+1.  Right-click the **OSM roads** layer and select **Layer CRS**
+    -   Note the current CRS (should be EPSG:4326)
+2.  Repeat for the **grid** layer
+
+**If CRS differs from EPSG:28992, reproject:**
+
+1.  Go to **Processing → Toolbox**
+2.  Search for **Reproject layer**
+3.  Double-click to open
+
+**For each layer that needs reprojection:**
+
+1.  **Input layer:** Select the layer to reproject
+2.  **Target CRS:** Select **EPSG:28992**
+3.  Click **Run**
+4.  A reprojected layer is created and added to the Layers Panel
+
+### 1.3 Examine the OSM Data
+
+1.  Right-click the OSM roads layer and select **Open Attribute Table**
+
+2.  **Locate the highway classification field:**
+
+    -   Find the column named `highway`
+    -   This contains values like "motorway," "primary," "secondary," etc.
+
+3.  **Review the data:**
+
+    -   Scroll through several rows to understand road types present
+    -   Note the number of features (roads)
+    -   Check for any data quality issues
+
+4.  Close the attribute table
+
+------------------------------------------------------------------------
+
+## Step 2: Filter Road Data by Classification (Optional)
+
+You can analyze all road types together or focus on specific classifications (e.g., only motorways and primary roads). This step filters the data; skip if you want to include all roads.
+
+### 2.1 Apply a Filter to the OSM Layer
+
+1.  Right-click the OSM roads layer and select **Filter...**
+    -   Alternatively: **Vector → Filter...**
+2.  The **Query Builder dialog** opens
+
+**Create a filter expression for major roads:**
+
+Build an expression to select only important road classes:
+
+```         
+"highway" IN ('motorway', 'motorway_link', 'primary', 'primary_link', 'secondary', 'secondary_link'. `tertiary`, `tertiary_link`)
+```
+
+**Explanation:** - `IN (...)` selects records where the `fclass` field matches any listed value - This includes motorways, primary, secondary, and tertiary roads with their link roads - Excludes local/minor roads
+
+**Alternative: Include all road types**
+
+If you want to analyze the complete road network, skip filtering or use:
+
+```         
+"fclass" IS NOT NULL
+```
+
+3.  Click **OK** to apply the filter
+
+**Result:** - The OSM layer now displays only selected road types - Filtered-out roads are hidden but not deleted
+
+------------------------------------------------------------------------
+
+## Step 3: Calculate Total Road Length per Grid Cell
+
+This is the core analysis step. We use QGIS's **Sum Line Lengths** tool to calculate the total length of roads within each grid cell.
+
+### 3.1 Open Sum Line Lengths Tool
+
+1.  Go to **Vector → Analysis Tools → Sum Line Lengths**
+    -   Alternatively: **Processing → Toolbox** → Search for **Sum Line Lengths** → Double-click
+2.  The **Sum Line Lengths dialog** opens
+
+### 3.2 Configure Sum Line Lengths
+
+1.  **Input polygon layer:** Select the **EEA grid layer**
+    -   This defines the zones (grid cells) for which we calculate road lengths
+2.  **Input line layer:** Select the **OSM roads layer**
+    -   This contains the road network data
+    -   If filtered, the tool uses only visible (filtered) roads
+3.  **Output field name:** Enter `LENGTH`
+    -   This field will store the total road length per grid cell
+    -   The name is descriptive and follows standard conventions
+4.  **Output:** Click dropdown and select **Save to File**
+    -   Click folder icon to choose save location
+    -   Enter filename: `Grid_with_Road_Length.shp` or `.gpkg`
+5.  Click **Run**
+
+**Processing:** - QGIS analyzes each grid cell polygon - For each cell, finds all road segments within it - Calculates the total length of these road segments - Units are in the CRS measurement units (meters in EPSG:28992)
+
+**Result:** - A new layer `Grid_with_Road_Length` is created - The attribute table includes: - All original grid fields (e.g., `CellCode`) - New `LENGTH` field containing total road length per cell in meters
+
+### 3.3 Verify the Results
+
+1.  Open the **Attribute Table** of `Grid_with_Road_Length`
+
+2.  **Locate the LENGTH column** (scroll right if needed)
+
+3.  **Review values:**
+
+    -   All values should be ≥ 0 (non-negative)
+    -   Cells with high urban density should show higher values
+    -   Cells in rural areas should show lower values
+    -   Most cells should have some roads (LENGTH \> 0)
+
+4.  **Inspect a sample of values:**
+
+    -   Note the range (e.g., minimum and maximum values)
+    -   These help inform the classification in the next step
+
+5.  Close the attribute table
+
+**Example length values (in meters):** - Urban cell: 200,000–300,000 m - Town cell: 100,000–200,000 m - Rural cell: 20,000–50,000 m - Sparsely populated: 0–20,000 m
+
+------------------------------------------------------------------------
+
+## Step 4: Visualize Road Density Using Natural Breaks Classification
+
+Natural breaks classification groups the data into meaningful categories based on natural clustering, making patterns in road density visually apparent.
+
+### 4.1 Open Layer Styling
+
+1.  Select the `Grid_with_Road_Length` layer in the **Layers Panel**
+
+2.  Open **Layer Styling:**
+
+    -   Go to **View → Panels → Layer Styling**
+    -   Or press **F7**
+
+3.  The **Layer Styling panel** opens on the right side
+
+### 4.2 Configure Graduated Classification
+
+1.  In the **Symbology** tab, change the classification type
+
+    -   Click the dropdown showing "Single Symbol"
+    -   Select **Graduated**
+
+2.  **Configure classification parameters:**
+
+    -   **Value:** Click dropdown and select `LENGTH`
+    -   **Classification Mode:** Click dropdown and select **Natural Breaks (Jenks)**
+        -   This algorithm identifies natural clustering in the data
+        -   Produces visually meaningful categories
+    -   **Number of Classes:** Set to **5**
+        -   Adjust to 4–7 depending on your data distribution
+
+3.  **Choose a color ramp:**
+
+    -   Click the **Color Ramp** dropdown
+    -   Select a sequential scheme suitable for representing density:
+        -   **YlOrRd** – Yellow to Orange to Red (classic density visualization)
+        -   **YlGnBu** – Yellow to Green to Blue
+        -   **Viridis** – Purple to Green to Yellow (perceptually uniform)
+        -   **RdYlBu_r** – Red to Yellow to Blue (intensity gradient)
+
+4.  Click **Classify** to generate categories
+
+    -   The panel shows the computed class breaks and their associated colors
+    -   Review the breaks to ensure they make sense
+
+5.  **(Optional) Customize class labels:**
+
+    -   In the **Label** column, replace numeric break values with descriptive names:
+        -   "Very Low," "Low," "Medium," "High," "Very High"
+    -   Double-click a label cell to edit
+
+6.  Click **Apply** to visualize on the map
+
+**Result:** - The main canvas displays the grid with cells colored by road density - Distinct spatial patterns should emerge: - Red/warm colors indicate high road density (urban areas) - Yellow/medium colors indicate moderate density (towns) - Blue/cool colors indicate low density (rural areas)
+
+### 4.3 Enhance Map Visibility
+
+1.  **Adjust transparency (optional):**
+    -   In Layer Styling, go to the **General** or **Transparency** tab
+    -   Set **Opacity** to 85–90% to allow underlying features to show through
+2.  **Customize borders:**
+    -   In Symbology, adjust **Stroke width** to 0.2–0.5 pt for subtle cell outlines
+3.  Click **Apply** again to update
+
+------------------------------------------------------------------------
+
+## Step 5: Create a Professional Map Layout
+
+Compile the styled grid into a publication-ready map with legend, scale, and attribution.
+
+------------------------------------------------------------------------
+
+## Step 6: Interpretation and Analysis
+
+### Spatial Patterns to Observe
+
+Examine your road density map for characteristic patterns:
+
+**High Density Zones (warm colors):** - Metropolitan areas (London, Paris, Amsterdam, Brussels, Cologne, Ruhr Valley) - Dense urban networks with well-developed street grids - Major highway corridors and interchanges
+
+**Medium Density Zones (neutral colors):** - Secondary cities and towns - Agricultural regions with moderate road networks - Suburban and periurban areas
+
+**Low Density Zones (cool colors):** - Rural and sparsely populated areas - Mountainous regions with limited accessibility - Natural protected areas with minimal infrastructure
+
+**Linear Patterns:** - Major motorway corridors visible as distinct density bands - Trans-regional routes connecting major urban centers
+
+### Regional Insights
+
+Questions to explore with your analysis:
+
+1.  **Which regions show highest road density?**
+    -   Compare urban centers vs. surrounding countryside
+    -   Identify infrastructure hubs
+2.  **Do density patterns reflect economic development?**
+    -   Do wealthier regions show higher infrastructure investment?
+    -   How do historical development patterns influence modern density?
+3.  **Are there geographic constraints?**
+    -   How do mountains, water bodies, or political boundaries affect road networks?
+4.  **How does road classification correlate with density?**
+    -   Are motorways concentrated in high-density regions?
+    -   Do secondary roads provide more even coverage?
+
+------------------------------------------------------------------------
+
+## Troubleshooting Guide
+
+| Problem | Cause | Solution |
+|-------------------------|--------------------|----------------------------|
+| **Sum Line Lengths produces all zero values** | Wrong CRS (geographic instead of projected); grid and roads not properly aligned | Verify CRS is EPSG:28992 (projected). Check grid and roads overlap spatially. |
+| **No roads found in cells** | Spatial extent mismatch; roads layer filtered out | Verify grid and roads cover the same area. Remove any filters on roads layer. |
+| **Classification produces poor visualization** | Too many or too few classes; extreme outliers | Adjust number of classes (4–7). Try different break algorithms (Equal Interval, Quantiles). |
+| **Map is too cluttered** | Grid cell outlines too thick; overlap with basemap | Reduce stroke width to 0.2 pt. Increase cell opacity or adjust colors. |
+| **LENGTH values in unusual units** | Wrong CRS interpretation | Verify CRS is EPSG:28992. Recalculate if needed. |
+| **Some grid cells show no roads but should** | Topological issues; roads don't perfectly intersect cells | Verify road data quality. Run "Check Validity" on roads layer. |
+
+------------------------------------------------------------------------
+
+## Extensions and Advanced Topics
+
+Once you complete this tutorial, consider:
+
+1.  **Road Type-Specific Analysis:**
+    -   Calculate separate density layers for motorways, primary roads, secondary roads
+    -   Compare density patterns by road classification
+    -   Identify regions dominated by different road types
+2.  **Density Gradients:**
+    -   Analyze how road density decreases with distance from urban centers
+    -   Create distance-decay analysis
+3.  **Temporal Analysis:**
+    -   If historical OSM snapshots available, assess road network growth over time
+    -   Compare 2010 vs. 2024 infrastructure development
+4.  **Accessibility Analysis:**
+    -   Combine road density with travel time analysis
+    -   Identify regions with high density but limited connectivity
+5.  **Infrastructure Planning:**
+    -   Compare current density with planned infrastructure projects
+    -   Identify underserved areas needing road development
+6.  **Multi-modal Networks:**
+    -   Extend analysis to include railways, waterways, or cycling infrastructure
+    -   Compare transportation modes
+
+------------------------------------------------------------------------
+
+## References & Resources
+
+**Data Sources:**
+
+-   **OpenStreetMap:** https://www.openstreetmap.org/
+-   **QuickOSM Plugin** (for direct OSM import): https://plugins.qgis.org/plugins/QuickOSM/
+
+**QGIS Documentation:**
+
+-   **Sum Line Lengths Tool:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html
+-   **Vector Analysis Tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html
+-   **Classification Methods:** https://docs.qgis.org/latest/en/docs/user_manual/working_with_vector/vector_properties.html
+
+**Related Resources:**
+
+-   **QGIS Official Training Manual:** https://docs.qgis.org/latest/en/docs/training_manual/
+-   **OpenStreetMap Tag Documentation:** https://wiki.openstreetmap.org/wiki/Key:highway
+-   **EEA Transport Resources:** https://www.eea.europa.eu/themes/transport
+
+------------------------------------------------------------------------
+
+## Quick Reference: Key Tools
+
+| Task | Tool Path | Purpose |
+|------------------|------------------------------|-------------------------|
+| **Import data** | **Layer → Add Layer → Add Vector Layer** | Load OSM roads and grid |
+| **Check CRS** | **Right-click layer → Layer CRS** | Verify coordinate system |
+| **Reproject** | **Processing → Reproject layer** | Convert to EPSG:28992 |
+| **Filter roads** | **Vector → Filter** | Select specific road types |
+| **Calculate lengths** | **Vector → Analysis Tools → Sum Line Lengths** | Compute road length per cell |
+| **Visualize** | **View → Layer Styling (F7)** | Apply classification and colors |
+| **Classify** | **Symbology → Graduated → Natural Breaks** | Create density categories |
+| **Create layout** | **Project → New Print Layout** | Build publication map |
+| **Export** | **Layout → Export as PDF/Image** | Save final map |
+
+------------------------------------------------------------------------
+
+## Appendix: OSM Road Classification Hierarchy
+
+**Road Types Included in This Analysis:**
+
+| Classification   | Meaning                | Typical Speed | Examples              |
+|--------------------|----------------|--------------------|----------------|
+| `motorway`       | Limited-access highway | 100–130 km/h  | A-roads, Autobahns    |
+| `motorway_link`  | Motorway connector     | Variable      | Ramps, off-ramps      |
+| `primary`        | Major through route    | 60–100 km/h   | National routes       |
+| `primary_link`   | Primary connector      | Variable      | Primary exit ramps    |
+| `secondary`      | Regional route         | 50–80 km/h    | Regional highways     |
+| `secondary_link` | Secondary connector    | Variable      | Secondary connections |
+| `tertiary`       | Local connecting road  | 40–60 km/h    | Town center roads     |
+| `tertiary_link`  | Tertiary connector     | Variable      | Tertiary connections  |
+
+**Road Types Excluded (Optional):** - `residential` – Streets in residential neighborhoods - `unclassified` – Minor local roads - `service` – Service roads, parking areas - `living_street` – Low-traffic residential areas - `track` – Agricultural/forestry roads
+
+------------------------------------------------------------------------
+
+**Document Version:** 1.0 (February 2026)\
+**QGIS Version:** 3.24+\
+**Difficulty Level:** Intermediate (Beginner-friendly)\
+**Expected Time:** 1–2 hours\
+**Data Scale:** Regional (North-West Europe, 10×10 km cells)\
+**CRS:** EPSG:28992 (Amersfoort / RD New)
+
+------------------------------------------------------------------------
+
+## Feedback & Support
+
+If you encounter issues:
+
+-   Review the **Troubleshooting Guide** above
+-   Check **QGIS documentation** at https://docs.qgis.org/
+-   Consult **OpenStreetMap wiki** for data questions
+-   Contact your instructor or GIS support team
+
+------------------------------------------------------------------------

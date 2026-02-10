@@ -1,0 +1,817 @@
+---
+title: "Tutorial Title Goes Here"
+subtitle: "A concise subtitle describing the main topic"
+description: "A comprehensive guide to learning X concept"
+date: 2025-02-05
+author: "Author Name"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    theme: default
+    highlight-style: github
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+# Metadati tutorial
+tutorial:
+  categories: 
+    - "Data Science"
+    - "Backend"
+  level: 
+    name: "Intermediate"
+    code: 2
+    color: "#fff3cd"
+  format: "html"
+  timestamps:
+    created: "2025-02-05T10:30:00Z"
+    modified: "2025-02-05T14:45:00Z"
+---
+
+```{=html}
+<style>
+  /* ==================== HEADER & BADGES ==================== */
+  .tutorial-metadata {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+  
+  .metadata-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .metadata-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* ==================== BADGES ==================== */
+  .badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  /* Category Badges */
+  .badge-category {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-data-science {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+  }
+  
+  .badge-web-dev {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffb74d;
+  }
+  
+  .badge-devops {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+    border: 1px solid #ce93d8;
+  }
+  
+  .badge-backend {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #81c784;
+  }
+  
+  .badge-frontend {
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f48fb1;
+  }
+  
+  .badge-database {
+    background-color: #ede7f6;
+    color: #4527a0;
+    border: 1px solid #b39ddb;
+  }
+  
+  .badge-mobile {
+    background-color: #e0f2f1;
+    color: #004d40;
+    border: 1px solid #80cbc4;
+  }
+  
+  .badge-ml-ai {
+    background-color: #fff9c4;
+    color: #f57f17;
+    border: 1px solid #fff176;
+  }
+  
+  /* Difficulty Badges */
+  .badge-difficulty {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-beginner {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .badge-intermediate {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+  }
+  
+  .badge-advanced {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .badge-expert {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+  }
+  
+  /* Time Badge */
+  .time-estimate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* ==================== CODE BLOCKS ==================== */
+  .code-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .file-path {
+    background-color: #f5f5f5;
+    border-left: 3px solid #667eea;
+    padding: 0.5rem 0.75rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    border-radius: 3px;
+  }
+  
+  .folder-structure {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+  
+  /* ==================== CHALLENGE LEVELS ==================== */
+  .challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+  }
+  
+  .challenge-header.beginner {
+    border-left-color: #28a745;
+    background-color: #f0fdf4;
+  }
+  
+  .challenge-header.intermediate {
+    border-left-color: #ffc107;
+    background-color: #fffbf0;
+  }
+  
+  .challenge-header.advanced {
+    border-left-color: #dc3545;
+    background-color: #fdf8f8;
+  }
+  
+  .challenge-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex-grow: 1;
+  }
+  
+  /* ==================== WORKFLOW DIAGRAM ==================== */
+  .workflow-diagram {
+    font-family: 'Courier New', monospace;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+</style>
+```
+
+::: tutorial-header
+# <i class="fas fa-book-open"></i> Tutorial: \[Main Topic\]
+
+Complete this tutorial to learn how to \[main objective\].
+:::
+
+::: tutorial-metadata
+[<i class="fas fa-clock"></i>]{.metadata-icon} [45 minutes]{.time-estimate}
+
+[<i class="fas fa-layer-group"></i>]{.metadata-icon} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
+
+[<i class="fas fa-tag"></i>]{.metadata-icon} [Data Science]{.badge .badge-category .badge-data-science} [Backend]{.badge .badge-category .badge-backend}
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-bullseye"></i> Learning Objectives
+
+::: {.callout-note appearance="minimal" icon="true"}
+By the end of this tutorial, you will be able to:
+
+-   **Objective 1**: \[Specific, measurable outcome\]
+-   **Objective 2**: \[Specific, measurable outcome\]\
+-   **Objective 3**: \[Specific, measurable outcome\]
+-   **Objective 4**: \[Specific, measurable outcome\]
+
+These objectives are *SMART* (Specific, Measurable, Achievable, Relevant, Time-bound).
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-route"></i> Workflow Summary
+
+This tutorial follows these key steps:
+
+::: workflow-diagram
+```         
+┌─────────────────────────────────────────────────────┐
+│ STEP 1: [Setup Phase Name]                          │
+│ What: [Brief description]                           │
+│ Time: ~X min                                        │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 2: [Core Phase Name]                           │
+│ What: [Brief description]                           │
+│ Time: ~X min                                        │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 3: [Analysis/Application Phase]                │
+│ What: [Brief description]                           │
+│ Time: ~X min                                        │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ RESULT: [Expected outcome description]              │
+└─────────────────────────────────────────────────────┘
+```
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-clipboard-check"></i> Prerequisites & Requirements
+
+::: {.callout-warning appearance="minimal" icon="true"}
+**Before you start, make sure you have:**
+
+-   Prerequisite 1: \[Description\]
+-   Prerequisite 2: \[Description\]
+-   Prerequisite 3: \[Description\]
+
+**Knowledge assumed:** \[e.g., "Basic familiarity with command line", "Understanding of XYZ concept"\]
+
+**⚠️ Important:** \[Any critical warnings or compatibility notes\]
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-database"></i> Data & Resources
+
+::: {.callout-info appearance="minimal" icon="true"}
+**Download the following files before starting:**
+
+| Resource           | Type    | Size   | Link                             |
+|--------------------|---------|--------|----------------------------------|
+| Sample Dataset     | `.csv`  | 2.5 MB | [download](/path/to/dataset.csv) |
+| Configuration File | `.json` | 15 KB  | [download](/path/to/config.json) |
+| Starter Code       | `.py`   | 3.2 KB | [download](/path/to/starter.py)  |
+
+**Optional supporting files:** - Reference documentation: \[link\] - API documentation: \[link\] - Video walkthrough: \[link\]
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-list-check"></i> Step-by-Step Instructions
+
+### Step 1: \[First Major Phase\]
+
+**What you'll do:** \[1-2 sentence summary of this step's goal\]
+
+#### 1.1 — \[Sub-step title\]
+
+\[Descriptive paragraph explaining the concept and why it matters. Include context that helps learners understand not just *what* to do, but *why*.\]
+
+**Create the necessary file structure:**
+
+[File: Project Directory Structure]{.code-label}
+
+::: folder-structure
+```         
+my-project/
+├── config/
+│   ├── settings.json
+│   └── environment.yml
+├── data/
+│   ├── input/
+│   │   └── raw_data.csv
+│   └── output/
+├── src/
+│   ├── main.py
+│   ├── utils.py
+│   └── analysis.py
+├── results/
+└── README.md
+```
+:::
+
+**Execute the following command:**
+
+[Command Line / Terminal]{.code-label}
+
+``` bash
+# Create project directories
+mkdir -p my-project/{config,data/{input,output},src,results}
+cd my-project
+echo "Project initialized" > README.md
+```
+
+**Or, in your code editor:**
+
+[Python Code]{.code-label}
+
+``` python
+import os
+import json
+
+# Define configuration
+config = {
+    "project_name": "My Tutorial Project",
+    "version": "1.0",
+    "settings": {
+        "debug": False,
+        "max_iterations": 100
+    }
+}
+
+# Save configuration
+with open('config/settings.json', 'w') as f:
+    json.dump(config, f, indent=2)
+
+print("Configuration saved!")
+```
+
+![](../images/step1-screenshot.png){width="70%" fig-alt="Screenshot showing the completed first step with labeled UI elements" fig-cap="**Figure 1.1:** The completed setup screen. Red boxes highlight key controls you'll use in the next step."}
+
+#### 1.2 — \[Sub-step title\]
+
+\[Explain what happens next and why. Use *italics* for emphasis on important concepts, and **bold** for key terms.\]
+
+[JSON Configuration]{.code-label}
+
+``` json
+{
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "tutorial_db",
+    "credentials": {
+      "user": "admin",
+      "password": "${DB_PASSWORD}"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "json"
+  }
+}
+```
+
+------------------------------------------------------------------------
+
+### Step 2: \[Second Major Phase\]
+
+**What you'll do:** \[1-2 sentence summary\]
+
+#### 2.1 — \[Sub-step title\]
+
+\[Detailed explanation with context. Link concepts back to the learning objectives.\]
+
+[Python Code]{.code-label}
+
+``` python
+import pandas as pd
+import numpy as np
+from datetime import datetime
+
+# Load the sample dataset
+df = pd.read_csv('data/input/raw_data.csv')
+
+# Display basic information
+print(f"Dataset shape: {df.shape}")
+print(f"\nColumn names:\n{df.columns.tolist()}")
+print(f"\nFirst 5 rows:")
+print(df.head())
+
+# Data summary statistics
+print(f"\nData types:")
+print(df.dtypes)
+print(f"\nMissing values:")
+print(df.isnull().sum())
+```
+
+**Expected output:**
+
+```         
+Dataset shape: (1000, 15)
+
+Column names:
+['id', 'timestamp', 'value', 'category', ...]
+
+First 5 rows:
+   id            timestamp  value   category
+0   1  2025-01-01 10:00:00   42.5      type_a
+1   2  2025-01-01 10:15:00   38.2      type_b
+...
+
+Data types:
+id              int64
+timestamp      object
+value         float64
+...
+```
+
+#### 2.2 — \[Sub-step title\]
+
+\[Continue explanation\]
+
+[Bash Script]{.code-label}
+
+``` bash
+#!/bin/bash
+# Data processing pipeline
+
+# Set variables
+INPUT_FILE="data/input/raw_data.csv"
+OUTPUT_DIR="data/output"
+LOG_FILE="logs/process.log"
+
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR" "$(dirname "$LOG_FILE")"
+
+# Process data
+echo "Starting data processing..." | tee -a "$LOG_FILE"
+python src/main.py --input "$INPUT_FILE" --output "$OUTPUT_DIR"
+
+# Check for errors
+if [ $? -eq 0 ]; then
+    echo "Processing complete!" | tee -a "$LOG_FILE"
+else
+    echo "Error occurred during processing!" | tee -a "$LOG_FILE"
+    exit 1
+fi
+```
+
+![](../images/step2-diagram.png){width="80%" fig-alt="Flowchart showing the data processing workflow with decision points" fig-cap="**Figure 2.1:** Data processing workflow. Each diamond represents a decision point where the system checks conditions before proceeding."}
+
+------------------------------------------------------------------------
+
+### Step 3: \[Third Major Phase\]
+
+**What you'll do:** \[1-2 sentence summary\]
+
+#### 3.1 — \[Sub-step title\]
+
+\[Explanation and context\]
+
+[Python Code — Advanced Analysis]{.code-label}
+
+``` python
+# Advanced data analysis
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set style
+sns.set_style("whitegrid")
+plt.rcParams['figure.figsize'] = (12, 6)
+
+# Create visualizations
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Plot 1: Distribution
+axes[0].hist(df['value'], bins=30, color='skyblue', edgecolor='black')
+axes[0].set_xlabel('Value')
+axes[0].set_ylabel('Frequency')
+axes[0].set_title('Distribution of Values')
+
+# Plot 2: Time series
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+df.set_index('timestamp').resample('1H')['value'].mean().plot(ax=axes[1])
+axes[1].set_xlabel('Time')
+axes[1].set_ylabel('Mean Value')
+axes[1].set_title('Hourly Average Over Time')
+
+plt.tight_layout()
+plt.savefig('results/analysis.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+print("Visualization saved to results/analysis.png")
+```
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-check-circle"></i> Result & Expected Outcome
+
+::: {.callout-success appearance="minimal" icon="true"}
+**What you should have now:**
+
+✅ **Completed setup** with all configuration files in place\
+✅ **Processed dataset** with cleaned and validated data\
+✅ **Generated reports** showing analysis results and visualizations\
+✅ **Documentation** explaining your process and findings
+
+**Your project structure should look like this:**
+
+```         
+my-project/
+├── config/
+│   └── settings.json          ← Configuration file
+├── data/
+│   ├── input/
+│   │   └── raw_data.csv       ← Original data
+│   └── output/
+│       ├── processed_data.csv ← Cleaned data
+│       └── summary.json       ← Summary statistics
+├── src/
+│   ├── main.py               ← Main script (completed)
+│   ├── utils.py              ← Helper functions
+│   └── analysis.py           ← Analysis module
+├── results/
+│   ├── analysis.png          ← Visualization
+│   ├── report.html           ← Final report
+│   └── metrics.json          ← Performance metrics
+└── README.md                 ← Documentation
+```
+
+**Next, you can:** - Extend the analysis with custom parameters - Apply this workflow to your own datasets - Integrate this into a larger pipeline
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-dumbbell"></i> Exercises & Challenges
+
+### Challenge 1: Beginner — \[Challenge Title\]
+
+::: {.challenge-header .beginner}
+[🟢]{style="font-size: 1.5rem;"} [\[Challenge Title\]]{.challenge-title} [Beginner]{.badge .badge-difficulty .badge-beginner}
+:::
+
+**Objective:** \[What learner should accomplish\]
+
+**Your task:** 1. \[First step of challenge\] 2. \[Second step\] 3. \[Third step\]
+
+**Hint:** \[Helpful tip without spoiling the solution\]
+
+**Solution (click to reveal):** ::: {.callout-tip collapse="true"}
+
+``` python
+# Example solution code here
+result = some_function(data)
+print(f"Challenge result: {result}")
+```
+
+**Explanation:** \[Walk through why this solution works\] :::
+
+------------------------------------------------------------------------
+
+### Challenge 2: Intermediate — \[Challenge Title\]
+
+::: {.challenge-header .intermediate}
+[🟡]{style="font-size: 1.5rem;"} [\[Challenge Title\]]{.challenge-title} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
+:::
+
+**Objective:** \[What learner should accomplish\]
+
+**Your task:** 1. \[First step\] 2. \[Second step\] 3. \[Third step\]
+
+**Hint:** \[Helpful guidance\]
+
+**Solution (click to reveal):** ::: {.callout-tip collapse="true"} \[Solution content\] :::
+
+------------------------------------------------------------------------
+
+### Challenge 3: Advanced — \[Challenge Title\]
+
+::: {.challenge-header .advanced}
+[🔴]{style="font-size: 1.5rem;"} [\[Challenge Title\]]{.challenge-title} [Advanced]{.badge .badge-difficulty .badge-advanced}
+:::
+
+**Objective:** \[Open-ended, requiring creative problem-solving\]
+
+**Your task:** \[Describe a real-world problem they should solve using concepts from this tutorial\]
+
+**Key considerations:** - \[Important factor 1\] - \[Important factor 2\] - \[Important factor 3\]
+
+**Resources:** - \[Relevant documentation link\] - \[Related tutorial link\] - \[Code example link\]
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-lightbulb"></i> Tips, Tricks & Warnings
+
+### 💡 Pro Tips
+
+::: {.callout-tip appearance="minimal" icon="true"}
+-   **Tip 1:** \[Optimization or efficiency advice\] — This can save you significant time in production environments.
+
+-   **Tip 2:** \[Best practice guidance\] — Following this pattern leads to more maintainable code.
+
+-   **Tip 3:** \[Shortcut or productivity hack\] — Use this keyboard shortcut: `Cmd+Shift+P` for quick access.
+
+-   **Tip 4:** \[Performance improvement\] — Batch processing is X% faster than sequential processing for large datasets.
+:::
+
+### ⚠️ Common Pitfalls
+
+::: {.callout-warning appearance="minimal" icon="true"}
+**Watch out for these mistakes:**
+
+1.  **Forgetting to validate input:** Always check that your input data matches expected formats. Invalid data will cause silent failures.
+
+    ``` python
+    # ❌ Risky
+    result = process(data)
+
+    # ✅ Safe
+    if validate_data(data):
+        result = process(data)
+    else:
+        raise ValueError("Invalid input data")
+    ```
+
+2.  **Not handling edge cases:** Consider what happens with empty inputs, very large datasets, or unusual values.
+
+3.  **Skipping error handling:** Always wrap external calls in try-except blocks to prevent cascading failures.
+
+4.  **Ignoring performance:** Test with realistic dataset sizes early to identify bottlenecks.
+:::
+
+### 🔴 Critical Warnings
+
+::: {.callout-danger appearance="minimal" icon="true"}
+**These mistakes could cause data loss or security issues:**
+
+⚠️ **Never hardcode credentials** in your source code. Use environment variables or secret management systems:
+
+``` bash
+# ❌ NEVER DO THIS
+api_key = "sk_live_51234567890abcdef"
+
+# ✅ DO THIS INSTEAD
+import os
+api_key = os.getenv('API_KEY')
+if not api_key:
+    raise ValueError("API_KEY not found in environment")
+```
+
+⚠️ **Always backup** data before running transformations:
+
+``` bash
+# Create backup before processing
+cp data/input/raw_data.csv data/input/raw_data.csv.backup
+```
+
+⚠️ **Validate results** after processing to ensure data integrity.
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-arrow-right"></i> Related Tutorials & Next Steps
+
+::: {.callout-info appearance="minimal" icon="true"}
+**After completing this tutorial, you might be interested in:**
+
+### Level Up Your Skills
+
+1.  **\[Advanced Topic: XYZ\]** — Dive deeper into optimization techniques
+    -   Estimated time: 45 minutes
+    -   Difficulty: Intermediate
+2.  **\[Building on This: ABC\]** — Extend this workflow with advanced features
+    -   Estimated time: 60 minutes
+    -   Difficulty: Advanced
+
+### Related Topics
+
+-   **\[Parallel Processing\]** — Speed up large-scale data processing
+-   **\[API Integration\]** — Connect your pipeline to external services
+-   **\[Monitoring & Logging\]** — Track your processes in production
+
+### Practice Projects
+
+-   **Project 1:** \[Real-world application of this tutorial\]
+-   **Project 2:** \[Combine this with another concept\]
+-   **Project 3:** \[Open-ended challenge using multiple techniques\]
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-book"></i> References & Further Reading
+
+::: {.callout-note appearance="minimal" icon="true"}
+### Official Documentation
+
+-   [Main Library/Tool Documentation](https://docs.example.com)
+    -   [API Reference](https://docs.example.com/api)
+    -   [Configuration Guide](https://docs.example.com/config)
+    -   [Troubleshooting](https://docs.example.com/troubleshooting)
+
+### Books & Articles
+
+1.  **"Title of Relevant Book"** by Author Name
+    -   Chapter X covers key concepts related to this tutorial
+    -   Available: \[link\]
+2.  **"Article Title"** — Journal/Publication Name (Year)
+    -   DOI: `10.1234/example.doi`
+    -   Covers advanced theoretical background
+
+### Online Resources
+
+-   [Academic Paper/Research](https://example.com/paper)
+-   [Benchmark Study](https://example.com/benchmark)
+-   [Community Forum Thread](https://example.com/forum)
+-   [GitHub Repository](https://github.com/example/repo)
+    -   Stars: 5.2K \| Forks: 1.2K \| Last updated: 2025-01-15
+
+### Related Tutorials
+
+-   Tutorial A: \[Link\]
+-   Tutorial B: \[Link\]
+-   Tutorial Series: \[Link\]
+
+### Tools & Libraries Referenced
+
+-   **\[Tool 1\]** — \[Description and link\]
+-   **\[Tool 2\]** — \[Description and link\]
+-   **\[Tool 3\]** — \[Description and link\]
+:::
+
+------------------------------------------------------------------------
+
+## Questions or Issues?
+
+If you encounter problems:
+
+1.  **Check the troubleshooting section** in the [official documentation](https://docs.example.com/troubleshooting)
+2.  **Search existing issues** on [GitHub](https://github.com/example/repo/issues)
+3.  **Ask the community** on [Discussion Forum](https://example.com/discuss)
+4.  **File a bug report** if you found an actual error in this tutorial
+
+**Last updated:** `r Sys.Date()`
+
+------------------------------------------------------------------------

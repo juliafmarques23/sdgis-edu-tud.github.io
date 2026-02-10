@@ -1,0 +1,103 @@
+---
+title: "Course Name"
+subtitle: "Course code"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+::: {.callout-note}
+{{< fa circle-info >}} **Course overview**  
+Short description (2–3 lines): what the course is about, its scope, and what participants will practically learn.
+
+**Level:** Beginner / Intermediate  
+**Period:** 2025–2026  
+**Software:** QGIS
+:::
+
+## {{< fa user-group >}} Instructors
+
+- **Name Surname** — Course coordinator  
+  Affiliation · email · website
+
+- **Name Surname** — Lecturer / Tutor  
+  Affiliation · email
+
+---
+
+## {{< fa list-check >}} Tutorials
+
+This course is structured as a sequence of tutorials. Each tutorial includes learning objectives, step-by-step instructions, and (where relevant) exercises.
+
+- **Tutorial 1 – Installing QGIS**  
+  *Type:* Intro · *Level:* Beginner
+
+- **Tutorial 2 – Spatial Data Models**  
+  *Type:* Theory · *Level:* Beginner
+
+- **Tutorial 3 – Working with Vector Data**  
+  *Type:* Practical · *Level:* Beginner–Intermediate
+
+- **Tutorial 4 – Applied Analysis Exercise**  
+  *Type:* Exercise · *Level:* Intermediate
+
+---
+
+## {{< fa pen-to-square >}} Assignments
+
+*(Include only if applicable)*
+
+- **Assignment 1 – Title**  
+  Short description of the task and expected output.  
+  *Deadline:* DD Month YYYY · *Weight:* XX%
+
+- **Assignment 2 – Title**  
+  Short description.
+
+---
+
+## {{< fa diagram-project >}} Workflow Summary
+
+At a glance, the course follows this workflow:
+
+1. Setup and orientation  
+2. Core concepts and methods  
+3. Applied GIS workflows  
+4. Practice, exercises, and reflection
+
+---
+
+## {{< fa toolbox >}} Resources
+
+### {{< fa desktop >}} Software & Tools
+- QGIS (version X.X or later)
+- Required plugins (if any)
+
+### {{< fa database >}} Data
+- Dataset name — short description and source
+
+### {{< fa book-open >}} References & Documentation
+- Official QGIS documentation
+- Tutorials, manuals, or readings
+
+---
+
+## {{< fa list-ul >}} Prerequisites
+
+- Basic GIS knowledge (recommended)
+- Familiarity with spatial data formats (optional)
+
+---
+
+## {{< fa circle-question >}} Practical Information
+
+- Expected workload
+- How support is provided (class sessions, email, forum, etc.)
+- Submission or participation notes (if relevant)
+
+---
+
+## {{< fa heart >}} Acknowledgements
+
+Data providers, contributors, funding bodies, or reused materials.

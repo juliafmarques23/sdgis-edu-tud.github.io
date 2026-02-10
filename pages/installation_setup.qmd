@@ -1,4 +1,0 @@
----
-title: "Qgis Installation and Setup"
-format: html
----

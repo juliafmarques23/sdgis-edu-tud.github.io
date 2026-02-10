@@ -1,0 +1,70 @@
+---
+title: "Find Spatial Data"
+subtitle: "Curated sources for geospatial datasets"
+listing:
+  contents: sources.yml
+  type: table
+  filter-ui: true
+  sort-ui: true
+  fields: [name, description, type, region, format, categories]
+  field-display-names:
+    name: "Source"
+    type: "Data Type"
+    region: "Coverage"
+    format: "Format"
+    categories: "Categories"
+  table-striped: true
+  table-hover: true
+page-layout: full
+---
+
+## Spatial Data Sources
+
+Search and filter our curated collection of spatial data sources. Use the filters above to narrow by data type, geographic coverage, format, or category.
+
+### Data Categories
+
+-   **Administrative**: Boundaries, administrative units, statistical regions
+-   **Physical Geography**: Elevation, terrain, landcover, water bodies
+-   **Infrastructure**: Roads, buildings, utilities, transportation
+-   **Environmental**: Climate, pollution, biodiversity, forest cover
+-   **Imagery**: Satellite imagery, aerial photos, multispectral data
+-   **Urban**: Built-up areas, population, land use
+
+### Quick Start Guide
+
+**For Netherlands-specific data:** 1. Filter by `Region: Netherlands` 2. Common sources: PDOK, CBS, Kadaster, AHN, BAG
+
+**For global elevation data:** 1. Filter by `Categories: elevation` 2. Try: SRTM, USGS Earth Explorer, OpenTopography
+
+**For satellite imagery:** 1. Filter by `Categories: imagery` 2. Try: Copernicus, USGS Earth Explorer, NASA Earthdata
+
+### Quick Links by Category
+
+:::::: grid
+::: g-col-4
+**🌍 Global Sources** - [Natural Earth](https://naturalearthdata.com) - [OpenStreetMap](https://www.openstreetmap.org) - [USGS Earth Explorer](https://earthexplorer.usgs.gov) - [Copernicus](https://scihub.copernicus.eu)
+:::
+
+::: g-col-4
+**🇳🇱 Netherlands** - [PDOK](https://www.pdok.nl) - [CBS](https://opendata.cbs.nl) - [Kadaster](https://www.kadaster.nl) - [AHN](https://www.ahn.nl)
+:::
+
+::: g-col-4
+**🌱 Environment & Climate** - [Global Forest Watch](https://www.globalforestwatch.org) - [WorldClim](https://www.worldclim.org) - [ESA Climate](https://climate.esa.int) - [EEA](https://www.eea.europa.eu)
+:::
+::::::
+
+------------------------------------------------------------------------
+
+::: callout-tip
+## Getting Help with Data Sources
+
+Need help finding specific data or learning how to use these sources? Check out our [Learn QGIS](../learn-qgis/index.qmd) tutorials or [contact us](../contact.qmd) for guidance.
+:::
+
+::: callout-warning
+## License & Attribution
+
+Always check the license and terms of use before using any dataset. Most sources require proper attribution in publications and maps.
+:::

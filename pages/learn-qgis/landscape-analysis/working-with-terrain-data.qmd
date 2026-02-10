@@ -1,0 +1,869 @@
+---
+title: Working with Terrain Data in QGIS
+subtitle: Download, process, visualize, and analyze elevation data using QGIS
+description: A comprehensive guide to downloading terrain data from USGS, extracting
+  contour lines, creating cross-sections, and 3D visualizations in QGIS
+date: '2025-02-05'
+author: Daniele Cannatella
+format:
+  html:
+    toc: TRUE
+    toc-depth: 3
+    code-fold: TRUE
+    code-tools: TRUE
+    theme: default
+    highlight-style: github
+    include-in-header:
+    - text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+tutorial:
+  categories:
+  - GIS
+  - Geospatial Analysis
+  - QGIS
+  level:
+    name: Intermediate
+    code: 2
+    color: '#fff3cd'
+  format: html
+  statistics:
+    word_count: 4850
+    has_callouts: yes
+    has_images: yes
+  timestamps:
+    created: '2025-02-05T10:30:00Z'
+    modified: '2025-02-05T14:45:00Z'
+---
+
+```{=html}
+<style>
+  /* ==================== HEADER & BADGES ==================== */
+  .tutorial-metadata {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+  
+  .metadata-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .metadata-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* ==================== BADGES ==================== */
+  .badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  .badge-category {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-gis {
+    background-color: #e0f2f1;
+    color: #004d40;
+    border: 1px solid #80cbc4;
+  }
+  
+  .badge-geospatial {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+    border: 1px solid #ce93d8;
+  }
+  
+  .badge-qgis {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #81c784;
+  }
+  
+  .badge-difficulty {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-intermediate {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+  }
+  
+  .time-estimate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .code-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .workflow-diagram {
+    font-family: 'Courier New', monospace;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .step-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  .challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+  }
+  
+  .challenge-header.intermediate {
+    border-left-color: #ffc107;
+    background-color: #fffbf0;
+  }
+  
+  .challenge-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex-grow: 1;
+  }
+</style>
+```
+
+::: tutorial-header
+# <i class="fas fa-mountain"></i> Tutorial: Working with Terrain Data in QGIS
+
+Master the art of downloading, processing, and visualizing elevation data for professional GIS analysis.
+:::
+
+::: tutorial-metadata
+[<i class="fas fa-clock"></i>]{.metadata-icon} [90 minutes]{.time-estimate}
+
+[<i class="fas fa-layer-group"></i>]{.metadata-icon} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
+
+[<i class="fas fa-tag"></i>]{.metadata-icon} [GIS]{.badge .badge-category .badge-gis} [Geospatial]{.badge .badge-category .badge-geospatial} [QGIS]{.badge .badge-category .badge-qgis}
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-bullseye"></i> Learning Objectives
+
+::: {.callout-note appearance="minimal" icon="true"}
+By the end of this tutorial, you will be able to:
+
+-   **Download elevation data** from USGS EarthExplorer
+-   **Process and merge** multiple raster tiles into a single DEM
+-   **Extract contour lines** from elevation data
+-   **Create cross-sections** to visualize terrain profiles
+-   **Produce 3D visualizations** of terrain using QGIS plugins
+
+These skills are *essential* for terrain analysis, watershed modeling, and environmental planning.
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-route"></i> Workflow Summary
+
+This tutorial follows these key steps:
+
+::: workflow-diagram
+```         
+┌─────────────────────────────────────────────────────┐
+│ STEP 1: Download & Prepare Data                     │
+│ What: Acquire terrain data from USGS                │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 2: Extract Contour Lines                       │
+│ What: Create elevation contours from raster         │
+│ Time: ~25 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 3: Create Cross-Sections                       │
+│ What: Generate terrain profile graphs               │
+│ Time: ~20 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ STEP 4: 3D Visualization                            │
+│ What: Create interactive 3D terrain views           │
+│ Time: ~25 min                                       │
+└──────────────────────┬──────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│ RESULT: Complete terrain analysis package           │
+└─────────────────────────────────────────────────────┘
+```
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-clipboard-check"></i> Prerequisites & Requirements
+
+::: {.callout-warning appearance="minimal" icon="true"}
+**Before you start, make sure you have:**
+
+-   **QGIS 3.x or higher** installed (free download from qgis.org)
+-   **Internet connection** to access USGS EarthExplorer
+-   **Free USGS account** (registration required)
+-   **Study area shapefile** (provided or create your own)
+-   **Disk space** for elevation data (\~500 MB for typical study areas)
+
+**Knowledge assumed:** - Basic QGIS interface familiarity - Understanding of shapefiles and projections - Comfort with raster and vector data concepts
+
+**⚠️ Important:** The USGS EarthExplorer requires free registration. Create your account before starting this tutorial.
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-database"></i> Data & Resources
+
+::: {.callout-info appearance="minimal" icon="true"}
+**Key resources you'll need:**
+
+| Resource | Source | Purpose |
+|---------------------------|----------------------|------------------------|
+| **USGS EarthExplorer** | <https://earthexplorer.usgs.gov> | Download SRTM elevation data |
+| **Study Area Shapefile** | Provided in tutorial materials | Define your area of interest |
+| **QGIS Plugins** | Built-in Plugin Manager | Profile Tool, Qgis2threejs |
+
+**Optional supporting resources:** - USGS Documentation: <https://lpdaac.usgs.gov> - SRTM Dataset Info: <https://earthexplorer.usgs.gov> - QGIS Manual: <https://docs.qgis.org>
+
+**⚠️ Registration required:** Create a free USGS account at <https://earthexplorer.usgs.gov>
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-list-check"></i> Step-by-Step Instructions
+
+### Step 1: Download & Prepare Terrain Data
+
+**What you'll do:** Access USGS EarthExplorer, upload your study area, and download SRTM elevation data tiles.
+
+#### 1.1 - Register and Access USGS EarthExplorer
+
+Create a free USGS account and log in to the EarthExplorer platform. This is a critical first step as you cannot download data without authentication.
+
+[Navigation Steps]{.code-label}
+
+1.  Visit \<https://earthexplorer.usgs.gov/
+2.  Click **"Register"** (if you don't have an account)
+3.  Fill in your details and verify your email
+4.  Log in with your credentials
+
+![](../images/earthexplorer-login.png){width="75%" fig-alt="USGS EarthExplorer login page with registration link highlighted" fig-cap="**Figure 1.1:** USGS EarthExplorer login screen. Click 'Register' to create a free account."}
+
+#### 1.2 - Prepare and Upload Your Study Area
+
+Before downloading data, you need to define the extent of your area of interest. You'll convert your shapefile to KML format and upload it to EarthExplorer.
+
+**In QGIS:**
+
+[QGIS Menu Sequence]{.code-label}
+
+```         
+Layers Panel → Right-click "study_area" layer 
+  → Export → Save Layer As...
+```
+
+This opens the export dialog. Configure as follows:
+
+-   **Format:** Keyhole Markup Language \[KML\]
+-   **Filename:** Study_area.kml
+-   **CRS:** Keep default (WGS 84)
+-   Click **OK**
+
+**On EarthExplorer Website:**
+
+[Web Browser Steps]{.code-label}
+
+```         
+Search Criteria 
+  → KML/Shapefile Upload 
+  → Select File 
+  → Choose your Study_area.kml
+```
+
+The map will update to show your study area boundary (typically highlighted in blue or green).
+
+![](../images/earthexplorer-kml-upload.png){width="75%" fig-alt="EarthExplorer interface showing KML upload dialog and study area on map" fig-cap="**Figure 1.2:** Study area uploaded to EarthExplorer. The map shows your area of interest ready for data selection."}
+
+#### 1.3 - Search and Download SRTM Data
+
+Now search for elevation data within your study area boundaries.
+
+**Search for SRTM Data:**
+
+[SRTM Data Search Process]{.code-label}
+
+```         
+Data Sets 
+  → Search "Digital Elevation" 
+  → Select "SRTM 1 Arc-Second Global" 
+  → Click Results
+```
+
+The system will display available tiles that intersect your study area. You'll typically see 2-4 tiles depending on your area size.
+
+**Review and Download:**
+
+-   [<i class="fas fa-eye"></i> Preview]{.step-button} Click the **foot icon** to see each tile's extent
+-   [<i class="fas fa-download"></i> Select Format]{.step-button} Choose **GeoTIFF 1 Arc-second**
+-   [<i class="fas fa-save"></i> Download]{.step-button} Download all tiles that cover your area
+
+Save the GeoTIFF files to a dedicated folder (e.g., `data/elevation_raw/`)
+
+![](../images/earthexplorer-srtm-results.png){width="75%" fig-alt="EarthExplorer showing SRTM tiles with preview footprints and download options" fig-cap="**Figure 1.3:** SRTM tiles available for download. Check the foot icon to verify each tile covers your study area."}
+
+------------------------------------------------------------------------
+
+### Step 2: Process and Merge Elevation Data
+
+**What you'll do:** Merge multiple raster tiles into a single DEM and reproject to your working coordinate system.
+
+#### 2.1 - Build Virtual Raster
+
+The downloaded SRTM data comes as separate tiles. First, create a virtual raster that merges them.
+
+**In QGIS:**
+
+[QGIS Raster Menu]{.code-label}
+
+```         
+Raster 
+  → Miscellaneous 
+  → Build Virtual Raster
+```
+
+**Configuration:**
+
+| Parameter                                      | Setting          |
+|------------------------------------------------|------------------|
+| **Input layers**                               | All 4 SRTM tiles |
+| **Place each input file into a separate band** | ☐ Unchecked      |
+| **Allow projection difference**                | ☑ Checked        |
+| **Nodata value**                               | -9999            |
+| **Output file**                                | dem_virtual.vrt  |
+
+Click **Run** to merge the tiles into a single virtual raster.
+
+#### 2.2 - Reproject to UTM Coordinates
+
+The SRTM data is in geographic coordinates (WGS 84). Reproject it to a projected coordinate system for accurate area-based analysis.
+
+[QGIS Raster Menu]{.code-label}
+
+```         
+Raster 
+  → Projections 
+  → Warp (Reproject)
+```
+
+**Configuration:**
+
+| Parameter       | Setting                |
+|-----------------|------------------------|
+| **Input layer** | dem_virtual.vrt        |
+| **Target CRS**  | WGS 84 / UTM zone 32 N |
+| **Output file** | dem_reprojected.tif    |
+
+*Note: Adjust the UTM zone based on your location (32N for Europe, etc.)*
+
+#### 2.3 - Clip to Study Area
+
+Extract only the data for your study area to reduce file size and processing time.
+
+[QGIS Raster Menu]{.code-label}
+
+```         
+Raster 
+  → Extraction 
+  → Clip Raster by Extent
+```
+
+**Configuration:**
+
+| Parameter           | Setting                       |
+|---------------------|-------------------------------|
+| **Input layer**     | dem_reprojected.tif           |
+| **Clipping extent** | Use Layer Extent → study_area |
+| **Nodata value**    | -9999                         |
+| **Output file**     | dem_clipped.tif               |
+
+Your processed DEM is now ready for analysis!
+
+------------------------------------------------------------------------
+
+### Step 3: Extract Contour Lines
+
+**What you'll do:** Generate contour lines from the elevation raster to visualize terrain topology.
+
+#### 3.1 - Apply Gaussian Filter (Optional but Recommended)
+
+The Gaussian filter smooths the elevation data, creating cleaner, more aesthetically pleasing contour lines by removing noise.
+
+[QGIS Processing Toolbox]{.code-label}
+
+Search for **"Gaussian filter"** in the Processing Toolbox.
+
+**Configuration:**
+
+| Parameter              | Setting               |
+|------------------------|-----------------------|
+| **Grid**               | dem_clipped.tif       |
+| **Search Mode**        | Circle                |
+| **Standard Deviation** | 1.0 (default)         |
+| **Output file**        | dem_clipped_gauss.tif |
+
+Click **Run**. The result is a smoothed elevation model.
+
+#### 3.2 - Generate Contour Lines
+
+Now create vector contour lines from your elevation data.
+
+[QGIS Raster Menu]{.code-label}
+
+```         
+Raster 
+  → Extraction 
+  → Contour (Vector)
+```
+
+**Configuration:**
+
+| Parameter | Setting | Notes |
+|----|----|----|
+| **Input layer** | dem_clipped.tif | Use original or smoothed DEM |
+| **Interval between contours** | 10 | Meters (adjust for your area) |
+| **Output file** | contour_lines_10m.shp | Vector shapefile |
+| **Attribute name** | elevation | Field storing elevation values |
+
+Click **Run**. You now have contour lines showing terrain elevation!
+
+**Pro Tip:** For larger areas (\>1000 km²), use a 20 or 25m interval to avoid overcrowding. For smaller areas (\<100 km²), 5m intervals provide good detail.
+
+![](../images/contour-lines-result.png){width="75%" fig-alt="QGIS map showing extracted contour lines in brown/orange color over the study area" fig-cap="**Figure 3.1:** Extracted contour lines. Closer lines indicate steeper terrain."}
+
+------------------------------------------------------------------------
+
+### Step 4: Create Cross-Sections
+
+**What you'll do:** Install the Profile Tool plugin and create terrain elevation profiles.
+
+#### 4.1 - Install Profile Tool Plugin
+
+The Profile Tool creates interactive terrain cross-sections that show elevation changes along a line.
+
+**In QGIS:**
+
+[QGIS Plugin Menu]{.code-label}
+
+```         
+Plugins 
+  → Manage and Install Plugins
+```
+
+**In the Search box:** - Type: **"Profile tool"** - Select: **"Profile tool"** (by Borys Jurgiel) - Click: **Install Plugin**
+
+Wait for installation to complete, then click **OK**.
+
+#### 4.2 - Activate and Configure Profile Tool
+
+[QGIS Menu Sequence]{.code-label}
+
+```         
+Plugins 
+  → Profile tool 
+  → Terrain profile
+```
+
+A new **Profile** panel appears on the right side of QGIS.
+
+**Setup:**
+
+1.  In the **Layers** panel, select your DEM raster
+2.  In the **Profile panel**, click **"Add Layer"**
+3.  Select **"Temporary polyline"** (or "Active layer polyline")
+4.  On the map, draw a line across the terrain where you want the cross-section
+
+The elevation profile graph appears automatically in the Profile panel!
+
+![](../images/profile-tool-panel.png){width="75%" fig-alt="QGIS window with Profile Tool panel showing elevation graph and temporary polyline on DEM" fig-cap="**Figure 4.1:** Profile Tool showing terrain elevation profile. The line on the map corresponds to the graph below."}
+
+**Customize the Graph:**
+
+-   **Right-click the graph** to access export and configuration options
+-   **Adjust Y-axis** to emphasize terrain relief
+-   **Export as PNG, PDF,** or **SVG** for reports
+
+------------------------------------------------------------------------
+
+### Step 5: 3D Visualization
+
+**What you'll do:** Install Qgis2threejs plugin and create interactive 3D terrain views.
+
+#### 5.1 - Install Qgis2threejs Plugin
+
+This plugin generates stunning 3D visualizations of your terrain data.
+
+**In QGIS:**
+
+[QGIS Plugin Menu]{.code-label}
+
+```         
+Plugins 
+  → Manage and Install Plugins
+```
+
+**In the Search box:** - Type: **"Qgis2threejs"** - Select the plugin by Minoru Akagi - Click: **Install Plugin**
+
+The plugin installation may take 30-45 seconds. Click **OK** when complete.
+
+#### 5.2 - Create 3D Terrain View
+
+Once installed, a new **Web toolbar** appears above your map.
+
+[QGIS Qgis2threejs Menu]{.code-label}
+
+```         
+Web 
+  → Qgis2threejs 
+  → Qgis2threejs Exporter
+```
+
+**Configuration:**
+
+1.  **DEM layer:** Select dem_clipped.tif
+2.  **Color layer:** Optional (use contour_lines for additional detail)
+3.  **Vertical exaggeration:** 1.5-2.0 (exaggerates relief for visibility)
+4.  **Export format:** HTML (for web) or Three.js (for advanced use)
+5.  **Output filename:** terrain_3d.html
+
+Click **Export**. Your 3D visualization opens in a web browser!
+
+**Interact with 3D view:** - [<i class="fas fa-mouse"></i> Rotate]{.step-button} Click and drag - [<i class="fas fa-expand"></i> Zoom]{.step-button} Scroll wheel - [<i class="fas fa-arrows"></i> Pan]{.step-button} Right-click and drag
+
+![](../images/3d-visualization.png){width="80%" fig-alt="3D terrain visualization in browser showing mountainous area with exaggerated relief and color gradient" fig-cap="**Figure 5.1:** Interactive 3D terrain visualization. Elevation is exaggerated for clarity."}
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-check-circle"></i> Result & Expected Outcome
+
+::: {.callout-success appearance="minimal" icon="true"}
+**What you should have now:**
+
+✅ **Processed DEM** ready for analysis\
+✅ **Vector contour lines** showing terrain topology\
+✅ **Terrain cross-sections** for elevation profiles\
+✅ **Interactive 3D visualization** for presentations
+
+**Your final data package includes:**
+
+```         
+study_area_terrain/
+├── raw_data/
+│   ├── SRTM_tile_N50_E005.tif
+│   ├── SRTM_tile_N50_E006.tif
+│   ├── SRTM_tile_N51_E005.tif
+│   └── SRTM_tile_N51_E006.tif
+├── processed/
+│   ├── dem_virtual.vrt
+│   ├── dem_reprojected.tif
+│   ├── dem_clipped.tif
+│   └── dem_clipped_gauss.tif
+├── vectors/
+│   ├── contour_lines_10m.shp
+│   ├── contour_lines_10m.dbf
+│   ├── contour_lines_10m.shx
+│   └── contour_lines_10m.prj
+├── visualizations/
+│   ├── terrain_profile_section_A.png
+│   ├── terrain_profile_section_B.png
+│   └── terrain_3d.html
+└── analysis_results/
+    ├── elevation_statistics.csv
+    └── slope_analysis.tif
+```
+
+**What you can do next:** - Perform slope and aspect analysis - Calculate watershed boundaries - Model hydrological flows - Plan infrastructure projects - Generate professional map layouts
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-dumbbell"></i> Exercises & Challenges
+
+### Challenge 1: Intermediate - Extract Multiple Contour Intervals
+
+::: {.challenge-header .intermediate}
+[🟡]{style="font-size: 1.5rem;"} [Create Multi-Scale Contours]{.challenge-title} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
+:::
+
+**Objective:** Create contour maps at different intervals to understand when each is appropriate.
+
+**Your task:**
+
+1.  Generate contour lines at **5m interval** and save as `contour_5m.shp`
+2.  Generate contour lines at **25m interval** and save as `contour_25m.shp`
+3.  Compare both visually in QGIS
+4.  Document which is better for your area and why
+
+**Hint:** Use smaller intervals for detailed small-area analysis, larger intervals for regional overviews.
+
+**Solution (click to reveal):**
+
+::: {.callout-tip collapse="true"}
+For 5m contours:
+
+```         
+Raster > Extraction > Contour
+Input: dem_clipped.tif
+Interval: 5
+Output: contour_5m.shp
+```
+
+For 25m contours:
+
+```         
+Raster > Extraction > Contour
+Input: dem_clipped.tif
+Interval: 25
+Output: contour_25m.shp
+```
+
+**Comparison:** The 5m contours show detailed terrain variation ideal for engineering and detailed planning. The 25m contours are clearer for regional analysis and printed maps.
+:::
+
+------------------------------------------------------------------------
+
+### Challenge 2: Intermediate - Calculate Slope from DEM
+
+::: {.challenge-header .intermediate}
+[🟡]{style="font-size: 1.5rem;"} [Slope and Aspect Analysis]{.challenge-title} [Intermediate]{.badge .badge-difficulty .badge-intermediate}
+:::
+
+**Objective:** Derive slope and aspect rasters from the DEM for terrain analysis.
+
+**Your task:**
+
+1.  Use **Raster \> Analysis \> Slope** on your DEM
+2.  Use **Raster \> Analysis \> Aspect** on your DEM
+3.  Apply a color ramp to visualize slope categories
+4.  Identify areas of steep terrain (\>30°)
+
+**Resources:** - QGIS Raster Analysis: \<https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html
+
+**Hint:** Slope values \>30° indicate steep terrain unsuitable for building but good for hydropower studies.
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-lightbulb"></i> Tips, Tricks & Warnings
+
+### 💡 Pro Tips
+
+::: {.callout-tip appearance="minimal" icon="true"}
+-   **Tip 1: Check data resolution** - SRTM 1 Arc-Second has \~30m resolution. For smaller areas, consider ASTER GDEM (higher resolution) or LiDAR data.
+
+-   **Tip 2: Use virtual rasters** - Building virtual rasters (VRT) keeps original data intact and processes faster than creating new files.
+
+-   **Tip 3: Smooth before contouring** - Always apply a Gaussian filter before extracting contours. Smoothing removes noise artifacts and creates professional-looking contour maps.
+
+-   **Tip 4: Exaggerate vertical scale in 3D** - Use 1.5-2.0x exaggeration in 3D visualizations to make subtle terrain variations visible in presentations.
+
+-   **Tip 5: Cache your processed data** - Save clipped, reprojected DEMs so you don't need to re-download raw tiles every time.
+:::
+
+### ⚠️ Common Pitfalls
+
+::: {.callout-warning appearance="minimal" icon="true"}
+**Watch out for these mistakes:**
+
+1.  **Forgetting to reproject:** SRTM data is in WGS 84 (geographic). Always reproject to UTM or local coordinates before analysis to get accurate measurements.
+
+    ```         
+    ❌ Measuring in degrees = inaccurate distances
+    ✅ Measure in UTM = accurate meters/kilometers
+    ```
+
+2.  **Wrong contour intervals:** Using 10m contours for a 100 km² region creates thousands of lines. Use 25-50m for large areas.
+
+3.  **Not checking Nodata values:** SRTM often has -9999 for water bodies. Specify this or your analysis will be corrupted by these artificial values.
+
+4.  **Ignoring edge effects:** Clipped DEMs have edge artifacts. Keep a buffer around your actual study area when downloading.
+:::
+
+### 🔴 Critical Warnings
+
+::: {.callout-danger appearance="minimal" icon="true"}
+**These mistakes could corrupt your analysis:**
+
+⚠️ **Always backup original SRTM tiles** before processing. Download once, work with copies:
+
+``` bash
+# Recommended directory structure
+├── data_original/          ← Original SRTM (never modify)
+│   └── SRTM_*.tif
+└── data_working/          ← Your processed versions
+    ├── dem_virtual.vrt
+    ├── dem_reprojected.tif
+    └── dem_clipped.tif
+```
+
+⚠️ **Verify your projection before publishing maps.** Mistakes here are costly:
+
+```         
+Check: Raster > Properties > Source 
+✅ Verify CRS shows "WGS 84 / UTM zone 32 N"
+❌ Do NOT report results if CRS is uncertain
+```
+
+⚠️ **Test contour extraction on small areas first** before processing entire datasets. A failed 500MB process wastes hours.
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-arrow-right"></i> Related Tutorials & Next Steps
+
+::: {.callout-info appearance="minimal" icon="true"}
+**After completing this tutorial, you might be interested in:**
+
+### Level Up Your Skills
+
+1.  **Advanced Terrain Analysis: Hydrology & Watersheds** - Delineate drainage basins and flow paths
+    -   Estimated time: 60 minutes
+    -   Difficulty: Advanced
+2.  **LiDAR Data Processing in QGIS** - Work with high-resolution LiDAR point clouds
+    -   Estimated time: 90 minutes
+    -   Difficulty: Advanced
+3.  **Geological Mapping & Cross-Sections** - Create professional geological cross-sections from DEM data
+    -   Estimated time: 45 minutes
+    -   Difficulty: Intermediate
+
+### Related Topics
+
+-   **Hillshade & Slope Mapping** - Visualize terrain with shaded relief
+-   **Viewshed Analysis** - Calculate visible areas from observation points
+-   **Aspect & Curvature** - Analyze terrain orientation and landform classification
+-   **Land Cover Classification from Terrain** - Combine DEM with other data for analysis
+
+### Practice Projects
+
+-   **Project 1:** Create a professional terrain map of your local area
+-   **Project 2:** Analyze a watershed using derived terrain products
+-   **Project 3:** Design a hiking trail using slope and contour analysis
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-book"></i> References & Further Reading
+
+::: {.callout-note appearance="minimal" icon="true"}
+### Official Documentation
+
+-   **QGIS Manual:** <https://docs.qgis.org/latest/en/docs>
+    -   [Raster Analysis Tools](https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
+    -   [Raster Extraction Tools](https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/rasterextraction.html)
+-   **USGS EarthExplorer:** <https://earthexplorer.usgs.gov>
+    -   [SRTM Dataset Documentation](https://lpdaac.usgs.gov/products/srtmgl1v003/)
+    -   [Data Access Guide](https://earthexplorer.usgs.gov/help/end-user-license)
+
+### Tutorials & Guides
+
+1.  **"QGIS Raster Analysis" - QGIS Documentation (Official)**
+    -   Comprehensive guide to raster processing tools
+    -   Available: https://docs.qgis.org/
+2.  **"SRTM Data and Terrain Analysis" - USGS Guide (2020)**
+    -   Technical specifications and best practices
+    -   Available: https://lpdaac.usgs.gov/
+
+### Plugin Documentation
+
+-   **Profile Tool Plugin:** https://github.com/borisj/ProfileTool
+    -   GitHub repository with examples and troubleshooting
+-   **Qgis2threejs Plugin:** https://qgis2threejs.readthedocs.io/
+    -   Complete documentation with advanced 3D options
+
+### Related Datasets
+
+-   **SRTM Data:** 30m resolution global elevation (what you're using)
+-   **ASTER GDEM:** Higher resolution (15m) alternative
+-   **GEBCO Bathymetry:** For coastal/ocean terrain
+-   **National LiDAR:** Country-specific higher resolution data
+:::
+
+------------------------------------------------------------------------
+
+## <i class="fas fa-comments"></i> Questions or Issues?
+
+If you encounter problems:
+
+1.  **Check QGIS compatibility** - Ensure you're running QGIS 3.0 or newer
+2.  **Verify USGS account** - Registration required for all downloads
+3.  **Check internet connection** - EarthExplorer requires stable connection
+4.  **Search QGIS Documentation** - https://docs.qgis.org/
+5.  **Ask on GIS Stack Exchange** - https://gis.stackexchange.com/
+
+**Common issues:**
+
+| Issue                          | Solution                                |
+|--------------------------------|-----------------------------------------|
+| Plugin won't install           | Update QGIS to latest version           |
+| "Nodata" artifacts in contours | Check nodata value is set to -9999      |
+| 3D visualization very slow     | Use larger contour intervals (25-50m)   |
+| Projection mismatches          | Always reproject to UTM before analysis |
+
+------------------------------------------------------------------------
+
+**Tutorial Version:** 1.0\
+**Last Updated:** February 5, 2025\
+**Difficulty:** Intermediate\
+**Estimated Duration:** 90 minutes\
+**Status:** ✅ Complete and tested in QGIS 3.28.0

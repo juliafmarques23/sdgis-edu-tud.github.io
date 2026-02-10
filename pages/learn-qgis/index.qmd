@@ -1,0 +1,52 @@
+---
+title: Learn QGIS
+subtitle: Browse tutorials, guides, and resources for spatial data analysis
+listing:
+  contents:
+  - '**/*.qmd'
+  - '!index.qmd'
+  type: grid
+  categories: TRUE
+  sort: title
+  filter-ui: TRUE
+  sort-ui: TRUE
+  fields:
+  - title
+  - description
+  - categories
+  grid-columns: 3
+  image-height: 200px
+page-layout: full
+
+---
+
+
+## Welcome to QGIS Tutorials
+
+Explore our comprehensive collection of QGIS tutorials organized by topic and skill level. Use the filters above to find exactly what you need, or browse by category below.
+
+### Quick Navigation
+
+:::::: grid
+::: g-col-4
+**Getting Started**
+
+New to QGIS? Start here to learn the basics of installation, setup, and fundamental operations.
+:::
+
+::: g-col-4
+**Cartography & Mapping**
+
+Learn how to create professional, publication-ready maps with proper design principles.
+:::
+
+::: g-col-4
+**Spatial Analysis**
+
+Explore density analysis, landscape analysis, and advanced spatial data processing techniques.
+:::
+::::::
+
+------------------------------------------------------------------------
+
+**Tip:** Use the search bar above to find specific topics, or filter by category and difficulty level.

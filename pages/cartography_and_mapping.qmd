@@ -1,4 +1,0 @@
----
-title: "Cartography and Mapping"
-format: html
----
