@@ -13,7 +13,35 @@ format: html
 
 ## Dates and Deadlines
 
--   To be updated
+**Week 2 - Wednesday, 18 February**
+
+(Flux Hall A)
+
+**08:45 \| Media analysis**
+
+(Self-study)
+
+**13:45 \| Spatial analysis toward typology construction**
+
+**18:00 \| SUBMIT ASSIGNMENT**
+
+**Week 3 - Monday, 23 February**
+
+(ARCH-Lecture Hall B. 08.BG.Oost.370) 
+
+**11:00 \| GIS Q&A session**
+
+**Week 3 - Wednesday, 25 February**
+
+(TPM Hall A) 
+
+**08:45 \| Media Analysis**
+
+**Week 4 - Wednesday, 4 March**
+
+(AS-Franklin Hall and Waterman (58.A2.050/58.A2.110))
+
+**08:45 \| Typology construction with cluster analysis**
 
 ## Resources
 
