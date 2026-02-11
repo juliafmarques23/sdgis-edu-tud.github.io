@@ -51,7 +51,11 @@ By completing this tutorial, you will be able to:
 
 You will need the following datasets:
 
-**OpenStreetMap (OSM) Highway Data** - Vector line layer containing road network - Available from: [geofabriek.de](http://download.geofabrik.de/europe/netherlands/zuid-holland-latest-free.shp.zip) or QuickOSM plugin - Must contain a `highway` field with road classification values - Relevant road types for this analysis: - `motorway`, `motorway_link` – High-speed limited access - `primary`, `primary_link` – Major through routes - `secondary`, `secondary_link` – Important secondary routes - `tertiary`, `tertiary_link` – Local roads
+**OpenStreetMap (OSM) Highway Data** - Vector line layer containing road network - Available from: [geofabriek.de](http://download.geofabrik.de/europe/netherlands.html) or QuickOSM plugin - Must contain a `fclass` or `highway` field with road classification values - Relevant road types for this analysis: - `motorway`, `motorway_link` – High-speed limited access - `primary`, `primary_link` – Major through routes - `secondary`, `secondary_link`.
+
+::: callout-important
+Alternatively, you can find the OSM-Roads dataset in the data folder.
+:::
 
 **2x2 km Reference Grid** - Regular grid covering the Netherlands - Must contain a `fid` field for unique cell identification - Grid cells are 2×2 km (4 km²)
 
@@ -72,7 +76,7 @@ The analysis follows a simple, direct workflow:
 | Phase | Tasks | Output |
 |-----------------------|-----------------------|--------------------------|
 | **Data Preparation** | Import OSM and grid data; verify CRS | Verified layers in EPSG:28992 |
-| **Data Filtering** | Select relevant road types (motorway, primary, secondary, tertiary) | Filtered OSM road layer |
+| **Data Filtering** | Select relevant road types (motorway, primary, secondary) | Filtered OSM road layer |
 | **Density Calculation** | Calculate total road length per grid cell | Grid with road length field |
 | **Classification** | Apply natural breaks classification to visualize density | Classified density map |
 | **Interpretation** | Analyze spatial patterns of road infrastructure | Regional insights |
@@ -88,7 +92,6 @@ Roads are typically classified by their functional importance and connectivity:
 -   **Motorway** (`motorway`) – Limited-access, high-speed infrastructure
 -   **Primary** (`primary`) – Major through routes connecting urban centers
 -   **Secondary** (`secondary`) – Important regional connections
--   **Tertiary** (`tertiary`) – Local roads with mixed traffic
 -   **Links** (e.g., `motorway_link`) – Connector roads between road classes
 
 **Road Density Concept:**
@@ -185,10 +188,10 @@ You can analyze all road types together or focus on specific classifications (e.
 Build an expression to select only important road classes:
 
 ```         
-"highway" IN ('motorway', 'motorway_link', 'primary', 'primary_link', 'secondary', 'secondary_link'. `tertiary`, `tertiary_link`)
+"highway" IN ('motorway', 'motorway_link', 'primary', 'primary_link', 'secondary', 'secondary_link')
 ```
 
-**Explanation:** - `IN (...)` selects records where the `fclass` field matches any listed value - This includes motorways, primary, secondary, and tertiary roads with their link roads - Excludes local/minor roads
+**Explanation:** - `IN (...)` selects records where the `fclass` field matches any listed value - This includes motorways, primary, and secondary roads with their link roads - Excludes local/minor roads
 
 **Alternative: Include all road types**
 
@@ -424,7 +427,7 @@ Once you complete this tutorial, consider:
 ## Quick Reference: Key Tools
 
 | Task | Tool Path | Purpose |
-|------------------|------------------------------|-------------------------|
+|------------------|-----------------------------|-------------------------|
 | **Import data** | **Layer → Add Layer → Add Vector Layer** | Load OSM roads and grid |
 | **Check CRS** | **Right-click layer → Layer CRS** | Verify coordinate system |
 | **Reproject** | **Processing → Reproject layer** | Convert to EPSG:28992 |
@@ -442,15 +445,13 @@ Once you complete this tutorial, consider:
 **Road Types Included in This Analysis:**
 
 | Classification   | Meaning                | Typical Speed | Examples              |
-|--------------------|----------------|--------------------|----------------|
+|-------------------|-----------------|-------------------|-----------------|
 | `motorway`       | Limited-access highway | 100–130 km/h  | A-roads, Autobahns    |
 | `motorway_link`  | Motorway connector     | Variable      | Ramps, off-ramps      |
 | `primary`        | Major through route    | 60–100 km/h   | National routes       |
 | `primary_link`   | Primary connector      | Variable      | Primary exit ramps    |
 | `secondary`      | Regional route         | 50–80 km/h    | Regional highways     |
 | `secondary_link` | Secondary connector    | Variable      | Secondary connections |
-| `tertiary`       | Local connecting road  | 40–60 km/h    | Town center roads     |
-| `tertiary_link`  | Tertiary connector     | Variable      | Tertiary connections  |
 
 **Road Types Excluded (Optional):** - `residential` – Streets in residential neighborhoods - `unclassified` – Minor local roads - `service` – Service roads, parking areas - `living_street` – Low-traffic residential areas - `track` – Agricultural/forestry roads
 
