@@ -191,6 +191,8 @@ In the **Field Calculator dialog:**
 to_int(LEFT(Code_18, 1))
 ```
 
+![](land_use_grid_aggregation/01.png)
+
 This extracts the first character of the `Code_18` field and converts it to an integer.
 
 **Explanation:** - `LEFT(Code_18, 1)` – Extracts the leftmost character from the Code_18 field - `to_int()` – Converts the text character to an integer (1, 2, 3, 4, or 5)
@@ -213,7 +215,7 @@ This extracts the first character of the `Code_18` field and converts it to an i
 
 Dissolving merges adjacent polygons with the same classification, reducing the total number of features from \~44 classes (Level 3) to 5 (Level 1).
 
-### 3.1 Check for Invalid Geometries
+### 3.1 Check for Invalid Geometries (optional)
 
 Before dissolving, we must verify and fix any invalid geometries, which are common in large datasets like CLC.
 
@@ -299,6 +301,8 @@ Now dissolve the fixed CLC layer by the `Level_1` field to merge all polygons of
 -   Each feature represents all land of that class type, merged into single multi-part polygons
 -   Attribute table will show the Level_1 code and any aggregated statistics
 
+![](land_use_grid_aggregation/02.png)
+
 ### 3.4 Verify the Dissolved Layer
 
 1.  Open the **Attribute Table** of the dissolved layer
@@ -349,6 +353,8 @@ Intersection overlays the simplified CLC classes with the regular grid, creating
     -   Grid fields: `CellCode`, grid geometry fields
     -   CLC fields: `Level_1` (the land use class)
 
+![](land_use_grid_aggregation/05.png)
+
 ### 4.2 Verify Intersection Results
 
 1.  Open the **Attribute Table** of the intersection layer
@@ -387,6 +393,8 @@ This built-in QGIS variable calculates the area of each polygon in the coordinat
 
 5.  Click **OK**
 
+![](land_use_grid_aggregation/06.png)
+
 ### 5.2 Verify Area Calculations
 
 1.  Scroll right in the **Attribute Table** to see the new `Area_m2` column
@@ -424,6 +432,8 @@ Centroids (center points) of intersection polygons will be used to join attribut
 -   A new point layer is created with one point at the center of each intersection polygon
 -   The attribute table includes all fields from the input (intersection) layer:
     -   `CellCode`, `Level_1`, `Area_m2`, etc.
+
+![](land_use_grid_aggregation/07.png)
 
 ### 6.2 Verify Centroid Layer
 
@@ -492,6 +502,8 @@ After restart:
 3.  You should see the plugin's tool listed
 4.  If not visible, enable it: **Plugins → Manage and Install Plugins** → check the plugin is enabled
 
+![](land_use_grid_aggregation/08.png)
+
 ------------------------------------------------------------------------
 
 ## Step 9: Identify Dominant Land Use Class per Grid Cell
@@ -523,6 +535,8 @@ Using the Dissolve with stats plugin, we dissolve the joined layer by grid cell 
     -   Enter: `Grid_Dominant_Class_Stats.shp`
 
 5.  Click **Run**
+
+![](land_use_grid_aggregation/09.png)
 
 **Result:**
 
@@ -572,6 +586,8 @@ We must now join the maximum area information back to the full dataset to filter
 -   Each record now has access to the `Area_m2_max` value for its grid cell
 -   Records where `Area_m2` equals `Area_m2_max` represent dominant land use classes
 
+![](land_use_grid_aggregation/10.png)
+
 ------------------------------------------------------------------------
 
 ## Step 11: Filter for Dominant Classes
@@ -586,6 +602,8 @@ Now filter the joined layer to keep only the records where the area of the inter
     -   Build a filter expression: `Area_m2 = Area_m2_max`
     -   (Exact field names may vary; use the field names from your dataset)
 3.  Click **OK** to apply the filter
+
+![](land_use_grid_aggregation/11.png)
 
 **Result:**
 
@@ -604,6 +622,10 @@ Now filter the joined layer to keep only the records where the area of the inter
 3.  Check **Save only selected features** (to save the filtered results)
 
 4.  Click **Save**
+
+![](land_use_grid_aggregation/12.png)
+
+![](land_use_grid_aggregation/13.png)
 
 **Result:**
 
