@@ -75,11 +75,11 @@ You will need the following datasets:
 
 The example in this tutorial covers:
 
-**Bounding Box (GDAL format, in EPSG:3035 coordinates):** CHECK
+**Bounding Box (GDAL format, in EPSG:28992 coordinates):**
 
 ```         
-3,500,000.0 (West), 2,680,000.0 (South)
-4,490,000.0 (East), 3,670,000.0 (North)
+10425.1560000000008586,306846.1979999999748543:
+278026.0900000000256114,621876.3000000000465661
 ```
 
 ------------------------------------------------------------------------
