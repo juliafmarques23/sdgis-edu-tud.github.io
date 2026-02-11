@@ -27,6 +27,10 @@ date: .na.character
 
 This tutorial guides you through creating a national-level map of photovoltaic (PV) potential for Dutch municipalities. You will combine municipal boundary vector data with a PV potential raster layer, perform zonal statistics to extract summary metrics, and visualize results through classification maps and exploratory visualizations.
 
+This is an example of the expected final output:
+
+![Map of Solar Panel Potential in the Netherlands](pv-potential/01.png){fig-alt="Map of Solar Panel Potential in the Netherlands"}
+
 **Learning Outcomes:**
 
 By completing this tutorial, you will be able to:
@@ -195,6 +199,8 @@ Proper raster visualization enhances pattern recognition and communicates data e
     -   **YlOrRd** – Yellow → orange → red; classic scientific choice
 5.  **Preview:** The map will update as you select different ramps
 
+![Cpt-city Color Ramp dialog](pv-potential/02.png){fig-alt="Cpt-city Color Ramp dialog"}
+
 **Adjust Min-Max Values for Optimal Contrast:**
 
 1.  Locate **Min / Max Values Settings** (often appears as a button or dropdown)
@@ -224,6 +230,8 @@ Proper raster visualization enhances pattern recognition and communicates data e
     -   Return to the Styling panel and adjust the colour ramp or stretch settings
     -   Click **Apply** again to update
 
+![](pv-potential/03.png)
+
 ------------------------------------------------------------------------
 
 ## Step 4: Perform Zonal Statistics
@@ -251,6 +259,8 @@ The Zonal Statistics dialog will open with several fields to fill:
 3.  **Raster band:**
     -   If `PVOUT` is a single-band raster, select **Band 1**
     -   (Most common for single-band scientific rasters)
+
+![](pv-potential/04.png)
 
 **Select Statistics to Calculate:**
 
@@ -598,6 +608,8 @@ In the **Data Plotly panel**, set:
 3.  **Export as SVG** (for further editing in design software):
     -   Go to **Layout → Export as SVG**
     -   Useful if you want to refine the layout in Adobe Illustrator or Inkscape
+
+![](pv-potential/05.png)
 
 ------------------------------------------------------------------------
 
