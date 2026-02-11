@@ -27,43 +27,33 @@ Click [here](https://surfdrive.surf.nl/s/GmbX2FRKjixAaLa) to download the datase
 
 -   [GeoDa](https://geodacenter.github.io/download)
 
-### Assignments and Instructions - to be updated
+### Assignments and Instructions
 
-#### Week 1
+#### **Get the GIS data from [https://surfdrive.suxrf.nl/s/GmbX2FRKjixAaLa](https://surfdrive.surf.nl/s/GmbX2FRKjixAaLa)**
 
-**Assignment per group (4-5 students)**
+**Follow these tutorials:**
 
--   **Formulate 2-3 *research questions* of *spatial analysis* based on Energy infrastructure data** (The OSM / OpenInfra data can be found in in the QGGIS Resources section above)
+[**Creating a 2x2km Fishnet Grid**](https://sdgis-edu-tud.github.io/pages/learn-qgis/spatial-data-preparation/creating-fishnet.html)or use the one created by us in the dataset
 
--   **Apply at least one of the three *different analysis methods for each research question (see videos below)***. The questions should be related to your design studio project.
+1.  [**Mapping Photovoltaic Potential Across Dutch Municipalities**](https://sdgis-edu-tud.github.io/pages/learn-qgis/environmental-assessment/pv-potential.html)
 
-**For each study:**
+2.  [**CLC to grid**](https://sdgis-edu-tud.github.io/pages/learn-qgis/misc/land-use-grid-aggregation.html)
 
--   define a scale (area), i.e. city, city-region, whole NL (n.b.: you can work through scales).
+3.  [**Road Density Analysis**](https://sdgis-edu-tud.github.io/pages/learn-qgis/density-analysis/road-network-density.html)
 
--   select different energy production types, or networks, fossil or renewable (solar, wind, gas etc) based on different attributes (output, capacity, etc)
+4.  **Add one more analysis relevant for your group (we recommend you apply the workflow of Tutorial 1 on use the gas supply per home data on postcode level included in the dataset)**
 
--   select an analysis method (1 Heatmap/Clustering, 2 Density/Hexmap or 3 Network analysis
+::: callout-important
+**IMPORTANT: the results of all analyses should be saved on the grid. Run the analysis in sequence and store the results in the same attribute table. This is needed for the workshop in Week 4.**
+:::
 
--   define legend and symbology
+**Go to Miro: <https://miro.com/app/board/uXjVGCONmLk=/> Password: q3gis2026**
 
-**Questions to be answered:**
+-   **Ask questions before 17 February, 18:00**
 
--   *Which energy* *data and scale/area did you select. Why? Explain.*
+-   **Submit assignment before 18 February, 18:00**
 
--   *The outcome for each study is a map with a legend. What are the conclusions from the research? How did you visualize the results?*
-
--   *For each study reflect on the applied method, which setting did you experiment with, how did it influence the outcomes?*
-
--   *What did you gain for your design project from this analysis?*
-
-**How to deliver?**
-
-A MIRO board will be prepared to deliver the questions and draft maps for the workshop and the final results.
-
--   On **Monday February 24** by 8:45: Upload on Miro input in support of the feedback session on Monday February 24 morning, including formulated questions you will be investigating through the maps, list of data you expect to use, and if possible a first round of draft maps, plus any questions related to the production process.
-
--   On **Thursday March 13** by 18:00: Upload on Miro the final material.
+**You will carry out the assignments in your studio groups, which will be formed on Friday 13 February**
 
 ### Tutorials and Resources
 
