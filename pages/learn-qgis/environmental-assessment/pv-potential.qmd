@@ -71,7 +71,7 @@ For this exercise, you will work with the following datasets: - **Municipal Boun
 The analysis follows a systematic GIS workflow:
 
 | Phase | Tasks |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Preparation** | Open QGIS project; organize and examine layers |
 | **Data Cleaning** | Remove extraneous fields from municipal boundaries; standardize attribute names |
 | **Raster Styling** | Apply colour ramps and stretch techniques to visualize PV potential raster |
@@ -616,7 +616,7 @@ In the **Data Plotly panel**, set:
 ## Troubleshooting Guide
 
 | Problem | Likely Cause | Solution |
-|---------------------|----------------------------|-----------------------|
+|----|----|----|
 | **Zonal Statistics produces no output** | Misaligned CRS; empty selection | Verify both layers use the same coordinate reference system (EPSG:28992 for Netherlands). Check that both layers are valid. |
 | **Raster appears entirely black or white** | Extreme outliers in data; poor stretch settings | Use "Cumulative Count Stretch (2-98%)" instead of standard Min-Max. Manually set min/max values to reasonable ranges. |
 | **New columns don't appear in attribute table** | Editing mode not exited; output layer not loaded | Ensure you exited editing mode and saved changes. Check the Layers panel to confirm the output layer was added. |

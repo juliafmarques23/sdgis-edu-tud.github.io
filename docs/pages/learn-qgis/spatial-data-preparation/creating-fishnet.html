@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Creating a 2x2 km Fishnet Grid Using CBS Data – SDGIS</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-cb168b1d3fd9d67ce14b64e8ae8a6f7f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -733,7 +736,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is PDOK?
+<span class="screen-reader-only">Note</span>What is PDOK?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -771,7 +774,7 @@ What is PDOK?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Understanding EPSG:28992 (RD New)
+<span class="screen-reader-only">Important</span>Understanding EPSG:28992 (RD New)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -821,7 +824,7 @@ Understanding EPSG:28992 (RD New)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Grid Spacing Units
+<span class="screen-reader-only">Tip</span>Grid Spacing Units
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -859,7 +862,7 @@ Grid Spacing Units
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Expected Extent Values
+<span class="screen-reader-only">Note</span>Expected Extent Values
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -908,7 +911,7 @@ Expected Extent Values
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Understanding Grid Extent
+<span class="screen-reader-only">Important</span>Understanding Grid Extent
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -953,7 +956,7 @@ Understanding Grid Extent
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What Does Clipping Do?
+<span class="screen-reader-only">Note</span>What Does Clipping Do?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1008,7 +1011,7 @@ What Does Clipping Do?
 </ul></li>
 <li><p><strong>Enter this expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$area<span class="op">/</span><span class="dv">1000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$area<span class="op">/</span><span class="dv">1000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This calculates the area in square meters (since your CRS is EPSG:28992 in meters).</p>
 <ol start="6" type="1">
 <li><p>Click <strong>OK</strong></p></li>
@@ -1026,7 +1029,7 @@ What Does Clipping Do?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Alternative Area Expressions
+<span class="screen-reader-only">Tip</span>Alternative Area Expressions
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1087,7 +1090,7 @@ Alternative Area Expressions
 <li><p>Right-click <strong>fishnet_2km_clipped</strong> layer → <strong>Filter</strong></p></li>
 <li><p>In the Query Builder dialog, enter the following expression:</p></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">"area_km2"</span> <span class="op">&gt;=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">"area_km2"</span> <span class="op">&gt;=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li>Click <strong>Test</strong> to verify the filter works
 <ul>
@@ -1114,7 +1117,7 @@ Alternative Area Expressions
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Filter vs.&nbsp;Selection vs.&nbsp;New Layer
+<span class="screen-reader-only">Warning</span>Filter vs.&nbsp;Selection vs.&nbsp;New Layer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1154,7 +1157,7 @@ Filter vs.&nbsp;Selection vs.&nbsp;New Layer
 <colgroup>
 <col style="width: 38%">
 <col style="width: 29%">
-<col style="width: 31%">
+<col style="width: 32%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1212,7 +1215,7 @@ Filter vs.&nbsp;Selection vs.&nbsp;New Layer
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-CBS Grid Data Assumptions
+<span class="screen-reader-only">Important</span>CBS Grid Data Assumptions
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1333,7 +1336,7 @@ CBS Grid Data Assumptions
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Alternative Thresholds
+<span class="screen-reader-only">Note</span>Alternative Thresholds
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1394,7 +1397,7 @@ Alternative Thresholds
 </ul></li>
 <li><p><strong>Enter this expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This assigns each feature its unique feature ID.</p>
 <ol start="6" type="1">
 <li>Click <strong>OK</strong></li>
@@ -1417,7 +1420,7 @@ Alternative Thresholds
 </ul></li>
 <li><p><strong>Expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x(centroid($geometry))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x(centroid($geometry))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="4" type="1">
 <li>Click <strong>OK</strong></li>
 </ol>
@@ -1436,7 +1439,7 @@ Alternative Thresholds
 </ul></li>
 <li><p><strong>Expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y(centroid($geometry))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y(centroid($geometry))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="4" type="1">
 <li><p>Click <strong>OK</strong></p></li>
 <li><p><strong>Save edits</strong> and <strong>toggle off editing mode</strong></p></li>
@@ -1453,7 +1456,7 @@ Alternative Thresholds
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Why Centroid Coordinates?
+<span class="screen-reader-only">Tip</span>Why Centroid Coordinates?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1499,9 +1502,9 @@ Important
 <h3 class="anchored" data-anchor-id="grid-resolution-selection">Grid Resolution Selection</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 50%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1661,9 +1664,9 @@ Important
 </ul></li>
 <li><strong>Simplify boundary first:</strong></li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Vector → Geometry Tools → Simplify</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Vector → Geometry Tools → Simplify</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Tolerance: <span class="dv">10</span> meters</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">Use</span> simplified Landgebied <span class="cf">for</span> clipping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">Use</span> simplified Landgebied <span class="cf">for</span> clipping</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li><strong>Work in batches:</strong>
 <ul>
@@ -1713,8 +1716,8 @@ Important
 </tbody>
 </table>
 <p><strong>Solution:</strong> 1. Verify layer CRS is EPSG:28992 2. Recalculate area with correct CRS 3. Convert units if needed:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Area <span class="kw">in</span> hectares: $area <span class="op">/</span> <span class="dv">10000</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Area <span class="kw">in</span> km²: $area <span class="op">/</span> <span class="dv">1000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Area <span class="kw">in</span> hectares: $area <span class="op">/</span> <span class="dv">10000</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Area <span class="kw">in</span> km²: $area <span class="op">/</span> <span class="dv">1000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="issue-5-cbs-data-wont-join-properly" class="level3">
 <h3 class="anchored" data-anchor-id="issue-5-cbs-data-wont-join-properly">Issue 5: CBS Data Won’t Join Properly</h3>
@@ -1736,15 +1739,15 @@ Important
 <li><strong>Check:</strong> Are join fields both numeric? Both text?</li>
 <li><strong>Fix:</strong> Use Field Calculator to standardize:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Cast</span> <span class="kw">to</span> <span class="dt">integer</span>: to_int(<span class="ot">"field_name"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Cast</span> <span class="kw">to</span> <span class="dt">integer</span>: to_int(<span class="ot">"field_name"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Cast</span> <span class="kw">to</span> string: to_string(<span class="ot">"field_name"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Round</span> coordinates: <span class="fu">round</span>(<span class="ot">"center_x"</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Round</span> coordinates: <span class="fu">round</span>(<span class="ot">"center_x"</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Precision issues:</strong></p>
 <ul>
 <li><strong>Check:</strong> Coordinates like 125000.00001 vs 125000</li>
 <li><strong>Fix:</strong> Round before joining:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="ot">"center_x"</span>, <span class="op">-</span><span class="dv">2</span>)  <span class="co">-- Round to nearest 100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="ot">"center_x"</span>, <span class="op">-</span><span class="dv">2</span>)  <span class="co">-- Round to nearest 100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="issue-6-function-names-appear-inconsistent" class="level3">
@@ -1975,13 +1978,14 @@ Important
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2386,7 +2390,7 @@ Important
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Creating a 2x2 km Fishnet Grid Using CBS Data</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Generating grids for zonal or statistical analysis</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
@@ -2821,7 +2825,7 @@ Important
 <span id="cb14-433"><a href="#cb14-433" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Record final statistics:**</span>
 <span id="cb14-434"><a href="#cb14-434" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-435"><a href="#cb14-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stage                       <span class="pp">|</span> Number of Cells      <span class="pp">|</span> Notes                  <span class="pp">|</span></span>
-<span id="cb14-436"><a href="#cb14-436" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------------------|---------------------|-----------------------|</span></span>
+<span id="cb14-436"><a href="#cb14-436" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------|----------------------|------------------------|</span></span>
 <span id="cb14-437"><a href="#cb14-437" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Initial grid (before clip)  <span class="pp">|</span> <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> <span class="pp">|</span> Rectangular extent     <span class="pp">|</span></span>
 <span id="cb14-438"><a href="#cb14-438" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> After clipping              <span class="pp">|</span> <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> <span class="pp">|</span> Matches NL shape       <span class="pp">|</span></span>
 <span id="cb14-439"><a href="#cb14-439" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> After filtering (≥50%)      <span class="pp">|</span> <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> <span class="pp">|</span> Only substantial cells <span class="pp">|</span></span>
@@ -3063,7 +3067,7 @@ Important
 <span id="cb14-675"><a href="#cb14-675" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grid Resolution Selection</span></span>
 <span id="cb14-676"><a href="#cb14-676" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-677"><a href="#cb14-677" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Grid Size     <span class="pp">|</span> Cell Area <span class="pp">|</span> When to Use                                      <span class="pp">|</span></span>
-<span id="cb14-678"><a href="#cb14-678" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------|------------------|------------------------------------|</span></span>
+<span id="cb14-678"><a href="#cb14-678" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------|-----------|--------------------------------------------------|</span></span>
 <span id="cb14-679"><a href="#cb14-679" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 100m × 100m   <span class="pp">|</span> 0.01 km²  <span class="pp">|</span> Detailed urban analysis, building-level patterns <span class="pp">|</span></span>
 <span id="cb14-680"><a href="#cb14-680" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 500m × 500m   <span class="pp">|</span> 0.25 km²  <span class="pp">|</span> Neighborhood characteristics, walking distances  <span class="pp">|</span></span>
 <span id="cb14-681"><a href="#cb14-681" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1km × 1km     <span class="pp">|</span> 1 km²     <span class="pp">|</span> District patterns, facility catchments           <span class="pp">|</span></span>
@@ -3132,7 +3136,7 @@ Important
 <span id="cb14-744"><a href="#cb14-744" aria-hidden="true" tabindex="-1"></a>**Causes &amp; Solutions:**</span>
 <span id="cb14-745"><a href="#cb14-745" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-746"><a href="#cb14-746" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cause <span class="pp">|</span> Solution <span class="pp">|</span></span>
-<span id="cb14-747"><a href="#cb14-747" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------------------|------------------------------------|</span></span>
+<span id="cb14-747"><a href="#cb14-747" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|</span></span>
 <span id="cb14-748"><a href="#cb14-748" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No internet connection <span class="pp">|</span> Check network, try again <span class="pp">|</span></span>
 <span id="cb14-749"><a href="#cb14-749" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Plugin not activated <span class="pp">|</span> Plugins → Manage Plugins → check PDOK is enabled <span class="pp">|</span></span>
 <span id="cb14-750"><a href="#cb14-750" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> PDOK service temporarily down <span class="pp">|</span> Try again later, check https://www.pdok.nl/status <span class="pp">|</span></span>
@@ -3301,7 +3305,7 @@ Important
 <span id="cb14-913"><a href="#cb14-913" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Concepts Reinforced</span></span>
 <span id="cb14-914"><a href="#cb14-914" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-915"><a href="#cb14-915" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Concept <span class="pp">|</span> Application in Tutorial <span class="pp">|</span></span>
-<span id="cb14-916"><a href="#cb14-916" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------------------|------------------------------------|</span></span>
+<span id="cb14-916"><a href="#cb14-916" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|</span></span>
 <span id="cb14-917"><a href="#cb14-917" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Coordinate Reference Systems** <span class="pp">|</span> EPSG:28992 (RD New) for Dutch data <span class="pp">|</span></span>
 <span id="cb14-918"><a href="#cb14-918" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Spatial Resolution** <span class="pp">|</span> 2km × 2km cells as statistical units <span class="pp">|</span></span>
 <span id="cb14-919"><a href="#cb14-919" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Geoprocessing Workflows** <span class="pp">|</span> Multi-step process: Create → Clip → Filter <span class="pp">|</span></span>
@@ -3344,7 +3348,7 @@ Important
 <span id="cb14-956"><a href="#cb14-956" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-957"><a href="#cb14-957" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Vector analysis tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html</span>
 <span id="cb14-958"><a href="#cb14-958" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Field calculator functions:** https://docs.qgis.org/latest/en/docs/user_manual/working_with_vector/expression.html</span>
-<span id="cb14-959"><a href="#cb14-959" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Geoprocessing tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeometry.html</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb14-959"><a href="#cb14-959" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Geoprocessing tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeometry.html</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

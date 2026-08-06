@@ -74,7 +74,7 @@ This tutorial covers the Netherlands using a 2x2 grid extent.
 The analysis follows a simple, direct workflow:
 
 | Phase | Tasks | Output |
-|-----------------------|-----------------------|--------------------------|
+|----|----|----|
 | **Data Preparation** | Import OSM and grid data; verify CRS | Verified layers in EPSG:28992 |
 | **Data Filtering** | Select relevant road types (motorway, primary, secondary) | Filtered OSM road layer |
 | **Density Calculation** | Calculate total road length per grid cell | Grid with road length field |
@@ -367,7 +367,7 @@ Questions to explore with your analysis:
 ## Troubleshooting Guide
 
 | Problem | Cause | Solution |
-|-------------------------|--------------------|----------------------------|
+|----|----|----|
 | **Sum Line Lengths produces all zero values** | Wrong CRS (geographic instead of projected); grid and roads not properly aligned | Verify CRS is EPSG:28992 (projected). Check grid and roads overlap spatially. |
 | **No roads found in cells** | Spatial extent mismatch; roads layer filtered out | Verify grid and roads cover the same area. Remove any filters on roads layer. |
 | **Classification produces poor visualization** | Too many or too few classes; extreme outliers | Adjust number of classes (4–7). Try different break algorithms (Equal Interval, Quantiles). |
@@ -427,7 +427,7 @@ Once you complete this tutorial, consider:
 ## Quick Reference: Key Tools
 
 | Task | Tool Path | Purpose |
-|------------------|-----------------------------|-------------------------|
+|----|----|----|
 | **Import data** | **Layer → Add Layer → Add Vector Layer** | Load OSM roads and grid |
 | **Check CRS** | **Right-click layer → Layer CRS** | Verify coordinate system |
 | **Reproject** | **Processing → Reproject layer** | Convert to EPSG:28992 |
@@ -445,7 +445,7 @@ Once you complete this tutorial, consider:
 **Road Types Included in This Analysis:**
 
 | Classification   | Meaning                | Typical Speed | Examples              |
-|-------------------|-----------------|-------------------|-----------------|
+|------------------|------------------------|---------------|-----------------------|
 | `motorway`       | Limited-access highway | 100–130 km/h  | A-roads, Autobahns    |
 | `motorway_link`  | Motorway connector     | Variable      | Ramps, off-ramps      |
 | `primary`        | Major through route    | 60–100 km/h   | National routes       |

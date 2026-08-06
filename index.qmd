@@ -19,10 +19,10 @@ The Spatial Data & GIS Platform is developed by the Department of Urbanism at TU
 
 **What we offer:**
 
--   High-quality educational resources curated and developed by TU Delft faculty and external experts
--   Open access to spatial datasets relevant to urban design and planning
--   Guides for GIS software and data visualization tools
--   A collaborative space for educators to share and adapt teaching materials
+- High-quality educational resources curated and developed by TU Delft faculty and external experts
+- Open access to spatial datasets relevant to urban design and planning
+- Guides for GIS software and data visualization tools
+- A collaborative space for educators to share and adapt teaching materials
 
 ------------------------------------------------------------------------
 

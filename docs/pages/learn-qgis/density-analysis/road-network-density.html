@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Road Network Density Analysis in the Netherlands – SDGIS</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-cb168b1d3fd9d67ce14b64e8ae8a6f7f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -697,9 +700,9 @@ Important
 <p>The analysis follows a simple, direct workflow:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 31%">
-<col style="width: 36%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1043,9 +1046,9 @@ Important
 <h2 class="anchored" data-anchor-id="troubleshooting-guide">Troubleshooting Guide</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 27%">
-<col style="width: 38%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1152,9 +1155,9 @@ Important
 <h2 class="anchored" data-anchor-id="quick-reference-key-tools">Quick Reference: Key Tools</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 40%">
-<col style="width: 34%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1218,10 +1221,10 @@ Important
 <p><strong>Road Types Included in This Analysis:</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 23%">
-<col style="width: 26%">
-<col style="width: 23%">
+<col style="width: 22%">
+<col style="width: 30%">
+<col style="width: 18%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1361,13 +1364,14 @@ Important
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1772,7 +1776,7 @@ Important
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Road Network Density Analysis in the Netherlands</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Calculating network density and spatial statistics</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
@@ -1848,7 +1852,7 @@ Important
 <span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>The analysis follows a simple, direct workflow:</span>
 <span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Phase <span class="pp">|</span> Tasks <span class="pp">|</span> Output <span class="pp">|</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------|-----------------------|--------------------------|</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Data Preparation** <span class="pp">|</span> Import OSM and grid data; verify CRS <span class="pp">|</span> Verified layers in EPSG:28992 <span class="pp">|</span></span>
 <span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Data Filtering** <span class="pp">|</span> Select relevant road types (motorway, primary, secondary) <span class="pp">|</span> Filtered OSM road layer <span class="pp">|</span></span>
 <span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Density Calculation** <span class="pp">|</span> Calculate total road length per grid cell <span class="pp">|</span> Grid with road length field <span class="pp">|</span></span>
@@ -2141,7 +2145,7 @@ Important
 <span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting Guide</span></span>
 <span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Problem <span class="pp">|</span> Cause <span class="pp">|</span> Solution <span class="pp">|</span></span>
-<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------|--------------------|----------------------------|</span></span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Sum Line Lengths produces all zero values** <span class="pp">|</span> Wrong CRS (geographic instead of projected); grid and roads not properly aligned <span class="pp">|</span> Verify CRS is EPSG:28992 (projected). Check grid and roads overlap spatially. <span class="pp">|</span></span>
 <span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **No roads found in cells** <span class="pp">|</span> Spatial extent mismatch; roads layer filtered out <span class="pp">|</span> Verify grid and roads cover the same area. Remove any filters on roads layer. <span class="pp">|</span></span>
 <span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Classification produces poor visualization** <span class="pp">|</span> Too many or too few classes; extreme outliers <span class="pp">|</span> Adjust number of classes (4–7). Try different break algorithms (Equal Interval, Quantiles). <span class="pp">|</span></span>
@@ -2201,7 +2205,7 @@ Important
 <span id="cb3-427"><a href="#cb3-427" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quick Reference: Key Tools</span></span>
 <span id="cb3-428"><a href="#cb3-428" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-429"><a href="#cb3-429" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Tool Path <span class="pp">|</span> Purpose <span class="pp">|</span></span>
-<span id="cb3-430"><a href="#cb3-430" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------|-----------------------------|-------------------------|</span></span>
+<span id="cb3-430"><a href="#cb3-430" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb3-431"><a href="#cb3-431" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Import data** | **Layer → Add Layer → Add Vector Layer** <span class="pp">|</span> Load OSM roads and grid <span class="pp">|</span></span>
 <span id="cb3-432"><a href="#cb3-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Check CRS** | **Right-click layer → Layer CRS** <span class="pp">|</span> Verify coordinate system <span class="pp">|</span></span>
 <span id="cb3-433"><a href="#cb3-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Reproject** | **Processing → Reproject layer** <span class="pp">|</span> Convert to EPSG:28992 <span class="pp">|</span></span>
@@ -2219,7 +2223,7 @@ Important
 <span id="cb3-445"><a href="#cb3-445" aria-hidden="true" tabindex="-1"></a>**Road Types Included in This Analysis:**</span>
 <span id="cb3-446"><a href="#cb3-446" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-447"><a href="#cb3-447" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Classification   <span class="pp">|</span> Meaning                <span class="pp">|</span> Typical Speed <span class="pp">|</span> Examples              <span class="pp">|</span></span>
-<span id="cb3-448"><a href="#cb3-448" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------|-----------------|-------------------|-----------------|</span></span>
+<span id="cb3-448"><a href="#cb3-448" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------|------------------------|---------------|-----------------------|</span></span>
 <span id="cb3-449"><a href="#cb3-449" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`motorway`</span>       <span class="pp">|</span> Limited-access highway <span class="pp">|</span> 100–130 km/h  <span class="pp">|</span> A-roads, Autobahns    <span class="pp">|</span></span>
 <span id="cb3-450"><a href="#cb3-450" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`motorway_link`</span>  <span class="pp">|</span> Motorway connector     <span class="pp">|</span> Variable      <span class="pp">|</span> Ramps, off-ramps      <span class="pp">|</span></span>
 <span id="cb3-451"><a href="#cb3-451" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`primary`</span>        <span class="pp">|</span> Major through route    <span class="pp">|</span> 60–100 km/h   <span class="pp">|</span> National routes       <span class="pp">|</span></span>
@@ -2249,7 +2253,7 @@ Important
 <span id="cb3-475"><a href="#cb3-475" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Consult **OpenStreetMap wiki** for data questions</span>
 <span id="cb3-476"><a href="#cb3-476" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Contact your instructor or GIS support team</span>
 <span id="cb3-477"><a href="#cb3-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-478"><a href="#cb3-478" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb3-478"><a href="#cb3-478" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
