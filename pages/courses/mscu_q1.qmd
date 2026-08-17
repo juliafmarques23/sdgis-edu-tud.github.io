@@ -37,8 +37,8 @@ By the end of the workshop, students will be able to:
 |------|------|------|------|
 | 09:00 | 45 min | Intro — learning line overview, what GIS is, common datasets Lecture + Survey | |
 | 09:45 | 15 min | Break | |
-| 10:00 | 30 min | Part 1 - Vector import + Basemap exercise | Basemap of Land Use (BBG+CBS neighborhoods); screenshot to Miro |
-| 10:30 | 30 min | Part 2 — Raster import + basemap Exercise | Basemap of DTM (AHN); screenshot to Miro |
+| 10:00 | 30 min | [Part 1 - Vector import](pages/learn-qgis/misc/import-vector.qmd) | Basemap of Land Use (BBG+CBS neighborhoods); screenshot to Miro |
+| 10:30 | 30 min | [Part 2 — Raster import](pages/learn-qgis/misc/import-raster.qmd) | Basemap of DTM (AHN); screenshot to Miro |
 | 11:00 | 45 min | Part 3 — Attribute tables + choropleth Exercise | Choropleth of densities; screenshot to Miro
 | 11:45 | 15 min | Q&A | |
 | 12:00 | 60 min | Lunch | |
