@@ -37,9 +37,9 @@
   {
     "listing": "/pages/courses/index.html",
     "items": [
+      "/pages/courses/mscu_q1.html",
       "/pages/courses/mscu_q2.html",
-      "/pages/courses/mscu_q3.html",
-      "/pages/courses/mscu_q1.html"
+      "/pages/courses/mscu_q3.html"
     ]
   },
   {

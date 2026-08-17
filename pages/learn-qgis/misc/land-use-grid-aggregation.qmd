@@ -51,25 +51,25 @@ By completing this tutorial, you will be able to:
 **Required QGIS Plugins:**
 
 1.  **Dissolve with stats** – For dissolving geometries while computing summary statistics
-    -   Go to **Plugins → Manage and Install Plugins**
-    -   Search for "Dissolve with stats"
-    -   Click **Install** and restart QGIS
+    - Go to **Plugins → Manage and Install Plugins**
+    - Search for "Dissolve with stats"
+    - Click **Install** and restart QGIS
 
 ### Data Requirements
 
 You will need the following datasets:
 
--   **Copernicus CLC2018** – Corine Land Cover classification layer (vector polygons)
-    -   Available from: https://land.copernicus.eu/en/products/corine-land-cover
-    -   Should contain a `Code_18` field with Level-3 classification codes
--   **Netherlands 2×2 km Reference Grid** – Regular grid covering the Netherlands
-    -   You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on [how to create a fishnet](pages/spatial_data_preparation/creating-fishnet.qmd)
-    -   Should contain a `CellCode` field for unique cell identification
+- **Copernicus CLC2018** – Corine Land Cover classification layer (vector polygons)
+  - Available from: https://land.copernicus.eu/en/products/corine-land-cover
+  - Should contain a `Code_18` field with Level-3 classification codes
+- **Netherlands 2×2 km Reference Grid** – Regular grid covering the Netherlands
+  - You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on [how to create a fishnet](pages/spatial_data_preparation/creating-fishnet.qmd)
+  - Should contain a `CellCode` field for unique cell identification
 
 **Coordinate Reference System:**
 
--   Both datasets must be reprojected to [**EPSG:28992 (Amersfoord / RD New)**](https://epsg.io/28992) before analysis
--   This ensures accurate area calculations and spatial operations
+- Both datasets must be reprojected to [**EPSG:28992 (Amersfoord / RD New)**](https://epsg.io/28992) before analysis
+- This ensures accurate area calculations and spatial operations
 
 ### Spatial Extent
 
@@ -103,9 +103,9 @@ The analysis follows a sequential workflow moving from detailed to aggregated da
 
 The Copernicus CLC dataset uses a hierarchical classification with three levels:
 
--   **Level 1 (5 classes):** Broad categories (Artificial surfaces, Agricultural areas, Forest, Herbaceous, Water)
--   **Level 2 (15 classes):** Intermediate detail (e.g., Urban fabric, Industrial areas, Pastures)
--   **Level 3 (44 classes):** Detailed categories (e.g., Continuous urban fabric, Discontinuous urban fabric)
+- **Level 1 (5 classes):** Broad categories (Artificial surfaces, Agricultural areas, Forest, Herbaceous, Water)
+- **Level 2 (15 classes):** Intermediate detail (e.g., Urban fabric, Industrial areas, Pastures)
+- **Level 3 (44 classes):** Detailed categories (e.g., Continuous urban fabric, Discontinuous urban fabric)
 
 **This tutorial focuses on Level 1** for regional-scale analysis. The first digit of any Level-3 code represents the Level-1 class.
 
@@ -121,15 +121,15 @@ Example: Code 112 (Discontinuous urban fabric) → Level-1 class = 1 (Artificial
 
 2.  Import the CLC2018 layer:
 
-    -   Go to **Layer → Add Layer → Add Vector Layer**
-    -   Navigate to your CLC2018 shapefile or GeoPackage
-    -   Click **Open**
+    - Go to **Layer → Add Layer → Add Vector Layer**
+    - Navigate to your CLC2018 shapefile or GeoPackage
+    - Click **Open**
 
 3.  Import the Dutch 2×2 km grid:
 
-    -   Go to **Layer → Add Layer → Add Vector Layer**
-    -   Navigate to the grid layer
-    -   Click **Open**
+    - Go to **Layer → Add Layer → Add Vector Layer**
+    - Navigate to the grid layer
+    - Click **Open**
 
 4.  Both layers should now appear in the **Layers Panel**
 
@@ -158,7 +158,7 @@ If layers are in different CRS:
 
 1.  Right-click the CLC2018 layer and select **Open Attribute Table**
 2.  Locate the `Code_18` column
-    -   This contains Level-3 codes (3 digits, ranging from 111 to 522)
+    - This contains Level-3 codes (3 digits, ranging from 111 to 522)
 3.  Note other attribute fields for reference (e.g., `OBJECTID`, `Area_HA`)
 4.  Close the attribute table (you'll modify it in the next step)
 
@@ -172,7 +172,7 @@ Level-1 codes are represented by the **first digit** of the Level-3 code. We'll 
 
 1.  Right-click the CLC2018 layer and select **Open Attribute Table**
 2.  In the **Attribute Table toolbar**, click the **Pencil icon** to enter **Edit Mode**
-    -   The pencil icon turns yellow, indicating edit mode is active
+    - The pencil icon turns yellow, indicating edit mode is active
 3.  In the toolbar, click **Field Calculator** (calculator icon) or go to **Table → Field Calculator**
 
 ### 2.2 Create a New Field for Level-1 Code
@@ -203,9 +203,9 @@ This extracts the first character of the `Code_18` field and converts it to an i
 
 1.  In the **Attribute Table**, scroll right to find the new `Level_1` column
 2.  Review several rows to confirm:
-    -   Code_18 = 112 → Level_1 = 1 ✓
-    -   Code_18 = 311 → Level_1 = 3 ✓
-    -   Code_18 = 512 → Level_1 = 5 ✓
+    - Code_18 = 112 → Level_1 = 1 ✓
+    - Code_18 = 311 → Level_1 = 3 ✓
+    - Code_18 = 512 → Level_1 = 5 ✓
 3.  Click the **Pencil icon** to exit edit mode
 4.  When prompted, click **Save Changes** to confirm
 
@@ -241,10 +241,10 @@ Before dissolving, we must verify and fix any invalid geometries, which are comm
 
 **Interpret Results:**
 
--   The tool generates three output layers
--   **Invalid output** and **Error output** layers show which features have problems
--   Review these to understand the nature of invalid geometries (overlaps, self-intersections, etc.)
--   **Note:** You will not use these outputs; they are for information only. In case you encounter any problem with features, go to 3.2. If not, go to 3.3
+- The tool generates three output layers
+- **Invalid output** and **Error output** layers show which features have problems
+- Review these to understand the nature of invalid geometries (overlaps, self-intersections, etc.)
+- **Note:** You will not use these outputs; they are for information only. In case you encounter any problem with features, go to 3.2. If not, go to 3.3
 
 ### 3.2 Fix Invalid Geometries
 
@@ -257,15 +257,15 @@ Before dissolving, we must verify and fix any invalid geometries, which are comm
 1.  **Input layer:** Select CLC2018 (the original layer with invalid geometries)
 2.  **Output:** Click the dropdown and select **Save to File** (or create a temporary layer)
 3.  If saving to file:
-    -   Click the folder icon to choose a location
-    -   Enter filename: `CLC2018_fixed.shp`
+    - Click the folder icon to choose a location
+    - Enter filename: `CLC2018_fixed.shp`
 4.  Click **Run**
 
 **Result:**
 
--   A new layer `CLC2018_fixed` (or temporary layer) with corrected geometries will be created
--   Invalid geometries are repaired using geometric algorithms
--   Some topology may be altered, but the spatial extent and coverage remain valid
+- A new layer `CLC2018_fixed` (or temporary layer) with corrected geometries will be created
+- Invalid geometries are repaired using geometric algorithms
+- Some topology may be altered, but the spatial extent and coverage remain valid
 
 ### 3.3 Dissolve by Level-1 Class
 
@@ -282,24 +282,24 @@ Now dissolve the fixed CLC layer by the `Level_1` field to merge all polygons of
 
 2.  **Dissolve field:** Click the dropdown and select `Level_1`
 
-    -   This will merge all polygons sharing the same Level_1 code
+    - This will merge all polygons sharing the same Level_1 code
 
 3.  **Output:** Click the dropdown and select **Save to File** (recommended for large datasets)
 
-    -   Choose a location and enter: `CLC2018_Level1_dissolved.shp`
+    - Choose a location and enter: `CLC2018_Level1_dissolved.shp`
 
 4.  **(Optional) Aggregate statistics:**
 
-    -   If you want to preserve information from dissolved polygons (e.g., total area), you can configure aggregation here
-    -   For now, leave unchecked unless you need additional statistics
+    - If you want to preserve information from dissolved polygons (e.g., total area), you can configure aggregation here
+    - For now, leave unchecked unless you need additional statistics
 
 5.  Click **Run**
 
 **Result:**
 
--   A new layer with exactly 5 features (one per Level-1 class) will be created
--   Each feature represents all land of that class type, merged into single multi-part polygons
--   Attribute table will show the Level_1 code and any aggregated statistics
+- A new layer with exactly 5 features (one per Level-1 class) will be created
+- Each feature represents all land of that class type, merged into single multi-part polygons
+- Attribute table will show the Level_1 code and any aggregated statistics
 
 ![](land_use_grid_aggregation/02.png)
 
@@ -307,11 +307,11 @@ Now dissolve the fixed CLC layer by the `Level_1` field to merge all polygons of
 
 1.  Open the **Attribute Table** of the dissolved layer
 2.  You should see exactly **5 rows** (one for each Level-1 class):
-    -   1 = Artificial surfaces
-    -   2 = Agricultural areas
-    -   3 = Forest and herbaceous vegetation
-    -   4 = Wetlands
-    -   5 = Water
+    - 1 = Artificial surfaces
+    - 2 = Agricultural areas
+    - 3 = Forest and herbaceous vegetation
+    - 4 = Wetlands
+    - 5 = Water
 3.  Close the attribute table
 
 ------------------------------------------------------------------------
@@ -333,7 +333,7 @@ Intersection overlays the simplified CLC classes with the regular grid, creating
 
 3.  **Output:** Click the dropdown and select **Save to File**
 
-    -   Choose location and enter: `CLC_Grid_Intersection.shp`
+    - Choose location and enter: `CLC_Grid_Intersection.shp`
 
 4.  **(Optional) Input layer fields to keep:** Leave blank to keep all fields from both layers
 
@@ -341,17 +341,17 @@ Intersection overlays the simplified CLC classes with the regular grid, creating
 
 **Processing:**
 
--   This operation may take several minutes depending on dataset size and complexity
--   A progress bar will show processing status
--   Once complete, a notification appears: "Finished"
+- This operation may take several minutes depending on dataset size and complexity
+- A progress bar will show processing status
+- Once complete, a notification appears: "Finished"
 
 **Result:**
 
--   A new layer `CLC_Grid_Intersection` is created
--   Each polygon represents the spatial overlap of a grid cell and a CLC Level-1 class
--   The attribute table contains fields from both input layers:
-    -   Grid fields: `CellCode`, grid geometry fields
-    -   CLC fields: `Level_1` (the land use class)
+- A new layer `CLC_Grid_Intersection` is created
+- Each polygon represents the spatial overlap of a grid cell and a CLC Level-1 class
+- The attribute table contains fields from both input layers:
+  - Grid fields: `CellCode`, grid geometry fields
+  - CLC fields: `Level_1` (the land use class)
 
 ![](land_use_grid_aggregation/05.png)
 
@@ -359,8 +359,8 @@ Intersection overlays the simplified CLC classes with the regular grid, creating
 
 1.  Open the **Attribute Table** of the intersection layer
 2.  Scroll right and confirm you can see:
-    -   `CellCode` field (from grid)
-    -   `Level_1` field (from CLC)
+    - `CellCode` field (from grid)
+    - `Level_1` field (from CLC)
 3.  Note the total number of features: This may be several thousand, as each grid cell can intersect multiple land use classes
 
 ------------------------------------------------------------------------
@@ -399,12 +399,12 @@ This built-in QGIS variable calculates the area of each polygon in the coordinat
 
 1.  Scroll right in the **Attribute Table** to see the new `Area_m2` column
 2.  Review several values:
-    -   All should be positive numbers
-    -   Larger cells should have larger values
-    -   No null or zero values should appear (if they do, there may be invalid geometries)
+    - All should be positive numbers
+    - Larger cells should have larger values
+    - No null or zero values should appear (if they do, there may be invalid geometries)
 3.  Exit **Edit Mode:**
-    -   Click the **Pencil icon**
-    -   Click **Save Changes** when prompted
+    - Click the **Pencil icon**
+    - Click **Save Changes** when prompted
 
 ------------------------------------------------------------------------
 
@@ -423,15 +423,15 @@ Centroids (center points) of intersection polygons will be used to join attribut
 
 2.  **Output:** Click dropdown and select **Save to File**
 
-    -   Choose location and enter: `CLC_Grid_Intersection_Centroids.shp`
+    - Choose location and enter: `CLC_Grid_Intersection_Centroids.shp`
 
 3.  Click **Run**
 
 **Result:**
 
--   A new point layer is created with one point at the center of each intersection polygon
--   The attribute table includes all fields from the input (intersection) layer:
-    -   `CellCode`, `Level_1`, `Area_m2`, etc.
+- A new point layer is created with one point at the center of each intersection polygon
+- The attribute table includes all fields from the input (intersection) layer:
+  - `CellCode`, `Level_1`, `Area_m2`, etc.
 
 ![](land_use_grid_aggregation/07.png)
 
@@ -456,22 +456,22 @@ This step transfers attributes from the centroids back to the original grid laye
 **Configure Join:**
 
 1.  **Input layer:** Select the original EEA grid layer
-    -   This is the target layer that will receive new attributes
+    - This is the target layer that will receive new attributes
 2.  **Join layer:** Select the centroids layer (`CLC_Grid_Intersection_Centroids`)
-    -   This provides the attributes to join
+    - This provides the attributes to join
 3.  **Geometric predicate:** Select **Contains** (or **Intersects**)
-    -   This means: for each grid cell, find centroids that fall within it
+    - This means: for each grid cell, find centroids that fall within it
 4.  **Join type:** Select **One-to-many** or **Take attributes of the first located feature** (depending on your QGIS version)
-    -   This ensures one grid cell can be joined to multiple centroid features
+    - This ensures one grid cell can be joined to multiple centroid features
 5.  **Output:** Click dropdown and select **Save to File**
-    -   Enter: `Grid_with_Centroid_Attributes.shp`
+    - Enter: `Grid_with_Centroid_Attributes.shp`
 6.  Click **Run**
 
 **Result:**
 
--   A new layer is created containing the original grid with added fields from centroids
--   Each grid cell may now have multiple records if it intersects multiple land use classes
--   Attributes include: `CellCode`, `Level_1`, `Area_m2`, and other fields
+- A new layer is created containing the original grid with added fields from centroids
+- Each grid cell may now have multiple records if it intersects multiple land use classes
+- Attributes include: `CellCode`, `Level_1`, `Area_m2`, and other fields
 
 ------------------------------------------------------------------------
 
@@ -522,17 +522,17 @@ Using the Dissolve with stats plugin, we dissolve the joined layer by grid cell 
 
 2.  **Dissolve field:** Click dropdown and select `CellCode`
 
-    -   This groups all records by grid cell
+    - This groups all records by grid cell
 
 3.  **Statistics to calculate:**
 
-    -   Locate the **Area_m2** field
-    -   For this field, select **Max** from the function dropdown
-    -   This identifies the largest area (dominant class) per grid cell
+    - Locate the **Area_m2** field
+    - For this field, select **Max** from the function dropdown
+    - This identifies the largest area (dominant class) per grid cell
 
 4.  **Output:** Click dropdown and select **Save to File**
 
-    -   Enter: `Grid_Dominant_Class_Stats.shp`
+    - Enter: `Grid_Dominant_Class_Stats.shp`
 
 5.  Click **Run**
 
@@ -540,9 +540,9 @@ Using the Dissolve with stats plugin, we dissolve the joined layer by grid cell 
 
 **Result:**
 
--   A new layer is created with one record per grid cell
--   A new field (e.g., `Area_m2_max`) shows the maximum area value for each cell
--   This identifies which land use class dominates each grid cell
+- A new layer is created with one record per grid cell
+- A new field (e.g., `Area_m2_max`) shows the maximum area value for each cell
+- This identifies which land use class dominates each grid cell
 
 ------------------------------------------------------------------------
 
@@ -560,31 +560,31 @@ We must now join the maximum area information back to the full dataset to filter
 
 1.  **Input layer:** Select the layer from Step 7 (`Grid_with_Centroid_Attributes`)
 
-    -   This is the layer with all grid cell-land use class combinations
+    - This is the layer with all grid cell-land use class combinations
 
 2.  **Table field:** Select `CellCode` (in the input layer)
 
 3.  **Input layer 2:** Select the result from Step 9 (`Grid_Dominant_Class_Stats`)
 
-    -   This contains the maximum area values
+    - This contains the maximum area values
 
 4.  **Table field 2:** Select `CellCode` (matching field in input layer 2)
 
 5.  **Join type:** Select **One-to-many** or **Concatenate joined fields**
 
-    -   This allows one grid cell to be matched to its dominant class record
+    - This allows one grid cell to be matched to its dominant class record
 
 6.  **Output:** Click dropdown and select **Save to File**
 
-    -   Enter: `Grid_with_Max_Area_Info.shp`
+    - Enter: `Grid_with_Max_Area_Info.shp`
 
 7.  Click **Run**
 
 **Result:**
 
--   A new layer with joined maximum area information
--   Each record now has access to the `Area_m2_max` value for its grid cell
--   Records where `Area_m2` equals `Area_m2_max` represent dominant land use classes
+- A new layer with joined maximum area information
+- Each record now has access to the `Area_m2_max` value for its grid cell
+- Records where `Area_m2` equals `Area_m2_max` represent dominant land use classes
 
 ![](land_use_grid_aggregation/10.png)
 
@@ -597,18 +597,18 @@ Now filter the joined layer to keep only the records where the area of the inter
 ### 11.1 Apply Attribute Filter
 
 1.  Right-click the joined layer (`Grid_with_Max_Area_Info`) and select **Filter...**
-    -   Alternatively, go to **Vector → Filter...**
+    - Alternatively, go to **Vector → Filter...**
 2.  In the **Query Builder** dialog:
-    -   Build a filter expression: `Area_m2 = Area_m2_max`
-    -   (Exact field names may vary; use the field names from your dataset)
+    - Build a filter expression: `Area_m2 = Area_m2_max`
+    - (Exact field names may vary; use the field names from your dataset)
 3.  Click **OK** to apply the filter
 
 ![](land_use_grid_aggregation/11.png)
 
 **Result:**
 
--   The layer now displays only features where area equals maximum area
--   These represent the dominant land use class in each grid cell
+- The layer now displays only features where area equals maximum area
+- These represent the dominant land use class in each grid cell
 
 ### 11.2 Save Filtered Results
 
@@ -616,8 +616,8 @@ Now filter the joined layer to keep only the records where the area of the inter
 
 2.  **Save as:**
 
-    -   Format: Shapefile (.shp) or GeoPackage (.gpkg)
-    -   Filename: `Grid_Dominant_CLC_Final.shp`
+    - Format: Shapefile (.shp) or GeoPackage (.gpkg)
+    - Filename: `Grid_Dominant_CLC_Final.shp`
 
 3.  Check **Save only selected features** (to save the filtered results)
 
@@ -629,8 +629,8 @@ Now filter the joined layer to keep only the records where the area of the inter
 
 **Result:**
 
--   A new layer containing only the dominant land use class per grid cell
--   This is your final output for mapping and analysis
+- A new layer containing only the dominant land use class per grid cell
+- This is your final output for mapping and analysis
 
 ------------------------------------------------------------------------
 
@@ -652,11 +652,11 @@ Now filter the joined layer to keep only the records where the area of the inter
 
 7.  Assign meaningful colours:
 
-    -   **Level 1 (Artificial surfaces):** Red or grey
-    -   **Level 2 (Agricultural):** Yellow or tan
-    -   **Level 3 (Forest):** Green
-    -   **Level 4 (Wetlands):** Blue/purple
-    -   **Level 5 (Water):** Blue
+    - **Level 1 (Artificial surfaces):** Red or grey
+    - **Level 2 (Agricultural):** Yellow or tan
+    - **Level 3 (Forest):** Green
+    - **Level 4 (Wetlands):** Blue/purple
+    - **Level 5 (Water):** Blue
 
 8.  Double-click colours to customize as desired
 
@@ -700,16 +700,16 @@ In a **Print Layout**, add:
 
 **Understanding the Results:**
 
--   **One Level-1 class per grid cell:** The final grid shows the single most prevalent land use type in each 2×2 km cell
--   **Spatial patterns:** Visible gradients reveal regional land use structure (urban cores, agricultural zones, forested areas)
--   **Level of detail:** Level-1 classification is suitable for regional planning and policy; Level-2 or Level-3 needed for local detail
+- **One Level-1 class per grid cell:** The final grid shows the single most prevalent land use type in each 2×2 km cell
+- **Spatial patterns:** Visible gradients reveal regional land use structure (urban cores, agricultural zones, forested areas)
+- **Level of detail:** Level-1 classification is suitable for regional planning and policy; Level-2 or Level-3 needed for local detail
 
 **Using the Grid for Analysis:**
 
--   **Statistical summaries:** Count grid cells by dominant class; calculate percentages by region
--   **Change detection:** Compare grids from different years (if CLC data available for multiple epochs)
--   **Integration with other data:** Join socioeconomic, demographic, or climate data to explore correlations
--   **Planning applications:** Identify expansion opportunities or conservation priorities
+- **Statistical summaries:** Count grid cells by dominant class; calculate percentages by region
+- **Change detection:** Compare grids from different years (if CLC data available for multiple epochs)
+- **Integration with other data:** Join socioeconomic, demographic, or climate data to explore correlations
+- **Planning applications:** Identify expansion opportunities or conservation priorities
 
 ------------------------------------------------------------------------
 
@@ -737,19 +737,19 @@ Once you complete this tutorial, consider:
 
 **Data Sources:**
 
--   **Copernicus CLC2018:** https://land.copernicus.eu/en/products/corine-land-cover
--   **CLC User Manual:** https://land.copernicus.eu/en/technical-library/clc-product-user-manual/
+- **Copernicus CLC2018:** https://land.copernicus.eu/en/products/corine-land-cover
+- **CLC User Manual:** https://land.copernicus.eu/en/technical-library/clc-product-user-manual/
 
 **QGIS Documentation:**
 
--   **Vector Geoprocessing Tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeoprocessing.html
--   **Processing Toolbox:** https://docs.qgis.org/latest/en/docs/user_manual/processing/toolbox.html
--   **Dissolve with stats Plugin:** Check plugin repository or GitHub
+- **Vector Geoprocessing Tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeoprocessing.html
+- **Processing Toolbox:** https://docs.qgis.org/latest/en/docs/user_manual/processing/toolbox.html
+- **Dissolve with stats Plugin:** Check plugin repository or GitHub
 
 **Related Tutorials:**
 
--   QGIS official training manual: https://docs.qgis.org/latest/en/docs/training_manual/
--   European Environment Agency GIS resources: https://www.eea.europa.eu/data-and-maps
+- QGIS official training manual: https://docs.qgis.org/latest/en/docs/training_manual/
+- European Environment Agency GIS resources: https://www.eea.europa.eu/data-and-maps
 
 ------------------------------------------------------------------------
 
@@ -786,14 +786,14 @@ Once you complete this tutorial, consider:
 
 **Example Level-3 Codes:**
 
--   111 = Continuous urban fabric
--   112 = Discontinuous urban fabric
--   211 = Non-irrigated arable land
--   231 = Pastures
--   311 = Broad-leaved forest
--   312 = Coniferous forest
--   511 = Rivers
--   512 = Lakes
+- 111 = Continuous urban fabric
+- 112 = Discontinuous urban fabric
+- 211 = Non-irrigated arable land
+- 231 = Pastures
+- 311 = Broad-leaved forest
+- 312 = Coniferous forest
+- 511 = Rivers
+- 512 = Lakes
 
 ------------------------------------------------------------------------
 
@@ -810,9 +810,9 @@ Once you complete this tutorial, consider:
 
 If you encounter issues or have questions:
 
--   Review the **Troubleshooting Guide** in this document
--   Check **QGIS documentation** at https://docs.qgis.org/
--   Consult **Copernicus and EEA documentation** for data-specific questions
--   Contact your instructor or GIS support team
+- Review the **Troubleshooting Guide** in this document
+- Check **QGIS documentation** at https://docs.qgis.org/
+- Consult **Copernicus and EEA documentation** for data-specific questions
+- Contact your instructor or GIS support team
 
 ------------------------------------------------------------------------

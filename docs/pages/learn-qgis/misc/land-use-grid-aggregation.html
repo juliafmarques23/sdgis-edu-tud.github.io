@@ -2186,25 +2186,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>**Required QGIS Plugins:**</span>
 <span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Dissolve with stats** – For dissolving geometries while computing summary statistics</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Go to **Plugins → Manage and Install Plugins**</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Search for "Dissolve with stats"</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click **Install** and restart QGIS</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Go to **Plugins → Manage and Install Plugins**</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Search for "Dissolve with stats"</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click **Install** and restart QGIS</span>
 <span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Requirements</span></span>
 <span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>You will need the following datasets:</span>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Copernicus CLC2018** – Corine Land Cover classification layer (vector polygons)</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Available from: https://land.copernicus.eu/en/products/corine-land-cover</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Should contain a <span class="in">`Code_18`</span> field with Level-3 classification codes</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Netherlands 2×2 km Reference Grid** – Regular grid covering the Netherlands</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on <span class="co">[</span><span class="ot">how to create a fishnet</span><span class="co">](pages/spatial_data_preparation/creating-fishnet.qmd)</span></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Should contain a <span class="in">`CellCode`</span> field for unique cell identification</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Copernicus CLC2018** – Corine Land Cover classification layer (vector polygons)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Available from: https://land.copernicus.eu/en/products/corine-land-cover</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Should contain a <span class="in">`Code_18`</span> field with Level-3 classification codes</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Netherlands 2×2 km Reference Grid** – Regular grid covering the Netherlands</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You can import it from the data folder. Alternatively, to create it, you can follow the tutorial on <span class="co">[</span><span class="ot">how to create a fishnet</span><span class="co">](pages/spatial_data_preparation/creating-fishnet.qmd)</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Should contain a <span class="in">`CellCode`</span> field for unique cell identification</span>
 <span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>**Coordinate Reference System:**</span>
 <span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Both datasets must be reprojected to <span class="co">[</span><span class="ot">**EPSG:28992 (Amersfoord / RD New)**</span><span class="co">](https://epsg.io/28992)</span> before analysis</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>This ensures accurate area calculations and spatial operations</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both datasets must be reprojected to <span class="co">[</span><span class="ot">**EPSG:28992 (Amersfoord / RD New)**</span><span class="co">](https://epsg.io/28992)</span> before analysis</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This ensures accurate area calculations and spatial operations</span>
 <span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Spatial Extent</span></span>
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
@@ -2238,9 +2238,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>The Copernicus CLC dataset uses a hierarchical classification with three levels:</span>
 <span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Level 1 (5 classes):** Broad categories (Artificial surfaces, Agricultural areas, Forest, Herbaceous, Water)</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Level 2 (15 classes):** Intermediate detail (e.g., Urban fabric, Industrial areas, Pastures)</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Level 3 (44 classes):** Detailed categories (e.g., Continuous urban fabric, Discontinuous urban fabric)</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Level 1 (5 classes):** Broad categories (Artificial surfaces, Agricultural areas, Forest, Herbaceous, Water)</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Level 2 (15 classes):** Intermediate detail (e.g., Urban fabric, Industrial areas, Pastures)</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Level 3 (44 classes):** Detailed categories (e.g., Continuous urban fabric, Discontinuous urban fabric)</span>
 <span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>**This tutorial focuses on Level 1** for regional-scale analysis. The first digit of any Level-3 code represents the Level-1 class.</span>
 <span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
@@ -2256,15 +2256,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Import the CLC2018 layer:</span>
 <span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Go to **Layer → Add Layer → Add Vector Layer**</span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Navigate to your CLC2018 shapefile or GeoPackage</span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click **Open**</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Go to **Layer → Add Layer → Add Vector Layer**</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Navigate to your CLC2018 shapefile or GeoPackage</span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click **Open**</span>
 <span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Import the Dutch 2×2 km grid:</span>
 <span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Go to **Layer → Add Layer → Add Vector Layer**</span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Navigate to the grid layer</span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click **Open**</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Go to **Layer → Add Layer → Add Vector Layer**</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Navigate to the grid layer</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click **Open**</span>
 <span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Both layers should now appear in the **Layers Panel**</span>
 <span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a></span>
@@ -2293,7 +2293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Right-click the CLC2018 layer and select **Open Attribute Table**</span>
 <span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Locate the <span class="in">`Code_18`</span> column</span>
-<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This contains Level-3 codes (3 digits, ranging from 111 to 522)</span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This contains Level-3 codes (3 digits, ranging from 111 to 522)</span>
 <span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Note other attribute fields for reference (e.g., <span class="in">`OBJECTID`</span>, <span class="in">`Area_HA`</span>)</span>
 <span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Close the attribute table (you'll modify it in the next step)</span>
 <span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a></span>
@@ -2307,7 +2307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Right-click the CLC2018 layer and select **Open Attribute Table**</span>
 <span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>In the **Attribute Table toolbar**, click the **Pencil icon** to enter **Edit Mode**</span>
-<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>The pencil icon turns yellow, indicating edit mode is active</span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>The pencil icon turns yellow, indicating edit mode is active</span>
 <span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>In the toolbar, click **Field Calculator** (calculator icon) or go to **Table → Field Calculator**</span>
 <span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2 Create a New Field for Level-1 Code</span></span>
@@ -2338,9 +2338,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>In the **Attribute Table**, scroll right to find the new <span class="in">`Level_1`</span> column</span>
 <span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Review several rows to confirm:</span>
-<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Code_18 = 112 → Level_1 = 1 ✓</span>
-<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Code_18 = 311 → Level_1 = 3 ✓</span>
-<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Code_18 = 512 → Level_1 = 5 ✓</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Code_18 = 112 → Level_1 = 1 ✓</span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Code_18 = 311 → Level_1 = 3 ✓</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Code_18 = 512 → Level_1 = 5 ✓</span>
 <span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Click the **Pencil icon** to exit edit mode</span>
 <span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>When prompted, click **Save Changes** to confirm</span>
 <span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
@@ -2376,10 +2376,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a>**Interpret Results:**</span>
 <span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The tool generates three output layers</span>
-<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Invalid output** and **Error output** layers show which features have problems</span>
-<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Review these to understand the nature of invalid geometries (overlaps, self-intersections, etc.)</span>
-<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Note:** You will not use these outputs; they are for information only. In case you encounter any problem with features, go to 3.2. If not, go to 3.3</span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The tool generates three output layers</span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Invalid output** and **Error output** layers show which features have problems</span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Review these to understand the nature of invalid geometries (overlaps, self-intersections, etc.)</span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Note:** You will not use these outputs; they are for information only. In case you encounter any problem with features, go to 3.2. If not, go to 3.3</span>
 <span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2 Fix Invalid Geometries</span></span>
 <span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a></span>
@@ -2392,15 +2392,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Input layer:** Select CLC2018 (the original layer with invalid geometries)</span>
 <span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Output:** Click the dropdown and select **Save to File** (or create a temporary layer)</span>
 <span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>If saving to file:</span>
-<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the folder icon to choose a location</span>
-<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter filename: <span class="in">`CLC2018_fixed.shp`</span></span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click the folder icon to choose a location</span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enter filename: <span class="in">`CLC2018_fixed.shp`</span></span>
 <span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Click **Run**</span>
 <span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer <span class="in">`CLC2018_fixed`</span> (or temporary layer) with corrected geometries will be created</span>
-<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Invalid geometries are repaired using geometric algorithms</span>
-<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some topology may be altered, but the spatial extent and coverage remain valid</span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer <span class="in">`CLC2018_fixed`</span> (or temporary layer) with corrected geometries will be created</span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Invalid geometries are repaired using geometric algorithms</span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some topology may be altered, but the spatial extent and coverage remain valid</span>
 <span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.3 Dissolve by Level-1 Class</span></span>
 <span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a></span>
@@ -2417,24 +2417,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Dissolve field:** Click the dropdown and select <span class="in">`Level_1`</span></span>
 <span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This will merge all polygons sharing the same Level_1 code</span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This will merge all polygons sharing the same Level_1 code</span>
 <span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Output:** Click the dropdown and select **Save to File** (recommended for large datasets)</span>
 <span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Choose a location and enter: <span class="in">`CLC2018_Level1_dissolved.shp`</span></span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Choose a location and enter: <span class="in">`CLC2018_Level1_dissolved.shp`</span></span>
 <span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**(Optional) Aggregate statistics:**</span>
 <span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If you want to preserve information from dissolved polygons (e.g., total area), you can configure aggregation here</span>
-<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>For now, leave unchecked unless you need additional statistics</span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>If you want to preserve information from dissolved polygons (e.g., total area), you can configure aggregation here</span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>For now, leave unchecked unless you need additional statistics</span>
 <span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Click **Run**</span>
 <span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer with exactly 5 features (one per Level-1 class) will be created</span>
-<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each feature represents all land of that class type, merged into single multi-part polygons</span>
-<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Attribute table will show the Level_1 code and any aggregated statistics</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer with exactly 5 features (one per Level-1 class) will be created</span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each feature represents all land of that class type, merged into single multi-part polygons</span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Attribute table will show the Level_1 code and any aggregated statistics</span>
 <span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a><span class="al">![](land_use_grid_aggregation/02.png)</span></span>
 <span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
@@ -2442,11 +2442,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Open the **Attribute Table** of the dissolved layer</span>
 <span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>You should see exactly **5 rows** (one for each Level-1 class):</span>
-<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>1 = Artificial surfaces</span>
-<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>2 = Agricultural areas</span>
-<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>3 = Forest and herbaceous vegetation</span>
-<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>4 = Wetlands</span>
-<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>5 = Water</span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>1 = Artificial surfaces</span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>2 = Agricultural areas</span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>3 = Forest and herbaceous vegetation</span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>4 = Wetlands</span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>5 = Water</span>
 <span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Close the attribute table</span>
 <span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
@@ -2468,7 +2468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Output:** Click the dropdown and select **Save to File**</span>
 <span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Choose location and enter: <span class="in">`CLC_Grid_Intersection.shp`</span></span>
+<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Choose location and enter: <span class="in">`CLC_Grid_Intersection.shp`</span></span>
 <span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**(Optional) Input layer fields to keep:** Leave blank to keep all fields from both layers</span>
 <span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a></span>
@@ -2476,17 +2476,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a>**Processing:**</span>
 <span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>This operation may take several minutes depending on dataset size and complexity</span>
-<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A progress bar will show processing status</span>
-<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Once complete, a notification appears: "Finished"</span>
+<span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This operation may take several minutes depending on dataset size and complexity</span>
+<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A progress bar will show processing status</span>
+<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Once complete, a notification appears: "Finished"</span>
 <span id="cb4-347"><a href="#cb4-347" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-348"><a href="#cb4-348" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-349"><a href="#cb4-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer <span class="in">`CLC_Grid_Intersection`</span> is created</span>
-<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each polygon represents the spatial overlap of a grid cell and a CLC Level-1 class</span>
-<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The attribute table contains fields from both input layers:</span>
-<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Grid fields: <span class="in">`CellCode`</span>, grid geometry fields</span>
-<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>CLC fields: <span class="in">`Level_1`</span> (the land use class)</span>
+<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer <span class="in">`CLC_Grid_Intersection`</span> is created</span>
+<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each polygon represents the spatial overlap of a grid cell and a CLC Level-1 class</span>
+<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The attribute table contains fields from both input layers:</span>
+<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Grid fields: <span class="in">`CellCode`</span>, grid geometry fields</span>
+<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>CLC fields: <span class="in">`Level_1`</span> (the land use class)</span>
 <span id="cb4-355"><a href="#cb4-355" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a><span class="al">![](land_use_grid_aggregation/05.png)</span></span>
 <span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a></span>
@@ -2494,8 +2494,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Open the **Attribute Table** of the intersection layer</span>
 <span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Scroll right and confirm you can see:</span>
-<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`CellCode`</span> field (from grid)</span>
-<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`Level_1`</span> field (from CLC)</span>
+<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`CellCode`</span> field (from grid)</span>
+<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`Level_1`</span> field (from CLC)</span>
 <span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Note the total number of features: This may be several thousand, as each grid cell can intersect multiple land use classes</span>
 <span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
@@ -2534,12 +2534,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-399"><a href="#cb4-399" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-400"><a href="#cb4-400" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Scroll right in the **Attribute Table** to see the new <span class="in">`Area_m2`</span> column</span>
 <span id="cb4-401"><a href="#cb4-401" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Review several values:</span>
-<span id="cb4-402"><a href="#cb4-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>All should be positive numbers</span>
-<span id="cb4-403"><a href="#cb4-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Larger cells should have larger values</span>
-<span id="cb4-404"><a href="#cb4-404" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>No null or zero values should appear (if they do, there may be invalid geometries)</span>
+<span id="cb4-402"><a href="#cb4-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>All should be positive numbers</span>
+<span id="cb4-403"><a href="#cb4-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Larger cells should have larger values</span>
+<span id="cb4-404"><a href="#cb4-404" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>No null or zero values should appear (if they do, there may be invalid geometries)</span>
 <span id="cb4-405"><a href="#cb4-405" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Exit **Edit Mode:**</span>
-<span id="cb4-406"><a href="#cb4-406" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the **Pencil icon**</span>
-<span id="cb4-407"><a href="#cb4-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click **Save Changes** when prompted</span>
+<span id="cb4-406"><a href="#cb4-406" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click the **Pencil icon**</span>
+<span id="cb4-407"><a href="#cb4-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Click **Save Changes** when prompted</span>
 <span id="cb4-408"><a href="#cb4-408" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-409"><a href="#cb4-409" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-410"><a href="#cb4-410" aria-hidden="true" tabindex="-1"></a></span>
@@ -2558,15 +2558,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-423"><a href="#cb4-423" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-424"><a href="#cb4-424" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Output:** Click dropdown and select **Save to File**</span>
 <span id="cb4-425"><a href="#cb4-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-426"><a href="#cb4-426" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Choose location and enter: <span class="in">`CLC_Grid_Intersection_Centroids.shp`</span></span>
+<span id="cb4-426"><a href="#cb4-426" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Choose location and enter: <span class="in">`CLC_Grid_Intersection_Centroids.shp`</span></span>
 <span id="cb4-427"><a href="#cb4-427" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-428"><a href="#cb4-428" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Click **Run**</span>
 <span id="cb4-429"><a href="#cb4-429" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-430"><a href="#cb4-430" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-431"><a href="#cb4-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-432"><a href="#cb4-432" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new point layer is created with one point at the center of each intersection polygon</span>
-<span id="cb4-433"><a href="#cb4-433" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The attribute table includes all fields from the input (intersection) layer:</span>
-<span id="cb4-434"><a href="#cb4-434" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`CellCode`</span>, <span class="in">`Level_1`</span>, <span class="in">`Area_m2`</span>, etc.</span>
+<span id="cb4-432"><a href="#cb4-432" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new point layer is created with one point at the center of each intersection polygon</span>
+<span id="cb4-433"><a href="#cb4-433" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The attribute table includes all fields from the input (intersection) layer:</span>
+<span id="cb4-434"><a href="#cb4-434" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`CellCode`</span>, <span class="in">`Level_1`</span>, <span class="in">`Area_m2`</span>, etc.</span>
 <span id="cb4-435"><a href="#cb4-435" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-436"><a href="#cb4-436" aria-hidden="true" tabindex="-1"></a><span class="al">![](land_use_grid_aggregation/07.png)</span></span>
 <span id="cb4-437"><a href="#cb4-437" aria-hidden="true" tabindex="-1"></a></span>
@@ -2591,22 +2591,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-456"><a href="#cb4-456" aria-hidden="true" tabindex="-1"></a>**Configure Join:**</span>
 <span id="cb4-457"><a href="#cb4-457" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-458"><a href="#cb4-458" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Input layer:** Select the original EEA grid layer</span>
-<span id="cb4-459"><a href="#cb4-459" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This is the target layer that will receive new attributes</span>
+<span id="cb4-459"><a href="#cb4-459" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is the target layer that will receive new attributes</span>
 <span id="cb4-460"><a href="#cb4-460" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Join layer:** Select the centroids layer (<span class="in">`CLC_Grid_Intersection_Centroids`</span>)</span>
-<span id="cb4-461"><a href="#cb4-461" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This provides the attributes to join</span>
+<span id="cb4-461"><a href="#cb4-461" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This provides the attributes to join</span>
 <span id="cb4-462"><a href="#cb4-462" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Geometric predicate:** Select **Contains** (or **Intersects**)</span>
-<span id="cb4-463"><a href="#cb4-463" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This means: for each grid cell, find centroids that fall within it</span>
+<span id="cb4-463"><a href="#cb4-463" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This means: for each grid cell, find centroids that fall within it</span>
 <span id="cb4-464"><a href="#cb4-464" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Join type:** Select **One-to-many** or **Take attributes of the first located feature** (depending on your QGIS version)</span>
-<span id="cb4-465"><a href="#cb4-465" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This ensures one grid cell can be joined to multiple centroid features</span>
+<span id="cb4-465"><a href="#cb4-465" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This ensures one grid cell can be joined to multiple centroid features</span>
 <span id="cb4-466"><a href="#cb4-466" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Output:** Click dropdown and select **Save to File**</span>
-<span id="cb4-467"><a href="#cb4-467" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter: <span class="in">`Grid_with_Centroid_Attributes.shp`</span></span>
+<span id="cb4-467"><a href="#cb4-467" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enter: <span class="in">`Grid_with_Centroid_Attributes.shp`</span></span>
 <span id="cb4-468"><a href="#cb4-468" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Click **Run**</span>
 <span id="cb4-469"><a href="#cb4-469" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-470"><a href="#cb4-470" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-471"><a href="#cb4-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-472"><a href="#cb4-472" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer is created containing the original grid with added fields from centroids</span>
-<span id="cb4-473"><a href="#cb4-473" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each grid cell may now have multiple records if it intersects multiple land use classes</span>
-<span id="cb4-474"><a href="#cb4-474" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Attributes include: <span class="in">`CellCode`</span>, <span class="in">`Level_1`</span>, <span class="in">`Area_m2`</span>, and other fields</span>
+<span id="cb4-472"><a href="#cb4-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer is created containing the original grid with added fields from centroids</span>
+<span id="cb4-473"><a href="#cb4-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each grid cell may now have multiple records if it intersects multiple land use classes</span>
+<span id="cb4-474"><a href="#cb4-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Attributes include: <span class="in">`CellCode`</span>, <span class="in">`Level_1`</span>, <span class="in">`Area_m2`</span>, and other fields</span>
 <span id="cb4-475"><a href="#cb4-475" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-476"><a href="#cb4-476" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-477"><a href="#cb4-477" aria-hidden="true" tabindex="-1"></a></span>
@@ -2657,17 +2657,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-522"><a href="#cb4-522" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-523"><a href="#cb4-523" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Dissolve field:** Click dropdown and select <span class="in">`CellCode`</span></span>
 <span id="cb4-524"><a href="#cb4-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-525"><a href="#cb4-525" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This groups all records by grid cell</span>
+<span id="cb4-525"><a href="#cb4-525" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This groups all records by grid cell</span>
 <span id="cb4-526"><a href="#cb4-526" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-527"><a href="#cb4-527" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Statistics to calculate:**</span>
 <span id="cb4-528"><a href="#cb4-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-529"><a href="#cb4-529" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Locate the **Area_m2** field</span>
-<span id="cb4-530"><a href="#cb4-530" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>For this field, select **Max** from the function dropdown</span>
-<span id="cb4-531"><a href="#cb4-531" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This identifies the largest area (dominant class) per grid cell</span>
+<span id="cb4-529"><a href="#cb4-529" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Locate the **Area_m2** field</span>
+<span id="cb4-530"><a href="#cb4-530" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>For this field, select **Max** from the function dropdown</span>
+<span id="cb4-531"><a href="#cb4-531" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This identifies the largest area (dominant class) per grid cell</span>
 <span id="cb4-532"><a href="#cb4-532" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-533"><a href="#cb4-533" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Output:** Click dropdown and select **Save to File**</span>
 <span id="cb4-534"><a href="#cb4-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-535"><a href="#cb4-535" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter: <span class="in">`Grid_Dominant_Class_Stats.shp`</span></span>
+<span id="cb4-535"><a href="#cb4-535" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enter: <span class="in">`Grid_Dominant_Class_Stats.shp`</span></span>
 <span id="cb4-536"><a href="#cb4-536" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-537"><a href="#cb4-537" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Click **Run**</span>
 <span id="cb4-538"><a href="#cb4-538" aria-hidden="true" tabindex="-1"></a></span>
@@ -2675,9 +2675,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-540"><a href="#cb4-540" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-541"><a href="#cb4-541" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-542"><a href="#cb4-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-543"><a href="#cb4-543" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer is created with one record per grid cell</span>
-<span id="cb4-544"><a href="#cb4-544" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new field (e.g., <span class="in">`Area_m2_max`</span>) shows the maximum area value for each cell</span>
-<span id="cb4-545"><a href="#cb4-545" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>This identifies which land use class dominates each grid cell</span>
+<span id="cb4-543"><a href="#cb4-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer is created with one record per grid cell</span>
+<span id="cb4-544"><a href="#cb4-544" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new field (e.g., <span class="in">`Area_m2_max`</span>) shows the maximum area value for each cell</span>
+<span id="cb4-545"><a href="#cb4-545" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This identifies which land use class dominates each grid cell</span>
 <span id="cb4-546"><a href="#cb4-546" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-547"><a href="#cb4-547" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-548"><a href="#cb4-548" aria-hidden="true" tabindex="-1"></a></span>
@@ -2695,31 +2695,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-560"><a href="#cb4-560" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-561"><a href="#cb4-561" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Input layer:** Select the layer from Step 7 (<span class="in">`Grid_with_Centroid_Attributes`</span>)</span>
 <span id="cb4-562"><a href="#cb4-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-563"><a href="#cb4-563" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This is the layer with all grid cell-land use class combinations</span>
+<span id="cb4-563"><a href="#cb4-563" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is the layer with all grid cell-land use class combinations</span>
 <span id="cb4-564"><a href="#cb4-564" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-565"><a href="#cb4-565" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Table field:** Select <span class="in">`CellCode`</span> (in the input layer)</span>
 <span id="cb4-566"><a href="#cb4-566" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-567"><a href="#cb4-567" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Input layer 2:** Select the result from Step 9 (<span class="in">`Grid_Dominant_Class_Stats`</span>)</span>
 <span id="cb4-568"><a href="#cb4-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-569"><a href="#cb4-569" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This contains the maximum area values</span>
+<span id="cb4-569"><a href="#cb4-569" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This contains the maximum area values</span>
 <span id="cb4-570"><a href="#cb4-570" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-571"><a href="#cb4-571" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Table field 2:** Select <span class="in">`CellCode`</span> (matching field in input layer 2)</span>
 <span id="cb4-572"><a href="#cb4-572" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-573"><a href="#cb4-573" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Join type:** Select **One-to-many** or **Concatenate joined fields**</span>
 <span id="cb4-574"><a href="#cb4-574" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-575"><a href="#cb4-575" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>This allows one grid cell to be matched to its dominant class record</span>
+<span id="cb4-575"><a href="#cb4-575" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This allows one grid cell to be matched to its dominant class record</span>
 <span id="cb4-576"><a href="#cb4-576" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-577"><a href="#cb4-577" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Output:** Click dropdown and select **Save to File**</span>
 <span id="cb4-578"><a href="#cb4-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-579"><a href="#cb4-579" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter: <span class="in">`Grid_with_Max_Area_Info.shp`</span></span>
+<span id="cb4-579"><a href="#cb4-579" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enter: <span class="in">`Grid_with_Max_Area_Info.shp`</span></span>
 <span id="cb4-580"><a href="#cb4-580" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-581"><a href="#cb4-581" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Click **Run**</span>
 <span id="cb4-582"><a href="#cb4-582" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-583"><a href="#cb4-583" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-584"><a href="#cb4-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-585"><a href="#cb4-585" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer with joined maximum area information</span>
-<span id="cb4-586"><a href="#cb4-586" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each record now has access to the <span class="in">`Area_m2_max`</span> value for its grid cell</span>
-<span id="cb4-587"><a href="#cb4-587" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Records where <span class="in">`Area_m2`</span> equals <span class="in">`Area_m2_max`</span> represent dominant land use classes</span>
+<span id="cb4-585"><a href="#cb4-585" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer with joined maximum area information</span>
+<span id="cb4-586"><a href="#cb4-586" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each record now has access to the <span class="in">`Area_m2_max`</span> value for its grid cell</span>
+<span id="cb4-587"><a href="#cb4-587" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Records where <span class="in">`Area_m2`</span> equals <span class="in">`Area_m2_max`</span> represent dominant land use classes</span>
 <span id="cb4-588"><a href="#cb4-588" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-589"><a href="#cb4-589" aria-hidden="true" tabindex="-1"></a><span class="al">![](land_use_grid_aggregation/10.png)</span></span>
 <span id="cb4-590"><a href="#cb4-590" aria-hidden="true" tabindex="-1"></a></span>
@@ -2732,18 +2732,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-597"><a href="#cb4-597" aria-hidden="true" tabindex="-1"></a><span class="fu">### 11.1 Apply Attribute Filter</span></span>
 <span id="cb4-598"><a href="#cb4-598" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-599"><a href="#cb4-599" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Right-click the joined layer (<span class="in">`Grid_with_Max_Area_Info`</span>) and select **Filter...**</span>
-<span id="cb4-600"><a href="#cb4-600" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Alternatively, go to **Vector → Filter...**</span>
+<span id="cb4-600"><a href="#cb4-600" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Alternatively, go to **Vector → Filter...**</span>
 <span id="cb4-601"><a href="#cb4-601" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>In the **Query Builder** dialog:</span>
-<span id="cb4-602"><a href="#cb4-602" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Build a filter expression: <span class="in">`Area_m2 = Area_m2_max`</span></span>
-<span id="cb4-603"><a href="#cb4-603" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>(Exact field names may vary; use the field names from your dataset)</span>
+<span id="cb4-602"><a href="#cb4-602" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Build a filter expression: <span class="in">`Area_m2 = Area_m2_max`</span></span>
+<span id="cb4-603"><a href="#cb4-603" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>(Exact field names may vary; use the field names from your dataset)</span>
 <span id="cb4-604"><a href="#cb4-604" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Click **OK** to apply the filter</span>
 <span id="cb4-605"><a href="#cb4-605" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-606"><a href="#cb4-606" aria-hidden="true" tabindex="-1"></a><span class="al">![](land_use_grid_aggregation/11.png)</span></span>
 <span id="cb4-607"><a href="#cb4-607" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-608"><a href="#cb4-608" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-609"><a href="#cb4-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-610"><a href="#cb4-610" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The layer now displays only features where area equals maximum area</span>
-<span id="cb4-611"><a href="#cb4-611" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>These represent the dominant land use class in each grid cell</span>
+<span id="cb4-610"><a href="#cb4-610" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The layer now displays only features where area equals maximum area</span>
+<span id="cb4-611"><a href="#cb4-611" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These represent the dominant land use class in each grid cell</span>
 <span id="cb4-612"><a href="#cb4-612" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-613"><a href="#cb4-613" aria-hidden="true" tabindex="-1"></a><span class="fu">### 11.2 Save Filtered Results</span></span>
 <span id="cb4-614"><a href="#cb4-614" aria-hidden="true" tabindex="-1"></a></span>
@@ -2751,8 +2751,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-616"><a href="#cb4-616" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-617"><a href="#cb4-617" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Save as:**</span>
 <span id="cb4-618"><a href="#cb4-618" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-619"><a href="#cb4-619" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Format: Shapefile (.shp) or GeoPackage (.gpkg)</span>
-<span id="cb4-620"><a href="#cb4-620" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Filename: <span class="in">`Grid_Dominant_CLC_Final.shp`</span></span>
+<span id="cb4-619"><a href="#cb4-619" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Format: Shapefile (.shp) or GeoPackage (.gpkg)</span>
+<span id="cb4-620"><a href="#cb4-620" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Filename: <span class="in">`Grid_Dominant_CLC_Final.shp`</span></span>
 <span id="cb4-621"><a href="#cb4-621" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-622"><a href="#cb4-622" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Check **Save only selected features** (to save the filtered results)</span>
 <span id="cb4-623"><a href="#cb4-623" aria-hidden="true" tabindex="-1"></a></span>
@@ -2764,8 +2764,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-629"><a href="#cb4-629" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-630"><a href="#cb4-630" aria-hidden="true" tabindex="-1"></a>**Result:**</span>
 <span id="cb4-631"><a href="#cb4-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-632"><a href="#cb4-632" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A new layer containing only the dominant land use class per grid cell</span>
-<span id="cb4-633"><a href="#cb4-633" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>This is your final output for mapping and analysis</span>
+<span id="cb4-632"><a href="#cb4-632" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A new layer containing only the dominant land use class per grid cell</span>
+<span id="cb4-633"><a href="#cb4-633" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is your final output for mapping and analysis</span>
 <span id="cb4-634"><a href="#cb4-634" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-635"><a href="#cb4-635" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-636"><a href="#cb4-636" aria-hidden="true" tabindex="-1"></a></span>
@@ -2787,11 +2787,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-652"><a href="#cb4-652" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-653"><a href="#cb4-653" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Assign meaningful colours:</span>
 <span id="cb4-654"><a href="#cb4-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-655"><a href="#cb4-655" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Level 1 (Artificial surfaces):** Red or grey</span>
-<span id="cb4-656"><a href="#cb4-656" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Level 2 (Agricultural):** Yellow or tan</span>
-<span id="cb4-657"><a href="#cb4-657" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Level 3 (Forest):** Green</span>
-<span id="cb4-658"><a href="#cb4-658" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Level 4 (Wetlands):** Blue/purple</span>
-<span id="cb4-659"><a href="#cb4-659" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Level 5 (Water):** Blue</span>
+<span id="cb4-655"><a href="#cb4-655" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Level 1 (Artificial surfaces):** Red or grey</span>
+<span id="cb4-656"><a href="#cb4-656" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Level 2 (Agricultural):** Yellow or tan</span>
+<span id="cb4-657"><a href="#cb4-657" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Level 3 (Forest):** Green</span>
+<span id="cb4-658"><a href="#cb4-658" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Level 4 (Wetlands):** Blue/purple</span>
+<span id="cb4-659"><a href="#cb4-659" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Level 5 (Water):** Blue</span>
 <span id="cb4-660"><a href="#cb4-660" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-661"><a href="#cb4-661" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Double-click colours to customize as desired</span>
 <span id="cb4-662"><a href="#cb4-662" aria-hidden="true" tabindex="-1"></a></span>
@@ -2835,16 +2835,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-700"><a href="#cb4-700" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-701"><a href="#cb4-701" aria-hidden="true" tabindex="-1"></a>**Understanding the Results:**</span>
 <span id="cb4-702"><a href="#cb4-702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-703"><a href="#cb4-703" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**One Level-1 class per grid cell:** The final grid shows the single most prevalent land use type in each 2×2 km cell</span>
-<span id="cb4-704"><a href="#cb4-704" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Spatial patterns:** Visible gradients reveal regional land use structure (urban cores, agricultural zones, forested areas)</span>
-<span id="cb4-705"><a href="#cb4-705" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Level of detail:** Level-1 classification is suitable for regional planning and policy; Level-2 or Level-3 needed for local detail</span>
+<span id="cb4-703"><a href="#cb4-703" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**One Level-1 class per grid cell:** The final grid shows the single most prevalent land use type in each 2×2 km cell</span>
+<span id="cb4-704"><a href="#cb4-704" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Spatial patterns:** Visible gradients reveal regional land use structure (urban cores, agricultural zones, forested areas)</span>
+<span id="cb4-705"><a href="#cb4-705" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Level of detail:** Level-1 classification is suitable for regional planning and policy; Level-2 or Level-3 needed for local detail</span>
 <span id="cb4-706"><a href="#cb4-706" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-707"><a href="#cb4-707" aria-hidden="true" tabindex="-1"></a>**Using the Grid for Analysis:**</span>
 <span id="cb4-708"><a href="#cb4-708" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-709"><a href="#cb4-709" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Statistical summaries:** Count grid cells by dominant class; calculate percentages by region</span>
-<span id="cb4-710"><a href="#cb4-710" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Change detection:** Compare grids from different years (if CLC data available for multiple epochs)</span>
-<span id="cb4-711"><a href="#cb4-711" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Integration with other data:** Join socioeconomic, demographic, or climate data to explore correlations</span>
-<span id="cb4-712"><a href="#cb4-712" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Planning applications:** Identify expansion opportunities or conservation priorities</span>
+<span id="cb4-709"><a href="#cb4-709" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Statistical summaries:** Count grid cells by dominant class; calculate percentages by region</span>
+<span id="cb4-710"><a href="#cb4-710" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Change detection:** Compare grids from different years (if CLC data available for multiple epochs)</span>
+<span id="cb4-711"><a href="#cb4-711" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integration with other data:** Join socioeconomic, demographic, or climate data to explore correlations</span>
+<span id="cb4-712"><a href="#cb4-712" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Planning applications:** Identify expansion opportunities or conservation priorities</span>
 <span id="cb4-713"><a href="#cb4-713" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-714"><a href="#cb4-714" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-715"><a href="#cb4-715" aria-hidden="true" tabindex="-1"></a></span>
@@ -2872,19 +2872,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-737"><a href="#cb4-737" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-738"><a href="#cb4-738" aria-hidden="true" tabindex="-1"></a>**Data Sources:**</span>
 <span id="cb4-739"><a href="#cb4-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-740"><a href="#cb4-740" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Copernicus CLC2018:** https://land.copernicus.eu/en/products/corine-land-cover</span>
-<span id="cb4-741"><a href="#cb4-741" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**CLC User Manual:** https://land.copernicus.eu/en/technical-library/clc-product-user-manual/</span>
+<span id="cb4-740"><a href="#cb4-740" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Copernicus CLC2018:** https://land.copernicus.eu/en/products/corine-land-cover</span>
+<span id="cb4-741"><a href="#cb4-741" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**CLC User Manual:** https://land.copernicus.eu/en/technical-library/clc-product-user-manual/</span>
 <span id="cb4-742"><a href="#cb4-742" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-743"><a href="#cb4-743" aria-hidden="true" tabindex="-1"></a>**QGIS Documentation:**</span>
 <span id="cb4-744"><a href="#cb4-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-745"><a href="#cb4-745" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Vector Geoprocessing Tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeoprocessing.html</span>
-<span id="cb4-746"><a href="#cb4-746" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Processing Toolbox:** https://docs.qgis.org/latest/en/docs/user_manual/processing/toolbox.html</span>
-<span id="cb4-747"><a href="#cb4-747" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Dissolve with stats Plugin:** Check plugin repository or GitHub</span>
+<span id="cb4-745"><a href="#cb4-745" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Vector Geoprocessing Tools:** https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorgeoprocessing.html</span>
+<span id="cb4-746"><a href="#cb4-746" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Processing Toolbox:** https://docs.qgis.org/latest/en/docs/user_manual/processing/toolbox.html</span>
+<span id="cb4-747"><a href="#cb4-747" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Dissolve with stats Plugin:** Check plugin repository or GitHub</span>
 <span id="cb4-748"><a href="#cb4-748" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-749"><a href="#cb4-749" aria-hidden="true" tabindex="-1"></a>**Related Tutorials:**</span>
 <span id="cb4-750"><a href="#cb4-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-751"><a href="#cb4-751" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>QGIS official training manual: https://docs.qgis.org/latest/en/docs/training_manual/</span>
-<span id="cb4-752"><a href="#cb4-752" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>European Environment Agency GIS resources: https://www.eea.europa.eu/data-and-maps</span>
+<span id="cb4-751"><a href="#cb4-751" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>QGIS official training manual: https://docs.qgis.org/latest/en/docs/training_manual/</span>
+<span id="cb4-752"><a href="#cb4-752" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>European Environment Agency GIS resources: https://www.eea.europa.eu/data-and-maps</span>
 <span id="cb4-753"><a href="#cb4-753" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-754"><a href="#cb4-754" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-755"><a href="#cb4-755" aria-hidden="true" tabindex="-1"></a></span>
@@ -2921,14 +2921,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-786"><a href="#cb4-786" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-787"><a href="#cb4-787" aria-hidden="true" tabindex="-1"></a>**Example Level-3 Codes:**</span>
 <span id="cb4-788"><a href="#cb4-788" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-789"><a href="#cb4-789" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>111 = Continuous urban fabric</span>
-<span id="cb4-790"><a href="#cb4-790" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>112 = Discontinuous urban fabric</span>
-<span id="cb4-791"><a href="#cb4-791" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>211 = Non-irrigated arable land</span>
-<span id="cb4-792"><a href="#cb4-792" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>231 = Pastures</span>
-<span id="cb4-793"><a href="#cb4-793" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>311 = Broad-leaved forest</span>
-<span id="cb4-794"><a href="#cb4-794" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>312 = Coniferous forest</span>
-<span id="cb4-795"><a href="#cb4-795" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>511 = Rivers</span>
-<span id="cb4-796"><a href="#cb4-796" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>512 = Lakes</span>
+<span id="cb4-789"><a href="#cb4-789" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>111 = Continuous urban fabric</span>
+<span id="cb4-790"><a href="#cb4-790" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>112 = Discontinuous urban fabric</span>
+<span id="cb4-791"><a href="#cb4-791" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>211 = Non-irrigated arable land</span>
+<span id="cb4-792"><a href="#cb4-792" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>231 = Pastures</span>
+<span id="cb4-793"><a href="#cb4-793" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>311 = Broad-leaved forest</span>
+<span id="cb4-794"><a href="#cb4-794" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>312 = Coniferous forest</span>
+<span id="cb4-795"><a href="#cb4-795" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>511 = Rivers</span>
+<span id="cb4-796"><a href="#cb4-796" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>512 = Lakes</span>
 <span id="cb4-797"><a href="#cb4-797" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-798"><a href="#cb4-798" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-799"><a href="#cb4-799" aria-hidden="true" tabindex="-1"></a></span>
@@ -2945,10 +2945,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-810"><a href="#cb4-810" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-811"><a href="#cb4-811" aria-hidden="true" tabindex="-1"></a>If you encounter issues or have questions:</span>
 <span id="cb4-812"><a href="#cb4-812" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-813"><a href="#cb4-813" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Review the **Troubleshooting Guide** in this document</span>
-<span id="cb4-814"><a href="#cb4-814" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Check **QGIS documentation** at https://docs.qgis.org/</span>
-<span id="cb4-815"><a href="#cb4-815" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Consult **Copernicus and EEA documentation** for data-specific questions</span>
-<span id="cb4-816"><a href="#cb4-816" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Contact your instructor or GIS support team</span>
+<span id="cb4-813"><a href="#cb4-813" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Review the **Troubleshooting Guide** in this document</span>
+<span id="cb4-814"><a href="#cb4-814" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check **QGIS documentation** at https://docs.qgis.org/</span>
+<span id="cb4-815"><a href="#cb4-815" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consult **Copernicus and EEA documentation** for data-specific questions</span>
+<span id="cb4-816"><a href="#cb4-816" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Contact your instructor or GIS support team</span>
 <span id="cb4-817"><a href="#cb4-817" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-818"><a href="#cb4-818" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>

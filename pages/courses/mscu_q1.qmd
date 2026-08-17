@@ -1,11 +1,9 @@
 ---
-title: "mscu_q1"
+title: "Intro to GIS Workshop"
 format: html
 ---
 
-# Intro to GIS Workshop
-
-## MSc1 Urbanism, Week 1
+## Master of Urbanism - Q1 Studio
 
 Date: 3 September 2026 Duration: 8h
 
