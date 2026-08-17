@@ -15,38 +15,33 @@ page-layout: full
 
 ## Overview
 
-This section brings together **pre-packaged courses and workshops** built from curated tutorial collections.  
+This section brings together **pre-packaged courses and workshops** built from curated tutorial collections.\
 Each course is designed for a specific teaching context at **TU Delft**, supporting both structured education and self-guided learning.
 
-Each course page typically includes:
-- Learning objectives
-- Required software and data
-- Step-by-step tutorials
-- Assignments or exercises (when applicable)
-- Additional resources
+Each course page typically includes: - Learning objectives - Required software and data - Step-by-step tutorials - Assignments or exercises (when applicable) - Additional resources
 
----
+------------------------------------------------------------------------
 
 ## Courses by Programme
 
 ### Bachelor of Architecture
 
-- **IOP1** — GeoExpert Role  
-- **WV5** — Geodata Domain  
+- **IOP1** — GeoExpert Role\
+- **WV5** — Geodata Domain
 
 ### Master of Urbanism
 
-- **Q1 Studio** — GIS Workshop  
-- **Q2 Studio** — GIS Workshop  
-- **Q3 Studio** — GIS Workshop  
-- **Applied Spatial Analytics**  
-- **DISSUF** — Graduation Cluster  
+- [**Q1 Studio** — GIS Workshop]()
+- **Q2 Studio** — GIS Workshop\
+- **Q3 Studio** — GIS Workshop\
+- **Applied Spatial Analytics**\
+- **DISSUF** — Graduation Cluster
 
 ### Master of Landscape Architecture
 
-- **Q3 Studio** — GIS Workshop  
+- **Q3 Studio** — GIS Workshop
 
----
+------------------------------------------------------------------------
 
 ## Available Courses & Workshops
 
@@ -54,7 +49,7 @@ Browse the available materials below, or use the search and filters above to qui
 
 Each item links to a dedicated course page with full documentation and tutorials.
 
----
+------------------------------------------------------------------------
 
 ## For Instructors
 
