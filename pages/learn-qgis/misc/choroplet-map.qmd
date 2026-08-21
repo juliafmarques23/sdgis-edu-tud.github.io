@@ -1,0 +1,233 @@
+---
+title: "Part 2 – Raster Import & Basemap"
+description: "Import RUDIFUN data into QGIS, inspect its values, style it."
+categories:
+ - Data Preparation
+level: Beginner
+level_code: 1.0
+level_color: '#A6CEE3'
+date: 2026-08-06
+---
+
+Classification: Beginner GIS Analysis \| Spatial Data Basics \| Creating a choroplet map
+
+Learning Level: Beginner
+
+Time Estimate: 45 minutes
+
+Software Required: QGIS LTR 3.44
+
+Author: Daniele Cannatella
+
+------------------------------------------------------------------------
+
+## Overview
+
+This exercise is the third hands-on block of the Week 1 GIS workshop, following directly on from [Part 2 – Raster Import](import-raster.qmd). You will work with RUDIFUN data of Vlissingen, inspect its values, create a choroplet map of densities.
+
+**Learning Outcomes** #update
+
+By completing this exercise, you will be able to:
+
+✅ Import a raster layer into QGIS from the Browser Panel\
+✅ Read raster statistics (min/max) and interpret a histogram\
+✅ Style a raster using a pseudocolor ramp\
+✅ Derive a binary risk-zone raster using a threshold expression\
+✅ Export a raster layer and share a basemap screenshot
+
+------------------------------------------------------------------------
+
+## Data & Software
+
+::: {.callout-note appearance="minimal" icon="true"}
+**You will need:**
+
+| Resource | Type | Description |
+|----|----|----|
+| `[project-name-part2].qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
+| `[ahn-dtm].tif` | Raster (GeoTIFF) | AHN Digital Terrain Model (DTM), pre-clipped to the study area |
+:::
+
+::: {.callout-note appearance="minimal" icon="true"}
+**Background:** Met de RUDIFUN-dataset kunnen overheden, ruimtelijk onderzoekers, planologen en stedenbouwkundigen aan de slag voor onderzoek naar de samenhang tussen ruimtelijke dichtheden en menging van wonen met andere functies enerzijds en stedelijke dossiers als mobiliteit, leefbaarheid en vastgoedmarkt anderzijds.De Ruimtelijke Dichtheden en Functiemenging in Nederland (RUDIFUN) dataset geeft een indicatie van de dichtheid en morfologie van bebouwd gebied. Het geeft deze weer in onder andere de eenheden Floor-Space Index (FSI) en de Mixed Use Index (MXI). Deze eenheden zijn berekend op de schaal van bouwblok, buurt, wijk en gemeente. De kaart met de FSI geeft een indicatie van de ruimtelijke dichtheid van bebouwing. De MXI drukt de verhouding uit tussen wonen en werken. In de publicatie zijn de verschillende indexen en hun toepassingsmogelijkheden beschreven.Data aangeboden op dit portaal zijn te gebruiken onder voorwaarde van bronvermelding CC BY 4.0 NL.
+:::
+
+------------------------------------------------------------------------
+
+Students open the qgis project. it visualizes the whole RUDIFUN dataset for the Zeeland province. The layer is PV29\_\_00_Basis_Bouwblok
+
+# data preparation
+
+They open the attribute table They select the features belonging to the city of Vlissingen.
+
+Select by expression: GM_CODE = GM0718
+
+They save the selection as a new layer
+
+Export \> Save selected Features as
+
+Callout: why it is important to work with subsets? - more agile layers - less noise - focused analysis
+
+Delete fields
+
+keep only metrics related to 2024 and 2019. we will work only with FSI for this exercise
+
+# first question: where are the densiest buurten in 2024?
+
+- right click on the saved layer
+- properties \> sympology
+- select FSI_2024 for value
+- select natural breaks (jenks)
+
+answer: which areas are the most dense?
+
+# second question: how densities changed?
+
+- create a copy of the layer
+- rename it as difference
+- create a filter, excluding the areas with 0 FSI
+  - right click \> properties \> source
+  - in the provider specific expression box type the formula: "FSI_24"\>0
+  - click ok
+
+# Create the maps
+
+Step 5: Create Cartographic Visualizations
+
+5.1 Create a Classified Choropleth Map
+
+A choropleth map uses colour gradients to display the spatial distribution of a continuous variable. Classifying continuous density data into discrete categories (e.g., 5 classes) makes the map easier to interpret and print.
+
+Select the Data Layer:
+
+In the Layers Panel, click on the layer containing the styled FSI
+
+This layer should be visible on the map canvas
+
+Open the Layer Styling Panel:
+
+Go to View → Panels → Layer Styling (or press F7)
+
+The Layer Styling panel opens on the right side
+
+Change Classification Type to Graduated:
+
+In the Symbology tab, locate the classification dropdown (top of the panel)
+
+Click it and select Graduated
+
+The panel will reconfigure to show classification options
+
+Configure Classification Parameters:
+
+Value (Column):
+
+Click the dropdown below "Graduated"
+
+Select FSI\_-\_2024
+
+Classification Mode:
+
+Click the dropdown labeled "Classification Mode" or "Method"
+
+Select Quantiles (Equal Count)
+
+This divides the data into classes such that each class contains approximately the same number of municipalities
+
+Makes spatial patterns easier to see than equal-interval classification
+
+Number of Classes:
+
+Set to 5 (a standard choice balancing detail with simplicity)
+
+tip: You can experiment with 4–7 depending on your data and preferences
+
+tip: other classification methods
+
+Choose a Colour Ramp:
+
+Click the Color Ramp dropdown
+
+Choose a sequential or diverging ramp suitable for FSI visualization
+
+Blues, Greens, Purples – Single-hue sequential schemes
+
+Reverse (optional): If you want low values in darker colours and high values in lighter colours, click the Reverse checkbox
+
+Generate Classification Classes:
+
+Click the Classify button
+
+The tool automatically calculates class breaks based on your selected method
+
+Class ranges will appear in a table below
+
+Review the generated classes:
+
+Each row shows a class range and its colour
+
+Check that classes are logical and well-distributed
+
+(Optional) Manually Edit Class Breaks:
+
+Double-click any value in the "Value" or "Label" columns to edit it
+
+Useful for rounding numbers or creating custom labels (e.g., "Low," "Medium," "High")
+
+Adjust Styling Details:
+
+Stroke (Outline):
+
+Find "Stroke width" or similar option
+
+Set to 0.5 pt (thin, subtle boundaries between meighborhoods)
+
+This maintains visual distinction without overwhelming the map
+
+Stroke color:
+
+Choose a dark grey or black for contrast against the fill colours
+
+Opacity:
+
+Set to 90% to ensure clear visibility while subtly revealing underlying features
+
+Apply and Review:
+
+Click Apply to update the map canvas
+
+Return to the main QGIS canvas and inspect the choropleth:
+
+Southern municipalities should appear warmer (higher PV potential)
+
+Northern municipalities should appear cooler (lower potential)
+
+Patterns should reflect geographic and climatic variation
+
+If the classification doesn't match your expectations:
+
+Return to the Styling panel and adjust the colour ramp, number of classes, or classification mode
+
+Click Apply again
+
+Insert the Choropleth Map:
+
+In the Items panel (right side), click Add Map
+
+On the layout canvas, click and drag to draw a rectangle:
+
+This rectangle defines the area where the map will appear
+
+Release the mouse to place the map
+
+Resize and reposition as needed by clicking and dragging corners/edges
+
+The map should occupy about 60–70% of the layout
+
+Add an Attribute Table to the Layout:
+
+In the Items panel (right side), click Add Attribute Table
+
+On the layout canvas, click and drag to draw a rectangle below or beside the map
+
+Release to place the table

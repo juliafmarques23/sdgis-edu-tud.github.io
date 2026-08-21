@@ -1,0 +1,16 @@
+---
+title: "spatial-join"
+format: html
+---
+
+open project in the layer you will see a polygon layer representing the neighborhoods of Vlissingen (file name).
+
+We want to know how many bakeries are present in each neighborhood.
+
+To do this, we can download this information from Open Street Map.
+
+Open Street Map is a crowdsourced... ß∂ First, we need to install the plugin in QGIS.
+
+and a point layer representing the bakeries in the city.
+
+the bakeries layer is retrieved from OSM
