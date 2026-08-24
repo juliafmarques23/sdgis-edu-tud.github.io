@@ -288,7 +288,7 @@ This creates unique groups for each neighborhood-function combination.
     **Add these aggregations:**
 
     | Expression  | Aggregate | Name             | Type             | Length | Precision |
-    |------------|------------|------------|------------|------------|------------|
+    |-------------|-----------|------------------|------------------|--------|-----------|
     | `fid`       | \-        | `building_count` | Integer (64 bit) | 10     | 2         |
     | `"area_m2"` | `sum`     | `total_area_m2`  | Decimal (Double) | 10     | 2         |
     | `"area_m2"` | `mean`    | `avg_area_m2`    | Decimal (Double) | 10     | 2         |
@@ -298,7 +298,7 @@ This creates unique groups for each neighborhood-function combination.
 4.  **Also add these to preserve grouping info:**
 
     | Expression        | Aggregate     | Name           | Type          | Length | Precision |
-    |------------|------------|------------|------------|------------|------------|
+    |-------------------|---------------|----------------|---------------|--------|-----------|
     | `"buurtnaam"`     | `first_value` | `neighborhood` | Text (string) | 50     | 0         |
     | `"function_type"` | `first_value` | `function`     | Text (string) | 50     | 0         |
 
@@ -414,7 +414,7 @@ This creates unique groups for each neighborhood-function combination.
 ## Summary Table: Statistics You've Calculated
 
 | Statistic | Method | Answers the Question |
-|--------------------|-------------------|---------------------------------|
+|----|----|----|
 | **Building Count by Function** | Statistics by Categories | How many buildings of each type in each neighborhood? |
 | **Total Area by Function** | Statistics by Categories | What's the total floor area per function type? |
 | **Average Building Size** | Aggregate tool | What's the typical building size per function? |
@@ -440,7 +440,7 @@ END
 ### 2. Spatial Predicates
 
 | Predicate | Description | Use Case |
-|-----------------------|---------------------------|----------------------|
+|----|----|----|
 | **within** | Feature completely inside | Buildings entirely within neighborhoods |
 | **intersects** | Features touch or overlap | Include buildings on borders |
 | **contains** | Opposite of within | Which neighborhood contains building |

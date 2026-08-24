@@ -1,39 +1,53 @@
 ---
-title: "Part 2 – Raster Import & Basemap"
-description: "Import RUDIFUN data into QGIS, inspect its values, style it."
+title: "Part 3 – Attribute Tables & Choropleth Map"
+description: "Select a study-area subset from a province-wide density dataset, clean up its attribute table, and produce a choropleth map of building density change in Vlissingen."
 categories:
  - Data Preparation
+ - Cartography
 level: Beginner
 level_code: 1.0
 level_color: '#A6CEE3'
 date: 2026-08-06
 ---
 
-Classification: Beginner GIS Analysis \| Spatial Data Basics \| Creating a choroplet map
+**Classification:** Beginner GIS Analysis \| Spatial Data Basics \| Attribute Tables & Choropleth Mapping
 
-Learning Level: Beginner
+**Learning Level:** Beginner
 
-Time Estimate: 45 minutes
+**Time Estimate:** 45 minutes
 
-Software Required: QGIS LTR 3.44
+**Software Required:** QGIS LTR 3.44
 
-Author: Daniele Cannatella
+**Author:** Daniele Cannatella
+
+::: {.callout-important title="Note for TA"}
+This is Part 3 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 11:00–11:45 slot). Scope is deliberately limited to selecting/cleaning the attribute table and producing one choropleth screenshot, to fit the 45-minute block.
+
+Remaining placeholders (`[...]`) to fill in before this goes out to students:
+
+- Confirm the real starter project filename and the exact field names in `PV29__00_Basis_Bouwblok` (the draft this was built from used `GM_CODE`, `FSI_2024`/`FSI_24`, and `FSI_19` inconsistently — pick one naming convention and confirm it against the actual dataset)
+- Confirm the Vlissingen municipality code (`GM0718`) is correct and correctly quoted as a string in the expression
+- **Unlike Parts 1 and 2, the draft has students filter Vlissingen out of a province-wide (Zeeland) layer themselves, rather than starting from data pre-clipped to the study area.** Decide whether that's a deliberate teaching point for this block (practising `Select by Expression`) or should be pre-clipped like the other parts to save time — Step 1 below is written assuming it's deliberate
+- Confirm the RUDIFUN background text below (translated/condensed from the original Dutch source blurb) is accurate before publishing
+- **Cut from the original draft:** a later section instructing students to build a print layout (Items panel → Add Map → Add Attribute Table) and describing "Southern municipalities" with higher PV potential. This doesn't match Part 3's deliverable (a canvas screenshot to Miro) and reads like it was copied from an unrelated solar-potential tutorial — the print-layout workflow belongs to the afternoon Cartography exercise instead. Flag if this was cut in error.
+- Neither this file nor `import-vector.qmd`/`import-raster.qmd` is currently referenced in `_quarto.yml` — add all three to the sidebar (and/or link them from `pages/courses/mscu_q1.qmd`) once finalised
+:::
 
 ------------------------------------------------------------------------
 
 ## Overview
 
-This exercise is the third hands-on block of the Week 1 GIS workshop, following directly on from [Part 2 – Raster Import](import-raster.qmd). You will work with RUDIFUN data of Vlissingen, inspect its values, create a choroplet map of densities.
+This exercise is the third hands-on block of the Week 1 GIS workshop, following directly on from [Part 2 – Raster Import & Basemap](import-raster.qmd). You will select the municipality of **Vlissingen** out of a province-wide density dataset (RUDIFUN), clean up its attribute table, and produce a choropleth map showing how building density changed between 2019 and 2024.
 
-**Learning Outcomes** #update
+**Learning Outcomes**
 
 By completing this exercise, you will be able to:
 
-✅ Import a raster layer into QGIS from the Browser Panel\
-✅ Read raster statistics (min/max) and interpret a histogram\
-✅ Style a raster using a pseudocolor ramp\
-✅ Derive a binary risk-zone raster using a threshold expression\
-✅ Export a raster layer and share a basemap screenshot
+✅ Select features by attribute expression and export the selection as a new layer\
+✅ Delete unneeded fields from an attribute table\
+✅ Classify a numeric field using graduated symbology (Natural Breaks / Jenks)\
+✅ Calculate a new field expressing change between two years\
+✅ Style and export a choropleth map for sharing
 
 ------------------------------------------------------------------------
 
@@ -44,190 +58,195 @@ By completing this exercise, you will be able to:
 
 | Resource | Type | Description |
 |----|----|----|
-| `[project-name-part2].qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
-| `[ahn-dtm].tif` | Raster (GeoTIFF) | AHN Digital Terrain Model (DTM), pre-clipped to the study area |
+| `[project-name-part3].qgz` | QGIS project | Starter project, pre-loaded with the RUDIFUN dataset for the province of **Zeeland** |
+| `PV29__00_Basis_Bouwblok` | Vector layer (polygon) | RUDIFUN building-block density dataset (FSI, MXI), province-wide — not yet clipped to Vlissingen |
 :::
 
 ::: {.callout-note appearance="minimal" icon="true"}
-**Background:** Met de RUDIFUN-dataset kunnen overheden, ruimtelijk onderzoekers, planologen en stedenbouwkundigen aan de slag voor onderzoek naar de samenhang tussen ruimtelijke dichtheden en menging van wonen met andere functies enerzijds en stedelijke dossiers als mobiliteit, leefbaarheid en vastgoedmarkt anderzijds.De Ruimtelijke Dichtheden en Functiemenging in Nederland (RUDIFUN) dataset geeft een indicatie van de dichtheid en morfologie van bebouwd gebied. Het geeft deze weer in onder andere de eenheden Floor-Space Index (FSI) en de Mixed Use Index (MXI). Deze eenheden zijn berekend op de schaal van bouwblok, buurt, wijk en gemeente. De kaart met de FSI geeft een indicatie van de ruimtelijke dichtheid van bebouwing. De MXI drukt de verhouding uit tussen wonen en werken. In de publicatie zijn de verschillende indexen en hun toepassingsmogelijkheden beschreven.Data aangeboden op dit portaal zijn te gebruiken onder voorwaarde van bronvermelding CC BY 4.0 NL.
+**Background:** The **RUDIFUN** dataset (Ruimtelijke Dichtheden en Functiemenging in Nederland — "Spatial Densities and Function Mix in the Netherlands") supports research into how spatial density and the mixing of housing with other functions relate to urban issues such as mobility, liveability, and the real-estate market. It reports two indicators — the **Floor-Space Index (FSI)**, a measure of built-up density, and the **Mixed-Use Index (MXI)**, the ratio of housing to working floor space — calculated at the scale of the building block, neighbourhood, district, and municipality. Data on this portal may be reused under **CC BY 4.0 NL**, with attribution.
 :::
 
 ------------------------------------------------------------------------
 
-Students open the qgis project. it visualizes the whole RUDIFUN dataset for the Zeeland province. The layer is PV29\_\_00_Basis_Bouwblok
+## Step 1: Select and Export the Study Area
 
-# data preparation
+### 1.1 Explore the Full Dataset
 
-They open the attribute table They select the features belonging to the city of Vlissingen.
+1.  Launch **QGIS LTR 3.44**
+2.  Open the project `[project-name-part3].qgz`
+3.  The layer `PV29__00_Basis_Bouwblok` should already be loaded, covering the whole of **Zeeland**
+4.  Open its **Attribute Table** and note the feature count and the available fields, in particular `GM_CODE` (municipality code) and the FSI fields for 2019 and 2024 (`[FSI_19]` / `[FSI_24]`)
 
-Select by expression: GM_CODE = GM0718
+**Result:** The attribute table lists building blocks for the entire province, not just Vlissingen.
 
-They save the selection as a new layer
+\[Add screenshot: attribute table of `PV29__00_Basis_Bouwblok` showing the `GM_CODE` and FSI columns\]
 
-Export \> Save selected Features as
+### 1.2 Select Vlissingen by Expression
 
-Callout: why it is important to work with subsets? - more agile layers - less noise - focused analysis
+1.  Right-click the layer → **Open Attribute Table**
+2.  Click **Select Features Using an Expression** (the ε icon)
+3.  Enter the expression:
 
-Delete fields
+```
+"GM_CODE" = 'GM0718'
+```
 
-keep only metrics related to 2024 and 2019. we will work only with FSI for this exercise
+-   `"GM_CODE"` – the field holding the municipality code
+-   `= 'GM0718'` – matches rows where that code equals Vlissingen's municipality code, written as a quoted text string
 
-# first question: where are the densiest buurten in 2024?
+4.  Click **Select Features**
 
-- right click on the saved layer
-- properties \> sympology
-- select FSI_2024 for value
-- select natural breaks (jenks)
+**Result:** Only the building blocks belonging to Vlissingen are now highlighted in yellow on the canvas and selected (highlighted) in the attribute table.
 
-answer: which areas are the most dense?
+\[Add screenshot: canvas with the Vlissingen building blocks selected, rest of Zeeland unselected\]
 
-# second question: how densities changed?
+### 1.3 Export the Selection as a New Layer
 
-- create a copy of the layer
-- rename it as difference
-- create a filter, excluding the areas with 0 FSI
-  - right click \> properties \> source
-  - in the provider specific expression box type the formula: "FSI_24"\>0
-  - click ok
+1.  Right-click the layer → **Export → Save Selected Features As…**
+2.  **Format:** GeoPackage
+3.  **File name:** `[vlissingen-rudifun].gpkg`
+4.  Click **OK**, then add the new layer to the map if it isn't added automatically
 
-# Create the maps
+::: {.callout-tip appearance="minimal" icon="true"}
+**Why work with a subset instead of the full dataset?**
 
-Step 5: Create Cartographic Visualizations
+-   **More agile layers** — a smaller file renders and processes faster
+-   **Less visual noise** — the map only shows the area you're analysing
+-   **Focused analysis** — easier to compare against other Vlissingen-only layers, like the neighbourhood boundaries from Part 1
+:::
 
-5.1 Create a Classified Choropleth Map
+------------------------------------------------------------------------
 
-A choropleth map uses colour gradients to display the spatial distribution of a continuous variable. Classifying continuous density data into discrete categories (e.g., 5 classes) makes the map easier to interpret and print.
+## Step 2: Clean Up the Attribute Table
 
-Select the Data Layer:
+### 2.1 Remove Unneeded Fields
 
-In the Layers Panel, click on the layer containing the styled FSI
+The full dataset carries many more indicators than this exercise needs. To keep the table readable, remove everything except `GM_CODE` and the FSI fields for 2019 and 2024.
 
-This layer should be visible on the map canvas
+1.  Right-click the `[vlissingen-rudifun]` layer → **Properties → Fields**
+2.  Click the **pencil icon** to toggle editing mode
+3.  Select the fields you don't need for this exercise, and click the **Delete Field** button (red **X**) for each
+4.  Keep only `GM_CODE`, `[FSI_19]`, and `[FSI_24]`
+5.  Click **OK** to apply, then save your edits
 
-Open the Layer Styling Panel:
+**Result:** The attribute table now shows only the fields relevant to this exercise.
 
-Go to View → Panels → Layer Styling (or press F7)
+\[Add screenshot: Fields tab of Layer Properties, before and after deleting unneeded fields\]
 
-The Layer Styling panel opens on the right side
+------------------------------------------------------------------------
 
-Change Classification Type to Graduated:
+## Step 3: Where Are the Densest Buurten in 2024?
 
-In the Symbology tab, locate the classification dropdown (top of the panel)
+### 3.1 Classify by FSI 2024
 
-Click it and select Graduated
+1.  Select the `[vlissingen-rudifun]` layer, open **Layer Styling** (`F7`)
+2.  Change the classification type to **Graduated**
+3.  **Value:** `[FSI_24]`
+4.  **Classification Mode:** **Natural Breaks (Jenks)**
+5.  **Classes:** 5
+6.  Choose a sequential colour ramp (e.g. **Blues** or **Oranges**) and click **Classify**, then **Apply**
 
-The panel will reconfigure to show classification options
+::: {.callout-tip appearance="minimal" icon="true"}
+**Tip:** Natural Breaks (Jenks) groups similar values together and maximises the difference between classes — it's a good default for density data where you want the classification to reflect real gaps in the distribution, rather than splitting the data into equal-sized groups.
+:::
 
-Configure Classification Parameters:
+**Result:** Building blocks are now shaded from low to high FSI in 2024.
 
-Value (Column):
+\[Add screenshot: choropleth map of `[FSI_24]` with legend visible\]
 
-Click the dropdown below "Graduated"
+:::: {.callout-note appearance="minimal" icon="true"}
+**❓ Question:** Looking at the map, which areas of Vlissingen are the densest in 2024?
 
-Select FSI\_-\_2024
+**✅ Solution (click to reveal):**
 
-Classification Mode:
+::: {.callout-tip collapse="true"}
+The darkest class should fall over the historic city centre and the most built-up residential blocks, where floor space is high relative to plot area. Lighter classes typically correspond to industrial or port areas, green space, and low-density suburban blocks.
+:::
+::::
 
-Click the dropdown labeled "Classification Mode" or "Method"
+------------------------------------------------------------------------
 
-Select Quantiles (Equal Count)
+## Step 4: How Did Density Change Between 2019 and 2024?
 
-This divides the data into classes such that each class contains approximately the same number of municipalities
+### 4.1 Duplicate the Layer
 
-Makes spatial patterns easier to see than equal-interval classification
+1.  Right-click the `[vlissingen-rudifun]` layer → **Duplicate Layer**
+2.  Rename the copy `[density-change]`
 
-Number of Classes:
+### 4.2 Filter Out Empty Blocks
 
-Set to 5 (a standard choice balancing detail with simplicity)
+Building blocks with no built floor space in 2024 aren't meaningful for a change map, so filter them out before calculating the difference.
 
-tip: You can experiment with 4–7 depending on your data and preferences
+1.  Right-click `[density-change]` → **Properties → Source**
+2.  In the **Provider Feature Filter** box, enter:
 
-tip: other classification methods
+```
+"[FSI_24]" > 0
+```
 
-Choose a Colour Ramp:
+3.  Click **OK**
 
-Click the Color Ramp dropdown
+### 4.3 Calculate the Change
 
-Choose a sequential or diverging ramp suitable for FSI visualization
+1.  Open the **Attribute Table** for `[density-change]`, toggle editing mode
+2.  Open **Field Calculator**
+3.  **Create a new field:** `fsi_change` (type: **Decimal number**)
+4.  **Expression:**
 
-Blues, Greens, Purples – Single-hue sequential schemes
+```
+"[FSI_24]" - "[FSI_19]"
+```
 
-Reverse (optional): If you want low values in darker colours and high values in lighter colours, click the Reverse checkbox
+-   `"[FSI_24]"` – FSI value in 2024
+-   `"[FSI_19]"` – FSI value in 2019
+-   Subtracting gives the change in FSI over the period: a positive value means the block densified, a negative value means it lost built density
 
-Generate Classification Classes:
+5.  Click **OK**, save your edits, and toggle editing off
 
-Click the Classify button
+### 4.4 Classify the Change
 
-The tool automatically calculates class breaks based on your selected method
+1.  Open **Layer Styling** (`F7`) for `[density-change]`
+2.  **Value:** `fsi_change`
+3.  Choose a **diverging** colour ramp (e.g. **RdBu** or **Spectral**), so decreases and increases are visually distinct
+4.  Set the classification so that **0 sits on a class break** — either by choosing **Natural Breaks (Jenks)** and checking the generated breaks, or by manually editing a break to fall at 0
+5.  Click **Classify**, then **Apply**
 
-Class ranges will appear in a table below
+**Result:** Areas that densified between 2019 and 2024 appear in one colour, areas that lost density appear in the other, and the intensity of the colour shows the size of the change.
 
-Review the generated classes:
+\[Add screenshot: choropleth map of `fsi_change` with a diverging colour ramp and legend visible\]
 
-Each row shows a class range and its colour
+:::: {.callout-note appearance="minimal" icon="true"}
+**❓ Question:** Which parts of Vlissingen densified the most between 2019 and 2024? Are there any areas that lost density?
 
-Check that classes are logical and well-distributed
+**✅ Solution (click to reveal):**
 
-(Optional) Manually Edit Class Breaks:
+::: {.callout-tip collapse="true"}
+Look for the darkest class on the "increase" side of the ramp — this often clusters around recent infill or redevelopment sites. A small number of blocks in the darkest "decrease" class may point to demolitions or a data artefact (e.g. a block that was reclassified between the two survey years) rather than genuine density loss — worth flagging as a limitation.
+:::
+::::
 
-Double-click any value in the "Value" or "Label" columns to edit it
+------------------------------------------------------------------------
 
-Useful for rounding numbers or creating custom labels (e.g., "Low," "Medium," "High")
+## Step 5: Export and Share
 
-Adjust Styling Details:
+1.  Take a screenshot of the QGIS canvas showing the `fsi_change` choropleth, with the legend visible
+2.  Upload the screenshot to the course Miro board
+3.  **File → Save Project**
 
-Stroke (Outline):
+------------------------------------------------------------------------
 
-Find "Stroke width" or similar option
+## Reflection
 
-Set to 0.5 pt (thin, subtle boundaries between meighborhoods)
+-   Why classify continuous density data into discrete classes rather than using a continuous colour ramp?
+-   What does the change map tell you about how Vlissingen has densified between 2019 and 2024?
+-   What are the limitations of comparing two snapshots in time (2019 vs. 2024) without knowing what happened in between?
 
-This maintains visual distinction without overwhelming the map
+------------------------------------------------------------------------
 
-Stroke color:
-
-Choose a dark grey or black for contrast against the fill colours
-
-Opacity:
-
-Set to 90% to ensure clear visibility while subtly revealing underlying features
-
-Apply and Review:
-
-Click Apply to update the map canvas
-
-Return to the main QGIS canvas and inspect the choropleth:
-
-Southern municipalities should appear warmer (higher PV potential)
-
-Northern municipalities should appear cooler (lower potential)
-
-Patterns should reflect geographic and climatic variation
-
-If the classification doesn't match your expectations:
-
-Return to the Styling panel and adjust the colour ramp, number of classes, or classification mode
-
-Click Apply again
-
-Insert the Choropleth Map:
-
-In the Items panel (right side), click Add Map
-
-On the layout canvas, click and drag to draw a rectangle:
-
-This rectangle defines the area where the map will appear
-
-Release the mouse to place the map
-
-Resize and reposition as needed by clicking and dragging corners/edges
-
-The map should occupy about 60–70% of the layout
-
-Add an Attribute Table to the Layout:
-
-In the Items panel (right side), click Add Attribute Table
-
-On the layout canvas, click and drag to draw a rectangle below or beside the map
-
-Release to place the table
+::: {.callout-important title="Notes for TA"}
+-   Fill in the real project filename, output layer names, and the exact FSI field names (currently `[bracketed]` placeholders) once confirmed against the actual dataset.
+-   Confirm the `GM0718` municipality code for Vlissingen and the exact FSI field names before this goes to students — the original draft used `FSI_2024` and `FSI_24` interchangeably.
+-   Decide whether students genuinely select Vlissingen out of the full Zeeland layer (Step 1, as written) or start from data already clipped to the study area like Parts 1 and 2 — this materially affects timing in a 45-minute slot.
+-   The print-layout section from the original draft (Add Map / Add Attribute Table, referencing "PV potential") was cut as out of scope for this block — see the note at the top of this file.
+-   This file and `import-vector.qmd`/`import-raster.qmd` still need to be added to `_quarto.yml`'s sidebar to go live.
+:::

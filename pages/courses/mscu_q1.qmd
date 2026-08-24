@@ -42,12 +42,11 @@ By the end of the workshop, students will be able to:
 | 11:00 | 45 min | [Part 3 — Attribute tables + choropleth map](pages/learn-qgis/misc/choroplet-map.qmd) | Choropleth of densities; screenshot to Miro |
 | 11:45 | 15 min | Q&A |  |
 | 12:00 | 60 min | Lunch |  |
-| 13:00 | 45 min | Part 4 — Spatial join + density | Miro + Excel barchart |
-| 13:45 | 45 min | Part 5 — Basic statistics Exercise | Charts pinned next to screenshots |
+| 13:00 | 90 min | [Part 4 — Spatial join, density & statistics](pages/learn-qgis/misc/spatial-join-and-statistics.qmd) | Miro + Excel barchart |
 | 14:30 | 15 min | Break |  |
 | 14:45 | 45 min | Cartography input Lecture |  |
 | 15:30 | 15 min | Exercise Map review after input |  |
-| 15:45 | 60 min | Cartography exercise | Exercise ≥1 map finalized, rest as take-home |
+| 15:45 | 60 min | [Cartography exercise](pages/learn-qgis/misc/cartography-exercise.qmd) | Exercise ≥1 map finalized, rest as take-home |
 | 16:45 | 15 min | Wrap-up + assignment brief |  |
 
 ## Outcomes
@@ -55,8 +54,7 @@ By the end of the workshop, students will be able to:
 - Basemap of Land Use — screenshot on Miro (Part 1)
 - Basemap of DTM — screenshot on Miro (Part 2)
 - Choropleth of densities — screenshot on Miro (Part 3)
-- Density + spatial join map of bakeries, with Excel barchart — Miro (Part 4)
-- Statistics charts pinned next to the Part 1–3 screenshots on Miro (Part 5)
+- Density + spatial join map of bakeries, with descriptive statistics and an Excel barchart — Miro (Part 4)
 - Group discussion/review of maps-in-progress, held right after the cartography input, before individual finalization (Cartography input block)
 - One finished, publication-ready map, produced in class (Cartography exercise)
 - Take-home assignment: the remaining three maps, finalized using the same cartographic workflow
@@ -83,4 +81,4 @@ To prepare in advance:
 
 - Student accounts/access set up for the Miro board (Claudiu and Birgit)
 - Any datasets that aren't fetched live during the session pre-downloaded by students, per instructions circulated before the day (Julia)
-- Data • BBG + CBS neighbourhoods — clipped to the study area, ready to load • AHN — pre-clipped to the study area (raw AHN pulls are slow/unpredictable live) • RUDIFUN (basisblok & buurt) — prepared for the choropleth exercise • OSM POIs — pre-filtered to bakeries only, so students aren't querying/filtering live • CBS data for Part 5 statistics Files and project setup • All datasets and starter QGIS project files hosted on SURFdrive (or equivalent), with a single shared link distributed in advance • A saved QGIS project template per part (1–5, plus cartography), so students are chaining forward from a known-good file rather than starting from scratch each time • Miro board pre-structured (decide: fixed slot per student/pair, or open canvas) — see open question in the main planning doc Materials • Method sheets finalized for all 5 parts + cartography (step-by-step, screenshots, troubleshooting/FAQ section) • Cartography input slides/notes prepared • Intro survey built and link ready to share at 09:00 • Take-home assignment brief written, ready to hand out at 16:45 Staff • All 6 staff briefed on every method sheet in advance, so troubleshooting is consistent across the room even though no one is delivering a live demo
+- Data • BBG + CBS neighbourhoods — clipped to the study area, ready to load • AHN — pre-clipped to the study area (raw AHN pulls are slow/unpredictable live) • RUDIFUN (basisblok & buurt) — prepared for the choropleth exercise • OSM POIs — pre-filtered to bakeries only, so students aren't querying/filtering live (also used for Part 4's statistics step — no separate dataset needed) Files and project setup • All datasets and starter QGIS project files hosted on SURFdrive (or equivalent), with a single shared link distributed in advance • A saved QGIS project template per part (1–4, plus cartography), so students are chaining forward from a known-good file rather than starting from scratch each time • Miro board pre-structured (decide: fixed slot per student/pair, or open canvas) — see open question in the main planning doc Materials • Method sheets finalized for all 4 parts + cartography (step-by-step, screenshots, troubleshooting/FAQ section) • Cartography input slides/notes prepared • Intro survey built and link ready to share at 09:00 • Take-home assignment brief written, ready to hand out at 16:45 Staff • All 6 staff briefed on every method sheet in advance, so troubleshooting is consistent across the room even though no one is delivering a live demo
