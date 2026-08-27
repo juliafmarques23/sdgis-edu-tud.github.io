@@ -16,13 +16,13 @@ Duration: 45-60 minutes
 
 By the end of this tutorial, you will be able to:
 
--   Classify buildings by function type (single vs. multi-functional)
--   Use Field Calculator to create conditional classifications
--   Perform spatial selection based on location (within/intersect)
--   Execute spatial joins to append neighborhood attributes
--   Calculate geometric attributes (area)
--   Generate statistics by category (count and sum)
--   Export and visualize aggregated data
+- Classify buildings by function type (single vs. multi-functional)
+- Use Field Calculator to create conditional classifications
+- Perform spatial selection based on location (within/intersect)
+- Execute spatial joins to append neighborhood attributes
+- Calculate geometric attributes (area)
+- Generate statistics by category (count and sum)
+- Export and visualize aggregated data
 
 ## Software and Data Required
 
@@ -37,17 +37,17 @@ By the end of this tutorial, you will be able to:
 1.  **Start QGIS** and create a new project
 2.  **Set the CRS** to EPSG:28992 (Amersfoort / RD New - Dutch national grid)
 3.  **Load the layers:**
-    -   Add `buildings.gpkg` stored in the `part3_data/vector` folder
-    -   Add `buurten.gpkg` (You have created this file in the first exercise - [using data source ](using_data_source_manager.qmd)[manager](/pages/learn-qgis/getting-started/using-data_source-manager.qmd)))
+    - Add `buildings.gpkg` stored in the `part3_data/vector` folder
+    - Add `buurten.gpkg` (You have created this file in the first exercise - [using data source](using_data_source_manager.qmd)[manager](/pages/learn-qgis/getting-started/using-data_source-manager.qmd)))
 
 ![Figure 1 - Loaded building and neighborhood layers](statistics_and_data_visualization/fig%201.png)
 
 4.  **Explore the building attribute table:**
-    -   Right-click `buildings` layer → **Open Attribute Table**
-    -   Identify the column containing building functions (e.g., `functie`, `function`, or `gebruiksdoel`)
-    -   Notice how functions are stored:
-        -   Single function: `"woonfunctie"` (residential)
-        -   Multiple functions: `"woonfunctie, winkelfunctie"` (residential, retail)
+    - Right-click `buildings` layer → **Open Attribute Table**
+    - Identify the column containing building functions (e.g., `functie`, `function`, or `gebruiksdoel`)
+    - Notice how functions are stored:
+      - Single function: `"woonfunctie"` (residential)
+      - Multiple functions: `"woonfunctie, winkelfunctie"` (residential, retail)
 
 ![Figure 2 - Building attribute table showing function column](statistics_and_data_visualization/fig%202.png)
 
@@ -63,10 +63,10 @@ We'll create a new field that identifies whether a building has a single functio
 
 4.  **Configure the new field:**
 
-    -   ☑ Check **Create a new field**
-    -   **Output field name:** `function_type`
-    -   **Output field type:** `Text (string)`
-    -   **Length:** `50`
+    - ☑ Check **Create a new field**
+    - **Output field name:** `function_type`
+    - **Output field type:** `Text (string)`
+    - **Length:** `50`
 
 5.  **Enter this expression:**
 
@@ -93,13 +93,13 @@ END
 
 9.  **Verify your results:**
 
-    -   Scroll through the attribute table
+    - Scroll through the attribute table
 
-    -   Check that buildings with multiple functions are labeled "Multi-functional"
+    - Check that buildings with multiple functions are labeled "Multi-functional"
 
-    -   Check that single-function buildings show their specific function name
+    - Check that single-function buildings show their specific function name
 
-        ![](statistics_and_data_visualization/fig%20x1.png)
+      ![](statistics_and_data_visualization/fig%20x1.png)
 
 ------------------------------------------------------------------------
 
@@ -113,10 +113,10 @@ We need to identify which buildings fall within neighborhood boundaries.
 
 2.  **Configure the selection:**
 
-    -   **Select features from:** `buildings`
-    -   **Where the features:** `are within` (or `intersect` if you want to include partially overlapping buildings)
-    -   **By comparing to features from:** `buurten`
-    -   **Modify current selection by:** `creating new selection`
+    - **Select features from:** `buildings`
+    - **Where the features:** `are within` (or `intersect` if you want to include partially overlapping buildings)
+    - **By comparing to features from:** `buurten`
+    - **Modify current selection by:** `creating new selection`
 
 ![Figure 4 - Select by Location dialog](statistics_and_data_visualization/fig%204.png)
 
@@ -130,9 +130,9 @@ We need to identify which buildings fall within neighborhood boundaries.
 
 4.  **Check your selection:**
 
-    -   Look at the status bar: it shows "X features selected"
-    -   Selected buildings are highlighted in yellow on the map
-    -   In the attribute table, selected rows are highlighted
+    - Look at the status bar: it shows "X features selected"
+    - Selected buildings are highlighted in yellow on the map
+    - In the attribute table, selected rows are highlighted
 
 **💡 Tip:** If you want to keep only buildings within neighborhoods, you can export the selection as a new layer: Right-click `buildings` → `Export` → `Save Selected Features As...`
 
@@ -144,15 +144,15 @@ Now we'll add the neighborhood name to each building record.
 
 2.  **Configure the spatial join:**
 
-    -   **Input layer:** `buildings` (or your selected buildings if exported)
-    -   **Join layer:** `buurten`
-    -   **Geometric predicate:** ☑ `within` (or `intersects`)
-    -   **Fields to add:** Click the `...` button
-        -   ☑ Select only the neighborhood name field (e.g., `buurt_naam`, `BU_NAAM`)
-        -   ☑ You may also want neighborhood code (e.g., `BU_CODE`)
-        -   Uncheck other fields to keep the data clean
-    -   **Join type:** `Create separate feature for each matching feature (one-to-many)`
-    -   **Joined layer:** Save as `buildings_with_neighborhoods.gpkg`
+    - **Input layer:** `buildings` (or your selected buildings if exported)
+    - **Join layer:** `buurten`
+    - **Geometric predicate:** ☑ `within` (or `intersects`)
+    - **Fields to add:** Click the `...` button
+      - ☑ Select only the neighborhood name field (e.g., `buurt_naam`, `BU_NAAM`)
+      - ☑ You may also want neighborhood code (e.g., `BU_CODE`)
+      - Uncheck other fields to keep the data clean
+    - **Join type:** `Create separate feature for each matching feature (one-to-many)`
+    - **Joined layer:** Save as `buildings_with_neighborhoods.gpkg`
 
 ![Figure 5 - Join Attributes by Location dialog](statistics_and_data_visualization/fig%205.png)
 
@@ -160,13 +160,13 @@ Now we'll add the neighborhood name to each building record.
 
 4.  **Verify the join:**
 
-    -   Open the attribute table of the new `buildings_with_neighborhoods` layer
+    - Open the attribute table of the new `buildings_with_neighborhoods` layer
 
-    -   Check that the neighborhood name column has been added
+    - Check that the neighborhood name column has been added
 
-    -   Verify that buildings have the correct neighborhood assigned
+    - Verify that buildings have the correct neighborhood assigned
 
-        ![](statistics_and_data_visualization/fig%20x2.png)
+      ![](statistics_and_data_visualization/fig%20x2.png)
 
 **⚠️ Troubleshooting:** - If buildings show NULL in neighborhood field: They may be outside all neighborhood boundaries - If you see duplicate buildings: Check your geometric predicate and join type settings
 
@@ -184,9 +184,9 @@ Now we'll add the neighborhood name to each building record.
 
 4.  **Configure the area field:**
 
-    -   ☑ **Create a new field**
-    -   **Output field name:** `area_m2`
-    -   **Output field type:** `Decimal number (real)`
+    - ☑ **Create a new field**
+    - **Output field name:** `area_m2`
+    - **Output field type:** `Decimal number (real)`
 
 5.  **Enter this expression:**
 
@@ -215,25 +215,25 @@ Now we'll aggregate the data to answer key questions: - How many buildings of ea
 
 2.  **Configure for building counts:**
 
-    -   **Input vector layer:** `buildings_with_neighborhoods`
+    - **Input vector layer:** `buildings_with_neighborhoods`
 
-    -   **Field to calculate statistics on:** `fid` (or any unique ID field)
+    - **Field to calculate statistics on:** `fid` (or any unique ID field)
 
-    -   **Field(s) with categories:**
+    - **Field(s) with categories:**
 
-        -   Click `...` and select **both:**
-            1.  `buurt_naam` (neighborhood name)
-            2.  `function_type` (our created classification)
+      - Click `...` and select **both:**
+        1.  `buurt_naam` (neighborhood name)
+        2.  `function_type` (our created classification)
 
-    -   **Statistics to calculate:**
+    - **Statistics to calculate:**
 
-        -   ☑ **Count** (this counts buildings)
+      - ☑ **Count** (this counts buildings)
 
-    -   **Output:** `building_count_by_function.csv`
+    - **Output:** `building_count_by_function.csv`
 
-        ::: callout-note
-        The tool doesn't ask this to specify, but if the field to calculate on is not specified, it will only do count.
-        :::
+      ::: callout-note
+      The tool doesn't ask this to specify, but if the field to calculate on is not specified, it will only do count.
+      :::
 
 ![Figure 7 - Statistics by Categories for counts](statistics_and_data_visualization/fig%207.png)
 
@@ -241,9 +241,9 @@ Now we'll aggregate the data to answer key questions: - How many buildings of ea
 
 4.  **Review the output:**
 
-    -   Open the CSV in QGIS or a text editor
-    -   You should see columns: `buurt_naam`, `function_type`, `count`
-    -   Each row represents: X buildings of type Y in neighborhood Z
+    - Open the CSV in QGIS or a text editor
+    - You should see columns: `buurt_naam`, `function_type`, `count`
+    - Each row represents: X buildings of type Y in neighborhood Z
 
 ### Step 4.2: Statistics by Categories - Area Sum
 
@@ -251,16 +251,16 @@ Now we'll aggregate the data to answer key questions: - How many buildings of ea
 
 2.  **Configure for area totals:**
 
-    -   **Input vector layer:** `buildings_with_neighborhoods`
-    -   **Field to calculate statistics on:** `area_m2`
-    -   **Field(s) with categories:**
-        -   `buurt_naam`
-        -   `function_type`
-    -   **Statistics to calculate:**
-        -   ☑ **Sum** (total area)
-        -   ☑ **Mean** (average building size - optional but useful)
-        -   ☑ **Count** (number of buildings - to verify)
-    -   **Output:** `building_area_by_function.csv`
+    - **Input vector layer:** `buildings_with_neighborhoods`
+    - **Field to calculate statistics on:** `area_m2`
+    - **Field(s) with categories:**
+      - `buurt_naam`
+      - `function_type`
+    - **Statistics to calculate:**
+      - ☑ **Sum** (total area)
+      - ☑ **Mean** (average building size - optional but useful)
+      - ☑ **Count** (number of buildings - to verify)
+    - **Output:** `building_area_by_function.csv`
 
 ![Figure 8 - Statistics by Categories for areas](statistics_and_data_visualization/fig%208.png)
 
@@ -274,8 +274,8 @@ For more control, use the **Aggregate** tool:
 
 2.  **Configure:**
 
-    -   **Input layer:** `buildings_with_neighborhoods`
-    -   **Group by expression:** Click `ε` button and build expression:
+    - **Input layer:** `buildings_with_neighborhoods`
+    - **Group by expression:** Click `ε` button and build expression:
 
 ``` sql
 "buurtnaam" || ' - ' || "function_type"
@@ -310,13 +310,13 @@ This creates unique groups for each neighborhood-function combination.
 
 7.  **Review the results:**
 
-    -   Open the attribute table
+    - Open the attribute table
 
-    -   You now have comprehensive statistics for each neighborhood-function combination
+    - You now have comprehensive statistics for each neighborhood-function combination
 
-    -   Each row = one function type in one neighborhood with count, total area, and size statistics
+    - Each row = one function type in one neighborhood with count, total area, and size statistics
 
-        ![](statistics_and_data_visualization/fig%20x3.png)
+      ![](statistics_and_data_visualization/fig%20x3.png)
 
 ------------------------------------------------------------------------
 
@@ -328,17 +328,17 @@ This creates unique groups for each neighborhood-function combination.
 
 2.  **Export to CSV:**
 
-    -   Right-click the layer → `Export` → `Save Features As...`
-    -   **Format:** `Comma Separated Value [CSV]`
-    -   **File name:** `rotterdam_building_stats.csv`
-    -   **Geometry:** Select `No geometry` (we only need the statistics)
-    -   **Select fields to export:**
-        -   ☑ `neighborhood`
-        -   ☑ `function`
-        -   ☑ `building_count`
-        -   ☑ `total_area_m2`
-        -   ☑ `avg_area_m2`
-        -   Uncheck `fid` and other unnecessary fields
+    - Right-click the layer → `Export` → `Save Features As...`
+    - **Format:** `Comma Separated Value [CSV]`
+    - **File name:** `rotterdam_building_stats.csv`
+    - **Geometry:** Select `No geometry` (we only need the statistics)
+    - **Select fields to export:**
+      - ☑ `neighborhood`
+      - ☑ `function`
+      - ☑ `building_count`
+      - ☑ `total_area_m2`
+      - ☑ `avg_area_m2`
+      - Uncheck `fid` and other unnecessary fields
 
 ![Figure 10 - Export CSV configuration](statistics_and_data_visualization/fig%2010.png)
 
@@ -346,13 +346,13 @@ This creates unique groups for each neighborhood-function combination.
 
 4.  **Verify your export:**
 
-    -   Open the CSV in a text editor or spreadsheet
+    - Open the CSV in a text editor or spreadsheet
 
-    -   Check headers are clear
+    - Check headers are clear
 
-    -   Verify data looks correct
+    - Verify data looks correct
 
-        ![](statistics_and_data_visualization/fig%20x4.png)
+      ![](statistics_and_data_visualization/fig%20x4.png)
 
 ### Step 5.2: Create Visualizations in RAWGraphs
 
@@ -362,13 +362,13 @@ This creates unique groups for each neighborhood-function combination.
 2.  **Load your data:** Upload `rotterdam_building_stats.csv`
 3.  **Choose chart:** Select **Bar chart**
 4.  **Map dimensions:**
-    -   **Bars:** `function`
-    -   **Size:** `building_count`
-    -   **Color:** `neighborhood` (optional - will show stacked bars)
+    - **Bars:** `function`
+    - **Size:** `building_count`
+    - **Color:** `neighborhood` (optional - will show stacked bars)
 5.  **Customize:**
-    -   **Sort by:** Value (descending) to show most common functions first
-    -   **Orientation:** Horizontal (easier to read function names)
-    -   **Color scheme:** Choose a categorical palette
+    - **Sort by:** Value (descending) to show most common functions first
+    - **Orientation:** Horizontal (easier to read function names)
+    - **Color scheme:** Choose a categorical palette
 6.  **Export:** Download as SVG
 
 ![Figure 11 - Bar chart of building counts by function](statistics_and_data_visualization/fig%2011.png)
@@ -378,16 +378,16 @@ This creates unique groups for each neighborhood-function combination.
 1.  **Start new chart** in RAWGraphs
 2.  **Choose chart:** Select **Treemap**
 3.  **Map dimensions:**
-    -   **Hierarchy:**
-        1.  First level: `function`
-        2.  Second level: `neighborhood`
-    -   **Size:** `total_area_m2`
-    -   **Color:** `function`
-    -   **Label:** `neighborhood`
+    - **Hierarchy:**
+      1.  First level: `function`
+      2.  Second level: `neighborhood`
+    - **Size:** `total_area_m2`
+    - **Color:** `function`
+    - **Label:** `neighborhood`
 4.  **Customize:**
-    -   Adjust padding for readability
-    -   Choose color scheme (qualitative)
-    -   Enable/disable labels based on size
+    - Adjust padding for readability
+    - Choose color scheme (qualitative)
+    - Enable/disable labels based on size
 5.  **Export:** Download as SVG
 
 ![Figure 12 - Treemap showing area distribution](statistics_and_data_visualization/fig%2012.png)
@@ -397,14 +397,14 @@ This creates unique groups for each neighborhood-function combination.
 1.  **Start new chart**
 2.  **Choose chart:** Select **Bar chart**
 3.  **Map dimensions:**
-    -   **X axis:** `neighborhood`
-    -   **Y axis:** `building_count`
-    -   **Color:** `function`
-    -   **Series:** Leave empty for grouped bars
+    - **X axis:** `neighborhood`
+    - **Y axis:** `building_count`
+    - **Color:** `function`
+    - **Series:** Leave empty for grouped bars
 4.  **Customize:**
-    -   **Sort by:** Total value to rank neighborhoods
-    -   Enable legend
-    -   Adjust colors for function types
+    - **Sort by:** Total value to rank neighborhoods
+    - Enable legend
+    - Adjust colors for function types
 5.  **Export:** Download as SVG
 
 ![Figure 13 - Grouped bar chart comparing neighborhoods](images/grouped_barchart.png)
@@ -500,9 +500,9 @@ END
 
 3.  **Advanced Classification:** Create more detailed function categories:
 
-    -   Residential (single-family vs. multi-family)
-    -   Commercial (retail vs. office)
-    -   Create a function_category hierarchy
+    - Residential (single-family vs. multi-family)
+    - Commercial (retail vs. office)
+    - Create a function_category hierarchy
 
 4.  **Spatial Statistics:** Calculate nearest neighbor distances for each function type
 
@@ -516,15 +516,15 @@ END
 
 Before finishing, verify you have:
 
--   ☑ Created `function_type` field classifying single vs. multi-functional buildings
--   ☑ Performed spatial selection of buildings within neighborhoods
--   ☑ Executed spatial join to append neighborhood names
--   ☑ Calculated building areas in square meters
--   ☑ Generated statistics: building count per function per neighborhood
--   ☑ Generated statistics: total area per function per neighborhood
--   ☑ Exported clean CSV with relevant fields only
--   ☑ Created at least 2 different visualizations in RAWGraphs
--   ☑ Saved all intermediate and final outputs in your project folder
+- ☑ Created `function_type` field classifying single vs. multi-functional buildings
+- ☑ Performed spatial selection of buildings within neighborhoods
+- ☑ Executed spatial join to append neighborhood names
+- ☑ Calculated building areas in square meters
+- ☑ Generated statistics: building count per function per neighborhood
+- ☑ Generated statistics: total area per function per neighborhood
+- ☑ Exported clean CSV with relevant fields only
+- ☑ Created at least 2 different visualizations in RAWGraphs
+- ☑ Saved all intermediate and final outputs in your project folder
 
 ------------------------------------------------------------------------
 
