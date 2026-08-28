@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Analyzing Building Functions by Neighborhood – SDGIS</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-02fc4e8dd319f994f075e0950478fe35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-cb168b1d3fd9d67ce14b64e8ae8a6f7f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -665,7 +668,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Load the layers:</strong>
 <ul>
 <li>Add <code>buildings.gpkg</code> stored in the <code>part3_data/vector</code> folder</li>
-<li>Add <code>buurten.gpkg</code> (You have created this file in the first exercise - <a href="using_data_source_manager.qmd">using data source</a><a href="../../..\pages/learn-qgis/getting-started/using-data_source-manager.qmd">manager</a>))</li>
+<li>Add <code>buurten.gpkg</code> (You have created this file in the first exercise - <a href="using_data_source_manager.qmd">using data source</a><a href="../../../pages/learn-qgis/getting-started/using-data_source-manager.qmd">manager</a>))</li>
 </ul></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -709,12 +712,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p><strong>Enter this expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="ot">"function_column"</span> <span class="kw">IS</span> <span class="kw">NULL</span> <span class="kw">OR</span> <span class="ot">"function_column"</span> <span class="op">=</span> <span class="st">''</span> <span class="cf">THEN</span> <span class="st">'Unknown'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="fu">length</span>(<span class="ot">"function_column"</span>) <span class="op">-</span> <span class="fu">length</span>(<span class="kw">replace</span>(<span class="ot">"function_column"</span>, <span class="st">','</span>, <span class="st">''</span>)) <span class="op">&gt;=</span> <span class="dv">1</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">THEN</span> <span class="st">'Multi-functional'</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> <span class="fu">trim</span>(<span class="ot">"function_column"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>⚠️ Important:</strong> Replace <code>"function_column"</code> with your actual field name (e.g., <code>"functie"</code> or <code>"gebruiksdoel"</code>)</p>
 <p><strong>What this does:</strong> - Counts commas to detect multiple functions - If 1 or more commas found → labels as “Multi-functional” - If no commas → uses the single function name - Handles null/empty values → labels as “Unknown”</p>
 <div class="quarto-figure quarto-figure-center">
@@ -765,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Understanding the geometric predicates:
+<span class="screen-reader-only">Important</span>Understanding the geometric predicates:
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -839,7 +842,7 @@ Understanding the geometric predicates:
 </ul></li>
 <li><p><strong>Enter this expression:</strong></p></li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$area</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This calculates the area in square meters (since your CRS is EPSG:28992).</p>
 <ol start="6" type="1">
 <li>Click <strong>OK</strong></li>
@@ -953,7 +956,7 @@ Note
 <li><strong>Group by expression:</strong> Click <code>ε</code> button and build expression:</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">"buurtnaam"</span> <span class="op">||</span> <span class="st">' - '</span> <span class="op">||</span> <span class="ot">"function_type"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">"buurtnaam"</span> <span class="op">||</span> <span class="st">' - '</span> <span class="op">||</span> <span class="ot">"function_type"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This creates unique groups for each neighborhood-function combination.</p>
 <ol start="3" type="1">
 <li><p><strong>Aggregates:</strong> Click <code>...</code> to configure multiple statistics:</p>
@@ -961,11 +964,11 @@ Note
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1023,12 +1026,12 @@ Note
 <li><p><strong>Also add these to preserve grouping info:</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1214,9 +1217,9 @@ Note
 <h2 class="anchored" data-anchor-id="summary-table-statistics-youve-calculated">Summary Table: Statistics You’ve Calculated</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 26%">
-<col style="width: 45%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1255,19 +1258,19 @@ Note
 <section id="field-calculator-expressions" class="level3">
 <h3 class="anchored" data-anchor-id="field-calculator-expressions">1. Field Calculator Expressions</h3>
 <p><strong>Conditional Classification:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> condition <span class="cf">THEN</span> result</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> alternative</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>String Functions:</strong> - <code>length()</code> - Count characters - <code>replace()</code> - Replace text - <code>trim()</code> - Remove whitespace</p>
 </section>
 <section id="spatial-predicates" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-predicates">2. Spatial Predicates</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 37%">
-<col style="width: 30%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1347,11 +1350,11 @@ Note
 <h3 class="anchored" data-anchor-id="issue-4-function-names-are-inconsistent">Issue 4: Function names are inconsistent</h3>
 <p><strong>Cause:</strong> Raw data has variations in naming or spelling</p>
 <p><strong>Solution:</strong> - Use Field Calculator to standardize:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="ot">"function"</span> ILIKE <span class="st">'%woon%'</span> <span class="cf">THEN</span> <span class="st">'Residential'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="ot">"function"</span> ILIKE <span class="st">'%winkel%'</span> <span class="cf">THEN</span> <span class="st">'Retail'</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- etc.</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -1464,13 +1467,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1875,7 +1879,7 @@ Note
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Analyzing Building Functions by Neighborhood</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Using statistics and charts to summarize spatial data</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
@@ -1893,13 +1897,13 @@ Note
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>By the end of this tutorial, you will be able to:</span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Classify buildings by function type (single vs. multi-functional)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use Field Calculator to create conditional classifications</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Perform spatial selection based on location (within/intersect)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Execute spatial joins to append neighborhood attributes</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Calculate geometric attributes (area)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Generate statistics by category (count and sum)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Export and visualize aggregated data</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Classify buildings by function type (single vs. multi-functional)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Field Calculator to create conditional classifications</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform spatial selection based on location (within/intersect)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Execute spatial joins to append neighborhood attributes</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calculate geometric attributes (area)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generate statistics by category (count and sum)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Export and visualize aggregated data</span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software and Data Required</span></span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
@@ -1914,17 +1918,17 @@ Note
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start QGIS** and create a new project</span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Set the CRS** to EPSG:28992 (Amersfoort / RD New - Dutch national grid)</span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Load the layers:**</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Add <span class="in">`buildings.gpkg`</span> stored in the <span class="in">`part3_data/vector`</span> folder</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Add <span class="in">`buurten.gpkg`</span> (You have created this file in the first exercise - <span class="co">[</span><span class="ot">using data source </span><span class="co">](using_data_source_manager.qmd)[</span><span class="ot">manager</span><span class="co">](/pages/learn-qgis/getting-started/using-data_source-manager.qmd)</span>))</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Add <span class="in">`buildings.gpkg`</span> stored in the <span class="in">`part3_data/vector`</span> folder</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Add <span class="in">`buurten.gpkg`</span> (You have created this file in the first exercise - <span class="co">[</span><span class="ot">using data source</span><span class="co">](using_data_source_manager.qmd)[</span><span class="ot">manager</span><span class="co">](/pages/learn-qgis/getting-started/using-data_source-manager.qmd)</span>))</span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 1 - Loaded building and neighborhood layers](statistics_and_data_visualization/fig%201.png)</span></span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Explore the building attribute table:**</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Right-click <span class="in">`buildings`</span> layer → **Open Attribute Table**</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Identify the column containing building functions (e.g., <span class="in">`functie`</span>, <span class="in">`function`</span>, or <span class="in">`gebruiksdoel`</span>)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Notice how functions are stored:</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Single function: <span class="in">`"woonfunctie"`</span> (residential)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Multiple functions: <span class="in">`"woonfunctie, winkelfunctie"`</span> (residential, retail)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Right-click <span class="in">`buildings`</span> layer → **Open Attribute Table**</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Identify the column containing building functions (e.g., <span class="in">`functie`</span>, <span class="in">`function`</span>, or <span class="in">`gebruiksdoel`</span>)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Notice how functions are stored:</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>Single function: <span class="in">`"woonfunctie"`</span> (residential)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>Multiple functions: <span class="in">`"woonfunctie, winkelfunctie"`</span> (residential, retail)</span>
 <span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 2 - Building attribute table showing function column](statistics_and_data_visualization/fig%202.png)</span></span>
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
@@ -1940,10 +1944,10 @@ Note
 <span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Configure the new field:**</span>
 <span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>☑ Check **Create a new field**</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output field name:** <span class="in">`function_type`</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output field type:** <span class="in">`Text (string)`</span></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Length:** <span class="in">`50`</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>☑ Check **Create a new field**</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output field name:** <span class="in">`function_type`</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output field type:** <span class="in">`Text (string)`</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Length:** <span class="in">`50`</span></span>
 <span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Enter this expression:**</span>
 <span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
@@ -1970,13 +1974,13 @@ Note
 <span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>**Verify your results:**</span>
 <span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Scroll through the attribute table</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Scroll through the attribute table</span>
 <span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Check that buildings with multiple functions are labeled "Multi-functional"</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check that buildings with multiple functions are labeled "Multi-functional"</span>
 <span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Check that single-function buildings show their specific function name</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check that single-function buildings show their specific function name</span>
 <span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>        <span class="al">![](statistics_and_data_visualization/fig%20x1.png)</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>      <span class="al">![](statistics_and_data_visualization/fig%20x1.png)</span></span>
 <span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a></span>
@@ -1990,10 +1994,10 @@ Note
 <span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure the selection:**</span>
 <span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Select features from:** <span class="in">`buildings`</span></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Where the features:** <span class="in">`are within`</span> (or <span class="in">`intersect`</span> if you want to include partially overlapping buildings)</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**By comparing to features from:** <span class="in">`buurten`</span></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Modify current selection by:** <span class="in">`creating new selection`</span></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Select features from:** <span class="in">`buildings`</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Where the features:** <span class="in">`are within`</span> (or <span class="in">`intersect`</span> if you want to include partially overlapping buildings)</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**By comparing to features from:** <span class="in">`buurten`</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Modify current selection by:** <span class="in">`creating new selection`</span></span>
 <span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 4 - Select by Location dialog](statistics_and_data_visualization/fig%204.png)</span></span>
 <span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
@@ -2007,9 +2011,9 @@ Note
 <span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Check your selection:**</span>
 <span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Look at the status bar: it shows "X features selected"</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Selected buildings are highlighted in yellow on the map</span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In the attribute table, selected rows are highlighted</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Look at the status bar: it shows "X features selected"</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Selected buildings are highlighted in yellow on the map</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>In the attribute table, selected rows are highlighted</span>
 <span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>**💡 Tip:** If you want to keep only buildings within neighborhoods, you can export the selection as a new layer: Right-click <span class="in">`buildings`</span> → <span class="in">`Export`</span> → <span class="in">`Save Selected Features As...`</span></span>
 <span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
@@ -2021,15 +2025,15 @@ Note
 <span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure the spatial join:**</span>
 <span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Input layer:** <span class="in">`buildings`</span> (or your selected buildings if exported)</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Join layer:** <span class="in">`buurten`</span></span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Geometric predicate:** ☑ <span class="in">`within`</span> (or <span class="in">`intersects`</span>)</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Fields to add:** Click the <span class="in">`...`</span> button</span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ Select only the neighborhood name field (e.g., <span class="in">`buurt_naam`</span>, <span class="in">`BU_NAAM`</span>)</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ You may also want neighborhood code (e.g., <span class="in">`BU_CODE`</span>)</span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Uncheck other fields to keep the data clean</span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Join type:** <span class="in">`Create separate feature for each matching feature (one-to-many)`</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Joined layer:** Save as <span class="in">`buildings_with_neighborhoods.gpkg`</span></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Input layer:** <span class="in">`buildings`</span> (or your selected buildings if exported)</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Join layer:** <span class="in">`buurten`</span></span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Geometric predicate:** ☑ <span class="in">`within`</span> (or <span class="in">`intersects`</span>)</span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Fields to add:** Click the <span class="in">`...`</span> button</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ Select only the neighborhood name field (e.g., <span class="in">`buurt_naam`</span>, <span class="in">`BU_NAAM`</span>)</span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ You may also want neighborhood code (e.g., <span class="in">`BU_CODE`</span>)</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>Uncheck other fields to keep the data clean</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Join type:** <span class="in">`Create separate feature for each matching feature (one-to-many)`</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Joined layer:** Save as <span class="in">`buildings_with_neighborhoods.gpkg`</span></span>
 <span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 5 - Join Attributes by Location dialog](statistics_and_data_visualization/fig%205.png)</span></span>
 <span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a></span>
@@ -2037,13 +2041,13 @@ Note
 <span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Verify the join:**</span>
 <span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open the attribute table of the new <span class="in">`buildings_with_neighborhoods`</span> layer</span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Open the attribute table of the new <span class="in">`buildings_with_neighborhoods`</span> layer</span>
 <span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Check that the neighborhood name column has been added</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check that the neighborhood name column has been added</span>
 <span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Verify that buildings have the correct neighborhood assigned</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Verify that buildings have the correct neighborhood assigned</span>
 <span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>        <span class="al">![](statistics_and_data_visualization/fig%20x2.png)</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>      <span class="al">![](statistics_and_data_visualization/fig%20x2.png)</span></span>
 <span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>**⚠️ Troubleshooting:** - If buildings show NULL in neighborhood field: They may be outside all neighborhood boundaries - If you see duplicate buildings: Check your geometric predicate and join type settings</span>
 <span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
@@ -2061,9 +2065,9 @@ Note
 <span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Configure the area field:**</span>
 <span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>☑ **Create a new field**</span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output field name:** <span class="in">`area_m2`</span></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output field type:** <span class="in">`Decimal number (real)`</span></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>☑ **Create a new field**</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output field name:** <span class="in">`area_m2`</span></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output field type:** <span class="in">`Decimal number (real)`</span></span>
 <span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Enter this expression:**</span>
 <span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
@@ -2092,25 +2096,25 @@ Note
 <span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure for building counts:**</span>
 <span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Input vector layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Input vector layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
 <span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Field to calculate statistics on:** <span class="in">`fid`</span> (or any unique ID field)</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Field to calculate statistics on:** <span class="in">`fid`</span> (or any unique ID field)</span>
 <span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Field(s) with categories:**</span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Field(s) with categories:**</span>
 <span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Click <span class="in">`...`</span> and select **both:**</span>
-<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a><span class="ss">            1.  </span><span class="in">`buurt_naam`</span> (neighborhood name)</span>
-<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="ss">            2.  </span><span class="in">`function_type`</span> (our created classification)</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>Click <span class="in">`...`</span> and select **both:**</span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a><span class="ss">        1.  </span><span class="in">`buurt_naam`</span> (neighborhood name)</span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="ss">        2.  </span><span class="in">`function_type`</span> (our created classification)</span>
 <span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Statistics to calculate:**</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Statistics to calculate:**</span>
 <span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ **Count** (this counts buildings)</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ **Count** (this counts buildings)</span>
 <span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output:** <span class="in">`building_count_by_function.csv`</span></span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output:** <span class="in">`building_count_by_function.csv`</span></span>
 <span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>        ::: callout-note</span>
-<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>        The tool doesn't ask this to specify, but if the field to calculate on is not specified, it will only do count.</span>
-<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>        :::</span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>      ::: callout-note</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>      The tool doesn't ask this to specify, but if the field to calculate on is not specified, it will only do count.</span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>      :::</span>
 <span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 7 - Statistics by Categories for counts](statistics_and_data_visualization/fig%207.png)</span></span>
 <span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a></span>
@@ -2118,9 +2122,9 @@ Note
 <span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Review the output:**</span>
 <span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open the CSV in QGIS or a text editor</span>
-<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>You should see columns: <span class="in">`buurt_naam`</span>, <span class="in">`function_type`</span>, <span class="in">`count`</span></span>
-<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Each row represents: X buildings of type Y in neighborhood Z</span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Open the CSV in QGIS or a text editor</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You should see columns: <span class="in">`buurt_naam`</span>, <span class="in">`function_type`</span>, <span class="in">`count`</span></span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Each row represents: X buildings of type Y in neighborhood Z</span>
 <span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4.2: Statistics by Categories - Area Sum</span></span>
 <span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a></span>
@@ -2128,16 +2132,16 @@ Note
 <span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure for area totals:**</span>
 <span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Input vector layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
-<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Field to calculate statistics on:** <span class="in">`area_m2`</span></span>
-<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Field(s) with categories:**</span>
-<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span><span class="in">`buurt_naam`</span></span>
-<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span><span class="in">`function_type`</span></span>
-<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Statistics to calculate:**</span>
-<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ **Sum** (total area)</span>
-<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ **Mean** (average building size - optional but useful)</span>
-<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ **Count** (number of buildings - to verify)</span>
-<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Output:** <span class="in">`building_area_by_function.csv`</span></span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Input vector layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Field to calculate statistics on:** <span class="in">`area_m2`</span></span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Field(s) with categories:**</span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span><span class="in">`buurt_naam`</span></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span><span class="in">`function_type`</span></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Statistics to calculate:**</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ **Sum** (total area)</span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ **Mean** (average building size - optional but useful)</span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ **Count** (number of buildings - to verify)</span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Output:** <span class="in">`building_area_by_function.csv`</span></span>
 <span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 8 - Statistics by Categories for areas](statistics_and_data_visualization/fig%208.png)</span></span>
 <span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a></span>
@@ -2151,8 +2155,8 @@ Note
 <span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure:**</span>
 <span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Input layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
-<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Group by expression:** Click <span class="in">`ε`</span> button and build expression:</span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Input layer:** <span class="in">`buildings_with_neighborhoods`</span></span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Group by expression:** Click <span class="in">`ε`</span> button and build expression:</span>
 <span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a><span class="in">``` sql</span></span>
 <span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a><span class="st">"buurtnaam"</span> <span class="op">||</span> <span class="st">' - '</span> <span class="op">||</span> <span class="st">"function_type"</span></span>
@@ -2165,7 +2169,7 @@ Note
 <span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a>    **Add these aggregations:**</span>
 <span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a>    | Expression  | Aggregate | Name             | Type             | Length | Precision |</span>
-<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>    |------------|------------|------------|------------|------------|------------|</span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>    |-------------|-----------|------------------|------------------|--------|-----------|</span>
 <span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>    | <span class="in">`fid`</span>       | <span class="sc">\-</span>        | <span class="in">`building_count`</span> | Integer (64 bit) | 10     | 2         |</span>
 <span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a>    | <span class="in">`"area_m2"`</span> | <span class="in">`sum`</span>     | <span class="in">`total_area_m2`</span>  | Decimal (Double) | 10     | 2         |</span>
 <span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>    | <span class="in">`"area_m2"`</span> | <span class="in">`mean`</span>    | <span class="in">`avg_area_m2`</span>    | Decimal (Double) | 10     | 2         |</span>
@@ -2175,7 +2179,7 @@ Note
 <span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Also add these to preserve grouping info:**</span>
 <span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a>    | Expression        | Aggregate     | Name           | Type          | Length | Precision |</span>
-<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a>    |------------|------------|------------|------------|------------|------------|</span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a>    |-------------------|---------------|----------------|---------------|--------|-----------|</span>
 <span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>    | <span class="in">`"buurtnaam"`</span>     | <span class="in">`first_value`</span> | <span class="in">`neighborhood`</span> | Text (string) | 50     | 0         |</span>
 <span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>    | <span class="in">`"function_type"`</span> | <span class="in">`first_value`</span> | <span class="in">`function`</span>     | Text (string) | 50     | 0         |</span>
 <span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a></span>
@@ -2187,13 +2191,13 @@ Note
 <span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Review the results:**</span>
 <span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open the attribute table</span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Open the attribute table</span>
 <span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>You now have comprehensive statistics for each neighborhood-function combination</span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You now have comprehensive statistics for each neighborhood-function combination</span>
 <span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Each row = one function type in one neighborhood with count, total area, and size statistics</span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Each row = one function type in one neighborhood with count, total area, and size statistics</span>
 <span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a>        <span class="al">![](statistics_and_data_visualization/fig%20x3.png)</span></span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a>      <span class="al">![](statistics_and_data_visualization/fig%20x3.png)</span></span>
 <span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a></span>
@@ -2205,17 +2209,17 @@ Note
 <span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Export to CSV:**</span>
 <span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Right-click the layer → <span class="in">`Export`</span> → <span class="in">`Save Features As...`</span></span>
-<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Format:** <span class="in">`Comma Separated Value [CSV]`</span></span>
-<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**File name:** <span class="in">`rotterdam_building_stats.csv`</span></span>
-<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Geometry:** Select <span class="in">`No geometry`</span> (we only need the statistics)</span>
-<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Select fields to export:**</span>
-<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ <span class="in">`neighborhood`</span></span>
-<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ <span class="in">`function`</span></span>
-<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ <span class="in">`building_count`</span></span>
-<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ <span class="in">`total_area_m2`</span></span>
-<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>☑ <span class="in">`avg_area_m2`</span></span>
-<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Uncheck <span class="in">`fid`</span> and other unnecessary fields</span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Right-click the layer → <span class="in">`Export`</span> → <span class="in">`Save Features As...`</span></span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Format:** <span class="in">`Comma Separated Value [CSV]`</span></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**File name:** <span class="in">`rotterdam_building_stats.csv`</span></span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Geometry:** Select <span class="in">`No geometry`</span> (we only need the statistics)</span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Select fields to export:**</span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ <span class="in">`neighborhood`</span></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ <span class="in">`function`</span></span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ <span class="in">`building_count`</span></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ <span class="in">`total_area_m2`</span></span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>☑ <span class="in">`avg_area_m2`</span></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>Uncheck <span class="in">`fid`</span> and other unnecessary fields</span>
 <span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 10 - Export CSV configuration](statistics_and_data_visualization/fig%2010.png)</span></span>
 <span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a></span>
@@ -2223,13 +2227,13 @@ Note
 <span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Verify your export:**</span>
 <span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open the CSV in a text editor or spreadsheet</span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Open the CSV in a text editor or spreadsheet</span>
 <span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Check headers are clear</span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check headers are clear</span>
 <span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Verify data looks correct</span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Verify data looks correct</span>
 <span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>        <span class="al">![](statistics_and_data_visualization/fig%20x4.png)</span></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>      <span class="al">![](statistics_and_data_visualization/fig%20x4.png)</span></span>
 <span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5.2: Create Visualizations in RAWGraphs</span></span>
 <span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a></span>
@@ -2239,13 +2243,13 @@ Note
 <span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Load your data:** Upload <span class="in">`rotterdam_building_stats.csv`</span></span>
 <span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Choose chart:** Select **Bar chart**</span>
 <span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Map dimensions:**</span>
-<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Bars:** <span class="in">`function`</span></span>
-<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Size:** <span class="in">`building_count`</span></span>
-<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Color:** <span class="in">`neighborhood`</span> (optional - will show stacked bars)</span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Bars:** <span class="in">`function`</span></span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Size:** <span class="in">`building_count`</span></span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Color:** <span class="in">`neighborhood`</span> (optional - will show stacked bars)</span>
 <span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Customize:**</span>
-<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Sort by:** Value (descending) to show most common functions first</span>
-<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Orientation:** Horizontal (easier to read function names)</span>
-<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Color scheme:** Choose a categorical palette</span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Sort by:** Value (descending) to show most common functions first</span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Orientation:** Horizontal (easier to read function names)</span>
+<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Color scheme:** Choose a categorical palette</span>
 <span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Export:** Download as SVG</span>
 <span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 11 - Bar chart of building counts by function](statistics_and_data_visualization/fig%2011.png)</span></span>
@@ -2255,16 +2259,16 @@ Note
 <span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start new chart** in RAWGraphs</span>
 <span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Choose chart:** Select **Treemap**</span>
 <span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Map dimensions:**</span>
-<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Hierarchy:**</span>
-<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="ss">        1.  </span>First level: <span class="in">`function`</span></span>
-<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="ss">        2.  </span>Second level: <span class="in">`neighborhood`</span></span>
-<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Size:** <span class="in">`total_area_m2`</span></span>
-<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Color:** <span class="in">`function`</span></span>
-<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Label:** <span class="in">`neighborhood`</span></span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Hierarchy:**</span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="ss">      1.  </span>First level: <span class="in">`function`</span></span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="ss">      2.  </span>Second level: <span class="in">`neighborhood`</span></span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Size:** <span class="in">`total_area_m2`</span></span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Color:** <span class="in">`function`</span></span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Label:** <span class="in">`neighborhood`</span></span>
 <span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Customize:**</span>
-<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Adjust padding for readability</span>
-<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Choose color scheme (qualitative)</span>
-<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enable/disable labels based on size</span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Adjust padding for readability</span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Choose color scheme (qualitative)</span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enable/disable labels based on size</span>
 <span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Export:** Download as SVG</span>
 <span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 12 - Treemap showing area distribution](statistics_and_data_visualization/fig%2012.png)</span></span>
@@ -2274,14 +2278,14 @@ Note
 <span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start new chart**</span>
 <span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Choose chart:** Select **Bar chart**</span>
 <span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Map dimensions:**</span>
-<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**X axis:** <span class="in">`neighborhood`</span></span>
-<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Y axis:** <span class="in">`building_count`</span></span>
-<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Color:** <span class="in">`function`</span></span>
-<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Series:** Leave empty for grouped bars</span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**X axis:** <span class="in">`neighborhood`</span></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Y axis:** <span class="in">`building_count`</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Color:** <span class="in">`function`</span></span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Series:** Leave empty for grouped bars</span>
 <span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Customize:**</span>
-<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Sort by:** Total value to rank neighborhoods</span>
-<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enable legend</span>
-<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Adjust colors for function types</span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>**Sort by:** Total value to rank neighborhoods</span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Enable legend</span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Adjust colors for function types</span>
 <span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Export:** Download as SVG</span>
 <span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a><span class="al">![Figure 13 - Grouped bar chart comparing neighborhoods](images/grouped_barchart.png)</span></span>
@@ -2291,7 +2295,7 @@ Note
 <span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary Table: Statistics You've Calculated</span></span>
 <span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Statistic <span class="pp">|</span> Method <span class="pp">|</span> Answers the Question <span class="pp">|</span></span>
-<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------------|-------------------|---------------------------------|</span></span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Building Count by Function** <span class="pp">|</span> Statistics by Categories <span class="pp">|</span> How many buildings of each type in each neighborhood? <span class="pp">|</span></span>
 <span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total Area by Function** <span class="pp">|</span> Statistics by Categories <span class="pp">|</span> What's the total floor area per function type? <span class="pp">|</span></span>
 <span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Average Building Size** <span class="pp">|</span> Aggregate tool <span class="pp">|</span> What's the typical building size per function? <span class="pp">|</span></span>
@@ -2317,7 +2321,7 @@ Note
 <span id="cb6-440"><a href="#cb6-440" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Spatial Predicates</span></span>
 <span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Predicate <span class="pp">|</span> Description <span class="pp">|</span> Use Case <span class="pp">|</span></span>
-<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------|---------------------------|----------------------|</span></span>
+<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb6-444"><a href="#cb6-444" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **within** <span class="pp">|</span> Feature completely inside <span class="pp">|</span> Buildings entirely within neighborhoods <span class="pp">|</span></span>
 <span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **intersects** <span class="pp">|</span> Features touch or overlap <span class="pp">|</span> Include buildings on borders <span class="pp">|</span></span>
 <span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **contains** <span class="pp">|</span> Opposite of within <span class="pp">|</span> Which neighborhood contains building <span class="pp">|</span></span>
@@ -2377,9 +2381,9 @@ Note
 <span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Advanced Classification:** Create more detailed function categories:</span>
 <span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Residential (single-family vs. multi-family)</span>
-<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Commercial (retail vs. office)</span>
-<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Create a function_category hierarchy</span>
+<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Residential (single-family vs. multi-family)</span>
+<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Commercial (retail vs. office)</span>
+<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Create a function_category hierarchy</span>
 <span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Spatial Statistics:** Calculate nearest neighbor distances for each function type</span>
 <span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a></span>
@@ -2393,15 +2397,15 @@ Note
 <span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a>Before finishing, verify you have:</span>
 <span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Created <span class="in">`function_type`</span> field classifying single vs. multi-functional buildings</span>
-<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Performed spatial selection of buildings within neighborhoods</span>
-<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Executed spatial join to append neighborhood names</span>
-<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Calculated building areas in square meters</span>
-<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Generated statistics: building count per function per neighborhood</span>
-<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Generated statistics: total area per function per neighborhood</span>
-<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Exported clean CSV with relevant fields only</span>
-<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Created at least 2 different visualizations in RAWGraphs</span>
-<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>☑ Saved all intermediate and final outputs in your project folder</span>
+<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Created <span class="in">`function_type`</span> field classifying single vs. multi-functional buildings</span>
+<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Performed spatial selection of buildings within neighborhoods</span>
+<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Executed spatial join to append neighborhood names</span>
+<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Calculated building areas in square meters</span>
+<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Generated statistics: building count per function per neighborhood</span>
+<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Generated statistics: total area per function per neighborhood</span>
+<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Exported clean CSV with relevant fields only</span>
+<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Created at least 2 different visualizations in RAWGraphs</span>
+<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>☑ Saved all intermediate and final outputs in your project folder</span>
 <span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a></span>
@@ -2411,7 +2415,7 @@ Note
 <span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a>**RAWGraphs:** - <span class="co">[</span><span class="ot">Learning resources</span><span class="co">](https://www.rawgraphs.io/learning)</span> - <span class="co">[</span><span class="ot">Chart gallery</span><span class="co">](https://www.rawgraphs.io/gallery)</span></span>
 <span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a>**Data Visualization:** - <span class="co">[</span><span class="ot">ColorBrewer</span><span class="co">](https://colorbrewer2.org/)</span> - Choose appropriate color schemes - <span class="co">[</span><span class="ot">Data Viz Project</span><span class="co">](https://datavizproject.com/)</span> - Encyclopedia of visualization types</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a>**Data Visualization:** - <span class="co">[</span><span class="ot">ColorBrewer</span><span class="co">](https://colorbrewer2.org/)</span> - Choose appropriate color schemes - <span class="co">[</span><span class="ot">Data Viz Project</span><span class="co">](https://datavizproject.com/)</span> - Encyclopedia of visualization types</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
