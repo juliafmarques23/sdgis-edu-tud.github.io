@@ -26,7 +26,7 @@ This is Part 4 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.
 Remaining placeholders (`[...]`) to fill in before this goes out to students:
 
 - **The old draft (`spatial-join.qmd`) had students install the QuickOSM plugin and query bakeries live from OpenStreetMap.** The workshop's own data prerequisites (`pages/courses/mscu_q1.qmd`) list "OSM POIs — pre-filtered to bakeries only" as something prepared *in advance*, specifically "so students aren't querying/filtering live." This tutorial is written assuming a **pre-filtered bakeries layer is already provided** in the starter project — confirm that's correct rather than the live QuickOSM workflow the old draft implied.
-- Confirm the real starter project filename, the bakeries layer filename, and that its CRS matches the project (EPSG:28992) --> done
+- Confirm the real starter project filename, the bakeries layer filename, and that its CRS matches the project (EPSG:28992)
 - Confirm whether Part 4 continues in the same project file as Part 1 (reusing `[cbs-neighbourhoods]`) or opens a fresh project with a copy of that layer — written here assuming continuation
 - Confirm Google Sheets is an acceptable substitute for Excel for students without an Office licence, or whether to standardise on one tool
 - The old draft file `spatial-join.qmd` is superseded by this file — consider deleting it once this is finalised
@@ -57,7 +57,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `[project-name-part4].qgz` | QGIS project | Continues from Part 1 — includes `[cbs-neighbourhoods]` |
 | `[cbs-neighbourhoods].shp` | Shapefile | CBS neighbourhood boundaries for Vlissingen (same layer as Part 1) |
 | `[bakeries-osm].gpkg` | Vector (points) | Bakery locations from OpenStreetMap, pre-filtered to Vlissingen |
