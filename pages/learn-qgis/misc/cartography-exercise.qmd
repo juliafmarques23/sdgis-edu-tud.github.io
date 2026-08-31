@@ -56,7 +56,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | One project from Parts 1–4 | QGIS project | Your own styled output — land use basemap, DTM/risk zone, FSI choropleth, or bakery density map |
 | `zeeland.gpkg` | Geopackage | Boundary layer for the inset map |
 :::
@@ -66,7 +66,7 @@ By completing this exercise, you will be able to:
 ## Quick Reference: Layout Elements
 
 | Element | Menu Path | Purpose |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Print Layout | **Project → New Print Layout** | Opens the layout canvas where all map elements are assembled |
 | Map | **Add Item → Add Map** | Places the main (or inset) map view on the page |
 | Legend | **Add Item → Add Legend** | Explains symbology to the reader |
@@ -181,7 +181,7 @@ Layout elements only work if the underlying map symbology is legible at print si
 
 **Result:** Key features are labelled directly on the map, legible against the underlying colours.
 
-![](cartography_exercise/fig 5.png)
+![](cartography_exercise/fig%205.png)
 
 :::: {.callout-note appearance="minimal" icon="true"}
 **❓ Question:** Why does a white halo/buffer matter for labels placed over a graduated colour ramp?
