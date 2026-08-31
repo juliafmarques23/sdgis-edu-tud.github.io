@@ -89,7 +89,7 @@ The example in this tutorial covers:
 The analysis follows a sequential workflow moving from detailed to aggregated data:
 
 | Phase | Tasks | Output |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Data Preparation** | Import and examine CLC data; identify Level-1 codes | Verified layers in EPSG:3035 |
 | **Classification Simplification** | Extract Level-1 classes; identify invalid geometries | 5 major land use classes |
 | **Geometry Repair** | Fix invalid polygons; dissolve by class | Valid, simplified CLC layer |
@@ -684,7 +684,7 @@ In a **Print Layout**, add:
 ## Troubleshooting Guide
 
 | Problem | Cause | Solution |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Dissolve operation fails** | Invalid geometries in CLC layer | Run "Check validity" and "Fix geometries" before dissolving. Use the fixed layer for subsequent operations. |
 | **Intersection produces very large output** | High-resolution CLC polygons create many intersections | This is normal. Consider subsetting to a smaller study area if processing is too slow. |
 | **Area calculations show zero or null values** | Geometries are invalid or in wrong CRS | Ensure CRS is EPSG:3035. Run "Fix geometries" if needed. Recalculate area field. |
@@ -756,7 +756,7 @@ Once you complete this tutorial, consider:
 ## Quick Reference: Key Tools
 
 | Task | Tool Path | Purpose |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Add layer | **Layer → Add Layer** | Import CLC and grid data |
 | Edit attributes | **Right-click layer → Open Attribute Table** | Create Level-1 field |
 | Field calculator | **Attribute Table → Field Calculator** | Extract Level-1 code; calculate area |
@@ -777,7 +777,7 @@ Once you complete this tutorial, consider:
 **Level-1 Classes (First Digit):**
 
 | Code | Class Name | Characteristics |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | 1 | Artificial surfaces | Urban, industrial, mining, construction |
 | 2 | Agricultural areas | Arable land, permanent crops, pastures |
 | 3 | Forest and herbaceous | Forests, herbaceous vegetation, sparse vegetation |

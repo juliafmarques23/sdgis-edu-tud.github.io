@@ -17,9 +17,7 @@ listing:
   grid-columns: 3
   image-height: 200px
 page-layout: full
-
 ---
-
 
 ## Welcome to QGIS Tutorials
 

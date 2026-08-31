@@ -22,11 +22,11 @@ date: 2026-08-06
 ::: {.callout-important title="Note for TA"}
 This is Part 2 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 10:30–11:00 slot). Deliverable per the workshop plan: "Basemap of DTM (AHN); screenshot to Miro" — the pasted draft this was built from didn't include a Miro screenshot step even though every other part in the plan ends with one, so Step 4 below adds it to match Part 1's pattern. Please check:
 
-- Confirm the AHN DTM is pre-clipped and delivered via the same starter-project mechanism as Part 1 (per the workshop plan, raw AHN pulls are "slow/unpredictable live", so students should not be fetching it themselves)
-- Confirm whether Part 2 opens its own starter project (`[project-name-part2].qgz` below) or continues in the same project file as Part 1 — written here as a separate project, adjust if it should chain from Part 1's output
-- Pick the actual cpt-city colour ramp for Step 3 (left as a placeholder — QGIS ships several elevation/terrain ramps under **Color ramp → All Color Ramps → cpt-city**)
-- Decide the output naming/format for the exported risk-zone raster in Step 5 — flagged as open in the original draft
-- Confirm the 0.70 m threshold and its World Bank Climate Knowledge Portal source before this goes to students
+- Confirm the AHN DTM is pre-clipped and delivered via the same starter-project mechanism as Part 1 (per the workshop plan, raw AHN pulls are "slow/unpredictable live", so students should not be fetching it themselves) –\> **done**
+- Confirm whether Part 2 opens its own starter project (`[project-name-part2].qgz` below) or continues in the same project file as Part 1 — written here as a separate project, adjust if it should chain from Part 1's output –\> **done**
+- Pick the actual cpt-city colour ramp for Step 3 (left as a placeholder — QGIS ships several elevation/terrain ramps under Color ramp → All Color Ramps → cpt-city) –\> **we decided to let students choose the exact color ramp from the catalog**
+- Decide the output naming/format for the exported risk-zone raster in Step 5 — flagged as open in the original draft –\> **done**
+- Confirm the 0.70 m threshold and its World Bank Climate Knowledge Portal source before this goes to students –\> **could not find this exact information** (still looking for it or an alternative source)
 - **Neither this file nor `import-vector.qmd` (Part 1) is currently referenced in `_quarto.yml`**, so neither is live on the site yet — add both to the sidebar (and/or link them from `pages/courses/mscu_q1.qmd`) once finalised
 :::
 
@@ -54,9 +54,9 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|----|----|----|
-| `[project-name-part2].qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
-| `[ahn-dtm].tif` | Raster (GeoTIFF) | AHN Digital Terrain Model (DTM), pre-clipped to the study area |
+|-------------------|-----------------|------------------------------------|
+| `vlissingen-part-2.qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
+| `elevation_5m.tif` | Raster (GeoTIFF) | AHN Digital Terrain Model (DTM), pre-clipped to the study area |
 :::
 
 ::: {.callout-note appearance="minimal" icon="true"}
@@ -68,12 +68,12 @@ By completing this exercise, you will be able to:
 ## Step 1: Import the Raster Layer
 
 1.  Launch **QGIS LTR 3.44**
-2.  Open the project `[project-name-part2].qgz`
-3.  From the **Browser Panel**, import the raster layer `[ahn-dtm].tif`
+2.  Open the project `vlissingen-part-2.qgz`
+3.  From the **Browser Panel**, import the raster layer `elevation_5m.tif`
 
-**Result:** The `[ahn-dtm]` layer appears in the **Layers Panel** and draws on the canvas in a default greyscale style.
+**Result:** The `evelation_5m` layer appears in the **Layers Panel** and draws on the canvas in a default greyscale style.
 
-\[Add screenshot: QGIS window after the AHN DTM is loaded, with the Layers Panel visible\]
+![](import_raster/fig%201.png)
 
 ------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ By completing this exercise, you will be able to:
 
 ### 2.1 Open Symbology and Set Accuracy
 
-1.  Right-click the `[ahn-dtm]` layer and select **Properties**
+1.  Right-click the `elevation_5m` layer and select **Properties**
 2.  Go to the **Symbology** tab
 3.  Under **Min / Max Value Settings**, set **Accuracy** to **Actual (slower)** instead of the default **Estimate (faster)**
 
@@ -96,7 +96,7 @@ By completing this exercise, you will be able to:
 
 **Result:** You should see a min/max elevation range for the study area, and a histogram showing how frequently each elevation value occurs.
 
-\[Add screenshot: Symbology panel showing Min/Max fields, and the Histogram tab\]
+![](import_raster/fig%202.png)
 
 :::: {.callout-note appearance="minimal" icon="true"}
 **❓ Question:** What are the min and max elevation values for this raster?
@@ -123,12 +123,12 @@ Look for: where the bulk of the distribution sits (the dominant elevation range)
 ## Step 3: Style the Raster
 
 1.  Still in **Layer Properties → Symbology**, change **Render type** to **Singleband pseudocolor**
-2.  Choose an elevation-appropriate colour ramp: **Color ramp → All Color Ramps → cpt-city → `[ramp name, e.g. an elevation/terrain ramp under the cpt-city catalog]`**
+2.  Choose an elevation-appropriate colour ramp from the **cpt-city** catalog: **Color ramp → All Color Ramps/Create New Color Ramp... → cpt-city**
 3.  Click **Classify**, then **Apply**
 
 **Result:** The DTM now renders in a continuous colour ramp from low to high elevation, making terrain patterns easier to read than the default greyscale.
 
-\[Add screenshot: styled DTM with the cpt-city colour ramp applied and legend visible\]
+![](import_raster/fig%203.png)
 
 ------------------------------------------------------------------------
 
@@ -137,21 +137,21 @@ Look for: where the bulk of the distribution sits (the dominant elevation range)
 Areas at or below the 0.70 m threshold are treated here as a simple proxy for land potentially exposed to projected 2100 sea-level rise.
 
 1.  Open the **Raster Calculator** (**Raster → Raster Calculator…**, or search **Raster calculator** in the **Processing Toolbox**)
-2.  **Output layer:** `[risk-zone-output-name].tif` — choose a location and file name (naming convention not yet finalised, see TA note above)
+2.  **Output layer:** `risk_zones.tif`
 3.  **Expression:**
 
 ```         
-"[ahn-dtm]@1" <= 0.70
+"elevation_5m@1" <= 0.70
 ```
 
-- `"[ahn-dtm]@1"` – refers to band 1 of the AHN DTM raster
+- `"elevation_5m@1"` – refers to band 1 of the AHN DTM raster
 - `<= 0.70` – flags every pixel at or below the 0.70 m threshold
 
 4.  Click **OK** to run
 
 **Result:** A new binary raster is created, where a value of **1** marks pixels at or below 0.70 m (the potential risk zone) and **0** marks pixels above it.
 
-\[Add screenshot: Raster Calculator dialog with the expression entered\]
+![](import_raster/fig%204.png)
 
 ### 4.1 Style and Verify the Risk Zone
 
@@ -159,13 +159,13 @@ Areas at or below the 0.70 m threshold are treated here as a simple proxy for la
 2.  Set **Render type** to **Singleband pseudocolor**, or use **Paletted/Unique values** with two classes (0 / 1)
 3.  Assign a clear colour to class **1** (e.g. red or orange) and make class **0** transparent or a neutral colour, so the risk zone stands out against the basemap
 
-\[Add screenshot: risk-zone raster styled and overlaid on the DTM\]
+![](import_raster/fig%205.png)
 
 ------------------------------------------------------------------------
 
 ## Step 5: Export and Share
 
-1.  Right-click the risk-zone layer → **Export → Save As…**, and confirm the output format/name from Step 4 (`[risk-zone-output-name].tif` or a chosen alternative — see TA note above)
+1.  Right-click the risk-zone layer → **Export → Save As…**, and confirm the output format/name from Step 4 (`[risk_zones.tif`)
 2.  Take a screenshot of the QGIS canvas showing the styled DTM basemap (with legend) for the Miro deliverable
 3.  Upload the screenshot to the course Miro board
 4.  **File → Save Project**
@@ -181,8 +181,8 @@ Areas at or below the 0.70 m threshold are treated here as a simple proxy for la
 ------------------------------------------------------------------------
 
 ::: {.callout-important title="Notes for TA"}
-- Fill in the real project filename, AHN DTM filename, cpt-city ramp name, and risk-zone output name/format (currently `[bracketed]` placeholders).
-- Confirm the 0.70 m 2100 sea-level-rise figure and its World Bank Climate Knowledge Portal citation before publishing — it's used here as a simple teaching threshold, not a validated flood-risk figure, and Step 3's reflection question is designed to surface that limitation with students.
-- Consider whether the histogram/min-max questions (Step 2.2) need a fixed expected answer once the real AHN extract is finalised, rather than the open-ended guidance currently given.
+- Fill in the real project filename, AHN DTM filename, cpt-city ramp name, and risk-zone output name/format (currently `[bracketed]` placeholders). –\> **done**
+- Confirm the 0.70 m 2100 sea-level-rise figure and its World Bank Climate Knowledge Portal citation before publishing — it's used here as a simple teaching threshold, not a validated flood-risk figure, and Step 3's reflection question is designed to surface that limitation with students. –\> **still checking source**
+- Consider whether the histogram/min-max questions (Step 2.2) need a fixed expected answer once the real AHN extract is finalised, rather than the open-ended guidance currently given. –\> **I think guidance enough**
 - This file and `import-vector.qmd` still need to be added to `_quarto.yml`'s sidebar to go live.
 :::

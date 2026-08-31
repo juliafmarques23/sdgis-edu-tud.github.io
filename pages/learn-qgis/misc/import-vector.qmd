@@ -17,14 +17,14 @@ date: 2026-08-06
 
 **Software Required:** QGIS LTR 3.44, QuickMapServices (QMS) plugin
 
-**Author:** Daniele Cannatella
+**Authors:** Daniele Cannatella and Julia Fossa Marques
 
 ::: {.callout-important title="Note for TA"}
 This is Part 1 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 10:00–10:30 slot). Scope is deliberately limited to import + styling + basemap to fit the 30-minute block
 
 Remaining placeholders (`[...]`) to fill in before this goes out to students:
 
-- Per the course plan, BBG + CBS neighbourhoods are already clipped to the study area and provided pre-loaded/ready — confirm the starter project reflects that so students don't need to clip anything themselves
+- Per the course plan, BBG + CBS neighbourhoods are already clipped to the study area and provided pre-loaded/ready — confirm the starter project reflects that so students don't need to clip anything themselves –\> **done**
 :::
 
 ------------------------------------------------------------------------
@@ -51,10 +51,10 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|----|----|----|
-| `[project-name].qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
-| `bbg.shp` | Shapefile | Land use layer (Bestand Bodemgebruik), pre-clipped to the study area |
-| `[cbs-neighbourhoods].shp` | Shapefile | CBS neighbourhood boundaries, pre-clipped to the study area |
+|-------------------------|------------------------|------------------------|
+| `vlissingen.qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
+| `bbg.gpkg` | Geopackage | Land use layer (Bestand Bodemgebruik), pre-clipped to the study area |
+| `vlissingen_neighbourhoods.gpkg` | Geopackage | CBS neighbourhood boundaries, pre-clipped to the study area |
 :::
 
 ------------------------------------------------------------------------
@@ -64,18 +64,18 @@ By completing this exercise, you will be able to:
 ### 1.1 Open the Project and Import the Layers
 
 1.  Launch **QGIS LTR 3.44**
-2.  Open the project `[project-name].qgz`
-3.  From the **Browser Panel**, import the land use layer `bbg.shp`
-4.  From the **Browser Panel**, import the neighbourhood boundary layer `[cbs-neighbourhoods].shp`
+2.  Open the project `vlissingen.qgz`
+3.  From the **Browser Panel**, import the land use layer `bbg.gpkg`
+4.  From the **Browser Panel**, import the neighbourhood boundary layer `vlissingen_neighbourhoods.gpkg`
 
-**Result:** Both the `bbg` and `[cbs-neighbourhoods]` layers should now appear in the **Layers Panel** and draw on the canvas over Vlissingen.
+**Result:** Both the `bbg` and `vlissingen_neighbourhoods` layers should now appear in the **Layers Panel** and draw on the canvas over Vlissingen.
 
-\[Add screenshot: QGIS window after both layers are loaded, with the Layers Panel visible\]
+### ![](import_vector/fig%201.png)
 
 ### 1.2 Explore the Layers
 
 :::: {.callout-note appearance="minimal" icon="true"}
-**❓ Question:** How many features does the `bbg` layer have?
+**❓ Question:** How many features does the land_use layer have?
 
 **✅ Solution (click to reveal):**
 
@@ -91,24 +91,22 @@ Open the **Attribute Table** (right-click the layer → **Open Attribute Table**
 
 ::: {.callout-tip collapse="true"}
 Check the bottom-right corner of the QGIS window for the project CRS, and right-click the layer → **Properties → Information** for the layer's CRS. Dutch national datasets such as BBG and CBS boundaries are typically distributed in **EPSG:28992 (Amersfoort / RD New)**.
-
-\[TA: confirm this matches the actual starter project.\]
 :::
-::::
 
 ------------------------------------------------------------------------
+::::
 
 ## Step 2: Add an OSM Basemap
 
 1.  Install the **QuickMapServices (QMS)** plugin if not already installed: **Plugins → Manage and Install Plugins**, search for `QuickMapServices`, click **Install Plugin**
 2.  Go to **Web → QuickMapServices → OSM → OSM Standard** to add an OpenStreetMap basemap
-3.  Drag the basemap layer to the bottom of the **Layers Panel**, below `bbg` and `[cbs-neighbourhoods]`
+3.  Drag the basemap layer to the bottom of the **Layers Panel**, below `bbg` and `vlissingen_neighbourhoods`
 
 ::: {.callout-tip appearance="minimal" icon="true"}
-**Tip:** To make the land use colours stand out against the basemap, right-click the basemap layer → **Properties → Symbology**, and set **Render type** to **Singleband gray**, or reduce **Brightness/Saturation**.
+**Tip:** To make the land use colours stand out against the basemap, right-click the basemap layer → **Properties → Symbology**, and choose one of the **Grayscale** options, or reduce **Brightness/Saturation**.
 :::
 
-\[Add screenshot: canvas after the OSM basemap is added, showing layer order in the Layers Panel\]
+![](import_vector/fig%202.png)
 
 ------------------------------------------------------------------------
 
@@ -118,7 +116,7 @@ Check the bottom-right corner of the QGIS window for the project CRS, and right-
 
 1.  Select the `bbg` layer, open **Layer Styling** (`F7`)
 2.  Change the symbology to **Categorized**
-3.  **Value:** `[bbg category field]`
+3.  **Value:** `categorie`
 4.  Choose a colour ramp and click **Classify**
 
 ::: {.callout-tip appearance="minimal" icon="true"}
@@ -128,12 +126,17 @@ Check the bottom-right corner of the QGIS window for the project CRS, and right-
 - Decide in advance what you want the map to highlight — urbanised areas, agricultural land, or landscape features — and let that choice guide the colour scheme
 :::
 
+![](import_vector/fig%203.png)
+
 ### 3.2 Style the Neighbourhood Boundaries
 
-1.  Select the `[cbs-neighbourhoods]` layer, open **Layer Styling** (`F7`)
+1.  Select the `vlissingen_neighbourhoods` layer, open **Layer Styling** (`F7`)
+
 2.  Set the symbol fill to **No Fill** and choose a visible outline colour/width, so boundaries are readable on top of the land use layer
 
-\[Add screenshot: styled map of Vlissingen with the OSM basemap, categorized BBG layer, and neighbourhood outlines, legend visible\]
+3.  Zoom in to the land area (using the mouse scroll or clicking on the magnifying glass icon)
+
+![](import_vector/fig%204.png)
 
 ------------------------------------------------------------------------
 
@@ -153,8 +156,8 @@ Check the bottom-right corner of the QGIS window for the project CRS, and right-
 ------------------------------------------------------------------------
 
 ::: {.callout-important title="Notes for TA"}
-- Confirm `bbg` and `[cbs-neighbourhoods]` are pre-clipped to the Vlissingen study area in the distributed starter project, per the Part 1 data prerequisites in `pages/courses/mscu_q1.qmd` — students should not need to clip anything themselves in this 30-minute slot.
-- Fill in the real project filename, CBS neighbourhoods filename, and the BBG category field name (currently `[bracketed]` placeholders) once finalised.
-- Confirm the CRS answer in Step 1.2 against the actual starter project.
+- Confirm `bbg` and `[cbs-neighbourhoods]` are pre-clipped to the Vlissingen study area in the distributed starter project, per the Part 1 data prerequisites in `pages/courses/mscu_q1.qmd` — students should not need to clip anything themselves in this 30-minute slot. –\> **done**
+- Fill in the real project filename, CBS neighbourhoods filename, and the BBG category field name (currently `[bracketed]` placeholders) once finalised. –\> **done**
+- Confirm the CRS answer in Step 1.2 against the actual starter project. –\> **done**
 - The join/unique-values/area-in-hectares content from the original draft was intentionally cut for time — see `CLAUDE.md` if you want to reuse that structure for a later, longer part (e.g. Part 3's attribute tables + choropleth exercise).
 :::
