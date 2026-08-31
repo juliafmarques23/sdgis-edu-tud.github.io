@@ -41,15 +41,15 @@
     ]
   },
   {
+    "listing": "/pages/find-data/index.html",
+    "items": []
+  },
+  {
     "listing": "/pages/courses/index.html",
     "items": [
       "/pages/courses/mscu_q1.html",
       "/pages/courses/mscu_q2.html",
       "/pages/courses/mscu_q3.html"
     ]
-  },
-  {
-    "listing": "/pages/find-data/index.html",
-    "items": []
   }
 ]
