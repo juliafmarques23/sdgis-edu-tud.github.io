@@ -58,7 +58,7 @@ By completing this exercise, you will be able to:
 | Resource | Type | Description |
 |------------------------|------------------------|------------------------|
 | One project from Parts 1–4 | QGIS project | Your own styled output — land use basemap, DTM/risk zone, FSI choropleth, or bakery density map |
-| `[province-or-country-boundary].shp` | Shapefile | Boundary layer for the inset map (e.g. Zeeland or the Netherlands) |
+| `zeeland.gpkg` | Geopackage | Boundary layer for the inset map |
 :::
 
 ------------------------------------------------------------------------
@@ -88,7 +88,7 @@ By completing this exercise, you will be able to:
 
 ## Step 2: Build the Main Map
 
-1.  Go to **Project → New Print Layout**, give it a name (e.g. `[your-map-name]_layout`)
+1.  Go to **Project → New Print Layout**, give it a name (e.g. `land_use_layout`)
 2.  In the **Items Panel**, click **Add Item → Add Map**
 3.  Click and drag on the layout canvas to draw the main map frame — aim for roughly **60–70% of the page**
 4.  With the map item selected, use the **Item Properties** panel to pan/zoom the map inside its frame until the extent looks right
@@ -96,7 +96,7 @@ By completing this exercise, you will be able to:
 
 **Result:** Your styled layer fills most of the page as the main map.
 
-\[Add screenshot: Print Layout with the main map frame placed and extent set\]
+![](cartography_exercise/fig%201.png)
 
 ------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ A reader unfamiliar with Vlissingen needs context for where your main map sits �
 
 1.  Click **Add Item → Add Map** again
 2.  Draw a small frame in an empty corner of the page (roughly 15–20% of the page width)
-3.  In **Item Properties** for this new map, zoom/pan it out to show the wider context — e.g. Vlissingen's location within **Zeeland** or the **Netherlands** — using the `[province-or-country-boundary]` layer
+3.  In **Item Properties** for this new map, zoom/pan it out to show the wider context — e.g. Vlissingen's location within **Zeeland** or the **Netherlands** — using the `zeeland` layer
 
 ### 3.2 Show the Main Map's Extent on the Inset
 
@@ -118,7 +118,7 @@ A reader unfamiliar with Vlissingen needs context for where your main map sits �
 
 **Result:** A highlighted rectangle now appears on the inset map, showing exactly where the main map's extent sits within the wider area.
 
-\[Add screenshot: inset map in a page corner, with the main map's extent rectangle visible\]
+![](cartography_exercise/fig%202.png)
 
 ::: {.callout-tip appearance="minimal" icon="true"}
 **Tip:** Give the inset map a thin border (Item Properties → Frame) so it reads clearly as a separate map, not part of the main map's background.
@@ -136,7 +136,7 @@ A reader unfamiliar with Vlissingen needs context for where your main map sits �
 
 **Result:** A clean legend that explains only what's relevant to your map.
 
-\[Add screenshot: Legend item properties showing filtered, renamed entries\]
+![](cartography_exercise/fig%203.png)
 
 ------------------------------------------------------------------------
 
@@ -149,7 +149,7 @@ A reader unfamiliar with Vlissingen needs context for where your main map sits �
 
 **Result:** The page now has a title, a short description with source attribution, a north arrow, and a scale bar.
 
-\[Add screenshot: full layout with title, caption, north arrow, and scale bar placed\]
+![](cartography_exercise/fig%204.png)
 
 ------------------------------------------------------------------------
 
@@ -171,9 +171,9 @@ Layout elements only work if the underlying map symbology is legible at print si
 
 ## Step 7: Add and Style Labels
 
-1.  Select your main layer, open **Layer Properties → Labels**
+1.  Select the `vlissingen_neighbourhoods` layer, open **Layer Properties → Labels**
 2.  Change **No labels** to **Single Labels**
-3.  **Value:** choose the field to label (e.g. neighbourhood name)
+3.  **Value:** `buurtnaam`
 4.  Under **Text**, set a legible font size (test at your layout's scale, not the default canvas zoom)
 5.  Under **Buffer**, enable a white (or light) halo around the text, so labels stay readable over coloured polygons
 6.  Under **Placement**, choose a rule appropriate to your geometry (e.g. **Around Point** for point layers, or a polygon placement mode that centres the label in each polygon)
@@ -181,7 +181,7 @@ Layout elements only work if the underlying map symbology is legible at print si
 
 **Result:** Key features are labelled directly on the map, legible against the underlying colours.
 
-\[Add screenshot: main map with labels applied, halo visible against the coloured background\]
+![](cartography_exercise/fig 5.png)
 
 :::: {.callout-note appearance="minimal" icon="true"}
 **❓ Question:** Why does a white halo/buffer matter for labels placed over a graduated colour ramp?
@@ -228,7 +228,7 @@ Repeat Steps 1–8 for at least one more of your Parts 1–4 outputs, using the 
 ------------------------------------------------------------------------
 
 ::: {.callout-important title="Notes for TA"}
-- Confirm the province/country boundary layer to use for the inset map (currently `[province-or-country-boundary]` placeholder), and that it's available in every student's Parts 1–4 starter projects.
+- Confirm the province/country boundary layer to use for the inset map (currently `[province-or-country-boundary]` placeholder), and that it's available in every student's Parts 1–4 starter projects. –\> **suggest using Zeeland, it's available on the data folder**
 - Decide whether all students finalise the same map or choose freely among Parts 1–4 — affects how the 15-minute map review (15:30–15:45) and in-class discussion are run.
 - Confirm the expected export format (PNG vs. PDF) and page size/orientation convention for consistency on the Miro board.
 - This file isn't yet referenced in `_quarto.yml` — add it to the sidebar (and/or link it from `pages/courses/mscu_q1.qmd`) once finalised.
