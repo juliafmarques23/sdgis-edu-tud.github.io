@@ -21,12 +21,12 @@ date: 2026-08-06
 **Author:** Daniele Cannatella
 
 ::: {.callout-important title="Note for TA"}
-This is Part 4 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 13:00–14:30 slot). This block merges what were originally two separate 45-minute parts (spatial join/density, and basic statistics) into one 90-minute exercise, since the join + density + charting workflow naturally carries the statistics content too. Deliverable per the workshop plan: "Density + spatial join map of bakeries, with descriptive statistics and an Excel barchart — Miro". Reuses the CBS neighbourhood boundaries layer from Part 1.
+This is Part 4 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 13:00–14:30 slot). This block merges what were originally two separate 45-minute parts (spatial join/density, and basic statistics) into one 90-minute exercise, since the join + density + charting workflow naturally carries the statistics content too. Deliverable per the workshop plan: "Density + spatial join map of bus stops, with descriptive statistics and an Excel barchart — Miro". Reuses the CBS neighbourhood boundaries layer from Part 1.
 
 Remaining placeholders (`[...]`) to fill in before this goes out to students:
 
-- **The old draft (`spatial-join.qmd`) had students install the QuickOSM plugin and query bakeries live from OpenStreetMap.** The workshop's own data prerequisites (`pages/courses/mscu_q1.qmd`) list "OSM POIs — pre-filtered to bakeries only" as something prepared *in advance*, specifically "so students aren't querying/filtering live." This tutorial is written assuming a **pre-filtered bakeries layer is already provided** in the starter project — confirm that's correct rather than the live QuickOSM workflow the old draft implied.
-- Confirm the real starter project filename, the bakeries layer filename, and that its CRS matches the project (EPSG:28992) --\> **done**
+- **The old draft (`spatial-join.qmd`) had students install the QuickOSM plugin and query bus stops live from OpenStreetMap.** The workshop's own data prerequisites (`pages/courses/mscu_q1.qmd`) list "OSM POIs — pre-filtered to bus stops only" as something prepared *in advance*, specifically "so students aren't querying/filtering live." This tutorial is written assuming a **pre-filtered bus stops layer is already provided** in the starter project — confirm that's correct rather than the live QuickOSM workflow the old draft implied.
+- Confirm the real starter project filename, the bus stops layer filename, and that its CRS matches the project (EPSG:28992) --\> **done**
 - Confirm whether Part 4 continues in the same project file as Part 1 (reusing `[cbs-neighbourhoods]`) or opens a fresh project with a copy of that layer — written here assuming continuation
 - Confirm Google Sheets is an acceptable substitute for Excel for students without an Office licence, or whether to standardise on one tool
 - The old draft file `spatial-join.qmd` is superseded by this file — consider deleting it once this is finalised
@@ -267,7 +267,7 @@ Not necessarily — a large neighbourhood can have a high raw count simply becau
 ------------------------------------------------------------------------
 
 ::: {.callout-important title="Notes for TA"}
-- Fill in the real project filename, bakeries layer filename, and output names (currently `[bracketed]` placeholders) once confirmed against the actual dataset. —\> **done**
+- Fill in the real project filename, bus stops layer filename, and output names (currently `[bracketed]` placeholders) once confirmed against the actual dataset. —\> **done**
 - Confirm the field name produced by **Join Attributes by Location (Summary)** — it defaults to `NUMPOINTS` but can vary by QGIS build/plugin version; update the Field Calculator expression in Step 2.2 if it differs. –\> **done**
 - Confirm whether students continue in the same project as Part 1 or start fresh with a copy of `[cbs-neighbourhoods]` — affects whether Step 1 needs its own project-opening instructions. –\> **done**
 - Decide on Excel vs. Google Sheets for Step 6 and adjust the software requirement/prerequisites accordingly. –\> **both work**
