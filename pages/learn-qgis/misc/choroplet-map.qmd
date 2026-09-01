@@ -57,7 +57,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `vlissingen-part-3.qgz` | QGIS project | Starter project, pre-loaded with the RUDIFUN dataset for the province of **Zeeland** |
 | `PV29__00_Basis_Bouwblok` | Vector layer (polygon) | RUDIFUN building-block density dataset (FSI, MXI), province-wide — not yet clipped to Vlissingen |
 :::

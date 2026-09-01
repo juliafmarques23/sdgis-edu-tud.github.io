@@ -51,7 +51,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|-------------------------|------------------------|------------------------|
+|----|----|----|
 | `vlissingen.qgz` | QGIS project | Starter project for the municipality of **Vlissingen** |
 | `bbg.gpkg` | Geopackage | Land use layer (Bestand Bodemgebruik), pre-clipped to the study area |
 | `vlissingen_neighbourhoods.gpkg` | Geopackage | CBS neighbourhood boundaries, pre-clipped to the study area |

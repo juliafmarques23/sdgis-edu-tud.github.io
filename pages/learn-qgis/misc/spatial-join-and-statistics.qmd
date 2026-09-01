@@ -57,7 +57,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `vlissingen.qgz` | QGIS project | Continues from Part 1 — includes `[cbs-neighbourhoods]` |
 | `vlissingen_neighbourhoods.gpkg` | Geopackage | CBS neighbourhood boundaries for Vlissingen (same layer as Part 1) |
 | `bus_stops.gpkg` | Vector (points) | Bus stop locations from OpenStreetMap, pre-filtered to Vlissingen |
@@ -243,7 +243,7 @@ Not necessarily — a large neighbourhood can have a high raw count simply becau
 
 **Result:** A bar chart ranking Vlissingen's neighbourhoods by bus stop density, with the citywide mean visible as a reference.
 
-![](spatial_join_density_and_statistics/fig 5.png)
+![](spatial_join_density_and_statistics/fig%205.png)
 
 ------------------------------------------------------------------------
 
