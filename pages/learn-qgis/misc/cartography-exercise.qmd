@@ -19,18 +19,6 @@ date: 2026-08-06
 
 **Author:** Daniele Cannatella
 
-::: {.callout-important title="Note for TA"}
-This is the Cartography Exercise block of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 15:45–16:45 slot), following the 45-minute Cartography input lecture (14:45–15:30) and a 15-minute map review (15:30–15:45). Deliverable per the workshop plan: "≥1 map finalized, rest as take-home."
-
-This exercise doesn't introduce new data — students bring one of their own styled layers from Parts 1–4 (land use, DTM/risk zone, FSI choropleth, or bakery density) and turn it into a finished map. Placeholders to confirm before this goes out to students:
-
-- Decide whether every student finalises the **same** map (e.g. everyone does the Part 3 choropleth) for consistency of grading/discussion, or picks freely among their Parts 1–4 outputs, as written below
-- Confirm what the inset map should show — written here as "Vlissingen's location within Zeeland/the Netherlands," but confirm a suitable province/country boundary layer is available in the starter project(s) for this
-- Confirm page size/orientation convention (A4 vs. A3, portrait vs. landscape) if you want the class to standardise for the Miro board
-- Confirm the export format expected for the Miro deliverable (PNG image vs. PDF)
-- This file isn't yet referenced in `_quarto.yml` — add it to the sidebar (and/or link it from `pages/courses/mscu_q1.qmd`) once finalised
-:::
-
 ------------------------------------------------------------------------
 
 ## Overview
@@ -56,7 +44,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | One project from Parts 1–4 | QGIS project | Your own styled output — land use basemap, DTM/risk zone, FSI choropleth, or bakery density map |
 | `zeeland.gpkg` | Geopackage | Boundary layer for the inset map |
 :::
@@ -66,7 +54,7 @@ By completing this exercise, you will be able to:
 ## Quick Reference: Layout Elements
 
 | Element | Menu Path | Purpose |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Print Layout | **Project → New Print Layout** | Opens the layout canvas where all map elements are assembled |
 | Map | **Add Item → Add Map** | Places the main (or inset) map view on the page |
 | Legend | **Add Item → Add Legend** | Explains symbology to the reader |
@@ -244,9 +232,4 @@ Repeat Steps 1–8 for at least one more of your Parts 1–4 outputs, using the 
 
 ------------------------------------------------------------------------
 
-::: {.callout-important title="Notes for TA"}
-- Confirm the province/country boundary layer to use for the inset map (currently `[province-or-country-boundary]` placeholder), and that it's available in every student's Parts 1–4 starter projects. –\> **suggest using Zeeland, it's available on the data folder**
-- Decide whether all students finalise the same map or choose freely among Parts 1–4 — affects how the 15-minute map review (15:30–15:45) and in-class discussion are run.
-- Confirm the expected export format (PNG vs. PDF) and page size/orientation convention for consistency on the Miro board.
-- This file isn't yet referenced in `_quarto.yml` — add it to the sidebar (and/or link it from `pages/courses/mscu_q1.qmd`) once finalised.
-:::
+
