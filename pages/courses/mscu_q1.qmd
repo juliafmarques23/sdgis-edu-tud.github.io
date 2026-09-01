@@ -35,6 +35,8 @@ By the end of the workshop, students will be able to:
 
 All exercise blocks (Parts 1–4 and the Cartography exercise) are self-guided: work through the corresponding method sheet at your own pace within the block time. There are no live demos, instructors and TAs circulate to answer questions and troubleshoot.
 
+Shared Miro board for the day: <https://miro.com/app/board/uXjVHBv7hoc=/?share_link_id=687199717309>
+
 | Time | Duration | Block Type | Deliverable |
 |------------------|------------------|------------------|------------------|
 | 09:00 | 45 min | Intro — learning line overview, what GIS is, common datasets Lecture + Survey |  |
