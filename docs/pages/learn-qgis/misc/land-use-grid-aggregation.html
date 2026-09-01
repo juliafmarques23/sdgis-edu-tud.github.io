@@ -2224,7 +2224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>The analysis follows a sequential workflow moving from detailed to aggregated data:</span>
 <span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Phase <span class="pp">|</span> Tasks <span class="pp">|</span> Output <span class="pp">|</span></span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
 <span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Data Preparation** <span class="pp">|</span> Import and examine CLC data; identify Level-1 codes <span class="pp">|</span> Verified layers in EPSG:3035 <span class="pp">|</span></span>
 <span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Classification Simplification** <span class="pp">|</span> Extract Level-1 classes; identify invalid geometries <span class="pp">|</span> 5 major land use classes <span class="pp">|</span></span>
 <span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Geometry Repair** <span class="pp">|</span> Fix invalid polygons; dissolve by class <span class="pp">|</span> Valid, simplified CLC layer <span class="pp">|</span></span>
@@ -2819,7 +2819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-684"><a href="#cb4-684" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting Guide</span></span>
 <span id="cb4-685"><a href="#cb4-685" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-686"><a href="#cb4-686" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Problem <span class="pp">|</span> Cause <span class="pp">|</span> Solution <span class="pp">|</span></span>
-<span id="cb4-687"><a href="#cb4-687" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb4-687"><a href="#cb4-687" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
 <span id="cb4-688"><a href="#cb4-688" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Dissolve operation fails** <span class="pp">|</span> Invalid geometries in CLC layer <span class="pp">|</span> Run "Check validity" and "Fix geometries" before dissolving. Use the fixed layer for subsequent operations. <span class="pp">|</span></span>
 <span id="cb4-689"><a href="#cb4-689" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Intersection produces very large output** <span class="pp">|</span> High-resolution CLC polygons create many intersections <span class="pp">|</span> This is normal. Consider subsetting to a smaller study area if processing is too slow. <span class="pp">|</span></span>
 <span id="cb4-690"><a href="#cb4-690" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Area calculations show zero or null values** <span class="pp">|</span> Geometries are invalid or in wrong CRS <span class="pp">|</span> Ensure CRS is EPSG:3035. Run "Fix geometries" if needed. Recalculate area field. <span class="pp">|</span></span>
@@ -2891,7 +2891,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-756"><a href="#cb4-756" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quick Reference: Key Tools</span></span>
 <span id="cb4-757"><a href="#cb4-757" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-758"><a href="#cb4-758" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Tool Path <span class="pp">|</span> Purpose <span class="pp">|</span></span>
-<span id="cb4-759"><a href="#cb4-759" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb4-759"><a href="#cb4-759" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
 <span id="cb4-760"><a href="#cb4-760" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Add layer <span class="pp">|</span> **Layer → Add Layer** <span class="pp">|</span> Import CLC and grid data <span class="pp">|</span></span>
 <span id="cb4-761"><a href="#cb4-761" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Edit attributes <span class="pp">|</span> **Right-click layer → Open Attribute Table** <span class="pp">|</span> Create Level-1 field <span class="pp">|</span></span>
 <span id="cb4-762"><a href="#cb4-762" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field calculator <span class="pp">|</span> **Attribute Table → Field Calculator** <span class="pp">|</span> Extract Level-1 code; calculate area <span class="pp">|</span></span>
@@ -2912,7 +2912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-777"><a href="#cb4-777" aria-hidden="true" tabindex="-1"></a>**Level-1 Classes (First Digit):**</span>
 <span id="cb4-778"><a href="#cb4-778" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-779"><a href="#cb4-779" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Code <span class="pp">|</span> Class Name <span class="pp">|</span> Characteristics <span class="pp">|</span></span>
-<span id="cb4-780"><a href="#cb4-780" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb4-780"><a href="#cb4-780" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|------------------------|------------------------|</span></span>
 <span id="cb4-781"><a href="#cb4-781" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Artificial surfaces <span class="pp">|</span> Urban, industrial, mining, construction <span class="pp">|</span></span>
 <span id="cb4-782"><a href="#cb4-782" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> Agricultural areas <span class="pp">|</span> Arable land, permanent crops, pastures <span class="pp">|</span></span>
 <span id="cb4-783"><a href="#cb4-783" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> Forest and herbaceous <span class="pp">|</span> Forests, herbaceous vegetation, sparse vegetation <span class="pp">|</span></span>

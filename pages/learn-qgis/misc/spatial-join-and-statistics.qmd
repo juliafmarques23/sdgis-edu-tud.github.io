@@ -20,7 +20,6 @@ date: 2026-08-06
 
 **Author:** Daniele Cannatella
 
-
 ------------------------------------------------------------------------
 
 ## Overview
@@ -254,4 +253,3 @@ Not necessarily — a large neighbourhood can have a high raw count simply becau
 - What are the limitations of using crowdsourced OSM data to count amenities like bus stops?
 
 ------------------------------------------------------------------------
-
