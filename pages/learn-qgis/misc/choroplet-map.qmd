@@ -20,6 +20,19 @@ date: 2026-08-06
 
 **Author:** Daniele Cannatella
 
+::: {.callout-important title="Note for TA"}
+This is Part 3 of the MSc1 Urbanism Week 1 workshop (see `pages/courses/mscu_q1.qmd`, 11:00–11:45 slot). Scope is deliberately limited to selecting/cleaning the attribute table and producing one choropleth screenshot, to fit the 45-minute block.
+
+Remaining placeholders (`[...]`) to fill in before this goes out to students:
+
+- Confirm the real starter project filename and the exact field names in `PV29__00_Basis_Bouwblok` (the draft this was built from used `GM_CODE`, `FSI_2024`/`FSI_24`, and `FSI_19` inconsistently — pick one naming convention and confirm it against the actual dataset) –\> **done**
+- Confirm the Vlissingen municipality code (`GM0718`) is correct and correctly quoted as a string in the expression –\> **done**
+- **Unlike Parts 1 and 2, the draft has students filter Vlissingen out of a province-wide (Zeeland) layer themselves, rather than starting from data pre-clipped to the study area.** Decide whether that's a deliberate teaching point for this block (practising `Select by Expression`) or should be pre-clipped like the other parts to save time — Step 1 below is written assuming it's deliberate –\> **done**
+- Confirm the RUDIFUN background text below (translated/condensed from the original Dutch source blurb) is accurate before publishing –\> **from what I could find, yes**
+- **Cut from the original draft:** a later section instructing students to build a print layout (Items panel → Add Map → Add Attribute Table) and describing "Southern municipalities" with higher PV potential. This doesn't match Part 3's deliverable (a canvas screenshot to Miro) and reads like it was copied from an unrelated solar-potential tutorial — the print-layout workflow belongs to the afternoon Cartography exercise instead. Flag if this was cut in error.
+- Neither this file nor `import-vector.qmd`/`import-raster.qmd` is currently referenced in `_quarto.yml` — add all three to the sidebar (and/or link them from `pages/courses/mscu_q1.qmd`) once finalised
+:::
+
 ------------------------------------------------------------------------
 
 ## Overview
@@ -44,7 +57,7 @@ By completing this exercise, you will be able to:
 **You will need:**
 
 | Resource | Type | Description |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `vlissingen-part-3.qgz` | QGIS project | Starter project, pre-loaded with the RUDIFUN dataset for the province of **Zeeland** |
 | `PV29__00_Basis_Bouwblok` | Vector layer (polygon) | RUDIFUN building-block density dataset (FSI, MXI), province-wide — not yet clipped to Vlissingen |
 :::
@@ -60,13 +73,13 @@ By completing this exercise, you will be able to:
 ### 1.1 Explore the Full Dataset
 
 1.  Launch **QGIS LTR 3.44**
-2.  Open the project `[project-name-part3].qgz`
+2.  Open the project `vlissingen-part-3.qgz`
 3.  The layer `PV29__00_Basis_Bouwblok` should already be loaded, covering the whole of **Zeeland**
 4.  Open its **Attribute Table** and note the feature count and the available fields, in particular `GM_CODE` (municipality code) and the FSI fields for 2019 and 2024 (`[FSI_19]` / `[FSI_24]`)
 
 **Result:** The attribute table lists building blocks for the entire province, not just Vlissingen.
 
-\[Add screenshot: attribute table of `PV29__00_Basis_Bouwblok` showing the `GM_CODE` and FSI columns\]
+![](choroplet_map/fig%201.png)
 
 ### 1.2 Select Vlissingen by Expression
 
@@ -85,14 +98,16 @@ By completing this exercise, you will be able to:
 
 **Result:** Only the building blocks belonging to Vlissingen are now highlighted in yellow on the canvas and selected (highlighted) in the attribute table.
 
-\[Add screenshot: canvas with the Vlissingen building blocks selected, rest of Zeeland unselected\]
+![](choroplet_map/fig%202.png)
 
 ### 1.3 Export the Selection as a New Layer
 
 1.  Right-click the layer → **Export → Save Selected Features As…**
 2.  **Format:** GeoPackage
-3.  **File name:** `[vlissingen-rudifun].gpkg`
-4.  Click **OK**, then add the new layer to the map if it isn't added automatically
+3.  Click on the three dots (besides the **File name** field) and navigate to the `data_output` folder
+4.  **Name:** `vlissingen_rudifun`
+5.  Click **Save**, then **OK**
+6.  Add the new layer to the map if it isn't added automatically
 
 ::: {.callout-tip appearance="minimal" icon="true"}
 **Why work with a subset instead of the full dataset?**
@@ -110,15 +125,17 @@ By completing this exercise, you will be able to:
 
 The full dataset carries many more indicators than this exercise needs. To keep the table readable, remove everything except `GM_CODE` and the FSI fields for 2019 and 2024.
 
-1.  Right-click the `[vlissingen-rudifun]` layer → **Properties → Fields**
+1.  Right-click the `vlissingen_rudifun` layer → **Properties → Fields**
 2.  Click the **pencil icon** to toggle editing mode
 3.  Select the fields you don't need for this exercise, and click the **Delete Field** button (red **X**) for each
-4.  Keep only `GM_CODE`, `[FSI_19]`, and `[FSI_24]`
+4.  Keep only `GM_CODE`, `FSI_19`, and `FSI_24`
 5.  Click **OK** to apply, then save your edits
 
 **Result:** The attribute table now shows only the fields relevant to this exercise.
 
-\[Add screenshot: Fields tab of Layer Properties, before and after deleting unneeded fields\]
+![](choroplet_map/fig%203-1.png){width="400"}
+
+![](choroplet_map/fig%203-2.png){width="400"}
 
 ------------------------------------------------------------------------
 
@@ -126,9 +143,9 @@ The full dataset carries many more indicators than this exercise needs. To keep 
 
 ### 3.1 Classify by FSI 2024
 
-1.  Select the `[vlissingen-rudifun]` layer, open **Layer Styling** (`F7`)
+1.  Select the `vlissingen_rudifun` layer, open **Layer Styling** (`F7`)
 2.  Change the classification type to **Graduated**
-3.  **Value:** `[FSI_24]`
+3.  **Value:** `FSI_24`
 4.  **Classification Mode:** **Natural Breaks (Jenks)**
 5.  **Classes:** 5
 6.  Choose a sequential colour ramp (e.g. **Blues** or **Oranges**) and click **Classify**, then **Apply**
@@ -139,7 +156,7 @@ The full dataset carries many more indicators than this exercise needs. To keep 
 
 **Result:** Building blocks are now shaded from low to high FSI in 2024.
 
-\[Add screenshot: choropleth map of `[FSI_24]` with legend visible\]
+![](choroplet_map/fig%204.png)
 
 :::: {.callout-note appearance="minimal" icon="true"}
 **❓ Question:** Looking at the map, which areas of Vlissingen are the densest in 2024?
@@ -157,42 +174,42 @@ The darkest class should fall over the historic city centre and the most built-u
 
 ### 4.1 Duplicate the Layer
 
-1.  Right-click the `[vlissingen-rudifun]` layer → **Duplicate Layer**
-2.  Rename the copy `[density-change]`
+1.  Right-click the `vlissingen_rudifun` layer → **Duplicate Layer**
+2.  Rename the copy `density_change`
 
 ### 4.2 Filter Out Empty Blocks
 
 Building blocks with no built floor space in 2024 aren't meaningful for a change map, so filter them out before calculating the difference.
 
-1.  Right-click `[density-change]` → **Properties → Source**
+1.  Right-click `density_change` → **Properties → Source**
 2.  In the **Provider Feature Filter** box, enter:
 
 ```         
-"[FSI_24]" > 0
+"FSI_24" > 0
 ```
 
 3.  Click **OK**
 
 ### 4.3 Calculate the Change
 
-1.  Open the **Attribute Table** for `[density-change]`, toggle editing mode
+1.  Open the **Attribute Table** for `density_change`, toggle editing mode
 2.  Open **Field Calculator**
 3.  **Create a new field:** `fsi_change` (type: **Decimal number**)
 4.  **Expression:**
 
 ```         
-"[FSI_24]" - "[FSI_19]"
+"FSI_24" - "FSI_19"
 ```
 
-- `"[FSI_24]"` – FSI value in 2024
-- `"[FSI_19]"` – FSI value in 2019
+- `"FSI_24"` – FSI value in 2024
+- `"FSI_19"` – FSI value in 2019
 - Subtracting gives the change in FSI over the period: a positive value means the block densified, a negative value means it lost built density
 
 5.  Click **OK**, save your edits, and toggle editing off
 
 ### 4.4 Classify the Change
 
-1.  Open **Layer Styling** (`F7`) for `[density-change]`
+1.  Open **Layer Styling** (`F7`) for `density_change`
 2.  **Value:** `fsi_change`
 3.  Choose a **diverging** colour ramp (e.g. **RdBu** or **Spectral**), so decreases and increases are visually distinct
 4.  Set the classification so that **0 sits on a class break** — either by choosing **Natural Breaks (Jenks)** and checking the generated breaks, or by manually editing a break to fall at 0
@@ -200,7 +217,7 @@ Building blocks with no built floor space in 2024 aren't meaningful for a change
 
 **Result:** Areas that densified between 2019 and 2024 appear in one colour, areas that lost density appear in the other, and the intensity of the colour shows the size of the change.
 
-\[Add screenshot: choropleth map of `fsi_change` with a diverging colour ramp and legend visible\]
+![](choroplet_map/fig%205.png)
 
 :::: {.callout-note appearance="minimal" icon="true"}
 **❓ Question:** Which parts of Vlissingen densified the most between 2019 and 2024? Are there any areas that lost density?
@@ -229,3 +246,11 @@ Look for the darkest class on the "increase" side of the ramp — this often clu
 - What are the limitations of comparing two snapshots in time (2019 vs. 2024) without knowing what happened in between?
 
 ------------------------------------------------------------------------
+
+::: {.callout-important title="Notes for TA"}
+- Fill in the real project filename, output layer names, and the exact FSI field names (currently `[bracketed]` placeholders) once confirmed against the actual dataset. –\> **done**
+- Confirm the `GM0718` municipality code for Vlissingen and the exact FSI field names before this goes to students — the original draft used `FSI_2024` and `FSI_24` interchangeably. –\> **done**
+- Decide whether students genuinely select Vlissingen out of the full Zeeland layer (Step 1, as written) or start from data already clipped to the study area like Parts 1 and 2 — this materially affects timing in a 45-minute slot. –\>**done** (we just make sure the path to the shapefile doesn't get lost)
+- The print-layout section from the original draft (Add Map / Add Attribute Table, referencing "PV potential") was cut as out of scope for this block — see the note at the top of this file.
+- This file and `import-vector.qmd`/`import-raster.qmd` still need to be added to `_quarto.yml`'s sidebar to go live.
+:::
